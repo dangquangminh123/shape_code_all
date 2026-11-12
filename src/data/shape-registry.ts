@@ -56,6 +56,38 @@ export const SHAPE_TEMPLATES_REGISTRY: ShapeTemplateMeta[] = [
     ],
   },
   {
+    id: 'ar5-arrow-ribbon',
+    prefix: 'ar5',
+    name: 'AR5 — Arrow Ribbon',
+    vietnameseTitle: '5 hàng mũi tên gradient độc lập',
+    description:
+      'Huy hiệu bạc, tab số và icon SVG inline. Ba mask SVG gốc đặt trực tiếp trong folder tài nguyên riêng của AR5.',
+    status: 'ready',
+    route: '/shapes/ar5-arrow-ribbon',
+    publicSvgFolder: 'public/assets/shapes/ar5-arrow-ribbon/',
+    componentSourceFolder: 'src/components/shapes/ar5-arrow-ribbon/',
+    assets: [
+      {
+        role: 'Thanh mũi tên', level: 1,
+        prefixedFileName: 'ar5-rail-arrow-mask.svg',
+        dimensions: 'viewBox: 209.7 918.8 3580.39 817.8',
+        description: 'SVG gốc thanh mũi tên; viewBox khớp bounds thực tế, giữ nguyên path.',
+      },
+      {
+        role: 'Tab số', level: 2,
+        prefixedFileName: 'ar5-ribbon-tab-mask.svg',
+        dimensions: 'viewBox: 497.6 233.39 3005 2126.57',
+        description: 'SVG gốc tab số; viewBox khớp bounds thực tế, giữ nguyên path.',
+      },
+      {
+        role: 'Huy hiệu bạc', level: 3,
+        prefixedFileName: 'ar5-medallion-notch-mask.svg',
+        dimensions: 'viewBox: 1014.6 276.2 1970.6 1947.5',
+        description: 'SVG gốc huy hiệu có khe; viewBox khớp bounds thực tế, giữ nguyên path.',
+      },
+    ],
+  },
+  {
     id: 'phase-shape-demo',
     prefix: 'psd',
     name: 'Phase Shape Demo',

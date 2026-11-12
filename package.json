@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "test:ui": "node scripts/test-step-stack.mjs"
+    "test:ui": "npm run test:step-stack && npm run test:ar5",
+    "test:step-stack": "node scripts/test-step-stack.mjs",
+    "test:ar5": "node scripts/test-ar5-arrow-ribbon.mjs"
   },
   "dependencies": {
     "next": "^15.1.0",

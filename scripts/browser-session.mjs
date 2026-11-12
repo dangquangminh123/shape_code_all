@@ -88,11 +88,11 @@ export async function createBrowser() {
       if (result.exceptionDetails) throw new Error(JSON.stringify(result.exceptionDetails));
       return result.result.value;
     }
-    async function navigate(url, width, height = 1100) {
+    async function navigate(url, width, height = 1100, readySelector = '.ssd-level') {
       await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: false });
       await send('Page.navigate', { url });
       for (let attempt = 0; attempt < 150; attempt++) {
-        const ready = await evaluate(`document.readyState === 'complete' && !!document.querySelector('.ssd-level')`);
+        const ready = await evaluate(`document.readyState === 'complete' && !!document.querySelector(${JSON.stringify(readySelector)})`);
         if (ready && requests.size === 0 && Date.now() - lastNetworkEvent > 500) {
           await evaluate('document.fonts.ready.then(() => true)');
           return;

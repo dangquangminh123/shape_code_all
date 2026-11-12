@@ -19,6 +19,7 @@ export async function assertPresentation(evaluate, width, height) {
       border: style.borderWidth, shadow: style.boxShadow,
       pageHeight: document.documentElement.scrollHeight,
       viewportHeight: innerHeight,
+      hasFollowingSection: !!document.querySelector('.ar5-module'),
     };
   })()`);
   assert.equal(layout.chrome, 0, 'no header, navigation, documentation or demo controls');
@@ -34,7 +35,7 @@ export async function assertPresentation(evaluate, width, height) {
   assert.ok(Math.abs((layout.bounds.top + layout.bounds.bottom) / 2 - layout.stage.height / 2) < 1, 'actual shape/text bounds are vertically centered');
   assert.ok(layout.bounds.top >= 20 && layout.bounds.bottom <= layout.stage.height - 20, 'content is never clipped');
   assert.ok(layout.bounds.left >= 20 && layout.bounds.right <= width - 20, 'content stays within screen edges');
-  if (layout.inner.height + 96 <= height) {
+  if (!layout.hasFollowingSection && layout.inner.height + 96 <= height) {
     assert.ok(layout.pageHeight <= layout.viewportHeight + 1, 'no unnecessary vertical scrolling when content fits');
   }
 }

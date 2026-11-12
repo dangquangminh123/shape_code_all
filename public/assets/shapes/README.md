@@ -25,10 +25,18 @@ Không còn tùy chọn alias `stack-*.svg`, UUID hay đảo thứ tự tầng v
 
 ---
 
-## 2. Các Mẫu Shape Tiếp Theo (Đã tạo sẵn thư mục chờ)
-- **Mẫu 02 (`phase-shape-demo`):**
+## 2. Mẫu AR5 — Arrow Ribbon (`ar5-arrow-ribbon`)
+
+- Folder tài nguyên độc lập: `/Users/dangquangminh/Desktop/code_all_shape/public/assets/shapes/ar5-arrow-ribbon/`; đặt SVG trực tiếp tại đây, không thêm thư mục con.
+- Ba tên file: `ar5-rail-arrow-mask.svg`, `ar5-ribbon-tab-mask.svg`, `ar5-medallion-notch-mask.svg`.
+- Đã có đủ ba SVG gốc; giữ nguyên path, crop viewBox theo bounds thực tế. Hướng dẫn nằm trong `/Users/dangquangminh/Desktop/code_all_shape/public/assets/shapes/ar5-arrow-ribbon/README.md`.
+- Component/CSS/config riêng, toàn bộ class và biến có prefix `ar5-`; không dùng tài nguyên Step Stack.
+- Trang chính hiển thị AR5 bên dưới Step Stack. Không đưa hướng dẫn tài nguyên lên giao diện.
+
+## 3. Các mẫu khác (chưa triển khai)
+- **`phase-shape-demo`:**
   - Thư mục: `/Users/dangquangminh/Desktop/code_all_shape/public/assets/shapes/phase-shape-demo/`
   - Prefix tên file: `psd-*.svg` (Ví dụ: `psd-phase-1.svg`, `psd-phase-2.svg`...)
-- **Mẫu 03 (`km-shape-demo`):**
+- **`km-shape-demo`:**
   - Thư mục: `/Users/dangquangminh/Desktop/code_all_shape/public/assets/shapes/km-shape-demo/`
   - Prefix tên file: `kms-*.svg` (Ví dụ: `kms-main.svg`, `kms-sub.svg`...)
