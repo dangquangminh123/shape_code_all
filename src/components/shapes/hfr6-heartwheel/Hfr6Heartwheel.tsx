@@ -1,11 +1,22 @@
 'use client';
 
 import { useEffect, useRef, useState, type CSSProperties, type KeyboardEvent } from 'react';
-import { HFR6_HEART_PATH, HFR6_ITEMS, hfr6FallbackMask, hfr6IconMask, type Hfr6Masks, type Hfr6Step, type Hfr6Theme } from './hfr6-heartwheel.config';
+import type { IconType } from 'react-icons';
+import { LuBriefcase, LuCircleDollarSign, LuCompass, LuLaptop, LuSearch, LuTarget } from 'react-icons/lu';
+import { HFR6_HEART_PATH, HFR6_ITEMS, hfr6FallbackMask, type Hfr6IconName, type Hfr6Masks, type Hfr6Step, type Hfr6Theme } from './hfr6-heartwheel.config';
 import './hfr6-heartwheel.css';
 
 type Hfr6Style = CSSProperties & { [key: `--hfr6-${string}`]: string };
 const EMPTY_MASKS: Hfr6Masks = {};
+
+const HFR6_ICONS: Record<Hfr6IconName, IconType> = {
+  compass: LuCompass,
+  search: LuSearch,
+  dollar: LuCircleDollarSign,
+  laptop: LuLaptop,
+  target: LuTarget,
+  briefcase: LuBriefcase,
+};
 
 export default function Hfr6Heartwheel({ masks = EMPTY_MASKS, theme = 'color' }: { masks?: Hfr6Masks; theme?: Hfr6Theme }) {
   const [loaded, setLoaded] = useState<Hfr6Masks>({});
@@ -65,14 +76,19 @@ export default function Hfr6Heartwheel({ masks = EMPTY_MASKS, theme = 'color' }:
   const heartStyle: Hfr6Style = { '--hfr6-heart-mask': loaded.heart ? `url("${loaded.heart}")` : hfr6FallbackMask(HFR6_HEART_PATH) };
 
   return (
-    <section className={`hfr6${theme === 'silver-red' ? ' hfr6--silver-red' : ''}`} data-hfr6-root data-hfr6-masks={Object.keys(loaded).join(' ') || 'inline-fallback'} aria-label="Vòng tròn sáu yếu tố phát triển">
+    <section
+      className={`hfr6${theme === 'silver-red' ? ' hfr6--silver-red' : ''}${active ? ' hfr6--has-active' : ''}`}
+      data-hfr6-root
+      data-hfr6-masks={Object.keys(loaded).join(' ') || 'inline-fallback'}
+      aria-label="Vòng tròn sáu yếu tố phát triển"
+    >
       <div className="hfr6__wheel">
         <span className="hfr6__ambient" aria-hidden="true" />
         <div className="hfr6__art" aria-hidden="true">
           {HFR6_ITEMS.map(item => {
+            const Icon = HFR6_ICONS[item.icon];
             const style: Hfr6Style = {
               '--hfr6-sector-mask': loaded[item.number] ? `url("${loaded[item.number]}")` : hfr6FallbackMask(item.path),
-              '--hfr6-icon-mask': hfr6IconMask(item.icon),
             };
             return (
               <div key={item.number} className={`hfr6-sector hfr6-sector--${item.number}${active === item.number ? ' hfr6-is-active' : ''}`} data-hfr6-sector={item.number} style={style}>
@@ -80,7 +96,7 @@ export default function Hfr6Heartwheel({ masks = EMPTY_MASKS, theme = 'color' }:
                 <div className="hfr6-sector__content">
                   <span className="hfr6-sector__number">{item.number}</span>
                   <div className="hfr6-sector__copy"><strong className="hfr6-sector__title">{item.title}</strong><span className="hfr6-sector__summary">{item.description}</span></div>
-                  <span className="hfr6-sector__icon"><i className={`fa-solid fa-${item.icon} hfr6-sector__fa`} /></span>
+                  <span className="hfr6-sector__icon"><Icon className="hfr6-sector__svg-icon" data-hfr6-icon={item.icon} aria-hidden="true" focusable="false" /></span>
                 </div>
               </div>
             );
@@ -98,17 +114,20 @@ export default function Hfr6Heartwheel({ masks = EMPTY_MASKS, theme = 'color' }:
         <div className="hfr6-heart" style={heartStyle} aria-hidden="true"><span className="hfr6-heart__shape" /></div>
       </div>
       <div className="hfr6-mobile" role="group" aria-label="Danh sách sáu nội dung">
-        {HFR6_ITEMS.map((item, index) => (
-          <button key={item.number} ref={element => { cards.current[index] = element; }} type="button"
-            className={`hfr6-mobile__item hfr6-sector--${item.number}${active === item.number ? ' hfr6-is-active' : ''}`} data-hfr6-mobile={item.number}
-            style={{ '--hfr6-icon-mask': hfr6IconMask(item.icon) } as Hfr6Style} aria-pressed={selected === item.number}
-            onPointerEnter={event => { if (event.pointerType !== 'touch') preview(item.number); }} onPointerLeave={() => setHovered(null)}
-            onFocus={() => focus(item.number)} onBlur={() => setFocused(null)} onClick={() => toggle(item.number)} onKeyDown={event => keyDown(event, index, true)}>
-            <span className="hfr6-mobile__badge">{item.number}</span>
-            <span className="hfr6-mobile__info"><strong>{item.title}</strong><small>{item.description}</small></span>
-            <i className={`fa-solid fa-${item.icon} hfr6-mobile__fa`} aria-hidden="true" />
-          </button>
-        ))}
+        {HFR6_ITEMS.map((item, index) => {
+          const Icon = HFR6_ICONS[item.icon];
+          return (
+            <button key={item.number} ref={element => { cards.current[index] = element; }} type="button"
+              className={`hfr6-mobile__item hfr6-sector--${item.number}${active === item.number ? ' hfr6-is-active' : ''}`} data-hfr6-mobile={item.number}
+              aria-pressed={selected === item.number}
+              onPointerEnter={event => { if (event.pointerType !== 'touch') preview(item.number); }} onPointerLeave={() => setHovered(null)}
+              onFocus={() => focus(item.number)} onBlur={() => setFocused(null)} onClick={() => toggle(item.number)} onKeyDown={event => keyDown(event, index, true)}>
+              <span className="hfr6-mobile__badge">{item.number}</span>
+              <span className="hfr6-mobile__info"><strong>{item.title}</strong><small>{item.description}</small></span>
+              <Icon className="hfr6-mobile__svg-icon" data-hfr6-mobile-icon={item.icon} aria-hidden="true" focusable="false" />
+            </button>
+          );
+        })}
       </div>
       <span className="hfr6-sr-only" aria-live="polite" aria-atomic="true">{selectedItem ? `Đã chọn: ${selectedItem.number}. ${selectedItem.title}. ${selectedItem.description}` : ''}</span>
     </section>

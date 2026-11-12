@@ -46,8 +46,10 @@ try {
           heartText: module.querySelector('.hfr6-heart').textContent,
           numbers: [...module.querySelectorAll('.hfr6-sector__number')].map(el => el.textContent),
           masks: [...module.querySelectorAll('.hfr6-sector__fill,.hfr6-heart__shape')].map(el => getComputedStyle(el).maskImage),
-          icons: [...module.querySelectorAll('.hfr6-sector__fa')].map(el => ({
-            mask: getComputedStyle(el).maskImage, before: getComputedStyle(el, '::before').content,
+          icons: [...module.querySelectorAll('.hfr6-sector__svg-icon')].map(el => ({
+            tag: el.tagName.toLowerCase(),
+            name: el.dataset.hfr6Icon,
+            paths: el.querySelectorAll('path,circle,rect,line,polyline,polygon').length,
           })),
           copies: [...module.querySelectorAll('.hfr6-sector__content')].map(el => getComputedStyle(el).maskImage),
           summaries: [...module.querySelectorAll('.hfr6-sector__summary')].map(el => getComputedStyle(el).display),
@@ -65,7 +67,8 @@ try {
       assert.ok(layout.masks.every(mask => mask.startsWith('url(')));
       assert.ok(layout.copies.every(mask => mask === 'none'));
       assert.equal(layout.icons.length, 6);
-      assert.ok(layout.icons.every(icon => icon.mask.includes('data:image/svg+xml') && icon.before === 'none'));
+      assert.deepEqual(layout.icons.map(icon => icon.name), ['compass', 'search', 'dollar', 'laptop', 'target', 'briefcase']);
+      assert.ok(layout.icons.every(icon => icon.tag === 'svg' && icon.paths > 0));
       assert.ok(Math.abs(layout.wheel.width - layout.wheel.height) < 1);
       assert.ok(Math.abs(layout.wheel.x + layout.wheel.width / 2 - width / 2) < 1);
       assert.equal(layout.mobile === 'grid', width <= 640);
@@ -171,11 +174,12 @@ try {
   await evaluate(`document.querySelectorAll('.hfr6')[0].querySelector('[data-hfr6-control="01"]').dispatchEvent(new MouseEvent('click', { bubbles: true }))`);
   assert.deepEqual(await evaluate(`[...document.querySelectorAll('.hfr6')].map(el => [...el.querySelectorAll('[data-hfr6-control][aria-pressed="true"]')].map(c => c.dataset.hfr6Control))`), [['01'], []]);
   await send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] });
-  assert.ok(await evaluate(`[...document.querySelectorAll('.hfr6-sector__surface,.hfr6-sector__content')].every(el => getComputedStyle(el).transitionDuration === '0s' && getComputedStyle(el).transform === 'none')`));
+  assert.ok(await evaluate(`[...document.querySelectorAll('.hfr6-sector__surface,.hfr6-sector__icon,.hfr6-sector__number,.hfr6-sector__copy')].every(el => getComputedStyle(el).transitionDuration === '0s')`));
   await send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'no-preference' }] });
   await navigate(`${baseUrl}/shapes/hfr6-heartwheel`, 1280, 960, '.hfr6');
   await send('Input.dispatchMouseEvent', { type: 'mouseMoved', ...(await point(1)) });
   await sleep(60);
+  assert.ok(await evaluate(`[...document.querySelectorAll('.hfr6-sector__surface')].every(el => getComputedStyle(el).transform === 'none')`), 'sector shapes never translate or shift out of the circle');
   await screenshot(path.join(output, 'hfr6-hover.png'));
   await evaluate(`document.querySelector('[data-hfr6-control="02"]').focus()`);
   await key('ArrowLeft');
