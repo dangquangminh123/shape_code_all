@@ -13,7 +13,7 @@ export async function assertPresentation(evaluate, width, height) {
         left: Math.min(...boxes.map(r => r.left)), right: Math.max(...boxes.map(r => r.right)),
         top: Math.min(...boxes.map(r => r.top)), bottom: Math.max(...boxes.map(r => r.bottom)),
       },
-      chrome: document.querySelectorAll('header,nav,.guide-card,.ssd-ConfigBar,main button,main a').length,
+      chrome: document.querySelectorAll('header,nav,.guide-card,.ssd-ConfigBar,.step-stack-demo button,.step-stack-demo a').length,
       bodyBackground: getComputedStyle(document.body).backgroundColor,
       stageBackground: style.backgroundColor, radius: style.borderRadius,
       border: style.borderWidth, shadow: style.boxShadow,

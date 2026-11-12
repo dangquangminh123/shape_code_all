@@ -89,7 +89,8 @@ export async function createBrowser() {
       return result.result.value;
     }
     async function navigate(url, width, height = 1100, readySelector = '.ssd-level') {
-      await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: false });
+      requests.clear();
+    await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: false });
       await send('Page.navigate', { url });
       for (let attempt = 0; attempt < 150; attempt++) {
         const ready = await evaluate(`document.readyState === 'complete' && !!document.querySelector(${JSON.stringify(readySelector)})`);

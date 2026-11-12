@@ -88,6 +88,31 @@ export const SHAPE_TEMPLATES_REGISTRY: ShapeTemplateMeta[] = [
     ],
   },
   {
+    id: 'hfr6-heartwheel',
+    prefix: 'hfr6',
+    name: 'HFR6 — Heartwheel',
+    vietnameseTitle: 'Vòng tròn sáu cánh và trái tim trắng',
+    description:
+      'Sáu cánh gradient với icon Font Awesome local, hitbox SVG, bàn phím và thẻ mô tả mobile. Đã chuẩn hóa 5 SVG gốc (shape 1..5, tách 2 cặp cánh đối xứng) thành 7 mask SVG đồng bộ viewBox 0 0 640 640.',
+    status: 'ready',
+    route: '/shapes/hfr6-heartwheel',
+    publicSvgFolder: 'public/assets/shapes/hfr6-heartwheel/',
+    componentSourceFolder: 'src/components/shapes/hfr6-heartwheel/',
+    assets: [
+      ...['north', 'north-east', 'south-east', 'south', 'south-west', 'north-west'].map((direction, index) => ({
+        role: `Cánh 0${index + 1}`, level: index + 1,
+        prefixedFileName: `hfr6-sector-0${index + 1}-${direction}.svg`,
+        dimensions: 'viewBox: 0 0 640 640 (canvas chung)',
+        description: 'Mask SVG cánh quạt đã chuẩn hóa từ bộ 5 file SVG gốc (tách cặp cánh đối xứng và khớp viền trái tim).',
+      })),
+      {
+        role: 'Trái tim trắng', level: 7, prefixedFileName: 'hfr6-core-heart.svg',
+        dimensions: 'viewBox: 0 0 640 640 (canvas chung)',
+        description: 'Mask SVG trái tim trung tâm đã chuẩn hóa từ shape 1.svg vào hệ tọa độ 640×640.',
+      },
+    ],
+  },
+  {
     id: 'phase-shape-demo',
     prefix: 'psd',
     name: 'Phase Shape Demo',

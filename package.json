@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3210",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3210",
     "typecheck": "tsc --noEmit",
-    "test:ui": "npm run test:step-stack && npm run test:ar5",
+    "test:ui": "npm run test:step-stack && npm run test:ar5 && npm run test:hfr6",
     "test:step-stack": "node scripts/test-step-stack.mjs",
-    "test:ar5": "node scripts/test-ar5-arrow-ribbon.mjs"
+    "test:ar5": "node scripts/test-ar5-arrow-ribbon.mjs",
+    "test:hfr6": "node scripts/test-hfr6-heartwheel.mjs"
   },
   "dependencies": {
     "next": "^15.1.0",

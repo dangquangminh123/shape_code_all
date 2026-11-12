@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { createBrowser, sleep } from './browser-session.mjs';
 
-const baseUrl = process.env.BASE_URL || 'http://127.0.0.1:3000';
+const baseUrl = process.env.BASE_URL || 'http://127.0.0.1:3210';
 const output = await mkdtemp(path.join(tmpdir(), 'ar5-test-'));
 const browser = await createBrowser();
 const { evaluate, send, navigate, screenshot } = browser;
@@ -20,7 +20,7 @@ try {
         return {
           module: rect(module), stage: stage && rect(stage), rowsBox: rect(module.querySelector('.ar5-rows')),
           overflow: document.documentElement.scrollWidth > innerWidth,
-          chrome: document.querySelectorAll('header,nav,.guide-card,main button,main a').length,
+          chrome: document.querySelectorAll('header,nav,.guide-card,.ar5-module button,.ar5-module a').length,
           images: module.querySelectorAll('img,image').length,
           maskedShapes: module.querySelectorAll('.ar5-has-mask').length,
           icons: [...module.querySelectorAll('.ar5-medallion-icon svg')].map(el => el.dataset.ar5Icon),

@@ -5,7 +5,7 @@ import path from 'node:path';
 import { createBrowser, sleep } from './browser-session.mjs';
 import { assertPresentation } from './assert-step-stack-presentation.mjs';
 
-const baseUrl = process.env.BASE_URL || 'http://127.0.0.1:3000';
+const baseUrl = process.env.BASE_URL || 'http://127.0.0.1:3210';
 const output = await mkdtemp(path.join(tmpdir(), 'step-stack-test-'));
 const routes = ['/', '/shapes/step-stack-demo'];
 for (const route of routes) {
