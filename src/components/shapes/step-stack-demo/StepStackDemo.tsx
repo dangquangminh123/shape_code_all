@@ -5,22 +5,12 @@ import './step-stack-demo.css';
 import {
   STEP_STACK_LEVELS,
   STEP_STACK_CONTENTS,
-  type BaseColorVariant,
 } from './step-stack-demo.config';
 
-export interface StepStackDemoProps {
-  showControls?: boolean;
-  initialBaseVariant?: BaseColorVariant;
-}
-
-export default function StepStackDemo({
-  showControls = true,
-  initialBaseVariant = 'steel-blue',
-}: StepStackDemoProps) {
+export default function StepStackDemo() {
   const instanceId = useId();
   const [hoveredStep, setHoveredStep] = useState<number | null>(null);
   const [focusedStep, setFocusedStep] = useState<number | null>(null);
-  const [baseVariant, setBaseVariant] = useState<BaseColorVariant>(initialBaseVariant);
   const activeStep = hoveredStep ?? focusedStep;
 
   const interactionProps = (step: number) => ({
@@ -32,37 +22,7 @@ export default function StepStackDemo({
 
   return (
     <div className="ssd-wrapper">
-      {showControls && (
-        <div className="ssd-ConfigBar">
-          <div className="ssd-ConfigGroup">
-            <span className="ssd-ConfigLabel">Màu tầng 3 (Base):</span>
-            <div className="ssd-BtnGroup">
-              <button
-                type="button"
-                onClick={() => setBaseVariant('steel-blue')}
-                aria-pressed={baseVariant === 'steel-blue'}
-                className={`ssd-ConfigBtn ${baseVariant === 'steel-blue' ? 'is-selected' : ''}`}
-              >
-                Điểm Xanh Dương (Steel Blue)
-              </button>
-              <button
-                type="button"
-                onClick={() => setBaseVariant('silver')}
-                aria-pressed={baseVariant === 'silver'}
-                className={`ssd-ConfigBtn ${baseVariant === 'silver' ? 'is-selected' : ''}`}
-              >
-                Trắng Bạc (Silver)
-              </button>
-            </div>
-          </div>
-
-          <p className="ssd-AssetNote">Dùng 3 SVG mới: ssd-stack-top / mid / base.</p>
-        </div>
-      )}
-
-      <div
-        className={`step-stack-demo ${baseVariant === 'silver' ? 'ssd-base-silver' : ''}`}
-      >
+      <div className="step-stack-demo">
         <div className="ssd-inner">
           <div className="ssd-stack" aria-label="3 tầng phát triển">
             {STEP_STACK_LEVELS.map((item) => {

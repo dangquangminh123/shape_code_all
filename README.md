@@ -9,8 +9,10 @@ npm install
 npm run dev
 ```
 
-- Trang tổng hợp: http://localhost:3000
-- Mẫu riêng: http://localhost:3000/shapes/step-stack-demo
+- Trang chính: http://localhost:3000
+- Đường dẫn tương thích: http://localhost:3000/shapes/step-stack-demo
+
+Cả hai đường dẫn hiển thị cùng giao diện tràn màn hình, nền trắng đồng nhất. Cụm shape và nội dung được căn giữa theo cả hai chiều, không có header, menu, khung card, bảng hướng dẫn hay nút cấu hình. Kích thước cụm thích ứng theo viewport; trên màn hình nhỏ, nội dung được phép cuộn tự nhiên thay vì bị cắt.
 
 ## Kiểm tra
 
@@ -27,7 +29,7 @@ npm run test:ui
 
 Bài test dùng Node.js 22+ và Chrome headless có sẵn trên máy, không thêm framework/dependency. Trên macOS, tự tìm Google Chrome; trên hệ điều hành khác, đặt biến `CHROME_BIN` trỏ đến executable Chromium/Chrome. Có thể đặt `BASE_URL` để kiểm tra server khác (mặc định http://127.0.0.1:3000).
 
-Bài test kiểm tra cả hai route ở desktop/tablet/mobile, SVG tải thành công và viewBox khớp path, căn trục và tỉ lệ ba tầng, hai khối nội dung, hover hai chiều, keyboard focus, màu đế và reduced motion. Ảnh chụp được lưu vào thư mục tạm và đường dẫn được in khi test chạy.
+Bài test kiểm tra cả hai route tại 11 kích thước desktop/tablet/mobile và landscape (320–2560px): trang phủ viewport, không còn header/card/điều khiển, tâm thực của cụm shape + nội dung trùng tâm trang, không tràn ngang hay cắt nội dung. Đồng thời kiểm tra SVG tải thành công, viewBox khớp path, tỉ lệ và thứ tự ba tầng, hai khối nội dung, hover hai chiều, keyboard focus và reduced motion. Ảnh chụp được lưu vào thư mục tạm và đường dẫn được in khi test chạy.
 
 ## Các file chính
 

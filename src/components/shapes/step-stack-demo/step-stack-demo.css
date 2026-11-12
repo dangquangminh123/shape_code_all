@@ -1,8 +1,6 @@
 /* User SVG paths stay untouched. Geometry follows their measured viewBox ratios. */
 .ssd-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  width: 100%;
   min-width: 0;
   container: step-stack / inline-size;
 }
@@ -11,24 +9,30 @@
   --ssd-mask-top: url('/assets/shapes/step-stack-demo/ssd-stack-top.svg');
   --ssd-mask-mid: url('/assets/shapes/step-stack-demo/ssd-stack-mid.svg');
   --ssd-mask-base: url('/assets/shapes/step-stack-demo/ssd-stack-base.svg');
-  --ssd-stack-width: 216px;
-  --ssd-stack-height: 484px;
-  --ssd-top-offset: 156px;
-  --ssd-base-offset: 270px;
-  --ssd-content-offset: 82px;
-  --ssd-content-row: 170px;
+  --ssd-unit: clamp(0.8px, min(0.083333vw, 0.145dvh), 1.55px);
+  --ssd-stack-width: calc(216 * var(--ssd-unit));
+  --ssd-stack-height: calc(484.084 * var(--ssd-unit));
+  --ssd-top-offset: calc(156 * var(--ssd-unit));
+  --ssd-base-offset: calc(270 * var(--ssd-unit));
+  --ssd-content-offset: calc(82 * var(--ssd-unit));
+  --ssd-content-row: calc(170 * var(--ssd-unit));
+  --ssd-content-width: calc(350 * var(--ssd-unit));
+  --ssd-column-gap: calc(34 * var(--ssd-unit));
   --ssd-text-body: #6b6b70;
-  background: #fff;
-  padding: 64px 48px 58px;
-  border-radius: 16px;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: clamp(24px, 4vw, 48px);
 }
 
+/* Size to the actual composition, not a wider card with empty space on the right. */
 .ssd-inner {
-  max-width: 780px;
-  margin: 0 auto;
+  width: min(100%, calc(var(--ssd-stack-width) + var(--ssd-column-gap) + var(--ssd-content-width) + var(--ssd-content-offset)));
   display: grid;
   grid-template-columns: var(--ssd-stack-width) minmax(0, 1fr);
-  gap: 34px;
+  gap: var(--ssd-column-gap);
   align-items: start;
 }
 
@@ -141,7 +145,7 @@
 
 .ssd-no {
   color: #fff;
-  font-size: 62px;
+  font-size: calc(62 * var(--ssd-unit));
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   line-height: 1;
@@ -149,16 +153,7 @@
 }
 
 .ssd-level.level-3 .ssd-no {
-  font-size: 72px;
-}
-
-.step-stack-demo.ssd-base-silver .level-3 {
-  --ssd-fill: linear-gradient(90deg, #e6ebef, #c7d0d8 65%, #aebbc7);
-  --ssd-stroke: #b8c5cf;
-}
-
-.step-stack-demo.ssd-base-silver .level-3 .ssd-no {
-  color: #334155;
+  font-size: calc(72 * var(--ssd-unit));
 }
 
 /* Exactly two staggered content blocks; no bottom-right content or image. */
@@ -171,7 +166,7 @@
 
 .ssd-content-box {
   --ssd-title-color: #cf2448;
-  max-width: 350px;
+  max-width: var(--ssd-content-width);
   min-width: 0;
   outline-offset: 8px;
   border-radius: 2px;
@@ -188,7 +183,7 @@
 
 .ssd-content-box h3 {
   margin: 0 0 6px;
-  font-size: 21px;
+  font-size: calc(21 * var(--ssd-unit));
   font-weight: 700;
   line-height: 1.25;
   color: var(--ssd-title-color);
@@ -198,7 +193,7 @@
 .ssd-content-box p {
   margin: 0;
   max-width: 33ch;
-  font-size: 15px;
+  font-size: calc(15 * var(--ssd-unit));
   line-height: 1.5;
   color: var(--ssd-text-body);
   overflow-wrap: break-word;
@@ -221,100 +216,23 @@
 }
 
 .ssd-level:focus-visible,
-.ssd-content-box:focus-visible,
-.ssd-ConfigBtn:focus-visible {
+.ssd-content-box:focus-visible {
   outline: 2px solid #075c86;
 }
 
-/* Only the real base-colour variants remain configurable. */
-
-.ssd-ConfigBar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 18px;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
-}
-
-.ssd-ConfigGroup {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-}
-
-.ssd-ConfigLabel {
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.4px;
-  color: #475569;
-}
-
-.ssd-BtnGroup {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.ssd-ConfigBtn {
-  padding: 6px 12px;
-  font-size: 12.5px;
-  font-weight: 600;
-  color: #334155;
-  background: #f1f5f9;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.ssd-ConfigBtn:hover {
-  background: #e2e8f0;
-  color: #0f172a;
-}
-
-.ssd-ConfigBtn.is-selected {
-  background: #d61f45;
-  color: #ffffff;
-  border-color: #b71f38;
-  box-shadow: 0 2px 8px rgba(214, 31, 69, 0.25);
-}
-
-.ssd-AssetNote {
-  margin: 0;
-  font-size: 12px;
-  color: #64748b;
-}
-
 /* Keep the two-column reference composition on tablets, too. */
-@container step-stack (max-width: 760px) {
+@container step-stack (max-width: 900px) {
   .step-stack-demo {
-    --ssd-stack-width: 160px;
-    --ssd-stack-height: 358.5px;
-    --ssd-top-offset: 115.5px;
-    --ssd-base-offset: 200px;
+    --ssd-unit: clamp(0.6px, 0.135dvh, 0.740741px);
     --ssd-content-offset: 32px;
     --ssd-content-row: 130px;
-    padding: 40px 28px;
-  }
-
-  .ssd-inner {
-    gap: 26px;
+    --ssd-content-width: 320px;
+    --ssd-column-gap: 26px;
+    padding: 32px 28px;
   }
 
   .ssd-no {
-    font-size: 46px;
     letter-spacing: -1px;
-  }
-
-  .ssd-level.level-3 .ssd-no {
-    font-size: 53px;
   }
 
   .ssd-content-box h3 {
@@ -329,14 +247,17 @@
 /* Narrow screens: readable text below a centred, proportionate tower. */
 @container step-stack (max-width: 520px) {
   .step-stack-demo {
+    --ssd-unit: clamp(0.52px, 0.085dvh, 0.65px);
     --ssd-content-offset: 0px;
     --ssd-content-row: 0px;
-    padding: 32px 24px;
+    --ssd-content-width: 350px;
+    padding: 24px;
   }
 
   .ssd-inner {
+    width: min(100%, var(--ssd-content-width));
     grid-template-columns: minmax(0, 1fr);
-    gap: 36px;
+    gap: 32px;
   }
 
   .ssd-content-col {
@@ -359,8 +280,7 @@
 @media (prefers-reduced-motion: reduce) {
   .ssd-level,
   .ssd-shape-fill,
-  .ssd-content-box h3,
-  .ssd-ConfigBtn {
+  .ssd-content-box h3 {
     transition: none;
   }
 }

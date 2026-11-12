@@ -15,12 +15,13 @@ Không còn tùy chọn alias `stack-*.svg`, UUID hay đảo thứ tự tầng v
 ## Hình học và hiển thị
 
 - Giữ nguyên path SVG. Các viewBox đã được đối chiếu bằng `SVGGraphicsElement.getBBox()` trong Chrome.
-- Desktop: top rộng 110px, mid rộng 168px, base rộng 216px. Chiều cao tính từ tỉ lệ viewBox, không kéo méo SVG.
+- Tỉ lệ cơ sở: top rộng 110px, mid rộng 168px, base rộng 216px; cả cụm co giãn đồng bộ theo kích thước viewport. Chiều cao tính từ tỉ lệ viewBox, không kéo méo SVG.
 - Ba tầng căn chung trục giữa; thứ tự phía trước là base → mid → top. Có chồng lấn nhẹ để che mép nối.
 - Tách stroke / fill / content. CSS mask nằm ở stroke và fill; `drop-shadow` nằm ở phần tử cha để không bị cắt.
 - Giữ số 01–02–03 và hai khối nội dung tiếng Việt trong cấu hình, không thêm ảnh hay khối thứ ba góc phải dưới.
 - Nội dung so le bên phải trên desktop/tablet; màn hình hẹp chuyển xuống dưới tháp để chữ không bị ép nhỏ.
-- Hover và focus liên kết hai chiều, không làm tách tầng. Có focus ring, giảm chuyển động theo cài đặt hệ thống và tùy chọn đế bạc.
+- Hover và focus liên kết hai chiều, không làm tách tầng. Có focus ring và giảm chuyển động theo cài đặt hệ thống.
+- Nền trắng tràn màn hình, cụm shape + chữ căn giữa cả hai chiều. Không có header, điều hướng, khung card hay bảng điều khiển trên giao diện.
 
 ---
 

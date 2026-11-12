@@ -3,6 +3,7 @@ import { mkdtemp } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { createBrowser, sleep } from './browser-session.mjs';
+import { assertPresentation } from './assert-step-stack-presentation.mjs';
 
 const baseUrl = process.env.BASE_URL || 'http://127.0.0.1:3000';
 const output = await mkdtemp(path.join(tmpdir(), 'step-stack-test-'));
@@ -15,8 +16,12 @@ const browser = await createBrowser();
 const { evaluate, send, navigate, screenshot } = browser;
 try {
   for (const route of routes) {
-    for (const width of [1440, 1200, 768, 600, 390, 320]) {
-      await navigate(`${baseUrl}${route}`, width);
+    for (const [width, height] of [
+      [2560, 1440], [1920, 1080], [1792, 898], [1440, 900], [1200, 800],
+      [1024, 600], [844, 390], [768, 1024], [600, 800], [390, 844], [320, 568],
+    ]) {
+      await navigate(`${baseUrl}${route}`, width, height);
+      await assertPresentation(evaluate, width, height);
       const geometry = await evaluate(`(() => {
         const rect = el => el.getBoundingClientRect().toJSON();
         const levels = [...document.querySelectorAll('.ssd-level')];
@@ -33,7 +38,7 @@ try {
       assert.equal(geometry.levels.length, 3);
       assert.equal(geometry.boxes.length, 2);
       assert.equal(geometry.images, 0);
-      assert.equal(geometry.controls, route === '/' ? 2 : 0);
+      assert.equal(geometry.controls, 0);
       assert.deepEqual(geometry.levels.map(l => l.label), ['01', '02', '03']);
       const [top, mid, base] = geometry.levels;
       for (const level of [top, mid]) assert.ok(Math.abs(level.x + level.width / 2 - base.x - base.width / 2) < 0.1);
@@ -51,8 +56,8 @@ try {
         assert.ok(geometry.boxes[0].top > base.bottom);
       }
       ['top', 'mid', 'base'].forEach((level, i) => assert.ok(geometry.masks[i].includes(`ssd-stack-${level}.svg`)));
-      if (route !== '/' && [1200, 390].includes(width)) await screenshot(path.join(output, `step-stack-${width}.png`));
-      console.log(`PASS layout ${route} at ${width}px`);
+      if (route !== '/' && [1792, 1200, 390, 320].includes(width)) await screenshot(path.join(output, `step-stack-${width}.png`));
+      console.log(`PASS fullscreen centered layout ${route} at ${width}x${height}`);
     }
   }
 
@@ -118,17 +123,10 @@ try {
   console.log('PASS bidirectional hover, focus persistence and keyboard navigation');
 
   await navigate(`${baseUrl}/`, 1200);
-  await evaluate(`document.querySelectorAll('.ssd-ConfigBtn')[1].click()`);
-  await sleep(100);
-  assert.ok(await evaluate(`document.querySelector('.step-stack-demo').classList.contains('ssd-base-silver') && document.querySelectorAll('.ssd-ConfigBtn')[1].getAttribute('aria-pressed') === 'true'`));
-  assert.equal(await evaluate(`getComputedStyle(document.querySelector('.level-3 .ssd-no')).color`), 'rgb(51, 65, 85)');
-  await evaluate(`document.querySelectorAll('.ssd-ConfigBtn')[0].click()`);
-  await sleep(100);
-  assert.ok(await evaluate(`!document.querySelector('.step-stack-demo').classList.contains('ssd-base-silver')`));
   await send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] });
-  assert.ok(await evaluate(`Array.from(document.querySelectorAll('.ssd-level,.ssd-shape-fill,.ssd-content-box h3,.ssd-ConfigBtn')).every(el => getComputedStyle(el).transitionDuration === '0s')`));
+  assert.ok(await evaluate(`Array.from(document.querySelectorAll('.ssd-level,.ssd-shape-fill,.ssd-content-box h3')).every(el => getComputedStyle(el).transitionDuration === '0s')`));
   assert.deepEqual(browser.errors, [], 'browser runtime / console errors');
-  console.log('PASS colour controls, reduced motion and no browser errors');
+  console.log('PASS reduced motion and no browser errors');
 } finally {
   await browser.close();
 }

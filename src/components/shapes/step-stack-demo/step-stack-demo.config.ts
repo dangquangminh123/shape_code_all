@@ -12,8 +12,6 @@ export interface StepStackContentItem {
   description: string;
 }
 
-export type BaseColorVariant = 'steel-blue' | 'silver';
-
 export const STEP_STACK_LEVELS: StepStackLevelItem[] = [
   {
     step: 1,
