@@ -7,10 +7,12 @@
     "build": "next build",
     "start": "next start -p 3210",
     "typecheck": "tsc --noEmit",
-    "test:ui": "npm run test:step-stack && npm run test:ar5 && npm run test:hfr6",
+    "test:ui": "node scripts/test-all-ui.mjs",
     "test:step-stack": "node scripts/test-step-stack.mjs",
     "test:ar5": "node scripts/test-ar5-arrow-ribbon.mjs",
-    "test:hfr6": "node scripts/test-hfr6-heartwheel.mjs"
+    "test:hfr6": "node scripts/test-hfr6-heartwheel.mjs",
+    "test:vt4": "node scripts/test-vt4-tube-ribbon.mjs",
+    "test:ih8": "node scripts/test-ih8-heart-elements.mjs"
   },
   "dependencies": {
     "next": "^15.1.0",

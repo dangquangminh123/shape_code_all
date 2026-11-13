@@ -23,7 +23,11 @@ try {
           chrome: document.querySelectorAll('header,nav,.guide-card,.ar5-module button,.ar5-module a').length,
           images: module.querySelectorAll('img,image').length,
           maskedShapes: module.querySelectorAll('.ar5-has-mask').length,
-          icons: [...module.querySelectorAll('.ar5-medallion-icon svg')].map(el => el.dataset.ar5Icon),
+          icons: [...module.querySelectorAll('.ar5-medallion-icon svg')].map(el => ({
+            name: el.dataset.ar5Icon,
+            paths: el.querySelectorAll('path').length,
+            text: el.parentElement.textContent,
+          })),
           rows: [...module.querySelectorAll('.ar5-row')].map(el => ({
             box: rect(el), arrow: rect(el.querySelector('.ar5-arrow')), badge: rect(el.querySelector('.ar5-medallion')),
             tab: rect(el.querySelector('.ar5-tab')), copy: rect(el.querySelector('.ar5-arrow-copy')),
@@ -41,7 +45,8 @@ try {
       assert.equal(layout.chrome, 0);
       assert.equal(layout.images, 0, 'no reference image / raster icon');
       assert.equal(layout.maskedShapes, 15, 'all five rows use the three supplied masks from the AR5 folder');
-      assert.deepEqual(layout.icons, ['phone', 'bulb', 'analysis', 'search', 'target']);
+      assert.deepEqual(layout.icons.map(icon => icon.name), ['phone', 'bulb', 'analysis', 'search', 'target']);
+      assert.ok(layout.icons.every(icon => icon.paths > 0 && icon.text === ''), 'icons must be SVG paths, never text symbols');
       assert.equal(layout.rows.length, 5);
       assert.equal(layout.module.width, width);
       assert.ok(layout.module.height >= height);

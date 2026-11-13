@@ -88,17 +88,21 @@ export async function createBrowser() {
       if (result.exceptionDetails) throw new Error(JSON.stringify(result.exceptionDetails));
       return result.result.value;
     }
+    let currentUrl = null;
     async function navigate(url, width, height = 1100, readySelector = '.ssd-level') {
-      requests.clear();
-    await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: false });
-      await send('Page.navigate', { url });
-      for (let attempt = 0; attempt < 150; attempt++) {
+      await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: false });
+      if (currentUrl !== url) {
+        requests.clear();
+        await send('Page.navigate', { url });
+        currentUrl = url;
+      }
+      for (let attempt = 0; attempt < 250; attempt++) {
         const ready = await evaluate(`document.readyState === 'complete' && !!document.querySelector(${JSON.stringify(readySelector)})`);
-        if (ready && requests.size === 0 && Date.now() - lastNetworkEvent > 500) {
+        if (ready && requests.size === 0 && Date.now() - lastNetworkEvent > 25) {
           await evaluate('document.fonts.ready.then(() => true)');
           return;
         }
-        await sleep(200);
+        await sleep(15);
       }
       throw new Error(`Page not ready: ${url}`);
     }

@@ -203,12 +203,17 @@
 }
 .ar5-module .ar5-medallion-icon {
   position: absolute;
-  inset: 27%;
+  inset: 29%;
   display: grid;
   place-items: center;
   color: var(--ar5-icon);
 }
-.ar5-module .ar5-medallion-icon svg { display: block; width: 100%; height: 100%; }
+.ar5-module .ar5-medallion-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 2px 3px rgb(29 43 52 / 22%));
+}
 
 .ar5-module .ar5-tab {
   position: absolute;
