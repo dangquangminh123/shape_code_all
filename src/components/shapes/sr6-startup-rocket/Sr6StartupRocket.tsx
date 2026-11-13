@@ -2,24 +2,24 @@
 
 import { useId, useRef, useState, type KeyboardEvent } from 'react';
 import {
-  FaGears,
-  FaEnvelope,
-  FaChartColumn,
-  FaGlobe,
-  FaShareNodes,
-  FaClock,
+  FaLightbulb,
+  FaUsersGear,
+  FaMagnifyingGlassChart,
+  FaLayerGroup,
+  FaNetworkWired,
+  FaRocket,
 } from 'react-icons/fa6';
 import type { IconType } from 'react-icons';
 import { SR6_STEPS, type Sr6StepId } from './sr6-startup-rocket.data';
 import './sr6-startup-rocket.css';
 
 const ICONS: Record<(typeof SR6_STEPS)[number]['icon'], IconType> = {
-  gears: FaGears,
-  envelope: FaEnvelope,
-  chart: FaChartColumn,
-  globe: FaGlobe,
-  share: FaShareNodes,
-  clock: FaClock,
+  gears: FaLightbulb,
+  envelope: FaUsersGear,
+  chart: FaMagnifyingGlassChart,
+  globe: FaLayerGroup,
+  share: FaNetworkWired,
+  clock: FaRocket,
 };
 
 export type Sr6Theme = 'reference' | 'colorful' | 'silver-red';

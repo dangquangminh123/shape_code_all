@@ -1,11 +1,11 @@
 'use client';
 
 import { useId, useRef, useState, type KeyboardEvent } from 'react';
-import { FaFlask, FaShieldHalved, FaDroplet } from 'react-icons/fa6';
+import { FaCompassDrafting, FaGem, FaChartLine } from 'react-icons/fa6';
 import { ST7_ROWS, type St7Theme } from './st7-squeeze-tubes.config';
 import './st7-squeeze-tubes.css';
 
-const ROW_ICONS = [FaFlask, FaShieldHalved, FaDroplet] as const;
+const ROW_ICONS = [FaCompassDrafting, FaGem, FaChartLine] as const;
 
 export default function St7SqueezeTubes({
   theme = 'reference',

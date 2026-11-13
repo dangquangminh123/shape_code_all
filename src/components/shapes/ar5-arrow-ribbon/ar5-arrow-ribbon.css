@@ -11,11 +11,11 @@
   padding: 76px 40px 64px;
   display: grid;
   place-items: center;
-  background: radial-gradient(ellipse at 50% 40%, #fff 0%, #edf1f2 54%, #d5dde0 100%);
+  background: #ffffff;
   isolation: isolate;
 }
 
-.ar5-module.ar5-module--clean { background: #fff; }
+.ar5-module.ar5-module--clean { background: #ffffff; }
 
 .ar5-module .ar5-rows {
   display: grid;
@@ -24,7 +24,9 @@
 }
 
 .ar5-module .ar5-row {
-  --ar5-text: #fff;
+  --ar5-text: #f8fafc;
+  --ar5-desc-text: rgb(255 255 255 / 92%);
+  --ar5-num-text: rgb(255 255 255 / 95%);
   position: relative;
   min-height: var(--ar5-row-height);
   isolation: isolate;
@@ -34,38 +36,53 @@
 }
 
 .ar5-module .ar5-row--01 {
-  --ar5-start: #b70046;
-  --ar5-end: #f84c32;
-  --ar5-solid: #cf104a;
-  --ar5-icon: #c40a50;
+  --ar5-start: #3730a3;
+  --ar5-end: #7c3aed;
+  --ar5-solid: #4f46e5;
+  --ar5-icon: #4f46e5;
+  --ar5-text: #eef2ff;
+  --ar5-desc-text: #e0e7ff;
+  --ar5-num-text: #c7d2fe;
   --ar5-z: 5;
 }
 .ar5-module .ar5-row--02 {
-  --ar5-start: #f49700;
-  --ar5-end: #edcf00;
-  --ar5-solid: #efac00;
-  --ar5-icon: #ffab00;
+  --ar5-start: #0369a1;
+  --ar5-end: #06b6d4;
+  --ar5-solid: #0284c7;
+  --ar5-icon: #0284c7;
+  --ar5-text: #f0f9ff;
+  --ar5-desc-text: #e0f2fe;
+  --ar5-num-text: #bae6fd;
   --ar5-z: 4;
 }
 .ar5-module .ar5-row--03 {
-  --ar5-start: #87b92b;
-  --ar5-end: #becf00;
-  --ar5-solid: #9ebd13;
-  --ar5-icon: #8ebd23;
+  --ar5-start: #047857;
+  --ar5-end: #10b981;
+  --ar5-solid: #059669;
+  --ar5-icon: #059669;
+  --ar5-text: #ecfdf5;
+  --ar5-desc-text: #d1fae5;
+  --ar5-num-text: #a7f3d0;
   --ar5-z: 3;
 }
 .ar5-module .ar5-row--04 {
-  --ar5-start: #236d8a;
-  --ar5-end: #38b9b6;
-  --ar5-solid: #258f9f;
-  --ar5-icon: #00ada7;
+  --ar5-start: #b45309;
+  --ar5-end: #f59e0b;
+  --ar5-solid: #d97706;
+  --ar5-icon: #d97706;
+  --ar5-text: #fffbeb;
+  --ar5-desc-text: #fef3c7;
+  --ar5-num-text: #fde68a;
   --ar5-z: 2;
 }
 .ar5-module .ar5-row--05 {
-  --ar5-start: #194b65;
-  --ar5-end: #83337e;
-  --ar5-solid: #624276;
-  --ar5-icon: #8e328c;
+  --ar5-start: #9d174d;
+  --ar5-end: #f43f5e;
+  --ar5-solid: #e11d48;
+  --ar5-icon: #e11d48;
+  --ar5-text: #fff1f2;
+  --ar5-desc-text: #ffe4e6;
+  --ar5-num-text: #fecdd3;
   --ar5-z: 1;
 }
 
@@ -159,6 +176,7 @@
   max-width: 48ch;
   font-size: 13px;
   line-height: 1.5;
+  color: var(--ar5-desc-text, var(--ar5-text));
   overflow-wrap: break-word;
   text-shadow: 0 1px 2px rgb(0 0 0 / 16%);
 }
@@ -169,6 +187,7 @@
   letter-spacing: -4px;
   font-variant-numeric: tabular-nums;
   text-align: center;
+  color: var(--ar5-num-text, var(--ar5-text));
 }
 
 .ar5-module .ar5-medallion {
@@ -289,6 +308,8 @@
   --ar5-solid: #b82e4b;
   --ar5-icon: #b82e4b;
   --ar5-text: #3f4654;
+  --ar5-desc-text: #3f4654;
+  --ar5-num-text: #3f4654;
 }
 .ar5-module.ar5-module--silver-red .ar5-tab-fill {
   background: linear-gradient(90deg, #7f1935 19%, #c33b58 20%, #b82e4b 80%, #7f1935 81%);

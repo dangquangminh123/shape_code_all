@@ -1,19 +1,19 @@
 import type { IconType } from 'react-icons';
 import {
-  FaBullhorn,
-  FaBullseye,
-  FaLightbulb,
-  FaMagnifyingGlass,
-  FaMobileScreenButton,
+  FaChartLine,
+  FaMicroscope,
+  FaTowerBroadcast,
+  FaTrophy,
+  FaWandMagicSparkles,
 } from 'react-icons/fa6';
 import type { Ar5IconName } from './ar5-arrow-ribbon.config';
 
 const AR5_ICONS: Record<Ar5IconName, IconType> = {
-  phone: FaMobileScreenButton,
-  bulb: FaLightbulb,
-  analysis: FaBullhorn,
-  search: FaMagnifyingGlass,
-  target: FaBullseye,
+  phone: FaTowerBroadcast,
+  bulb: FaWandMagicSparkles,
+  analysis: FaChartLine,
+  search: FaMicroscope,
+  target: FaTrophy,
 };
 
 export default function Ar5Icon({ name }: { name: Ar5IconName }) {

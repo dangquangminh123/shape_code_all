@@ -19,8 +19,8 @@ body {
     Ubuntu,
     Cantarell,
     sans-serif;
-  background-color: #fff;
-  color: #1e293b;
+  background-color: #ffffff;
+  color: #0f172a;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -28,5 +28,6 @@ body {
   width: 100%;
   min-height: 100vh;
   min-height: 100dvh;
+  background-color: #ffffff;
 }
 

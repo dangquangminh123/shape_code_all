@@ -18,13 +18,14 @@
   --ssd-content-row: calc(170 * var(--ssd-unit));
   --ssd-content-width: calc(350 * var(--ssd-unit));
   --ssd-column-gap: calc(34 * var(--ssd-unit));
-  --ssd-text-body: #6b6b70;
+  --ssd-text-body: #334155;
   width: 100%;
   min-height: 100vh;
   min-height: 100dvh;
   display: grid;
   place-items: center;
   padding: clamp(24px, 4vw, 48px);
+  background-color: #ffffff;
 }
 
 /* Size to the actual composition, not a wider card with empty space on the right. */
@@ -72,8 +73,8 @@
 /* Front-to-back order is base > middle > top, including during hover. */
 .ssd-level.level-1 {
   --ssd-level-mask: var(--ssd-mask-top);
-  --ssd-fill: linear-gradient(90deg, #f32f51, #e41d3c 68%, #d71936);
-  --ssd-stroke: #e52645;
+  --ssd-fill: linear-gradient(90deg, #6366f1, #4f46e5 68%, #4338ca);
+  --ssd-stroke: #4f46e5;
   width: 50.925926%;
   aspect-ratio: 1212.45 / 1789.5;
   top: 0;
@@ -82,8 +83,8 @@
 
 .ssd-level.level-2 {
   --ssd-level-mask: var(--ssd-mask-mid);
-  --ssd-fill: linear-gradient(90deg, #b70878, #a00068 65%, #8e005b);
-  --ssd-stroke: #a90971;
+  --ssd-fill: linear-gradient(90deg, #0ea5e9, #0284c7 65%, #0369a1);
+  --ssd-stroke: #0284c7;
   width: 77.777778%;
   aspect-ratio: 2495.87 / 1748.4;
   top: var(--ssd-top-offset);
@@ -92,8 +93,8 @@
 
 .ssd-level.level-3 {
   --ssd-level-mask: var(--ssd-mask-base);
-  --ssd-fill: linear-gradient(90deg, #087aa5, #076b97 60%, #075c86);
-  --ssd-stroke: #117a9f;
+  --ssd-fill: linear-gradient(90deg, #10b981, #059669 60%, #047857);
+  --ssd-stroke: #059669;
   width: 100%;
   aspect-ratio: 1451.9 / 1439.02;
   top: var(--ssd-base-offset);
@@ -153,7 +154,7 @@
 }
 
 .ssd-no {
-  color: #fff;
+  color: #f8fafc;
   font-size: calc(62 * var(--ssd-unit));
   font-weight: 700;
   font-variant-numeric: tabular-nums;
@@ -174,7 +175,7 @@
 }
 
 .ssd-content-box {
-  --ssd-title-color: #cf2448;
+  --ssd-title-color: #4338ca;
   max-width: var(--ssd-content-width);
   min-width: 0;
   outline-offset: 8px;
@@ -186,7 +187,7 @@
 }
 
 .ssd-content-box.content-2 {
-  --ssd-title-color: #a1096c;
+  --ssd-title-color: #0369a1;
   margin-left: var(--ssd-content-offset);
 }
 
@@ -226,7 +227,7 @@
 
 .ssd-level:focus-visible,
 .ssd-content-box:focus-visible {
-  outline: 2px solid #075c86;
+  outline: 2px solid #059669;
 }
 
 /* Keep the two-column reference composition on tablets, too. */

@@ -15,7 +15,13 @@
     "test:ih8": "node scripts/test-ih8-heart-elements.mjs",
     "test:sr6": "node scripts/test-sr6-startup-rocket.mjs",
     "test:st7": "node scripts/test-st7-squeeze-tubes.mjs",
-    "verify:sr6": "node scripts/verify-sr6-static.mjs"
+    "test:s8f": "node scripts/test-s8f-starflow.mjs",
+    "test:d8p": "node scripts/test-d8p-diamond-petals.mjs",
+    "test:ta4": "node scripts/test-ta4-target-arrow.mjs",
+    "verify:sr6": "node scripts/verify-sr6-static.mjs",
+    "verify:s8f": "node scripts/verify-s8f-assets.mjs",
+    "verify:d8p": "node scripts/verify-d8p-assets.mjs",
+    "verify:ta4": "node scripts/verify-ta4-assets.mjs"
   },
   "dependencies": {
     "next": "^15.1.0",

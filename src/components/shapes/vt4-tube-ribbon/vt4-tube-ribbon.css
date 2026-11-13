@@ -1,7 +1,7 @@
 /* MODULE 04: Variant Tube Ribbon — scope toàn bộ bằng .vt4. */
 .vt4, .vt4 * { box-sizing: border-box; }
 .vt4 {
-  --vt4-background: radial-gradient(ellipse at 48% 29%, #ffffff 0%, #f7f8f9 49%, #edf0f3 100%);
+  --vt4-background: #ffffff;
   --vt4-silver-light: #ffffff;
   --vt4-silver-mid: #d6d8dc;
   --vt4-dark: #16161e;
@@ -21,7 +21,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: var(--vt4-background);
+  background: #ffffff;
   isolation: isolate;
   container-type: inline-size;
   overflow: hidden;
@@ -118,11 +118,11 @@
 .vt4__tube-brand {
   font-size: clamp(14px, 4.1cqw, 33px);
   line-height: 1; font-weight: 800; letter-spacing: -0.045em;
-  color: #54565b;
+  color: #1e293b;
 }
 .vt4__tube-caption {
   font-size: clamp(7px, 1.3cqw, 10.5px); font-weight: 700;
-  letter-spacing: 0.035em; color: #84878f;
+  letter-spacing: 0.035em; color: #4f46e5;
 }
 .vt4__options {
   position: absolute;
@@ -133,10 +133,10 @@
   isolation: isolate;
 }
 .vt4__option {
-  --vt4-start: #f74b2b; --vt4-end: #ff6536; --vt4-side: #d74722;
+  --vt4-start: #0284c7; --vt4-end: #38bdf8; --vt4-side: #0369a1; --vt4-text: #f0f9ff; --vt4-sub: #e0f2fe;
   display: block; position: relative; width: 100%; height: 100%;
   padding: 0; margin: 0; border: 0; border-radius: 0;
-  text-align: left; color: #fff; background: transparent;
+  text-align: left; color: var(--vt4-text); background: transparent;
   cursor: pointer; appearance: none;
   font-family: Arial, Helvetica, sans-serif;
   -webkit-tap-highlight-color: transparent;
@@ -146,10 +146,10 @@
   transform-origin: 50% 50%;
   isolation: isolate;
 }
-.vt4__option:nth-child(1) { --vt4-start: #f54a2d; --vt4-end: #ff6b39; --vt4-side: #dc4826; z-index: 4; }
-.vt4__option:nth-child(2) { --vt4-start: #f79407; --vt4-end: #ffb000; --vt4-side: #d88b0e; z-index: 3; }
-.vt4__option:nth-child(3) { --vt4-start: #12b5d9; --vt4-end: #08cdef; --vt4-side: #168dae; z-index: 2; }
-.vt4__option:nth-child(4) { --vt4-start: #b1cb00; --vt4-end: #c8d900; --vt4-side: #93a803; z-index: 1; }
+.vt4__option:nth-child(1) { --vt4-start: #0284c7; --vt4-end: #38bdf8; --vt4-side: #0369a1; --vt4-text: #f0f9ff; --vt4-sub: #e0f2fe; z-index: 4; }
+.vt4__option:nth-child(2) { --vt4-start: #059669; --vt4-end: #34d399; --vt4-side: #047857; --vt4-text: #ecfdf5; --vt4-sub: #d1fae5; z-index: 3; }
+.vt4__option:nth-child(3) { --vt4-start: #6d28d9; --vt4-end: #a855f7; --vt4-side: #5b21b6; --vt4-text: #faf5ff; --vt4-sub: #f3e8ff; z-index: 2; }
+.vt4__option:nth-child(4) { --vt4-start: #e11d48; --vt4-end: #fb7185; --vt4-side: #be123c; --vt4-text: #fff1f2; --vt4-sub: #ffe4e6; z-index: 1; }
 .vt4__face, .vt4__bevel, .vt4__option-shadow {
   position: absolute; top: 0; height: 100%; display: block; pointer-events: none;
 }
@@ -203,8 +203,8 @@
   position: relative; z-index: 3;
   display: flex; align-items: center; gap: 3%;
   width: 100%; height: 100%; padding-left: 24.7%; padding-right: 10.5%;
-  color: #fff; pointer-events: none;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  color: var(--vt4-text, #f8fafc); pointer-events: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.14);
 }
 .vt4__option-number {
   font-weight: 800; line-height: 1; letter-spacing: -0.04em;
@@ -225,6 +225,7 @@
 .vt4__option-sub {
   font-size: clamp(8px, 1.63cqw, 13px);
   line-height: 1.1; white-space: nowrap;
+  color: var(--vt4-sub, #e2e8f0);
 }
 .vt4__option:hover, .vt4__option:focus-visible {
   z-index: 6;

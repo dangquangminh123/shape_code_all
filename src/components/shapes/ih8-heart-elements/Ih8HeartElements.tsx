@@ -1,14 +1,25 @@
 'use client';
 
 import { useRef, useState, type CSSProperties, type KeyboardEvent } from 'react';
+import type { IconType } from 'react-icons';
+import {
+  FaBoltLightning,
+  FaBrain,
+  FaCloudArrowUp,
+  FaFlaskVial,
+  FaGraduationCap,
+  FaPeopleGroup,
+  FaSliders,
+  FaStar,
+  FaWandMagicSparkles,
+} from 'react-icons/fa6';
 import {
   IH8_ASSET_BASE,
-  IH8_FA_ICONS,
   IH8_ITEMS,
   IH8_LEFT_ITEMS,
   IH8_MASK_FILES,
   IH8_RIGHT_ITEMS,
-  IH8_STAR_ICON,
+  type Ih8IconName,
   type Ih8Item,
   type Ih8MaskRole,
   type Ih8Masks,
@@ -18,6 +29,17 @@ import {
 import './ih8-heart-elements.css';
 
 type Ih8Style = CSSProperties & { [key: `--ih8-${string}`]: string };
+
+const IH8_REACT_ICONS: Record<Ih8IconName, IconType> = {
+  'chart-pie': FaBrain,
+  'book-open': FaGraduationCap,
+  lightbulb: FaWandMagicSparkles,
+  users: FaPeopleGroup,
+  droplet: FaFlaskVial,
+  comments: FaBoltLightning,
+  atom: FaSliders,
+  database: FaCloudArrowUp,
+};
 
 export default function Ih8HeartElements({
   masks = {},
@@ -113,7 +135,7 @@ export default function Ih8HeartElements({
         </div>
         <div className="ih8-wheel" role="group" aria-label="Tám phần của trái tim thông tin">
           {IH8_ITEMS.map((item, idx) => {
-            const iconDef = IH8_FA_ICONS[item.icon];
+            const Icon = IH8_REACT_ICONS[item.icon];
             const style: Ih8Style = { '--ih8-mask': maskUrl(item.maskRole) };
             return (
               <button
@@ -137,9 +159,7 @@ export default function Ih8HeartElements({
                 <span className="ih8-petal__stroke" aria-hidden="true" />
                 <span className="ih8-petal__fill" aria-hidden="true" />
                 <span className="ih8-petal__icon" aria-hidden="true">
-                  <svg className="ih8-petal__svg-icon" data-ih8-icon={item.icon} viewBox={iconDef.viewBox} aria-hidden="true" focusable="false">
-                    <path fill="currentColor" d={iconDef.path} />
-                  </svg>
+                  <Icon className="ih8-petal__svg-icon" data-ih8-icon={item.icon} aria-hidden="true" focusable="false" />
                 </span>
               </button>
             );
@@ -151,9 +171,7 @@ export default function Ih8HeartElements({
               <span>TRỌNG TÂM</span>
               <span className="ih8-core__stars" aria-hidden="true">
                 {[0, 1, 2, 3, 4].map(i => (
-                  <svg key={i} className="ih8-core__star-icon" data-ih8-icon="star" viewBox={IH8_STAR_ICON.viewBox} aria-hidden="true" focusable="false">
-                    <path fill="currentColor" d={IH8_STAR_ICON.path} />
-                  </svg>
+                  <FaStar key={i} className="ih8-core__star-icon" data-ih8-icon="star" aria-hidden="true" focusable="false" />
                 ))}
               </span>
             </div>

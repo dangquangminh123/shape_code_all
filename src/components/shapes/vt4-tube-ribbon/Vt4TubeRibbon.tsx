@@ -3,10 +3,10 @@
 import { useRef, useState, type CSSProperties, type KeyboardEvent } from 'react';
 import type { IconType } from 'react-icons';
 import {
-  FaDroplet,
-  FaLeaf,
-  FaShieldHalved,
-  FaWandMagicSparkles,
+  FaHeartPulse,
+  FaPumpSoap,
+  FaSeedling,
+  FaUserShield,
 } from 'react-icons/fa6';
 import {
   VT4_ASSET_BASE,
@@ -22,10 +22,10 @@ import './vt4-tube-ribbon.css';
 type Vt4Style = CSSProperties & { [key: `--vt4-${string}`]: string };
 
 const VT4_ICONS: Record<Vt4IconName, IconType> = {
-  droplet: FaDroplet,
-  leaf: FaLeaf,
-  sparkles: FaWandMagicSparkles,
-  shield: FaShieldHalved,
+  droplet: FaPumpSoap,
+  leaf: FaSeedling,
+  sparkles: FaHeartPulse,
+  shield: FaUserShield,
 };
 
 interface Vt4Props {

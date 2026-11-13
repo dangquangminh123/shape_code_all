@@ -3,7 +3,7 @@
   --st7-tube-mask: url('/assets/shapes/st7-squeeze-tubes/st7-horizontal-tube-mask.svg');
   --st7-rib-mask: url('/assets/shapes/st7-squeeze-tubes/st7-sealed-edge-ribs.svg');
   --st7-splash-mask: url('/assets/shapes/st7-squeeze-tubes/st7-fluid-splash-mask.svg');
-  --st7-paper: radial-gradient(ellipse at 53% 43%, #b2b2b2 0%, #a1a1a1 61%, #929292 100%);
+  --st7-paper: #ffffff;
   box-sizing: border-box;
   width: 100%;
   min-width: 0;
@@ -13,7 +13,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--st7-paper);
+  background: #ffffff;
   isolation: isolate;
   overflow: clip;
 }
@@ -47,27 +47,30 @@
 }
 .st7-piece--01 {
   left: 16.6%; top: 15.5%; width: 70%; z-index: 3;
-  --st7-color-1: #ff8800; --st7-color-2: #ff7700; --st7-color-3: #f15e00;
-  --st7-marker-light: #ffb11c; --st7-marker-deep: #eb5100;
+  --st7-color-1: #6366f1; --st7-color-2: #4f46e5; --st7-color-3: #3730a3;
+  --st7-marker-light: #818cf8; --st7-marker-deep: #312e81;
+  --st7-caption-color: #eef2ff;
   --st7-tube-x: 0%; --st7-marker-x: 90.6%;
   --st7-tube-flip: scaleX(1);
 }
 .st7-piece--02 {
   left: 18%; top: 37.7%; width: 69%; z-index: 2;
-  --st7-color-1: #535459; --st7-color-2: #303237; --st7-color-3: #1d1f22;
-  --st7-marker-light: #85878a; --st7-marker-deep: #2c2c2e;
+  --st7-color-1: #f43f5e; --st7-color-2: #e11d48; --st7-color-3: #9f1239;
+  --st7-marker-light: #fb7185; --st7-marker-deep: #881337;
+  --st7-caption-color: #fff1f2;
   --st7-tube-x: 18%; --st7-marker-x: 9.4%;
   --st7-tube-flip: scaleX(-1);
 }
 .st7-piece--03 {
   left: 16.8%; top: 59.9%; width: 70%; z-index: 1;
-  --st7-color-1: #48dfdd; --st7-color-2: #20c6c8; --st7-color-3: #04aeb4;
-  --st7-marker-light: #60f3ee; --st7-marker-deep: #02adb7;
+  --st7-color-1: #10b981; --st7-color-2: #059669; --st7-color-3: #065f46;
+  --st7-marker-light: #34d399; --st7-marker-deep: #064e3b;
+  --st7-caption-color: #ecfdf5;
   --st7-tube-x: 0%; --st7-marker-x: 90.6%;
   --st7-tube-flip: scaleX(1);
 }
 .st7-piece--active { z-index: 6; }
-.st7-piece:focus-visible { outline: 2px solid #ffffff; }
+.st7-piece:focus-visible { outline: 2px solid #334155; }
 
 /* Same single silhouette masks THE ENTIRE shell: no inset, no second mask geometry. */
 .st7-tube {
@@ -151,8 +154,8 @@
   align-items: center;
   justify-content: center;
   gap: clamp(3px, .6cqw, 7px);
-  color: #fff;
-  text-shadow: 0 2px 3px rgba(0, 0, 0, .12);
+  color: var(--st7-caption-color, #f8fafc);
+  text-shadow: 0 2px 3px rgba(0, 0, 0, .16);
   z-index: 3;
   white-space: nowrap;
   pointer-events: none;
@@ -213,7 +216,8 @@
 .st7-piece--active .st7-marker,
 .st7-piece:hover .st7-marker { scale: 1.045; filter: drop-shadow(3px 7px 9px rgba(34,39,43,.33)); }
 .st7-module--silver-red {
-  --st7-paper: radial-gradient(ellipse at 50% 44%, #fafafa 0%, #edf0f2 70%, #d8dce0 100%);
+  --st7-paper: #ffffff;
+  background: #ffffff;
 }
 .st7-module--silver-red .st7-piece--01 { --st7-color-1:#d73558; --st7-color-2:#bc1745; --st7-color-3:#8f1739; --st7-marker-light:#e55976; --st7-marker-deep:#a5153d; }
 .st7-module--silver-red .st7-piece--02 { --st7-color-1:#aeb7c0; --st7-color-2:#697482; --st7-color-3:#3c4856; --st7-marker-light:#9ba5b0; --st7-marker-deep:#5f6c7b; }
@@ -227,10 +231,10 @@
 @media (max-width: 520px) {
   .st7-module { padding: 16px 8px 32px; min-height: 0; }
   .st7-stage { max-width: 100%; }
-  .st7-mobile-details { width:min(100%,460px); margin:6px auto 0; display:grid; gap:6px; color:#303840; font-size:12px; }
-  .st7-mobile-details span { background:rgb(255 255 255 / 72%); padding: 9px 12px; border-radius: 9px; }
-  .st7-module--reference .st7-mobile-details { color:white; }
-  .st7-module--reference .st7-mobile-details span { background:rgb(40 43 49 / 21%); }
+  .st7-mobile-details { width:min(100%,460px); margin:6px auto 0; display:grid; gap:6px; color:#1e293b; font-size:12px; }
+  .st7-mobile-details span { background:#f1f5f9; padding: 9px 12px; border-radius: 9px; }
+  .st7-module--reference .st7-mobile-details { color:#1e293b; }
+  .st7-module--reference .st7-mobile-details span { background:#f1f5f9; }
 }
 @media (prefers-reduced-motion: reduce) {
   .st7-tube-visual, .st7-tube-band, .st7-marker { transition:none; }

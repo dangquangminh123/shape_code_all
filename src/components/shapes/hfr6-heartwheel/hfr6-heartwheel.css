@@ -1,7 +1,7 @@
 /* HFR6 only. Full 640×640 mask canvas; copy never lives inside a mask. */
 .hfr6 {
-  --hfr6-paper: #fff;
-  --hfr6-caption: #fff;
+  --hfr6-paper: #ffffff;
+  --hfr6-caption: #f8fafc;
   position: relative;
   width: 100%;
   min-height: 100vh;
@@ -11,7 +11,7 @@
   flex-direction: column;
   justify-content: center;
   isolation: isolate;
-  background: var(--hfr6-paper);
+  background: #ffffff;
 }
 .hfr6 .hfr6__wheel {
   position: relative;
@@ -80,12 +80,12 @@
 .hfr6 .hfr6-sector__summary { font-size: 1.8cqw; line-height: 1.4; }
 .hfr6 .hfr6-sector__icon { width: 5.4%; height: 5.4%; display: grid; place-items: center; filter: drop-shadow(0 2px 3px #0002); }
 .hfr6 .hfr6-sector__svg-icon { width: 100%; height: 100%; display: block; stroke-width: 2.15; }
-.hfr6 .hfr6-sector--01 { --hfr6-start: #a80950; --hfr6-mid: #d90b5a; --hfr6-end: #f83f75; }
-.hfr6 .hfr6-sector--02 { --hfr6-start: #df7719; --hfr6-mid: #ffa719; --hfr6-end: #ffc635; }
-.hfr6 .hfr6-sector--03 { --hfr6-start: #0d6c9a; --hfr6-mid: #21a6cb; --hfr6-end: #49d1e6; }
-.hfr6 .hfr6-sector--04 { --hfr6-start: #087f51; --hfr6-mid: #2eae63; --hfr6-end: #7fca60; }
-.hfr6 .hfr6-sector--05 { --hfr6-start: #ce2d27; --hfr6-mid: #ed5132; --hfr6-end: #fa6e36; }
-.hfr6 .hfr6-sector--06 { --hfr6-start: #822c80; --hfr6-mid: #aa3a98; --hfr6-end: #d15dac; }
+.hfr6 .hfr6-sector--01 { --hfr6-start: #312e81; --hfr6-mid: #4f46e5; --hfr6-end: #818cf8; --hfr6-caption: #eef2ff; }
+.hfr6 .hfr6-sector--02 { --hfr6-start: #0f766e; --hfr6-mid: #14b8a6; --hfr6-end: #5eead4; --hfr6-caption: #f0fdfa; }
+.hfr6 .hfr6-sector--03 { --hfr6-start: #15803d; --hfr6-mid: #22c55e; --hfr6-end: #86efac; --hfr6-caption: #f0fdf4; }
+.hfr6 .hfr6-sector--04 { --hfr6-start: #b45309; --hfr6-mid: #f59e0b; --hfr6-end: #fcd34d; --hfr6-caption: #fffbeb; }
+.hfr6 .hfr6-sector--05 { --hfr6-start: #be123c; --hfr6-mid: #f43f5e; --hfr6-end: #fda4af; --hfr6-caption: #fff1f2; }
+.hfr6 .hfr6-sector--06 { --hfr6-start: #701a75; --hfr6-mid: #c026d3; --hfr6-end: #f0abfc; --hfr6-caption: #fdf4ff; }
 
 /* Optical placements follow the reference, keeping copy clear of the heart. */
 .hfr6 .hfr6-sector--01 .hfr6-sector__number { left: 50%; top: 13%; }
@@ -125,7 +125,7 @@
 .hfr6 .hfr6-is-active .hfr6-sector__icon { transform: translate(-50%, -50%) scale(1.18); filter: drop-shadow(0 4px 10px #00000045); }
 .hfr6 .hfr6-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 .hfr6 .hfr6-mobile { display: none; }
-.hfr6.hfr6--silver-red { --hfr6-paper: #fbfcfd; }
+.hfr6.hfr6--silver-red { --hfr6-paper: #ffffff; background: #ffffff; }
 .hfr6.hfr6--silver-red .hfr6-sector--01 { --hfr6-start: #9b123c; --hfr6-mid: #ce3155; --hfr6-end: #fa6d80; }
 .hfr6.hfr6--silver-red .hfr6-sector--02 { --hfr6-start: #b5bac3; --hfr6-mid: #dee1e7; --hfr6-end: #f7f8fa; --hfr6-caption: #6c1e37; }
 .hfr6.hfr6--silver-red .hfr6-sector--03 { --hfr6-start: #8e263b; --hfr6-mid: #c03953; --hfr6-end: #ea6e83; }
@@ -162,8 +162,8 @@
   .hfr6 .hfr6-mobile__item:focus-visible { outline: 3px solid var(--hfr6-start); outline-offset: 3px; }
   .hfr6 .hfr6-mobile__badge { display: grid; place-items: center; flex: 0 0 28px; height: 28px; border-radius: 8px; background: var(--hfr6-start); color: #fff; font-size: 12px; font-weight: 800; }
   .hfr6 .hfr6-mobile__info { display: flex; flex-direction: column; min-width: 0; gap: 4px; flex: 1; }
-  .hfr6 .hfr6-mobile__info strong { font-size: 13px; color: #242c3a; line-height: 1.3; }
-  .hfr6 .hfr6-mobile__info small { font-size: 12px; color: #586272; line-height: 1.4; }
+  .hfr6 .hfr6-mobile__info strong { font-size: 13px; color: #1e1b4b; line-height: 1.3; }
+  .hfr6 .hfr6-mobile__info small { font-size: 12px; color: #475569; line-height: 1.4; }
   .hfr6 .hfr6-mobile__svg-icon { flex: 0 0 18px; width: 18px; height: 18px; color: var(--hfr6-start); stroke-width: 2.15; }
 }
 @media (max-width: 380px) {

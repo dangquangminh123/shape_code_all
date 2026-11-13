@@ -3,15 +3,15 @@
    All units are responsive; local SVG icons from Font Awesome Free 6.7.2 (CC BY 4.0).
 */
 .ih8-module {
-  --ih8-canvas: #fbfcfe;
-  --ih8-ink: #3a4756;
-  --ih8-muted: #728092;
-  --ih8-core-surface: var(--ih8-canvas);
+  --ih8-canvas: #ffffff;
+  --ih8-ink: #0f172a;
+  --ih8-muted: #475569;
+  --ih8-core-surface: #ffffff;
   --ih8-max-width: 1340px;
   width: 100%;
   max-width: 100%;
   padding: clamp(28px, 5vw, 64px) clamp(12px, 2.5vw, 40px);
-  background: var(--ih8-canvas);
+  background: #ffffff;
   color: var(--ih8-ink);
   font-family: "Segoe UI", Inter, system-ui, -apple-system, sans-serif;
   isolation: isolate;
@@ -175,67 +175,67 @@
 .ih8-petal[data-ih8-step="1"] {
   left:0.9%; top:0%; width:48.5%; height:23.53%;
   --ih8-mask: url("/assets/shapes/ih8-heart-elements/ih8-heart-crown-left.svg");
-  --ih8-fill:linear-gradient(145deg,#7d123c,#b70e56);
-  --ih8-stroke:linear-gradient(140deg,#f29dc3,#8b0f44);
+  --ih8-fill:linear-gradient(145deg,#3730a3,#6366f1);
+  --ih8-stroke:linear-gradient(140deg,#c7d2fe,#4338ca);
   --ih8-icon-x:46%; --ih8-icon-y:50%;
 }
 .ih8-petal[data-ih8-step="2"] {
   left:50.6%; top:0%; width:48.5%; height:23.53%;
   --ih8-mask:url("/assets/shapes/ih8-heart-elements/ih8-heart-crown-right.svg");
-  --ih8-fill:linear-gradient(145deg,#35af94,#63cfb6);
-  --ih8-stroke:linear-gradient(145deg,#b9f3e1,#279f87);
+  --ih8-fill:linear-gradient(145deg,#be185d,#ec4899);
+  --ih8-stroke:linear-gradient(145deg,#fbcfe8,#9d174d);
   --ih8-icon-x:54%; --ih8-icon-y:50%;
 }
 .ih8-petal[data-ih8-step="3"] {
   left:0.47%; top:24.81%; width:20.68%; height:21.98%;
   --ih8-mask:url("/assets/shapes/ih8-heart-elements/ih8-heart-shoulder-left.svg");
-  --ih8-fill:linear-gradient(140deg,#e62b41,#f04857);
-  --ih8-stroke:linear-gradient(140deg,#ffc0c7,#e62b41);
+  --ih8-fill:linear-gradient(140deg,#0284c7,#38bdf8);
+  --ih8-stroke:linear-gradient(140deg,#bae6fd,#0369a1);
   --ih8-icon-x:48%; --ih8-icon-y:48%;
 }
 .ih8-petal[data-ih8-step="4"] {
   left:78.85%; top:24.81%; width:20.68%; height:21.98%;
   --ih8-mask:url("/assets/shapes/ih8-heart-elements/ih8-heart-shoulder-right.svg");
-  --ih8-fill:linear-gradient(135deg,#169bc0,#36c0d6);
-  --ih8-stroke:linear-gradient(135deg,#98f5ff,#168fad);
+  --ih8-fill:linear-gradient(135deg,#6d28d9,#a855f7);
+  --ih8-stroke:linear-gradient(135deg,#e9d5ff,#5b21b6);
   --ih8-icon-x:52%; --ih8-icon-y:48%;
 }
 .ih8-petal[data-ih8-step="5"] {
   left:2.55%; top:48.07%; width:36.52%; height:22.2%;
   --ih8-mask:url("/assets/shapes/ih8-heart-elements/ih8-heart-curve-left.svg");
-  --ih8-fill:linear-gradient(140deg,#f16a16,#ffa01b);
-  --ih8-stroke:linear-gradient(140deg,#ffe0a5,#ef7919);
+  --ih8-fill:linear-gradient(140deg,#059669,#34d399);
+  --ih8-stroke:linear-gradient(140deg,#a7f3d0,#047857);
   --ih8-icon-x:44%; --ih8-icon-y:50%;
 }
 .ih8-petal[data-ih8-step="6"] {
   left:60.93%; top:48.07%; width:36.52%; height:22.2%;
   --ih8-mask:url("/assets/shapes/ih8-heart-elements/ih8-heart-curve-right.svg");
-  --ih8-fill:linear-gradient(145deg,#157a9e,#034765);
-  --ih8-stroke:linear-gradient(145deg,#8bd5e4,#034765);
+  --ih8-fill:linear-gradient(145deg,#d97706,#fbbf24);
+  --ih8-stroke:linear-gradient(145deg,#fde68a,#b45309);
   --ih8-icon-x:56%; --ih8-icon-y:50%;
 }
 .ih8-petal[data-ih8-step="7"] {
   left:17.2%; top:71.55%; width:32.2%; height:28.45%;
   --ih8-mask:url("/assets/shapes/ih8-heart-elements/ih8-heart-point-left.svg");
-  --ih8-fill:linear-gradient(145deg,#ffd34d,#f7a51e);
-  --ih8-stroke:linear-gradient(145deg,#fff0a7,#ed9f17);
+  --ih8-fill:linear-gradient(145deg,#0d9488,#2dd4bf);
+  --ih8-stroke:linear-gradient(145deg,#99f6e4,#0f766e);
   --ih8-icon-x:64%; --ih8-icon-y:43%;
 }
 .ih8-petal[data-ih8-step="8"] {
   left:50.6%; top:71.55%; width:32.2%; height:28.45%;
   --ih8-mask:url("/assets/shapes/ih8-heart-elements/ih8-heart-point-right.svg");
-  --ih8-fill:linear-gradient(145deg,#194e69,#0c304a);
-  --ih8-stroke:linear-gradient(145deg,#91c8d6,#0c304a);
+  --ih8-fill:linear-gradient(145deg,#e11d48,#fb7185);
+  --ih8-stroke:linear-gradient(145deg,#fecdd3,#be123c);
   --ih8-icon-x:36%; --ih8-icon-y:43%;
 }
-.ih8-info[data-ih8-step="1"] {--ih8-accent:#9c1b50}
-.ih8-info[data-ih8-step="2"] {--ih8-accent:#30aa93}
-.ih8-info[data-ih8-step="3"] {--ih8-accent:#d9334b}
-.ih8-info[data-ih8-step="4"] {--ih8-accent:#1b97b6}
-.ih8-info[data-ih8-step="5"] {--ih8-accent:#dc7f18}
-.ih8-info[data-ih8-step="6"] {--ih8-accent:#08668c}
-.ih8-info[data-ih8-step="7"] {--ih8-accent:#ca9016}
-.ih8-info[data-ih8-step="8"] {--ih8-accent:#264d64}
+.ih8-info[data-ih8-step="1"] {--ih8-accent:#4338ca}
+.ih8-info[data-ih8-step="2"] {--ih8-accent:#be185d}
+.ih8-info[data-ih8-step="3"] {--ih8-accent:#0284c7}
+.ih8-info[data-ih8-step="4"] {--ih8-accent:#7e22ce}
+.ih8-info[data-ih8-step="5"] {--ih8-accent:#059669}
+.ih8-info[data-ih8-step="6"] {--ih8-accent:#b45309}
+.ih8-info[data-ih8-step="7"] {--ih8-accent:#0f766e}
+.ih8-info[data-ih8-step="8"] {--ih8-accent:#be123c}
 
 
 /* Central white heart: own mask and own content (text is not masked). */
@@ -263,18 +263,18 @@
 .ih8-core__copy strong {
   font-size:clamp(14px,1.9vw,25px);
   letter-spacing:.015em;
-  color:#28b7a3;
+  color:#4338ca;
   font-weight:850;
   white-space:nowrap;
 }
 .ih8-core__copy>span:not(.ih8-core__stars) {
-  color:#8a949e;
+  color:#334155;
   font-size:clamp(13px,1.6vw,21px);
   font-weight:800;
   letter-spacing:.055em;
   white-space:nowrap;
 }
-.ih8-core__stars { display:flex;justify-content:center;gap:3px;margin-top:8px; color:#dc2f55; }
+.ih8-core__stars { display:flex;justify-content:center;gap:3px;margin-top:8px; color:#f59e0b; }
 .ih8-core__stars svg,
 .ih8-core__stars img {
   width:clamp(6px,.7vw,9px);
@@ -287,8 +287,9 @@
 
 /* Alternative coordinated palette: white / silver / controlled crimson. */
 .ih8-module--silver-red {
-  --ih8-canvas:linear-gradient(180deg,#ffffff,#f5f6f8);
-  --ih8-muted:#667487;
+  --ih8-canvas:#ffffff;
+  --ih8-muted:#475569;
+  background:#ffffff;
 }
 .ih8-module--silver-red .ih8-petal[data-ih8-step="1"] {--ih8-fill:linear-gradient(145deg,#8f193e,#ca284d);--ih8-stroke:linear-gradient(140deg,#ffd5df,#a61439)}
 .ih8-module--silver-red .ih8-petal[data-ih8-step="2"] {--ih8-fill:linear-gradient(145deg,#adbcc8,#71879c);--ih8-stroke:linear-gradient(140deg,#eff4f8,#71879c)}

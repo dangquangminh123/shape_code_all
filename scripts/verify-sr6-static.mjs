@@ -26,7 +26,7 @@ names.forEach((name, index) => {
   assert.ok(Math.abs(width / height - targetRatios[index]) < 0.005, `${name}: incorrect ratio`);
   assert.ok(css.includes(name), `${name}: CSS does not reference SVG`);
 });
-for (const icon of ['FaGears', 'FaEnvelope', 'FaChartColumn', 'FaGlobe', 'FaShareNodes', 'FaClock']) {
+for (const icon of ['FaLightbulb', 'FaUsersGear', 'FaMagnifyingGlassChart', 'FaLayerGroup', 'FaNetworkWired', 'FaRocket']) {
   assert.ok(tsx.includes(icon), `Missing React Icon ${icon}`);
 }
 assert.ok(css.includes('drop-shadow(0 9px 8px'), 'Unified rocket silhouette shadow is missing');

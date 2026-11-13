@@ -5,6 +5,9 @@ import Vt4TubeRibbonSection from '@/components/shapes/vt4-tube-ribbon/Vt4TubeRib
 import Ih8HeartElementsSection from '@/components/shapes/ih8-heart-elements/Ih8HeartElementsSection';
 import Sr6StartupRocket from '@/components/shapes/sr6-startup-rocket/Sr6StartupRocket';
 import St7SqueezeTubes from '@/components/shapes/st7-squeeze-tubes/St7SqueezeTubes';
+import S8fStarflow from '@/components/shapes/s8f-starflow/S8fStarflow';
+import D8pDiamondPetals from '@/components/shapes/d8p-diamond-petals/D8pDiamondPetals';
+import Ta4TargetArrow from '@/components/shapes/ta4-target-arrow/Ta4TargetArrow';
 
 export default function HomePage() {
   return (
@@ -16,9 +19,13 @@ export default function HomePage() {
       <Ih8HeartElementsSection />
       <Sr6StartupRocket />
       <St7SqueezeTubes />
+      <S8fStarflow theme="reference" />
+      <D8pDiamondPetals theme="reference" />
+      <Ta4TargetArrow theme="reference" />
     </>
   );
 }
+
 
 
 

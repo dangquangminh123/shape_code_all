@@ -3,12 +3,12 @@
 import { useEffect, useRef, useState, type CSSProperties, type KeyboardEvent } from 'react';
 import type { IconType } from 'react-icons';
 import {
-  FaBriefcase,
-  FaBullseye,
-  FaCompass,
-  FaDollarSign,
-  FaLaptop,
-  FaMagnifyingGlass,
+  FaBinoculars,
+  FaCoins,
+  FaDiagramProject,
+  FaFlagCheckered,
+  FaLocationArrow,
+  FaMicrochip,
 } from 'react-icons/fa6';
 import { HFR6_HEART_PATH, HFR6_ITEMS, hfr6FallbackMask, type Hfr6IconName, type Hfr6Masks, type Hfr6Step, type Hfr6Theme } from './hfr6-heartwheel.config';
 import './hfr6-heartwheel.css';
@@ -17,12 +17,12 @@ type Hfr6Style = CSSProperties & { [key: `--hfr6-${string}`]: string };
 const EMPTY_MASKS: Hfr6Masks = {};
 
 const HFR6_ICONS: Record<Hfr6IconName, IconType> = {
-  compass: FaCompass,
-  search: FaMagnifyingGlass,
-  dollar: FaDollarSign,
-  laptop: FaLaptop,
-  target: FaBullseye,
-  briefcase: FaBriefcase,
+  compass: FaLocationArrow,
+  search: FaBinoculars,
+  dollar: FaCoins,
+  laptop: FaMicrochip,
+  target: FaFlagCheckered,
+  briefcase: FaDiagramProject,
 };
 
 export default function Hfr6Heartwheel({ masks = EMPTY_MASKS, theme = 'color' }: { masks?: Hfr6Masks; theme?: Hfr6Theme }) {
