@@ -114,6 +114,12 @@ try {
           leftBox: leftSide.getBoundingClientRect().toJSON(),
           rightBox: rightSide.getBoundingClientRect().toJSON(),
           petalBoxes: petals.map(el => el.getBoundingClientRect().toJSON()),
+          strokeDisplays: petals.map(el => getComputedStyle(el.querySelector('.ih8-petal__stroke')).display),
+          fillDeltas: petals.map(el => {
+            const p = el.getBoundingClientRect();
+            const f = el.querySelector('.ih8-petal__fill').getBoundingClientRect();
+            return Math.max(Math.abs(p.width - f.width), Math.abs(p.height - f.height));
+          }),
           extraHeadings: mod.querySelectorAll('h1, h2, header, nav').length,
         };
       })()`);
@@ -131,6 +137,8 @@ try {
       assert.equal(layout.coreSub, 'TRỌNG TÂM');
       assert.ok(layout.coreZ > layout.petalZ);
       assert.ok(layout.masks.every(m => m?.includes('/assets/shapes/ih8-heart-elements/')));
+      assert.ok(layout.strokeDisplays.every(d => d === 'none'), 'IH8 rescaled stroke masks are suppressed');
+      assert.ok(layout.fillDeltas.every(d => d < 0.5), 'IH8 petal fills match petal bounds (inset: 0)');
       assert.ok(!layout.coreCopyMask || layout.coreCopyMask === 'none');
       for (const [a, b] of [[0, 1], [2, 3], [4, 5], [6, 7]]) {
         assert.ok(Math.abs(layout.petalBoxes[a].width - layout.petalBoxes[b].width) < 1.5, `row pair ${a + 1}-${b + 1} equal width`);
@@ -160,10 +168,12 @@ try {
     pinned: ${root}.dataset.ih8Pinned,
     active: [...${root}.querySelectorAll('.is-active')].map(el => el.tagName.toLowerCase() + ':' + el.dataset.ih8Step),
     pressed: [...${root}.querySelectorAll('[data-ih8-step="3"]')].map(el => el.getAttribute('aria-pressed')),
+    transform: getComputedStyle(${root}.querySelector('.ih8-petal[data-ih8-step="3"]')).transform,
   })`);
   assert.equal(pinned3.pinned, '3');
   assert.deepEqual(pinned3.active.sort(), ['button:3', 'div:3']);
   assert.deepEqual(pinned3.pressed, ['true', 'true']);
+  assert.equal(pinned3.transform, 'none', 'active IH8 petal does not translate or scale away from adjacent heart segments');
 
   await evaluate(`${root}.querySelector('.ih8-petal[data-ih8-step="3"]').focus()`);
   await key('ArrowRight');

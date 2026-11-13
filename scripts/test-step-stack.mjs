@@ -27,7 +27,13 @@ try {
         const levels = [...document.querySelectorAll('.ssd-level')];
         const boxes = [...document.querySelectorAll('.ssd-content-box')];
         return {
-          levels: levels.map(el => ({...rect(el), z: Number(getComputedStyle(el).zIndex), label: el.innerText})),
+          levels: levels.map(el => ({
+            ...rect(el),
+            fill: rect(el.querySelector('.ssd-shape-fill')),
+            strokeDisplay: getComputedStyle(el.querySelector('.ssd-shape-stroke')).display,
+            z: Number(getComputedStyle(el).zIndex),
+            label: el.innerText,
+          })),
           boxes: boxes.map(rect), overflow: document.documentElement.scrollWidth > innerWidth,
           images: document.querySelectorAll('.step-stack-demo img').length,
           masks: levels.map(el => getComputedStyle(el.querySelector('.ssd-shape-fill')).maskImage),
@@ -36,6 +42,10 @@ try {
       })()`);
       assert.equal(geometry.overflow, false, `${route} overflows at ${width}px`);
       assert.equal(geometry.levels.length, 3);
+      for (const lvl of geometry.levels) {
+        assert.equal(lvl.strokeDisplay, 'none', 'separate rescaled stroke mask must be hidden');
+        assert.ok(Math.abs(lvl.width - lvl.fill.width) < 0.5 && Math.abs(lvl.height - lvl.fill.height) < 0.5, 'fill matches level bounds exactly (inset: 0)');
+      }
       assert.equal(geometry.boxes.length, 2);
       assert.equal(geometry.images, 0);
       assert.equal(geometry.controls, 0);

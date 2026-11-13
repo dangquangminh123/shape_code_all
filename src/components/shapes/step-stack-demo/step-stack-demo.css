@@ -9,7 +9,7 @@
   --ssd-mask-top: url('/assets/shapes/step-stack-demo/ssd-stack-top.svg');
   --ssd-mask-mid: url('/assets/shapes/step-stack-demo/ssd-stack-mid.svg');
   --ssd-mask-base: url('/assets/shapes/step-stack-demo/ssd-stack-base.svg');
-  --ssd-unit: clamp(0.8px, min(0.083333vw, 0.145dvh), 1.55px);
+  --ssd-unit: clamp(0.8px, min(0.104vw, 0.156dvh), 1.85px);
   --ssd-stack-width: calc(216 * var(--ssd-unit));
   --ssd-stack-height: calc(484.084 * var(--ssd-unit));
   --ssd-top-offset: calc(156 * var(--ssd-unit));
@@ -49,12 +49,12 @@
   content: '';
   position: absolute;
   left: 50%;
-  bottom: -8px;
+  bottom: -6px;
   transform: translateX(-50%);
-  width: 170%;
-  height: 16px;
-  background: radial-gradient(ellipse, rgb(0 0 0 / 18%), rgb(0 0 0 / 5%) 48%, transparent 72%);
-  filter: blur(2px);
+  width: 115%;
+  height: 14px;
+  background: radial-gradient(ellipse, rgb(0 0 0 / 14%), rgb(0 0 0 / 4%) 48%, transparent 70%);
+  filter: blur(3px);
   z-index: 0;
   pointer-events: none;
 }
@@ -116,15 +116,24 @@
 }
 
 .ssd-shape-stroke {
+  display: none;
   background: var(--ssd-stroke);
   z-index: 1;
 }
 
 .ssd-shape-fill {
-  inset: 0.5px;
+  inset: 0;
   background: var(--ssd-fill);
   z-index: 2;
   transition: filter 180ms ease;
+}
+
+.ssd-shape-fill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(255 255 255 / 16%) 0%, transparent 18%);
+  pointer-events: none;
 }
 
 .ssd-shape-content {
@@ -273,7 +282,7 @@
   }
 
   .ssd-stack::after {
-    width: 140%;
+    width: 112%;
   }
 }
 

@@ -7,7 +7,7 @@
   --ih8-ink: #3a4756;
   --ih8-muted: #728092;
   --ih8-core-surface: var(--ih8-canvas);
-  --ih8-max-width: 1180px;
+  --ih8-max-width: 1340px;
   width: 100%;
   max-width: 100%;
   padding: clamp(28px, 5vw, 64px) clamp(12px, 2.5vw, 40px);
@@ -20,7 +20,7 @@
 .ih8-module *, .ih8-module *::before, .ih8-module *::after { box-sizing: border-box; }
 .ih8-layout {
   display: grid;
-  grid-template-columns: minmax(180px, 1fr) minmax(320px, 500px) minmax(180px, 1fr);
+  grid-template-columns: minmax(180px, 1fr) minmax(320px, 580px) minmax(180px, 1fr);
   gap: clamp(12px, 2vw, 32px);
   width: min(100%, var(--ih8-max-width));
   margin-inline: auto;
@@ -118,7 +118,8 @@
   -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
 }
 .ih8-petal__stroke {
-  inset:-1.2%;
+  display: none;
+  inset: 0;
   z-index:0;
   background: var(--ih8-stroke);
   opacity: .75;
@@ -161,12 +162,12 @@
 .ih8-petal.is-active,
 .ih8-petal:focus-visible {
   z-index:4;
-  transform:translateY(-4px) scale(1.035);
-  filter:drop-shadow(0 10px 14px rgba(40,56,80,.25));
+  transform:none;
+  filter:drop-shadow(0 8px 14px rgba(40,56,80,.24));
   outline:none;
 }
 .ih8-petal.is-active .ih8-petal__fill,
-.ih8-petal:focus-visible .ih8-petal__fill { filter:brightness(1.12) saturate(1.13); }
+.ih8-petal:focus-visible .ih8-petal__fill { filter:brightness(1.09) saturate(1.12); }
 .ih8-petal.is-active .ih8-petal__fill::after,
 .ih8-petal:focus-visible .ih8-petal__fill::after { animation:ih8-shine .55s ease-out both; }
 @keyframes ih8-shine { from {transform:translateX(-140%) skewX(-15deg);} to {transform:translateX(140%) skewX(-15deg);} }

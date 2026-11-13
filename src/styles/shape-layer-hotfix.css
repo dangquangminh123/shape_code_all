@@ -1,0 +1,31 @@
+/* Shared-geometry alignment layer across all 5 shape modules:
+   1. Fill and backing stroke share identical bounds (inset: 0) with no rescaled mask rim.
+   2. Oversized or detached dark ground ellipses are suppressed in favor of composite drop-shadows.
+   3. Multi-part joined shapes (HFR6, IH8) highlight via brightness/saturation without separating seams.
+*/
+
+.ssd-wrapper .ssd-level .ssd-shape-stroke,
+.ar5-module .ar5-arrow-ground,
+.ar5-module .ar5-arrow-stroke,
+.ar5-module .ar5-medallion-stroke,
+.ar5-module .ar5-tab-stroke,
+.hfr6 .hfr6-sector__stroke,
+.ih8-module .ih8-petal__stroke {
+  display: none !important;
+}
+
+.ssd-wrapper .ssd-level .ssd-shape-fill,
+.ar5-module .ar5-arrow-fill,
+.ar5-module .ar5-medallion-fill,
+.ar5-module .ar5-tab-fill,
+.hfr6 .hfr6-sector__fill,
+.ih8-module .ih8-petal__fill {
+  inset: 0 !important;
+  top: 0 !important;
+  height: 100% !important;
+}
+
+.ih8-module .ih8-petal.is-active,
+.ih8-module .ih8-petal:focus-visible {
+  transform: none !important;
+}

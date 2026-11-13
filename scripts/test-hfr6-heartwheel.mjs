@@ -45,6 +45,12 @@ try {
           headings: module.querySelectorAll('h1,h2,h3,header,nav').length,
           heartText: module.querySelector('.hfr6-heart').textContent,
           numbers: [...module.querySelectorAll('.hfr6-sector__number')].map(el => el.textContent),
+          strokeDisplays: [...module.querySelectorAll('.hfr6-sector__stroke')].map(el => getComputedStyle(el).display),
+          fillInsets: [...module.querySelectorAll('.hfr6-sector__fill')].map(el => {
+            const s = el.parentElement.getBoundingClientRect();
+            const f = el.getBoundingClientRect();
+            return Math.max(Math.abs(s.width - f.width), Math.abs(s.height - f.height));
+          }),
           masks: [...module.querySelectorAll('.hfr6-sector__fill,.hfr6-heart__shape')].map(el => getComputedStyle(el).maskImage),
           icons: [...module.querySelectorAll('.hfr6-sector__svg-icon')].map(el => ({
             tag: el.tagName.toLowerCase(),
@@ -61,6 +67,8 @@ try {
       assert.equal(layout.overflow, false, `${route}: overflow at ${width}`);
       assert.equal(layout.headings, 0);
       assert.equal(layout.heartText, '');
+      assert.ok(layout.strokeDisplays.every(d => d === 'none'), 'HFR6 separate stroke mask is suppressed');
+      assert.ok(layout.fillInsets.every(delta => delta < 0.5), 'HFR6 sector fill matches 640x640 surface bounds (inset: 0)');
       assert.deepEqual(layout.numbers, ['01', '02', '03', '04', '05', '06']);
       assert.equal(layout.controls, true);
       assert.equal(layout.masks.length, 7);

@@ -38,10 +38,20 @@ try {
             tip: parseFloat(getComputedStyle(el).getPropertyValue('--ar5-arrow-tip')),
             z: Number(getComputedStyle(el).zIndex),
             decoration: [...el.querySelectorAll('.ar5-arrow,.ar5-medallion,.ar5-tab')].every(node => getComputedStyle(node).pointerEvents === 'none'),
+            groundDisplay: getComputedStyle(el.querySelector('.ar5-arrow-ground')).display,
+            strokeDisplays: [...el.querySelectorAll('.ar5-arrow-stroke,.ar5-medallion-stroke,.ar5-tab-stroke')].map(n => getComputedStyle(n).display),
+            arrowFillBox: rect(el.querySelector('.ar5-arrow-fill')),
+            tabFillBox: rect(el.querySelector('.ar5-tab-fill')),
           })),
         };
       })()`);
       assert.equal(layout.overflow, false, `${route} overflow at ${width}`);
+      for (const r of layout.rows) {
+        assert.equal(r.groundDisplay, 'none', 'detached dark ground ellipse is suppressed');
+        assert.ok(r.strokeDisplays.every(d => d === 'none'), 'mismatched stroke masks are suppressed');
+        assert.ok(Math.abs(r.arrow.width - r.arrowFillBox.width) < 0.5 && Math.abs(r.arrow.height - r.arrowFillBox.height) < 0.5, 'arrow fill matches arrow bounds (inset: 0)');
+        assert.ok(Math.abs(r.tab.width - r.tabFillBox.width) < 0.5 && Math.abs(r.tab.height - r.tabFillBox.height) < 0.5, 'tab fill matches tab bounds (inset: 0)');
+      }
       assert.equal(layout.chrome, 0);
       assert.equal(layout.images, 0, 'no reference image / raster icon');
       assert.equal(layout.maskedShapes, 15, 'all five rows use the three supplied masks from the AR5 folder');

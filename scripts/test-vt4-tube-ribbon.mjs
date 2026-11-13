@@ -61,6 +61,11 @@ try {
             const bevel = opt.querySelector('.vt4__bevel--fill').getBoundingClientRect();
             return bevel.left - face.right;
           }),
+          bevelOnRight: options.map(opt => {
+            const optBox = opt.getBoundingClientRect();
+            const bevel = opt.querySelector('.vt4__bevel--fill').getBoundingClientRect();
+            return bevel.left > optBox.left + optBox.width * 0.85 && Math.abs(optBox.right - bevel.right) < 1.5;
+          }),
           masks: ['.vt4__tube-silver', '.vt4__tube-foil', '.vt4__tube-rim', '.vt4__tube-cap', '.vt4__face--fill', '.vt4__bevel--fill']
             .map(sel => getComputedStyle(mod.querySelector(sel)).maskImage || getComputedStyle(mod.querySelector(sel)).webkitMaskImage),
           contentMasks: options.map(opt => getComputedStyle(opt.querySelector('.vt4__option-content')).maskImage),
@@ -71,7 +76,8 @@ try {
       assert.deepEqual(layout.icons.map(i => i.name), ['droplet', 'leaf', 'sparkles', 'shield']);
       assert.ok(layout.icons.every(i => i.tag === 'svg' && i.paths > 0));
       assert.ok(layout.tubeZ > layout.optionsZ);
-      assert.ok(layout.seams.every(gap => gap <= 0.5));
+      assert.ok(layout.seams.every(gap => Math.abs(gap) <= 2), 'VT4 face right edge meets bevel left edge seamlessly');
+      assert.ok(layout.bevelOnRight.every(Boolean), 'VT4 3D bevel is positioned at the right end of each option bar');
       assert.ok(
         layout.masks.every(m => m?.includes('/assets/shapes/vt4-tube-ribbon/')),
         'all rendered VT4 masks use the canonical shapes folder',

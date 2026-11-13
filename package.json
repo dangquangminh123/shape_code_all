@@ -12,7 +12,10 @@
     "test:ar5": "node scripts/test-ar5-arrow-ribbon.mjs",
     "test:hfr6": "node scripts/test-hfr6-heartwheel.mjs",
     "test:vt4": "node scripts/test-vt4-tube-ribbon.mjs",
-    "test:ih8": "node scripts/test-ih8-heart-elements.mjs"
+    "test:ih8": "node scripts/test-ih8-heart-elements.mjs",
+    "test:sr6": "node scripts/test-sr6-startup-rocket.mjs",
+    "test:st7": "node scripts/test-st7-squeeze-tubes.mjs",
+    "verify:sr6": "node scripts/verify-sr6-static.mjs"
   },
   "dependencies": {
     "next": "^15.1.0",
@@ -27,3 +30,4 @@
     "typescript": "^5.7.0"
   }
 }
+

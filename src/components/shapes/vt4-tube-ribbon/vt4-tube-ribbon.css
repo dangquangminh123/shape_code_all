@@ -32,7 +32,7 @@
 }
 .vt4__stage {
   position: relative;
-  width: min(100%, 800px);
+  width: min(100%, 940px);
   aspect-ratio: 800 / 667;
   margin-inline: auto;
   overflow: visible;
@@ -51,10 +51,11 @@
 .vt4__tube::before {
   content: '';
   position: absolute;
-  left: 10.45%;
-  width: 58.15%;
-  top: 80.5%;
-  height: 5.5%;
+  left: 10.5%;
+  width: 58.35%;
+  top: 77.8%;
+  height: 7.7%;
+  clip-path: polygon(0.2% 0, 100% 0, 99.1% 100%, 0 100%);
   background: linear-gradient(90deg, #06060a 0%, #22232b 24%, #09090e 55%, #040407 100%);
   z-index: 2;
   pointer-events: none;
@@ -154,16 +155,22 @@
 }
 .vt4__option-shadow { inset: 0; z-index: 0; background: transparent; }
 .vt4__face {
-  left: 0; width: 92.5%;
+  left: 0; width: 91.6%;
   -webkit-mask: var(--vt4-mask-ribbon-face) center / 100% 100% no-repeat;
   mask: var(--vt4-mask-ribbon-face) center / 100% 100% no-repeat;
 }
 .vt4__face--stroke {
-  z-index: 1; background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.08));
+  z-index: 1;
+  background:
+    linear-gradient(96deg, rgba(8, 12, 18, 0.52) 0%, rgba(8, 12, 18, 0.36) 15%, rgba(8, 12, 18, 0.12) 21%, transparent 26%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.16) 4%, transparent 12%, transparent 88%, rgba(0, 0, 0, 0.22) 96%, rgba(0, 0, 0, 0.34) 100%),
+    linear-gradient(100deg, var(--vt4-start), var(--vt4-end));
 }
 .vt4__face--fill {
   top: 2%; height: 96%; z-index: 2;
-  background: linear-gradient(100deg, var(--vt4-start), var(--vt4-end));
+  background:
+    linear-gradient(96deg, rgba(8, 12, 18, 0.5) 0%, rgba(8, 12, 18, 0.34) 15%, rgba(8, 12, 18, 0.11) 21%, transparent 26%),
+    linear-gradient(100deg, var(--vt4-start), var(--vt4-end));
 }
 .vt4__face--fill::before {
   content: ''; position: absolute; inset: 0 0 auto; height: 24%;
@@ -172,7 +179,7 @@
 }
 .vt4__face--fill::after {
   content: ''; position: absolute; inset: auto 0 0; height: 18%;
-  background: linear-gradient(0deg, rgba(5, 12, 20, 0.11), transparent);
+  background: linear-gradient(0deg, rgba(5, 12, 20, 0.12), transparent);
   pointer-events: none;
 }
 .vt4__bevel {
@@ -180,8 +187,18 @@
   -webkit-mask: var(--vt4-mask-ribbon-bevel) center / 100% 100% no-repeat;
   mask: var(--vt4-mask-ribbon-bevel) center / 100% 100% no-repeat;
 }
-.vt4__bevel--stroke { z-index: 1; background: rgba(12, 18, 25, 0.16); }
-.vt4__bevel--fill { z-index: 2; top: 2%; height: 96%; background: linear-gradient(90deg, var(--vt4-end), var(--vt4-side)); }
+.vt4__bevel--stroke {
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.38) 0%, transparent 14%, transparent 86%, rgba(0, 0, 0, 0.28) 100%),
+    linear-gradient(90deg, var(--vt4-end), var(--vt4-side));
+}
+.vt4__bevel--fill {
+  z-index: 2; top: 2%; height: 96%;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.14) 0%, transparent 12%, transparent 88%, rgba(255, 255, 255, 0.22) 100%),
+    linear-gradient(90deg, var(--vt4-end), var(--vt4-side));
+}
 .vt4__option-content {
   position: relative; z-index: 3;
   display: flex; align-items: center; gap: 3%;
@@ -246,6 +263,14 @@
     display: grid; grid-template-rows: none; gap: 10px;
   }
   .vt4__option { height: 76px; min-height: 76px; }
+  .vt4__face--stroke {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.16) 4%, transparent 12%, transparent 88%, rgba(0, 0, 0, 0.22) 96%, rgba(0, 0, 0, 0.34) 100%),
+      linear-gradient(100deg, var(--vt4-start), var(--vt4-end));
+  }
+  .vt4__face--fill {
+    background: linear-gradient(100deg, var(--vt4-start), var(--vt4-end));
+  }
   .vt4__option-content { padding-left: 8%; gap: 4%; padding-right: 13%; }
   .vt4__option-number { font-size: 32px; }
   .vt4__option-title { font-size: 16px; }

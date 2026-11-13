@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import '../styles/shape-layer-hotfix.css';
 
 export const metadata: Metadata = {
   title: 'Khởi tạo nền tảng – Thực hành & phát triển',

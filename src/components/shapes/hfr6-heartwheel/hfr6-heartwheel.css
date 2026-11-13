@@ -15,7 +15,7 @@
 }
 .hfr6 .hfr6__wheel {
   position: relative;
-  width: min(100%, 760px);
+  width: min(100%, 860px);
   aspect-ratio: 1;
   margin-inline: auto;
   isolation: isolate;
@@ -53,11 +53,12 @@
   -webkit-mask: var(--hfr6-sector-mask) center / 100% 100% no-repeat;
 }
 .hfr6 .hfr6-sector__stroke {
+  display: none;
   background: linear-gradient(132deg, #ffffff55, var(--hfr6-mid) 52%, #0d152822);
   transition: background 240ms ease;
 }
 .hfr6 .hfr6-sector__fill {
-  inset: .13%;
+  inset: 0;
   background: radial-gradient(ellipse at 52% 31%, #ffffff22, transparent 58%), linear-gradient(128deg, var(--hfr6-start), var(--hfr6-mid) 56%, var(--hfr6-end));
   transition: filter 240ms ease;
 }
