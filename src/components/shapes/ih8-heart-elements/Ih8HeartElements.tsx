@@ -94,26 +94,34 @@ export default function Ih8HeartElements({
     }
   }
 
-  const renderCard = (item: Ih8Item) => (
-    <div
-      key={item.step}
-      className={`ih8-info${active === item.step ? ' is-active' : ''}`}
-      data-ih8-step={item.step}
-      role="button"
-      tabIndex={0}
-      aria-pressed={pinned === item.step}
-      aria-label={item.title}
-      onPointerEnter={() => setHovered(item.step)}
-      onPointerLeave={() => setHovered(c => (c === item.step ? null : c))}
-      onFocus={() => setFocused(item.step)}
-      onBlur={() => setFocused(c => (c === item.step ? null : c))}
-      onClick={() => toggle(item.step)}
-      onKeyDown={e => onInfoKey(e, item.step)}
-    >
-      <h3 className="ih8-info__title">{item.title}</h3>
-      <p className="ih8-info__desc">{item.description}</p>
-    </div>
-  );
+  const renderCard = (item: Ih8Item) => {
+    const CardIcon = IH8_REACT_ICONS[item.icon];
+    return (
+      <div
+        key={item.step}
+        className={`ih8-info${active === item.step ? ' is-active' : ''}`}
+        data-ih8-step={item.step}
+        role="button"
+        tabIndex={0}
+        aria-pressed={pinned === item.step}
+        aria-label={item.title}
+        onPointerEnter={() => setHovered(item.step)}
+        onPointerLeave={() => setHovered(c => (c === item.step ? null : c))}
+        onFocus={() => setFocused(item.step)}
+        onBlur={() => setFocused(c => (c === item.step ? null : c))}
+        onClick={() => toggle(item.step)}
+        onKeyDown={e => onInfoKey(e, item.step)}
+      >
+        <h3 className="ih8-info__title">
+          <span className="ih8-info__icon-badge" aria-hidden="true">
+            <CardIcon className="ih8-info__svg-icon" data-ih8-card-icon={item.icon} aria-hidden="true" focusable="false" />
+          </span>
+          <span>{item.title}</span>
+        </h3>
+        <p className="ih8-info__desc">{item.description}</p>
+      </div>
+    );
+  };
 
   const coreStyle: Ih8Style = { '--ih8-core-mask': maskUrl('coreHeart') };
 

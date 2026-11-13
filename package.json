@@ -18,10 +18,12 @@
     "test:s8f": "node scripts/test-s8f-starflow.mjs",
     "test:d8p": "node scripts/test-d8p-diamond-petals.mjs",
     "test:ta4": "node scripts/test-ta4-target-arrow.mjs",
+    "test:wh9": "node scripts/test-wh9-heart-ring.mjs",
     "verify:sr6": "node scripts/verify-sr6-static.mjs",
     "verify:s8f": "node scripts/verify-s8f-assets.mjs",
     "verify:d8p": "node scripts/verify-d8p-assets.mjs",
-    "verify:ta4": "node scripts/verify-ta4-assets.mjs"
+    "verify:ta4": "node scripts/verify-ta4-assets.mjs",
+    "verify:wh9": "node scripts/verify-wh9-assets.mjs"
   },
   "dependencies": {
     "next": "^15.1.0",

@@ -232,9 +232,15 @@
   .st7-module { padding: 16px 8px 32px; min-height: 0; }
   .st7-stage { max-width: 100%; }
   .st7-mobile-details { width:min(100%,460px); margin:6px auto 0; display:grid; gap:6px; color:#1e293b; font-size:12px; }
-  .st7-mobile-details span { background:#f1f5f9; padding: 9px 12px; border-radius: 9px; }
+  .st7-mobile-detail { display:flex; align-items:center; gap:6px; background:#f1f5f9; padding: 9px 12px; border-radius: 9px; }
+  .st7-mobile-detail__icon { width: 15px; height: 15px; flex: 0 0 auto; color: #4f46e5; }
+  .st7-mobile-detail--02 .st7-mobile-detail__icon { color: #e11d48; }
+  .st7-mobile-detail--03 .st7-mobile-detail__icon { color: #059669; }
+  .st7-mobile-detail__num { font-weight: 800; font-variant-numeric: tabular-nums; }
+  .st7-mobile-detail__sep { width: 13px; height: 13px; flex: 0 0 auto; opacity: 0.55; }
+  .st7-mobile-detail__text { min-width: 0; }
   .st7-module--reference .st7-mobile-details { color:#1e293b; }
-  .st7-module--reference .st7-mobile-details span { background:#f1f5f9; }
+  .st7-module--reference .st7-mobile-detail { background:#f1f5f9; }
 }
 @media (prefers-reduced-motion: reduce) {
   .st7-tube-visual, .st7-tube-band, .st7-marker { transition:none; }

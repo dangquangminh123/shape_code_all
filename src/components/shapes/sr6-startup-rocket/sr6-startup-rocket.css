@@ -69,7 +69,9 @@
 .sr6-timeline__pin:hover, .sr6-timeline__step.is-active .sr6-timeline__pin { transform: scale(1.1); filter: brightness(1.1); box-shadow: 0 5px 19px rgb(15 23 42 / 25%); }
 .sr6-timeline__pin:focus-visible { outline: 2px solid #334155; outline-offset: 4px; }
 .sr6-timeline__copy { position: absolute; left: var(--sr6-copy-x); top: var(--sr6-copy-y); max-width: min(53%, 360px); pointer-events: auto; transition: transform .22s ease; }
-.sr6-timeline__copy h3 { margin: 0 0 6px; color: var(--sr6-accent); font-size: clamp(15px, 1.8vw, 22px); font-weight: 750; line-height: 1.2; }
+.sr6-timeline__copy h3 { display: inline-flex; align-items: center; gap: 7px; margin: 0 0 6px; color: var(--sr6-accent); font-size: clamp(15px, 1.8vw, 22px); font-weight: 750; line-height: 1.2; }
+.sr6-timeline__title-icon { display: inline-flex; align-items: center; justify-content: center; width: 1.38em; height: 1.38em; border-radius: 6px; background: color-mix(in srgb, var(--sr6-accent) 12%, transparent); color: var(--sr6-accent); flex: 0 0 auto; }
+.sr6-timeline__title-icon svg { width: 0.82em; height: 0.82em; display: block; }
 .sr6-timeline__copy p { margin: 0; color: var(--sr6-body-text); font-size: clamp(12px, 1.3vw, 15.5px); line-height: 1.46; max-width: 34ch; }
 .sr6-timeline__step.is-active .sr6-timeline__copy { transform: translateX(5px); }
 

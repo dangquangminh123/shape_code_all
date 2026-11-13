@@ -106,39 +106,47 @@ export default function Sr6StartupRocket({
                 strokeLinecap="round"
               />
             </svg>
-            {SR6_STEPS.map((step, index) => (
-              <div
-                className={`sr6-timeline__step sr6-timeline__step--0${step.id}${active === step.id ? ' is-active' : ''}`}
-                data-sr6-step={step.id}
-                key={step.id}
-              >
-                <button
-                  ref={(el) => { pinRefs.current[index] = el; }}
-                  type="button"
-                  className="sr6-timeline__pin"
+            {SR6_STEPS.map((step, index) => {
+              const StepIcon = ICONS[step.icon];
+              return (
+                <div
+                  className={`sr6-timeline__step sr6-timeline__step--0${step.id}${active === step.id ? ' is-active' : ''}`}
                   data-sr6-step={step.id}
-                  aria-label={`${step.number}. ${step.title}`}
-                  aria-pressed={selected === step.id}
-                  aria-describedby={`${uid}-sr6-desc-${step.id}`}
-                  onPointerEnter={() => setHovered(step.id)}
-                  onPointerLeave={() => setHovered(null)}
-                  onFocus={() => setFocused(step.id)}
-                  onBlur={() => setFocused(null)}
-                  onClick={() => toggle(step.id)}
-                  onKeyDown={(event) => handleKeyDown(event, index)}
+                  key={step.id}
                 >
-                  {step.number}
-                </button>
-                <article
-                  className="sr6-timeline__copy"
-                  onPointerEnter={() => setHovered(step.id)}
-                  onPointerLeave={() => setHovered(null)}
-                >
-                  <h3>{step.title}</h3>
-                  <p id={`${uid}-sr6-desc-${step.id}`}>{step.description}</p>
-                </article>
-              </div>
-            ))}
+                  <button
+                    ref={(el) => { pinRefs.current[index] = el; }}
+                    type="button"
+                    className="sr6-timeline__pin"
+                    data-sr6-step={step.id}
+                    aria-label={`${step.number}. ${step.title}`}
+                    aria-pressed={selected === step.id}
+                    aria-describedby={`${uid}-sr6-desc-${step.id}`}
+                    onPointerEnter={() => setHovered(step.id)}
+                    onPointerLeave={() => setHovered(null)}
+                    onFocus={() => setFocused(step.id)}
+                    onBlur={() => setFocused(null)}
+                    onClick={() => toggle(step.id)}
+                    onKeyDown={(event) => handleKeyDown(event, index)}
+                  >
+                    {step.number}
+                  </button>
+                  <article
+                    className="sr6-timeline__copy"
+                    onPointerEnter={() => setHovered(step.id)}
+                    onPointerLeave={() => setHovered(null)}
+                  >
+                    <h3>
+                      <span className="sr6-timeline__title-icon" aria-hidden="true">
+                        <StepIcon aria-hidden="true" focusable="false" />
+                      </span>
+                      <span>{step.title}</span>
+                    </h3>
+                    <p id={`${uid}-sr6-desc-${step.id}`}>{step.description}</p>
+                  </article>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

@@ -113,8 +113,19 @@
   background: rgba(255, 255, 255, 0.82);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06);
 }
-.vt4__tube-label::before { margin-bottom: 0.25em; }
-.vt4__tube-label::after { margin-top: 0.25em; }
+.vt4__tube-label::before { margin-bottom: 0.2em; }
+.vt4__tube-label::after { margin-top: 0.2em; }
+.vt4__tube-emblem {
+  width: clamp(12px, 2.2cqw, 18px);
+  height: clamp(12px, 2.2cqw, 18px);
+  color: #4f46e5;
+  flex: 0 0 auto;
+  margin-bottom: 0.08em;
+}
+.vt4--silver-red .vt4__tube-emblem,
+.vt4--silver-red .vt4__tube-caption {
+  color: #b6203b;
+}
 .vt4__tube-brand {
   font-size: clamp(14px, 4.1cqw, 33px);
   line-height: 1; font-weight: 800; letter-spacing: -0.045em;
@@ -219,8 +230,15 @@
   font-size: clamp(11px, 2.6cqw, 21px); font-weight: 500; line-height: 1.05;
   white-space: nowrap;
 }
-.vt4__option-icon, .vt4__option-title i {
-  width: 0.68em; height: 0.68em; font-size: 0.68em; flex: none; display: inline-block;
+.vt4__option-icon {
+  width: 0.72em; height: 0.72em; font-size: 0.72em; flex: none; display: inline-block;
+}
+.vt4__option-chevron {
+  margin-left: auto;
+  width: clamp(13px, 2.1cqw, 18px);
+  height: clamp(13px, 2.1cqw, 18px);
+  opacity: 0.82;
+  flex: 0 0 auto;
 }
 .vt4__option-sub {
   font-size: clamp(8px, 1.63cqw, 13px);

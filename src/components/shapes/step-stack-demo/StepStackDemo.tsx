@@ -1,11 +1,20 @@
 'use client';
 
 import React, { useId, useState } from 'react';
+import type { IconType } from 'react-icons';
+import { LuCompass, LuLayers, LuRocket } from 'react-icons/lu';
 import './step-stack-demo.css';
 import {
   STEP_STACK_LEVELS,
   STEP_STACK_CONTENTS,
+  type StepStackIconKey,
 } from './step-stack-demo.config';
+
+const SSD_ICONS: Record<StepStackIconKey, IconType> = {
+  compass: LuCompass,
+  rocket: LuRocket,
+  layers: LuLayers,
+};
 
 export default function StepStackDemo() {
   const instanceId = useId();
@@ -27,6 +36,7 @@ export default function StepStackDemo() {
           <div className="ssd-stack" aria-label="3 tầng phát triển">
             {STEP_STACK_LEVELS.map((item) => {
               const isActive = activeStep === item.step;
+              const LevelIcon = SSD_ICONS[item.icon];
               return (
                 <div
                   key={item.step}
@@ -43,6 +53,7 @@ export default function StepStackDemo() {
                   <span className="ssd-shape-stroke" aria-hidden="true" />
                   <span className="ssd-shape-fill" aria-hidden="true" />
                   <div className="ssd-shape-content" aria-hidden="true">
+                    <LevelIcon className="ssd-level-icon" data-ssd-icon={item.icon} aria-hidden="true" focusable="false" />
                     <span className="ssd-no">{item.numberLabel}</span>
                   </div>
                 </div>
@@ -53,6 +64,7 @@ export default function StepStackDemo() {
           <div className="ssd-content-col">
             {STEP_STACK_CONTENTS.map((box) => {
               const isActive = activeStep === box.step;
+              const ContentIcon = SSD_ICONS[box.icon];
               return (
                 <article
                   key={box.step}
@@ -62,7 +74,12 @@ export default function StepStackDemo() {
                   aria-labelledby={`${instanceId}-title-${box.step}`}
                   {...interactionProps(box.step)}
                 >
-                  <h3 id={`${instanceId}-title-${box.step}`}>{box.title}</h3>
+                  <h3 id={`${instanceId}-title-${box.step}`}>
+                    <span className="ssd-title-badge" aria-hidden="true">
+                      <ContentIcon className="ssd-title-icon" data-ssd-content-icon={box.icon} aria-hidden="true" focusable="false" />
+                    </span>
+                    <span>{box.title}</span>
+                  </h3>
                   <p id={`${instanceId}-content-${box.step}`}>{box.description}</p>
                 </article>
               );

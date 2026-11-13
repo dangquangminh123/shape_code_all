@@ -139,8 +139,24 @@
 
 .ssd-shape-content {
   z-index: 3;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: calc(4 * var(--ssd-unit));
+}
+
+.ssd-level-icon {
+  width: calc(20 * var(--ssd-unit));
+  height: calc(20 * var(--ssd-unit));
+  color: rgb(248 250 252 / 90%);
+  flex: 0 0 auto;
+  display: block;
+}
+
+.ssd-level.level-3 .ssd-level-icon {
+  width: calc(24 * var(--ssd-unit));
+  height: calc(24 * var(--ssd-unit));
 }
 
 /* The top number sits below the diagonal, not at the bounding-box centre. */
@@ -155,7 +171,7 @@
 
 .ssd-no {
   color: #f8fafc;
-  font-size: calc(62 * var(--ssd-unit));
+  font-size: calc(54 * var(--ssd-unit));
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   line-height: 1;
@@ -163,7 +179,7 @@
 }
 
 .ssd-level.level-3 .ssd-no {
-  font-size: calc(72 * var(--ssd-unit));
+  font-size: calc(64 * var(--ssd-unit));
 }
 
 /* Exactly two staggered content blocks; no bottom-right content or image. */
@@ -192,12 +208,33 @@
 }
 
 .ssd-content-box h3 {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   margin: 0 0 6px;
   font-size: calc(21 * var(--ssd-unit));
   font-weight: 700;
   line-height: 1.25;
   color: var(--ssd-title-color);
   transition: filter 180ms ease;
+}
+
+.ssd-title-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.45em;
+  height: 1.45em;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--ssd-title-color) 11%, transparent);
+  color: var(--ssd-title-color);
+  flex: 0 0 auto;
+}
+
+.ssd-title-icon {
+  width: 0.92em;
+  height: 0.92em;
+  display: block;
 }
 
 .ssd-content-box p {

@@ -3,7 +3,7 @@ import Ih8HeartElementsSection from '@/components/shapes/ih8-heart-elements/Ih8H
 
 export const metadata: Metadata = {
   title: 'IH8 — Heart Elements',
-  description: 'Infographic 8 mảnh ghép hình trái tim kết hợp lõi tim trắng và icon Font Awesome Free 6.7.2.',
+  description: 'Infographic 8 mảnh ghép hình trái tim kết hợp lõi tim trắng và React/Next.js Icons.',
 };
 
 export default async function Ih8HeartElementsPage({

@@ -2,6 +2,7 @@
 
 import { useId, useRef, useState, type KeyboardEvent } from 'react';
 import { FaCompassDrafting, FaGem, FaChartLine } from 'react-icons/fa6';
+import { LuChevronRight } from 'react-icons/lu';
 import { ST7_ROWS, type St7Theme } from './st7-squeeze-tubes.config';
 import './st7-squeeze-tubes.css';
 
@@ -98,7 +99,17 @@ export default function St7SqueezeTubes({
         })}
       </div>
       <div className="st7-mobile-details" aria-hidden="true">
-        {ST7_ROWS.map(row => <span key={row.number}>{row.number} · {row.description}</span>)}
+        {ST7_ROWS.map((row, index) => {
+          const RowIcon = ROW_ICONS[index];
+          return (
+            <span key={row.number} className={`st7-mobile-detail st7-mobile-detail--${row.number}`}>
+              <RowIcon className="st7-mobile-detail__icon" aria-hidden="true" focusable="false" />
+              <strong className="st7-mobile-detail__num">{row.number}</strong>
+              <LuChevronRight className="st7-mobile-detail__sep" aria-hidden="true" focusable="false" />
+              <span className="st7-mobile-detail__text">{row.description}</span>
+            </span>
+          );
+        })}
       </div>
     </section>
   );

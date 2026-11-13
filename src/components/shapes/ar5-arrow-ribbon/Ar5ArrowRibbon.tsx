@@ -1,6 +1,7 @@
 'use client';
 
 import { useId, useRef, useState, type CSSProperties, type KeyboardEvent } from 'react';
+import { LuArrowUpRight } from 'react-icons/lu';
 import Ar5Icon from './Ar5Icon';
 import { AR5_ROWS, type Ar5Masks } from './ar5-arrow-ribbon.config';
 import './ar5-arrow-ribbon.css';
@@ -77,7 +78,10 @@ export default function Ar5ArrowRibbon({ masks = {}, theme = 'color', clean = fa
             </div>
             <div className="ar5-arrow-content">
               <div className="ar5-arrow-copy">
-                <h3 className="ar5-arrow-title" id={`${instanceId}-title-${item.number}`}>{item.title}</h3>
+                <h3 className="ar5-arrow-title" id={`${instanceId}-title-${item.number}`}>
+                  <span>{item.title}</span>
+                  <LuArrowUpRight className="ar5-arrow-title-icon" aria-hidden="true" focusable="false" />
+                </h3>
                 <p className="ar5-arrow-desc" id={`${instanceId}-desc-${item.number}`}>{item.description}</p>
               </div>
               <span className="ar5-arrow-number" aria-hidden="true">{item.number}</span>

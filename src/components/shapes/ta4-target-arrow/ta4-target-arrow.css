@@ -214,12 +214,25 @@
 }
 
 .ta4-callout__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
   font-size: clamp(9px, 1.2vw, 12.5px);
   font-weight: 500;
   line-height: 1.08;
   letter-spacing: 0.06em;
   color: #3b4854;
   text-transform: uppercase;
+}
+
+.ta4-callout__eyebrow-icon {
+  width: 0.96em;
+  height: 0.96em;
+  flex: 0 0 auto;
+  color: #c12d1a;
+}
+.ta4-module--modern .ta4-callout__eyebrow-icon {
+  color: #4f46e5;
 }
 
 .ta4-callout__title {
@@ -233,6 +246,8 @@
 
 .ta4-callout__badge {
   display: inline-flex;
+  align-items: center;
+  gap: 3px;
   align-self: flex-start;
   padding: 2px 6px;
   border-radius: 4px;
@@ -240,6 +255,20 @@
   font-weight: 700;
   background: #f1f5f9;
   color: #0f172a;
+}
+
+.ta4-callout__badge-icon {
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+  color: #c12d1a;
+}
+
+.ta4-callout__sep {
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+  opacity: 0.6;
 }
 
 .ta4-callout__desc {
@@ -320,7 +349,8 @@
 .ta4-mobile-card--amber .ta4-mobile-card__icon { background: linear-gradient(135deg, #f5cf2e, #cc960e); }
 
 .ta4-mobile-card__body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.ta4-mobile-card__body strong { font-size: 13.5px; font-weight: 700; color: #0f172a; }
+.ta4-mobile-card__body strong { display: inline-flex; align-items: center; gap: 3px; font-size: 13.5px; font-weight: 700; color: #0f172a; }
+.ta4-mobile-card__sep { width: 13px; height: 13px; flex: 0 0 auto; opacity: 0.55; }
 .ta4-mobile-card__body small { font-size: 12px; line-height: 1.38; color: #475569; }
 
 @media (max-width: 820px) {

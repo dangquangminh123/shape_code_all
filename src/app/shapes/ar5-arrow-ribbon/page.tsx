@@ -3,7 +3,7 @@ import Ar5ArrowRibbonSection from '@/components/shapes/ar5-arrow-ribbon/Ar5Arrow
 
 export const metadata: Metadata = {
   title: 'AR5 — Arrow Ribbon',
-  description: 'Năm hàng mũi tên gradient độc lập, huy hiệu bạc và icon SVG.',
+  description: 'Năm hàng mũi tên gradient độc lập, huy hiệu bạc và React/Next.js Icons.',
 };
 
 export default function Ar5ArrowRibbonPage() {

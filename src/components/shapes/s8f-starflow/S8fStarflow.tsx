@@ -2,6 +2,7 @@
 
 import { useRef, useState, type CSSProperties, type KeyboardEvent } from 'react';
 import { FaChartColumn, FaDollarSign, FaHandshake, FaLightbulb, FaUsers } from 'react-icons/fa6';
+import { LuChevronRight, LuSparkles } from 'react-icons/lu';
 import { S8F_SECTORS, type S8fTheme } from './s8f-starflow.config';
 import { S8F_SECTOR_PATHS, S8F_SEAM_PATHS, S8F_STAR_POINTS } from './s8f-starflow.geometry';
 import './s8f-starflow.css';
@@ -82,6 +83,9 @@ export default function S8fStarflow({
         <div className="s8f-star" aria-hidden="true">
           <span className="s8f-star__skin"><span className="s8f-star__surface" /></span>
           <div className="s8f-star__copy">
+            <div className="s8f-star__emblem" aria-hidden="true">
+              <LuSparkles aria-hidden="true" focusable="false" />
+            </div>
             <strong>{coreTitle}</strong>
             <span>{coreSubtitle}</span>
             <small>{coreDescription}</small>
@@ -132,8 +136,15 @@ export default function S8fStarflow({
               className={`s8f-mobile-card s8f-mobile-card--${item.css}${active === i ? ' s8f-mobile-card--active' : ''}`}
               aria-pressed={selected === i}
               onClick={() => setSelected(old => (old === i ? null : i))}>
-              <Icon aria-hidden={true} />
-              <span><strong>{item.number} · {item.title}</strong><small>{item.description}</small></span>
+              <Icon className="s8f-mobile-card__icon" aria-hidden={true} focusable="false" />
+              <span className="s8f-mobile-card__body">
+                <strong className="s8f-mobile-card__heading">
+                  <em className="s8f-mobile-card__num">{item.number}</em>
+                  <LuChevronRight className="s8f-mobile-card__sep" aria-hidden="true" focusable="false" />
+                  <b>{item.title}</b>
+                </strong>
+                <small>{item.description}</small>
+              </span>
             </button>
           );
         })}

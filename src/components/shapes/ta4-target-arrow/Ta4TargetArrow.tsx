@@ -2,6 +2,7 @@
 
 import { useRef, useState, type CSSProperties, type KeyboardEvent } from 'react';
 import { FaClipboardCheck, FaClock, FaLock, FaRegLightbulb } from 'react-icons/fa6';
+import { LuChevronRight, LuTarget } from 'react-icons/lu';
 import { TA4_BANNERS, type Ta4IconKey, type Ta4Theme } from './ta4-target-arrow.config';
 import {
   TA4_BANNERS_GEOMETRY,
@@ -211,13 +212,22 @@ export default function Ta4TargetArrow({
         })}
 
         <div className="ta4-callout" aria-live="polite">
-          <span className="ta4-callout__eyebrow">{calloutEyebrow}</span>
+          <span className="ta4-callout__eyebrow">
+            <LuTarget className="ta4-callout__eyebrow-icon" aria-hidden="true" focusable="false" />
+            <span>{calloutEyebrow}</span>
+          </span>
           <strong className="ta4-callout__title">{calloutTitle}</strong>
-          {activeItem && (
-            <span className="ta4-callout__badge">
-              {activeItem.optionLabel} · {activeItem.subtitle}
-            </span>
-          )}
+          {activeItem && (() => {
+            const ActiveIcon = ICONS[activeItem.icon];
+            return (
+              <span className="ta4-callout__badge">
+                <ActiveIcon className="ta4-callout__badge-icon" aria-hidden="true" focusable="false" />
+                <span>{activeItem.optionLabel}</span>
+                <LuChevronRight className="ta4-callout__sep" aria-hidden="true" focusable="false" />
+                <span>{activeItem.subtitle}</span>
+              </span>
+            );
+          })()}
           <p className="ta4-callout__desc">
             {activeItem ? activeItem.detail : calloutSummary}
           </p>
@@ -247,7 +257,11 @@ export default function Ta4TargetArrow({
               aria-pressed={selected === i} onClick={() => setSelected(prev => (prev === i ? null : i))}>
               <span className="ta4-mobile-card__icon"><Icon aria-hidden={true} /></span>
               <span className="ta4-mobile-card__body">
-                <strong>{item.optionLabel} · {item.subtitle}</strong>
+                <strong className="ta4-mobile-card__heading">
+                  <span>{item.optionLabel}</span>
+                  <LuChevronRight className="ta4-mobile-card__sep" aria-hidden="true" focusable="false" />
+                  <span>{item.subtitle}</span>
+                </strong>
                 <small>{item.detail}</small>
               </span>
             </button>

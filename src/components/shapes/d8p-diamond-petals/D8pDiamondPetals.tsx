@@ -5,6 +5,7 @@ import {
   FaBullseye, FaChartLine, FaEnvelope, FaGears,
   FaHandHoldingDollar, FaHandshake, FaPiggyBank, FaRegLightbulb, FaUserTie,
 } from 'react-icons/fa6';
+import { LuChevronRight } from 'react-icons/lu';
 import { D8P_PETALS, type D8pIconKey, type D8pTheme } from './d8p-diamond-petals.config';
 import {
   D8P_CENTER_CIRCLE_PATH, D8P_HALF_FOLD_POLYGONS, D8P_PETAL_PATHS, D8P_RADIAL_ANCHORS,
@@ -165,7 +166,11 @@ export default function D8pDiamondPetals({
               aria-pressed={selected === i} onClick={() => setSelected(prev => (prev === i ? null : i))}>
               <span className="d8p-mobile-card__icon"><Icon aria-hidden={true} /></span>
               <span className="d8p-mobile-card__body">
-                <strong>{item.number} · {item.title}</strong>
+                <strong className="d8p-mobile-card__heading">
+                  <span>{item.number}</span>
+                  <LuChevronRight className="d8p-mobile-card__sep" aria-hidden="true" focusable="false" />
+                  <span>{item.title}</span>
+                </strong>
                 <small>{item.description}</small>
               </span>
             </button>

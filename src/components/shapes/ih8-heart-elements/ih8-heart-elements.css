@@ -56,12 +56,34 @@
   -webkit-tap-highlight-color: transparent;
 }
 .ih8-info__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   color: var(--ih8-accent);
   font-size: clamp(12px, 1.05vw, 15px);
   font-weight: 800;
   letter-spacing: .045em;
   line-height: 1.2;
   margin: 0 0 6px;
+}
+.ih8-side--left .ih8-info__title {
+  flex-direction: row-reverse;
+}
+.ih8-info__icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.45em;
+  height: 1.45em;
+  border-radius: 5px;
+  background: color-mix(in srgb, var(--ih8-accent) 12%, transparent);
+  color: var(--ih8-accent);
+  flex: 0 0 auto;
+}
+.ih8-info__svg-icon {
+  width: 0.85em;
+  height: 0.85em;
+  display: block;
 }
 .ih8-info__desc {
   color: var(--ih8-muted);
@@ -275,14 +297,10 @@
   white-space:nowrap;
 }
 .ih8-core__stars { display:flex;justify-content:center;gap:3px;margin-top:8px; color:#f59e0b; }
-.ih8-core__stars svg,
-.ih8-core__stars img {
+.ih8-core__stars svg {
   width:clamp(6px,.7vw,9px);
   height:clamp(6px,.7vw,9px);
   display:block;
-}
-.ih8-core__stars img {
-  filter:invert(38%) sepia(88%) saturate(2789%) hue-rotate(342deg) brightness(105%) contrast(100%);
 }
 
 /* Alternative coordinated palette: white / silver / controlled crimson. */
@@ -331,6 +349,7 @@
   .ih8-side--right {grid-area:right;}
   .ih8-info {align-self:stretch; min-height:86px;padding:11px 7px;border:1px solid rgba(148,163,184,.16);background:#fff;}
   .ih8-side--left .ih8-info {text-align:left;}
+  .ih8-side--left .ih8-info__title {flex-direction:row;}
   .ih8-side--left .ih8-info__desc {margin-left:0;}
   .ih8-info__title {font-size:clamp(11px,2.4vw,13px);}
   .ih8-info__desc {font-size:clamp(10px,2.4vw,12px);line-height:1.45;}

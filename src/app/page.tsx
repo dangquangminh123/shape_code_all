@@ -8,6 +8,7 @@ import St7SqueezeTubes from '@/components/shapes/st7-squeeze-tubes/St7SqueezeTub
 import S8fStarflow from '@/components/shapes/s8f-starflow/S8fStarflow';
 import D8pDiamondPetals from '@/components/shapes/d8p-diamond-petals/D8pDiamondPetals';
 import Ta4TargetArrow from '@/components/shapes/ta4-target-arrow/Ta4TargetArrow';
+import Wh9HeartRing from '@/components/shapes/wh9-heart-ring/Wh9HeartRing';
 
 export default function HomePage() {
   return (
@@ -22,6 +23,7 @@ export default function HomePage() {
       <S8fStarflow theme="reference" />
       <D8pDiamondPetals theme="reference" />
       <Ta4TargetArrow theme="reference" />
+      <Wh9HeartRing theme="reference" />
     </>
   );
 }

@@ -10,6 +10,7 @@ import {
   FaLocationArrow,
   FaMicrochip,
 } from 'react-icons/fa6';
+import { LuHeartHandshake } from 'react-icons/lu';
 import { HFR6_HEART_PATH, HFR6_ITEMS, hfr6FallbackMask, type Hfr6IconName, type Hfr6Masks, type Hfr6Step, type Hfr6Theme } from './hfr6-heartwheel.config';
 import './hfr6-heartwheel.css';
 
@@ -118,7 +119,10 @@ export default function Hfr6Heartwheel({ masks = EMPTY_MASKS, theme = 'color' }:
           ))}
           <path className="hfr6-hitmap__heart-guard" d={HFR6_HEART_PATH} aria-hidden="true" onPointerEnter={() => setHovered(null)} />
         </svg>
-        <div className="hfr6-heart" style={heartStyle} aria-hidden="true"><span className="hfr6-heart__shape" /></div>
+        <div className="hfr6-heart" style={heartStyle} aria-hidden="true">
+          <span className="hfr6-heart__shape" />
+          <LuHeartHandshake className="hfr6-heart__emblem" aria-hidden="true" focusable="false" />
+        </div>
       </div>
       <div className="hfr6-mobile" role="group" aria-label="Danh sách sáu nội dung">
         {HFR6_ITEMS.map((item, index) => {

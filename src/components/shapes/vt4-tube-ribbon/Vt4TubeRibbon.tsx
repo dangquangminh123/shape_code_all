@@ -8,6 +8,7 @@ import {
   FaSeedling,
   FaUserShield,
 } from 'react-icons/fa6';
+import { LuChevronRight, LuSparkles } from 'react-icons/lu';
 import {
   VT4_ASSET_BASE,
   VT4_MASK_FILES,
@@ -103,6 +104,7 @@ export default function Vt4TubeRibbon({ masks = {}, theme = 'colorful' }: Vt4Pro
           <span className="vt4__tube-rim" />
           <span className="vt4__tube-cap" />
           <div className="vt4__tube-label">
+            <LuSparkles className="vt4__tube-emblem" aria-hidden="true" focusable="false" />
             <span className="vt4__tube-brand">BRAND</span>
             <span className="vt4__tube-caption">PRODUCT OPTIONS</span>
           </div>
@@ -144,6 +146,7 @@ export default function Vt4TubeRibbon({ masks = {}, theme = 'colorful' }: Vt4Pro
                     </span>
                     <span className="vt4__option-sub">{item.subtitle}</span>
                   </span>
+                  <LuChevronRight className="vt4__option-chevron" aria-hidden="true" focusable="false" />
                 </span>
               </button>
             );

@@ -11,6 +11,7 @@ const scripts = [
   'scripts/test-s8f-starflow.mjs',
   'scripts/test-d8p-diamond-petals.mjs',
   'scripts/test-ta4-target-arrow.mjs',
+  'scripts/test-wh9-heart-ring.mjs',
 ];
 
 function runScript(script) {
@@ -34,7 +35,7 @@ function runScript(script) {
 }
 
 await Promise.all(scripts.slice(0, 4).map(runScript));
-await Promise.all(scripts.slice(4, 7).map(runScript));
-await Promise.all(scripts.slice(7).map(runScript));
-console.log('PASS all 10 shape UI test suites');
+await Promise.all(scripts.slice(4, 8).map(runScript));
+await Promise.all(scripts.slice(8).map(runScript));
+console.log('PASS all 11 shape UI test suites');
 
