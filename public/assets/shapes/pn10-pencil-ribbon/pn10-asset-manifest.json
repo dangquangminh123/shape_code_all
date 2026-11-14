@@ -1,0 +1,209 @@
+{
+  "module": "pn10-pencil-ribbon",
+  "artboard": [
+    980,
+    720
+  ],
+  "normalization": "Crop each original visible path/polygon to its browser-measured bounds + 1.5 SVG units. No path transforms or tracing.",
+  "assets": [
+    {
+      "file": "pn10-pencil-full-silhouette.svg",
+      "original": "originals/shape chai.svg",
+      "role": "One master mask for all five pencil bands",
+      "viewBox": [
+        1500,
+        68.3,
+        1000,
+        2363.3999
+      ],
+      "bounds": {
+        "x": 1501.5,
+        "y": 69.80000305175781,
+        "width": 997,
+        "height": 2360.39990234375
+      },
+      "padding": 1.5
+    },
+    {
+      "file": "pn10-pencil-shoulder-silhouette.svg",
+      "original": "originals/shape 1.svg",
+      "role": "White cap and shoulder, clipped inside pencil",
+      "viewBox": [
+        1055.3003,
+        421.6,
+        2057,
+        1594.9679
+      ],
+      "bounds": {
+        "x": 1056.80029296875,
+        "y": 423.1000061035156,
+        "width": 2054,
+        "height": 1591.9678955078125
+      },
+      "padding": 1.5
+    },
+    {
+      "file": "pn10-pencil-foot-mask.svg",
+      "original": "originals/shape 8.svg",
+      "role": "White pencil foot",
+      "viewBox": [
+        279.0002,
+        1029.9,
+        3441.9001,
+        440.4
+      ],
+      "bounds": {
+        "x": 280.50018310546875,
+        "y": 1031.4000244140625,
+        "width": 3438.900146484375,
+        "height": 437.4000244140625
+      },
+      "padding": 1.5
+    },
+    {
+      "file": "pn10-metal-u-rail-mask.svg",
+      "original": "originals/shape 9.svg",
+      "role": "Metal U rail between pencil and ribbons",
+      "viewBox": [
+        1350,
+        82.5,
+        327.1002,
+        2335.0002
+      ],
+      "bounds": {
+        "x": 1351.5,
+        "y": 83.99996948242188,
+        "width": 324.1002197265625,
+        "height": 2332.000244140625
+      },
+      "padding": 1.5
+    },
+    {
+      "file": "pn10-ribbon-arrow-main-mask.svg",
+      "original": "originals/shape 10.svg",
+      "role": "Identical complete arrow mask used by all five rows",
+      "viewBox": [
+        383.1999,
+        918.6,
+        3266.2,
+        662.5999
+      ],
+      "bounds": {
+        "x": 384.6999206542969,
+        "y": 920.1000366210938,
+        "width": 3263.199951171875,
+        "height": 659.5999145507812
+      },
+      "padding": 1.5
+    },
+    {
+      "file": "pn10-relief-band-01.svg",
+      "original": "originals/shape 2.svg",
+      "role": "Relief inside arrow 1",
+      "viewBox": [
+        582.8998,
+        496.6001,
+        2834.4004,
+        1418.4999
+      ],
+      "bounds": {
+        "x": 584.3998413085938,
+        "y": 498.1000671386719,
+        "width": 2831.400390625,
+        "height": 1415.4998779296875
+      },
+      "padding": 1.5
+    },
+    {
+      "file": "pn10-relief-band-02.svg",
+      "original": "originals/shape 3.svg",
+      "role": "Relief inside arrow 2",
+      "viewBox": [
+        785.9,
+        687.8929,
+        2428.0002,
+        1176.6935
+      ],
+      "bounds": {
+        "x": 787.4000244140625,
+        "y": 689.3929443359375,
+        "width": 2425.000244140625,
+        "height": 1173.6934814453125
+      },
+      "padding": 1.5
+    },
+    {
+      "file": "pn10-relief-band-03.svg",
+      "original": "originals/shape 4.svg",
+      "role": "Relief inside arrow 3",
+      "viewBox": [
+        379.1,
+        446.4964,
+        3241.9229,
+        1454.356
+      ],
+      "bounds": {
+        "x": 380.6000061035156,
+        "y": 447.9963684082031,
+        "width": 3238.9228515625,
+        "height": 1451.35595703125
+      },
+      "padding": 1.5
+    },
+    {
+      "file": "pn10-relief-band-04.svg",
+      "original": "originals/shape 5.svg",
+      "role": "Relief inside arrow 4",
+      "viewBox": [
+        611.2,
+        644.7958,
+        2697.2024,
+        1210.3362
+      ],
+      "bounds": {
+        "x": 612.7000122070312,
+        "y": 646.2957763671875,
+        "width": 2694.202392578125,
+        "height": 1207.336181640625
+      },
+      "padding": 1.5,
+      "note": "Excluded stray ellipse at (-432.3, -514.5), outside original artboard. Main path unchanged; original file preserved intact."
+    },
+    {
+      "file": "pn10-relief-band-05.svg",
+      "original": "originals/shape 6.svg",
+      "role": "Relief inside arrow 5",
+      "viewBox": [
+        788.3,
+        398.2439,
+        2423.4272,
+        1697.9753
+      ],
+      "bounds": {
+        "x": 789.800048828125,
+        "y": 399.7438659667969,
+        "width": 2420.42724609375,
+        "height": 1694.975341796875
+      },
+      "padding": 1.5
+    },
+    {
+      "file": "pn10-relief-band-06-optional.svg",
+      "original": "originals/shape 7.svg",
+      "role": "Reserved relief; not rendered",
+      "viewBox": [
+        581.2999,
+        665.5001,
+        2847.6001,
+        1174.3
+      ],
+      "bounds": {
+        "x": 582.7999267578125,
+        "y": 667.0000610351562,
+        "width": 2844.60009765625,
+        "height": 1171.300048828125
+      },
+      "padding": 1.5
+    }
+  ]
+}

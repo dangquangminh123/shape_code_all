@@ -117,8 +117,8 @@ export default function Wh9HeartRing({
               <stop offset="100%" stopColor="#000000" stopOpacity="0.03" />
             </linearGradient>
             <linearGradient id={`${instanceId}-heart-surface`} x1="50%" y1="0%" x2="50%" y2="100%">
-              <stop offset="0%" stopColor="#f4f6fa" />
-              <stop offset="100%" stopColor="#edf1f7" />
+              <stop offset="0%" stopColor="#ffffff" />
+              <stop offset="100%" stopColor="#ffffff" />
             </linearGradient>
             {geometry.paths.map((path, index) => (
               <mask key={`m${index}`} id={`${instanceId}-sector-${index}`} maskUnits="userSpaceOnUse" x="0" y="0" width="640" height="640">
@@ -152,12 +152,19 @@ export default function Wh9HeartRing({
             ))}
           </g>
 
-          <path
-            className="wh9-art__heart"
-            d={heart.path}
-            transform={heart.transform}
-            style={theme === 'reference' ? { fill: `url(#${instanceId}-heart-surface)` } : undefined}
-          />
+          <g className="wh9-art__heart-core" transform={heart.transform} aria-hidden="true">
+            <path
+              className="wh9-art__heart-halo"
+              d={heart.path}
+              strokeWidth={heart.haloWidth}
+            />
+            <path
+              className="wh9-art__heart"
+              d={heart.path}
+              strokeWidth={heart.borderWidth}
+              style={theme === 'reference' ? { fill: `url(#${instanceId}-heart-surface)` } : undefined}
+            />
+          </g>
 
           <g className="wh9-hitmap" clipPath={`url(#${instanceId}-outer-clip)`}>
             {geometry.paths.map((path, index) => (

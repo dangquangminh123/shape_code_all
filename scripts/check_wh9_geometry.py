@@ -15,7 +15,10 @@ assert g['viewBox'] == '0 0 640 640'
 assert len(g['paths']) == 6
 assert g['radius'] == 280
 assert g['sources'] == [f'wh9-source-sector-0{i}.svg' for i in range(1, 7)]
-assert g['heart']['source'] == 'wh9-source-heart-07.svg'
+assert g['heart']['source'] == 'shape-7.svg'
+assert not (A / 'source-original/wh9-source-heart-07.svg').exists()
+assert g['heart']['borderWidth'] == 8
+assert g['heart']['haloWidth'] == 20
 
 
 def path_centroid(d: str) -> tuple[float, float]:

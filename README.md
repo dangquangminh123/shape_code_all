@@ -27,15 +27,15 @@ npm run typecheck
 npm run build
 ```
 
-Để kiểm tra giao diện, giữ một server đang chạy và mở terminal khác:
+Để kiểm tra giao diện thủ công, chạy `npm run dev` rồi mở trang chính và các trang shape trên trình duyệt ở kích thước desktop/mobile.
 
-```sh
-npm run test:ui
-```
+## PN10 — Chai bút & năm mũi tên (shape 15)
 
-Bài test dùng Node.js 22+ và Chrome headless có sẵn trên máy, không thêm framework/dependency. Trên macOS, tự tìm Google Chrome; trên hệ điều hành khác, đặt biến `CHROME_BIN` trỏ đến executable Chromium/Chrome. Có thể đặt `BASE_URL` để kiểm tra server khác (mặc định http://127.0.0.1:3210).
-
-Bộ test Step Stack kiểm tra trang chính và route độc lập tại 11 kích thước desktop/tablet/mobile và landscape (320–2560px): section phủ viewport, không còn header/card/điều khiển, tâm thực của cụm shape + nội dung trùng tâm section, không tràn ngang hay cắt nội dung. Trang chính cho phép cuộn xuống AR5; route Step Stack độc lập không cuộn thừa khi nội dung vừa màn hình. Đồng thời kiểm tra SVG tải thành công, viewBox khớp path, tỉ lệ và thứ tự ba tầng, hai khối nội dung, hover hai chiều, keyboard focus và reduced motion. Ảnh chụp được lưu vào thư mục tạm và đường dẫn được in khi test chạy.
+- Xem riêng: http://localhost:3210/shapes/pn10-pencil-ribbon; theme đỏ/bạc: http://localhost:3210/shapes/pn10-pencil-ribbon?theme=silver-red.
+- PN10 được thêm cuối trang chủ, không thay thế các mẫu trước. Giữ nền trắng, không dựng tiêu đề hoặc năm cột chú thích của ảnh tham chiếu.
+- Component, CSS và config nội dung/màu: `/Users/dangquangminh/Desktop/code_all_shape/src/components/shapes/pn10-pencil-ribbon/`.
+- 11 SVG mask chuẩn hóa + 11 bản gốc + manifest: `/Users/dangquangminh/Desktop/code_all_shape/public/assets/shapes/pn10-pencil-ribbon/`.
+- Icon dùng `react-icons/fa6`. Có hover/focus, chọn bằng chuột/chạm/bàn phím, phím ↑/↓/Home/End/Escape và giảm chuyển động.
 
 ## Các file chính
 
@@ -73,5 +73,3 @@ Không có alias SVG hoặc tùy chọn đảo thứ tự. Bản desktop giữ t
 
 - Chín file SVG mask (8 mảnh ghép trái tim + 1 lõi tim trắng) đặt trực tiếp trong `/Users/dangquangminh/Desktop/code_all_shape/public/assets/shapes/ih8-heart-elements/`: `ih8-heart-crown-left.svg`, `ih8-heart-crown-right.svg`, `ih8-heart-shoulder-left.svg`, `ih8-heart-shoulder-right.svg`, `ih8-heart-curve-left.svg`, `ih8-heart-curve-right.svg`, `ih8-heart-point-left.svg`, `ih8-heart-point-right.svg` và `ih8-core-heart-surface.svg`.
 - Component, CSS và cấu hình (kèm vector Font Awesome Free 6.7.2): `/Users/dangquangminh/Desktop/code_all_shape/src/components/shapes/ih8-heart-elements/`.
-
-`npm run test:ui` chạy bộ test Step Stack, AR5, HFR6, VT4 và IH8. Có thể chạy riêng `npm run test:step-stack`, `npm run test:ar5`, `npm run test:hfr6`, `npm run test:vt4` hoặc `npm run test:ih8`. Bộ AR5 kiểm tra 10 viewport (320–2560px), thứ tự section, 5 hàng/5 icon, nội dung nằm trong arrow, asset/fallback, hover/keyboard/touch, theme và reduced motion. Ba SVG gốc được kiểm tra HTTP 200, mask bật đúng URL trực tiếp và viewBox khớp bounds của path.
