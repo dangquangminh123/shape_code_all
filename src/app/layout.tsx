@@ -3,8 +3,8 @@ import './globals.css';
 import '../styles/shape-layer-hotfix.css';
 
 export const metadata: Metadata = {
-  title: 'Khởi tạo nền tảng – Thực hành & phát triển',
-  description: 'Xây dựng nền tảng vững chắc, thực hành và phát triển kỹ năng.',
+  title: 'Shape Showcase – Son dưỡng môi & quà tặng',
+  description: 'Bộ sưu tập giao diện shape tương tác: son dưỡng làm đẹp đôi môi, quà tặng ý nghĩa và các mẫu infographic.',
 };
 
 export default function RootLayout({

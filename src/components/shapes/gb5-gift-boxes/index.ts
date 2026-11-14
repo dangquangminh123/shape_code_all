@@ -2,7 +2,6 @@ export { Gb5GiftBoxes } from './Gb5GiftBoxes';
 export type { Gb5GiftBoxesProps } from './Gb5GiftBoxes';
 export {
   GB5_STEPS,
-  GB5_SNOWFLAKES,
   GB5_THEME,
   GB5_STAGE_WIDTH,
   GB5_STAGE_HEIGHT,
@@ -14,5 +13,4 @@ export type {
   Gb5Palette,
   Gb5BoxSlot,
   Gb5MiniSlot,
-  Gb5SnowflakeSpec,
 } from './gb5-gift-boxes.config';

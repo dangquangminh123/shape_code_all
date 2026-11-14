@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import { Gb5GiftBoxes } from '@/components/shapes/gb5-gift-boxes';
 
 export const metadata: Metadata = {
-  title: '5 Gift Boxes Infographic (gb5-gift-boxes) | Shape Showcase',
+  title: 'Năm nhóm quà tặng ý nghĩa | Shape Showcase',
   description:
-    'Interactive 5-stage gift box infographic (shape 32) featuring overhanging lids, multi-layered 3D ribbon bows, snowflake ornaments, and a synchronized bottom timeline.',
+    'Quà thưởng cá nhân, quà tập thể, quà tri ân, quà Giáng sinh và quà kỷ niệm — năm hộp quà tương tác trên nền trắng, cùng phần chú thích đồng bộ.',
 };
 
 interface Gb5PageProps {

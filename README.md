@@ -1,6 +1,6 @@
 # Code All Shape
 
-Next.js 15, React 19 và TypeScript. Mẫu Step Stack dùng trực tiếp ba SVG do người dùng cung cấp, giữ nguyên path và hai khối nội dung tiếng Việt.
+Next.js 15, React 19 và TypeScript. Mẫu son dưỡng môi (Step Stack) dùng trực tiếp ba SVG do người dùng cung cấp, giữ nguyên path và hai khối nội dung tiếng Việt về dưỡng môi/làm đẹp đôi môi, với tông hồng berry–san hô–hồng trầm.
 
 ## Chạy local
 
@@ -14,7 +14,7 @@ npm run dev
 
 Trang chính hiển thị lần lượt **Step Stack → AR5 — Arrow Ribbon → HFR6 — Heartwheel → VT4 — Tube Ribbon → IH8 — Heart Elements**, mỗi mẫu trong section độc lập. Không có header, menu, bảng hướng dẫn hay nút cấu hình. Cuộn xuống để xem các mẫu; nội dung dài cuộn tự nhiên thay vì bị cắt. HFR6 có sáu thẻ nội dung tương tác bên dưới vòng tròn trên mobile.
 
-- Step Stack độc lập vẫn ở http://localhost:3210/shapes/step-stack-demo, không thay đổi component/CSS/SVG cũ.
+- Son dưỡng môi (Step Stack) độc lập vẫn ở http://localhost:3210/shapes/step-stack-demo, giữ nguyên hình học SVG và bố cục hai khối chữ.
 - AR5 độc lập: http://localhost:3210/shapes/ar5-arrow-ribbon.
 - HFR6 độc lập: http://localhost:3210/shapes/hfr6-heartwheel.
 - VT4 độc lập: http://localhost:3210/shapes/vt4-tube-ribbon.

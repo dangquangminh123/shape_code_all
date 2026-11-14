@@ -2,7 +2,7 @@
 
 import React, { useId, useState } from 'react';
 import type { IconType } from 'react-icons';
-import { LuCompass, LuLayers, LuRocket } from 'react-icons/lu';
+import { LuDroplets, LuHeart, LuSparkles } from 'react-icons/lu';
 import './step-stack-demo.css';
 import {
   STEP_STACK_LEVELS,
@@ -11,9 +11,9 @@ import {
 } from './step-stack-demo.config';
 
 const SSD_ICONS: Record<StepStackIconKey, IconType> = {
-  compass: LuCompass,
-  rocket: LuRocket,
-  layers: LuLayers,
+  droplets: LuDroplets,
+  sparkles: LuSparkles,
+  heart: LuHeart,
 };
 
 export default function StepStackDemo() {
@@ -33,7 +33,7 @@ export default function StepStackDemo() {
     <div className="ssd-wrapper">
       <div className="step-stack-demo">
         <div className="ssd-inner">
-          <div className="ssd-stack" aria-label="3 tầng phát triển">
+          <div className="ssd-stack" aria-label="Son dưỡng nâng niu và làm đẹp đôi môi">
             {STEP_STACK_LEVELS.map((item) => {
               const isActive = activeStep === item.step;
               const LevelIcon = SSD_ICONS[item.icon];

@@ -1,7 +1,8 @@
 # GB5 Gift Boxes
 
 Shape 32's five gift boxes, source-derived SVG geometry, seven reusable mask assets,
-custom two-tone icons, snowflake ornaments, and synchronized timeline.
+gift-category icons and a synchronized timeline on a plain white background.
+No snowflake ornaments are rendered or requested by the component.
 
 ## Usage
 
@@ -39,11 +40,14 @@ Edit `gb5-gift-boxes.config.ts` beside this README:
 - `GB5_THEME`: heading/body colors and timeline colors. The section and stage
   backgrounds stay pure white (`#ffffff`) to match the rest of the shape showcase;
   the reference image's gray background gradient is intentionally not used.
-- `GB5_SNOWFLAKES`: background ornament positions, sizes, and opacity.
+- Default categories: thưởng cá nhân, quà tập thể, quà tri ân, quà Giáng sinh,
+  quà kỷ niệm. Each has its own Vietnamese description and timeline summary.
+- Titles, descriptions, icons, accessible labels and timeline content share the
+  same config; no placeholder copy or separate hard-coded timeline text.
 
 The default styling follows the reference's italic serif headings, light serif
 numbers, left-aligned descriptions, smooth white paper, shaded ribbon loops and
-people/feedback icon. Local system fonts avoid adding a remote font dependency.
+gift-category icons. Local system fonts avoid adding a remote font dependency.
 Keep headings short (one line) and descriptions around 100 characters to fit the
 reference-sized desktop cards. Tablet/mobile reflows are intentional adaptations.
 
@@ -69,5 +73,5 @@ The generator uses the preserved original SVG copies under
 `/Users/dangquangminh/Desktop/code_all_shape/public/assets/shapes/gb5-gift-boxes/source-original/`
 and does not require the removed reference folder.
 It intentionally accepts only the move/cubic/close commands used by these source
-paths. Typography, business icons and responsive reflow are an adaptation, not a
+paths. Typography, gift-category icons and responsive reflow are an adaptation, not a
 pixel-identical reproduction of the stock JPEG.

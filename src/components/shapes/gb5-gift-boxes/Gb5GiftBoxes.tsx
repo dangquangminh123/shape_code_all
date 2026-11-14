@@ -4,7 +4,6 @@ import React, { useId, useState } from 'react';
 import geometryData from './gb5-gift-boxes.geometry.json';
 import {
   GB5_STEPS,
-  GB5_SNOWFLAKES,
   GB5_THEME,
   type Gb5StepId,
   type Gb5StepConfig,
@@ -65,22 +64,8 @@ export function Gb5GiftBoxes({
         '--gb5-track-dark': GB5_THEME.timelineShadow,
       } as React.CSSProperties}
       data-testid="gb5-gift-boxes-root" data-active-step={previewId ?? ''} data-selected-step={activeId ?? ''}>
-      <h2 className="gb5-visually-hidden" id={`${instanceId}-heading`}>Five-stage gift boxes infographic</h2>
+      <h2 className="gb5-visually-hidden" id={`${instanceId}-heading`}>Năm nhóm quà tặng cho những dịp ý nghĩa</h2>
       <div className="gb5-stage" data-gb5-stage>
-        <div className="gb5-snowflakes-layer" aria-hidden="true">
-          {GB5_SNOWFLAKES.map((sf) => (
-            <div
-              key={sf.id}
-              className="gb5-snowflake"
-              data-gb5-snowflake={sf.id}
-              style={{
-                left: `${sf.leftPct}%`, top: `${sf.topPct}%`,
-                width: `${(sf.sizePx / 1500) * 100}%`, aspectRatio: '1 / 1',
-                opacity: sf.opacity, '--sf-rot': `${sf.rotationDeg}deg`,
-              } as React.CSSProperties}
-            />
-          ))}
-        </div>
         <div className="gb5-boxes-layer">
           {GB5_STEPS.map((step, idx) => (
             <GiftBoxCard
@@ -111,7 +96,7 @@ export function Gb5GiftBoxes({
                   key={step.id} type="button"
                   className={`gb5-mini-node ${previewId === step.id ? 'is-active' : ''}`}
                   data-gb5-mini-node={step.id}
-                  aria-label={`Select Gift Box ${step.number} (${step.categoryTag})`}
+                  aria-label={`Chọn hộp quà ${step.number}: ${step.title} (${step.categoryTag})`}
                   aria-pressed={isSelected}
                   style={{ left: `${relLeftPct.toFixed(3)}%`, '--gb5-accent': step.palette.bowMain } as React.CSSProperties}
                   onClick={() => handleSelect(step.id)}
@@ -137,7 +122,7 @@ export function Gb5GiftBoxes({
         </div>
       </div>
       <p className="gb5-visually-hidden" role="status">
-        {activeId ? `Selected gift box ${GB5_STEPS.find(step => step.id === activeId)?.number}` : 'No gift box selected'}
+        {activeId ? `Đã chọn hộp quà ${GB5_STEPS.find(step => step.id === activeId)?.number}: ${GB5_STEPS.find(step => step.id === activeId)?.title}` : 'Chưa chọn hộp quà.'}
       </p>
     </section>
   );
@@ -262,7 +247,7 @@ function GiftBoxCard({
             data-gb5-hit={step.id}
             role="button"
             tabIndex={0}
-            aria-label={`Gift Box ${step.number}: ${step.title} (${step.categoryTag})`}
+            aria-label={`Hộp quà ${step.number}: ${step.title} (${step.categoryTag})`}
             aria-pressed={isSelected}
             aria-describedby={`${uid}-description`}
             onClick={() => onSelect(step.id)}

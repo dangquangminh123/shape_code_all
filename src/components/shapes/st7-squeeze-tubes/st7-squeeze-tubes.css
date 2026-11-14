@@ -72,9 +72,11 @@
 .st7-piece--active { z-index: 6; }
 .st7-piece:focus-visible { outline: 2px solid #334155; }
 
-/* Same single silhouette masks THE ENTIRE shell: no inset, no second mask geometry. */
+/* The tube/nozzle covers the cream at their join, including hover/focus states.
+   Same single silhouette masks the entire shell; preserve its original bounds. */
 .st7-tube {
   position: absolute;
+  z-index: 2;
   left: var(--st7-tube-x);
   top: 0;
   width: 82%;
@@ -172,7 +174,7 @@
   left: var(--st7-marker-x); top: 50%;
   width: 20%; aspect-ratio: 1/1;
   transform: translate(-50%, -50%);
-  z-index: 4;
+  z-index: 1;
   pointer-events: none;
   filter: drop-shadow(3px 5px 5px rgba(34, 39, 43, .28));
   transition: scale 230ms ease, filter 230ms ease;

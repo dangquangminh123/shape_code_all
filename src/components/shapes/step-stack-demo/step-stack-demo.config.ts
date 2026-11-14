@@ -1,4 +1,4 @@
-export type StepStackIconKey = 'compass' | 'rocket' | 'layers';
+export type StepStackIconKey = 'droplets' | 'sparkles' | 'heart';
 
 export interface StepStackLevelItem {
   step: number;
@@ -21,22 +21,22 @@ export const STEP_STACK_LEVELS: StepStackLevelItem[] = [
     step: 1,
     levelClass: 'level-1',
     numberLabel: '01',
-    icon: 'compass',
-    ariaLabel: 'Tầng 01 - Khởi tạo nền tảng',
+    icon: 'droplets',
+    ariaLabel: 'Son dưỡng môi 01 - Dưỡng môi mềm mịn',
   },
   {
     step: 2,
     levelClass: 'level-2',
     numberLabel: '02',
-    icon: 'rocket',
-    ariaLabel: 'Tầng 02 - Thực hành và phát triển',
+    icon: 'sparkles',
+    ariaLabel: 'Son dưỡng môi 02 - Sắc môi tươi tắn',
   },
   {
     step: 3,
     levelClass: 'level-3',
     numberLabel: '03',
-    icon: 'layers',
-    ariaLabel: 'Tầng 03 - Nền tảng trụ cột',
+    icon: 'heart',
+    ariaLabel: 'Son dưỡng môi 03 - Nâng niu đôi môi mỗi ngày',
   },
 ];
 
@@ -44,18 +44,18 @@ export const STEP_STACK_CONTENTS: StepStackContentItem[] = [
   {
     step: 1,
     contentClass: 'content-1',
-    icon: 'compass',
-    title: 'KHỞI TẠO NỀN TẢNG',
+    icon: 'droplets',
+    title: 'DƯỠNG MÔI MỀM MỊN',
     description:
-      'Xây dựng mục tiêu rõ ràng, hình thành tư duy học tập đúng hướng và tạo nền móng kiến thức bền vững cho chặng đường tiếp theo.',
+      'Nâng niu đôi môi với lớp son dưỡng mỏng nhẹ, giúp giữ ẩm và làm mềm môi khô. Thoa nhẹ mỗi ngày để đôi môi luôn mịn màng, dễ chịu.',
   },
   {
     step: 2,
     contentClass: 'content-2',
-    icon: 'rocket',
-    title: 'THỰC HÀNH & PHÁT TRIỂN',
+    icon: 'sparkles',
+    title: 'SẮC MÔI TƯƠI TẮN',
     description:
-      'Đẩy mạnh thực hành, hoàn thiện kỹ năng, tăng khả năng ứng dụng thực tế và không ngừng cải tiến phương pháp để đạt hiệu quả dài lâu.',
+      'Một chút sắc hồng tự nhiên, một lớp bóng nhẹ tinh tế — tôn vẻ xinh tươi của đôi môi. Dùng riêng để trang điểm nhẹ nhàng hoặc làm lớp nền trước son màu.',
   },
 ];
 

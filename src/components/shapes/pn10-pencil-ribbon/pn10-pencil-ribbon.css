@@ -31,7 +31,8 @@
 .pn10-rail {
   position: absolute;
   left: 34.75%; top: 6.55%; width: 6.85%; height: 86%;
-  z-index: 4;
+  /* The ribbons wrap over this support: rail < ribbons (3) < pencil (6). */
+  z-index: 1;
   pointer-events: none;
 }
 .pn10-rail__shadow {

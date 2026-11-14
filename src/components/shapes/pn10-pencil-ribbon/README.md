@@ -42,6 +42,8 @@ không biến đổi path/polygon. Ellipse lạc ngoài artboard trong `shape 5.
 Chai dùng một silhouette cho năm dải màu liên tục. Cả năm mũi tên dùng cùng
 mask chính. Wrapper bóng trong suốt; relief/fold là con của phần tử được mask,
 không có tấm nền đen hoặc lớp màu thò ra ngoài biên.
+Thứ tự lớp cố định: thanh U (1) → nhóm mũi tên và nếp gấp (3) → chai/bút (6).
+Dải ruy-băng luôn phủ lên thanh móc ở vùng giao nhau, kể cả hover/focus.
 
 Hover/focus đồng bộ số trên chai; click/Enter/Space chọn hoặc bỏ chọn.
 ↑/↓, Home/End di chuyển focus; Escape bỏ chọn và giữ focus. Có live status,
