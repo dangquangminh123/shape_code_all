@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import './globals.css';
 import '../styles/shape-layer-hotfix.css';
 
@@ -16,7 +17,9 @@ export default function RootLayout({
     <html lang="vi">
       <body>
         <main className="app-main">{children}</main>
+        <Script src="/shape-auto-animations.js" strategy="afterInteractive" />
       </body>
     </html>
   );
 }
+

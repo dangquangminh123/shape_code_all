@@ -27,3 +27,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# reference material folders (original design drops, not part of the app build)
+/shape [0-9]*/
+
+# local standalone patch archive
+/shape_auto_motion_patch/
+/shape_auto_motion_patch-1.0.0.zip
+
