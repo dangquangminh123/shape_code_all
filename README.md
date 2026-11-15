@@ -32,7 +32,7 @@ npm run build
 ## LM6 — Cấp độ & cột mốc (shape 1)
 
 - Xem riêng: http://localhost:3210/shapes/lm6-levels-marks; mẫu thứ 17, sau PB4 trên trang chủ.
-- Giữ bố cục ảnh 960 × 720: tiêu đề trái phía trên, sáu khối mũi tên nối ngang, cạnh vát đen, số 1–6, phản chiếu ngắn phía dưới và chú thích xen kẽ (1/3/5 trên, 2/4/6 dưới). Nền toàn bộ trắng, không chuyển thành danh sách/cột trên điện thoại.
+- Giữ bố cục ảnh 960 × 720 nhưng **bỏ dòng tiêu đề “Levels And Marks – 6 Stages”** vì trùng với nội dung infographic; canvas cắt còn **960 × 610** (bỏ 110px trên, không giữ dải trắng của tiêu đề). Còn lại: sáu khối mũi tên nối ngang, cạnh vát đen, số 1–6, phản chiếu ngắn phía dưới và chú thích xen kẽ (1/3/5 trên, 2/4/6 dưới). Nền toàn bộ trắng, không chuyển thành danh sách/cột trên điện thoại; tên vùng vẫn đọc được nhờ `aria-label` trên `<section>`.
 - Component, CSS và cấu hình nội dung/màu: `/Users/dangquangminh/Desktop/code_all_shape/src/components/shapes/lm6-levels-marks/`. Canvas tối đa 1320px. Nội dung tiếng Việt; `FaCircle` từ `react-icons/fa6` giữ dấu đầu dòng nhỏ như ảnh, không thêm icon lớn làm đổi bố cục.
 - Tài nguyên: `/Users/dangquangminh/Desktop/code_all_shape/public/assets/shapes/lm6-levels-marks/`. Hai SVG Illustrator được lưu nguyên byte trong `originals`, ảnh JPG và SHA-256 trong `manifest.json`. Bốn mặt của SVG 1 được tách thành mask, SVG 2 làm mặt phản chiếu; path/polygon giữ nguyên. CSS tạo khe trắng chéo giữa các khối và tô gradient.
 - Tái tạo mask: `node /Users/dangquangminh/Desktop/code_all_shape/scripts/generate_lm6_assets.mjs`. Không phụ thuộc thư mục nhập `shape 1` sau khi di chuyển tài nguyên.

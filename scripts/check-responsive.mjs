@@ -90,11 +90,12 @@ try {
           pumpBounds:q('.pb4-body,.pb4-cap,.pb4-caption').every(e=>inside(e,el('.pb4-artwork'))),
           pumpContent:q('.pb4-band').length===4&&q('.pb4-caption__icon svg').length===4,
           pumpWhite:cs(el('.pb4-module')).backgroundColor==='rgb(255, 255, 255)',
-          levelsComposition:q('.lm6-control').length===6&&Math.abs(r(el('.lm6-artwork')).height/r(el('.lm6-artwork')).width-.75)<.001,
+          levelsComposition:q('.lm6-control').length===6&&Math.abs(r(el('.lm6-artwork')).height/r(el('.lm6-artwork')).width-610/960)<.001,
           levelsHorizontal:q('.lm6-arrow').every(e=>Math.abs(r(e).top-r(el('.lm6-arrow')).top)<1),
           levelsAlternating:q('.lm6-caption').every((e,i)=>i%2?r(e).top>r(q('.lm6-reflection')[i]).bottom:r(e).bottom<r(q('.lm6-arrow')[i]).top),
           levelsCopy:q('.lm6-caption,.lm6-caption h3,.lm6-caption li').every(fits),
-          levelsBounds:q('.lm6-heading,.lm6-arrow,.lm6-caption,.lm6-reflection').every(e=>inside(e,el('.lm6-artwork'))),
+          levelsBounds:q('.lm6-arrow,.lm6-caption,.lm6-reflection').every(e=>inside(e,el('.lm6-artwork'))),
+          levelsNoTitle:q('.lm6-heading,.lm6-module h1,.lm6-module h2,.lm6-module header').length===0&&!el('.lm6-module').textContent.includes('6 giai đoạn'),
           levelsWhite:cs(el('.lm6-module')).backgroundColor==='rgb(255, 255, 255)',
           levelsIcons:q('.lm6-caption li svg').length===12
         };

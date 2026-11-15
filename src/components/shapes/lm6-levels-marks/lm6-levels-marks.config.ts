@@ -9,7 +9,8 @@ export interface Lm6Stage {
   captionX: number;
 }
 
-// Coordinates measured on the supplied 960 × 720 reference, not a reflowed grid.
+// Horizontal coordinates measured on the supplied 960 × 720 reference; the
+// reference title strip is cropped, so vertical offsets live in the CSS only.
 export const lm6Stages: Lm6Stage[] = [
   { title: 'Khởi đầu', points: ['Khơi nguồn ý tưởng cho hành trình mới.', 'Xác định mục tiêu cho từng chặng đường.'], summaries: ['Ý tưởng', 'Mục tiêu'], light: '#5ad2f2', shade: '#1774b2', ink: '#087f9c', x: 19, captionX: 9 },
   { title: 'Khám phá', points: ['Tìm hiểu nhu cầu và những cơ hội mới.', 'Lắng nghe để chọn hướng đi phù hợp.'], summaries: ['Cơ hội', 'Lắng nghe'], light: '#a6d957', shade: '#4e6e0e', ink: '#557f14', x: 167, captionX: 171 },

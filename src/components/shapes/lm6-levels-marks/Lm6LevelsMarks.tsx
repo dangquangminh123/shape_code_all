@@ -33,7 +33,6 @@ export default function Lm6LevelsMarks() {
   return (
     <section className="lm6-module" aria-label="Cấp độ và cột mốc — sáu giai đoạn">
       <div className="lm6-artwork">
-        <h2 className="lm6-heading">Cấp độ &amp; cột mốc <span>– 6 giai đoạn</span></h2>
         <ol className="lm6-stages" aria-label="Sáu giai đoạn phát triển">
           {lm6Stages.map((stage, index) => (
             <li key={stage.title} className={`lm6-stage${selected === index ? ' is-selected' : ''}`} style={stageStyle(stage, index)}>
