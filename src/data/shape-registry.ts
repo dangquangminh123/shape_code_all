@@ -334,6 +334,21 @@ export const SHAPE_TEMPLATES_REGISTRY: ShapeTemplateMeta[] = [
     ],
   },
   {
+    id: 'tc5-trophy-cups',
+    prefix: 'tc5',
+    name: 'TC5 — Trophy Cups',
+    vietnameseTitle: 'Năm cúp thành tựu',
+    description: 'Năm cúp nối lớp trên một hàng, bệ STEP 01–05, chú thích bên dưới và bục vinh danh góc trên phải. Dùng hai SVG gốc của shape 12, nền trắng và CSS tương thích iOS 15.',
+    status: 'ready',
+    route: '/shapes/tc5-trophy-cups',
+    publicSvgFolder: 'public/assets/shapes/tc5-trophy-cups/',
+    componentSourceFolder: 'src/components/shapes/tc5-trophy-cups/',
+    assets: [
+      { role: 'Cúp đầu — hai quai', level: 1, prefixedFileName: 'tc5-first-cup-mask.svg', dimensions: 'viewBox: 1114.2 215.5 1771.6 2016.5', description: 'Giữ nguyên hai path SVG shape 1; crop artboard, không vẽ lại đường biên.' },
+      { role: 'Cúp nối — khoét bên trái', level: 2, prefixedFileName: 'tc5-next-cup-mask.svg', dimensions: 'viewBox: 1534.5 198.1 1483.2 2103.8', description: 'Giữ nguyên hai path SVG shape 2; dùng cho cúp 02–05, tạo khoảng trắng quanh quai cúp trước.' },
+    ],
+  },
+  {
     id: 'phase-shape-demo',
     prefix: 'psd',
     name: 'Phase Shape Demo',

@@ -12,6 +12,7 @@ import Wh9HeartRing from '@/components/shapes/wh9-heart-ring/Wh9HeartRing';
 import { Gb5GiftBoxes } from '@/components/shapes/gb5-gift-boxes';
 import Pn10PencilRibbon from '@/components/shapes/pn10-pencil-ribbon/Pn10PencilRibbon';
 import Cb5Clipboard from '@/components/shapes/cb5-clipboard/Cb5Clipboard';
+import Tc5TrophyCups from '@/components/shapes/tc5-trophy-cups/Tc5TrophyCups';
 
 export default function HomePage() {
   return (
@@ -30,6 +31,7 @@ export default function HomePage() {
       <Gb5GiftBoxes />
       <Pn10PencilRibbon theme="reference" />
       <Cb5Clipboard />
+      <Tc5TrophyCups />
     </>
   );
 }

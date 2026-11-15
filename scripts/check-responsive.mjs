@@ -56,7 +56,7 @@ try {
         const mobile=innerWidth<=520;
         const out={
           viewport:innerWidth===${width},
-          allModules:q('.app-main > *').length===14,
+          allModules:q('.app-main > *').length===15,
           noPageOverflow:document.documentElement.scrollWidth<=innerWidth+1,
           stackCopyFits:q('.ssd-content-box').every(fits),
           giftCopyFits:q('.gb5-body-copy').every(fits),
@@ -73,7 +73,13 @@ try {
           clipboardCopy:q('.cb5-row__copy,.cb5-checklist li').every(fits),
           clipboardContent:q('.cb5-row').length===5&&q('.cb5-checklist li').length===5&&q('.cb5-business-icons svg').length===18,
           clipboardBounds:q('.cb5-row__icon,.cb5-row__copy,.cb5-row__number').every(e=>inside(e,e.closest('.cb5-row')))&&q('.cb5-checklist li').every(e=>inside(e,el('.cb5-paper'))),
-          clipboardTapTargets:q('.cb5-row').every(e=>r(e).height>=24&&r(e).width>=24)
+          clipboardTapTargets:q('.cb5-row').every(e=>r(e).height>=24&&r(e).width>=24),
+          trophyComposition:q('.tc5-control').length===5&&Math.abs(r(el('.tc5-artwork')).height/r(el('.tc5-artwork')).width-500/715)<.001,
+          trophyHorizontal:q('.tc5-cup').every(e=>Math.abs(r(e).top-r(el('.tc5-cup')).top)<1),
+          trophyBounds:q('.tc5-cup,.tc5-caption,.tc5-heading').every(e=>inside(e,el('.tc5-artwork'))),
+          trophyCopy:q('.tc5-caption,.tc5-cup__number').every(fits),
+          trophyTapTargets:q('.tc5-control').every(e=>r(e).height>=44&&r(e).width>=40),
+          trophyWhite:cs(el('.tc5-module')).backgroundColor==='rgb(255, 255, 255)'
         };
         if(mobile){
           out.stackSingleColumn=r(el('.ssd-content-col')).top>=r(el('.ssd-stack')).bottom;
@@ -91,7 +97,7 @@ try {
         if (!pass) failures.push(label);
       }
       if (width===414) {
-        for (const [name,selector] of [['stack','.ssd-wrapper'],['tube','.vt4'],['rocket','.sr6-module'],['star','.s8f-module'],['heart','.wh9-module'],['gift','.gb5-timeline-zone'],['clipboard','.cb5-module']]) {
+        for (const [name,selector] of [['stack','.ssd-wrapper'],['tube','.vt4'],['rocket','.sr6-module'],['star','.s8f-module'],['heart','.wh9-module'],['gift','.gb5-timeline-zone'],['clipboard','.cb5-module'],['trophies','.tc5-module']]) {
           await b.evaluate(`document.querySelector('${selector}').scrollIntoView({block:'start'})`);
           await b.screenshot(`${output}/${mode}-${width}-${name}.png`);
         }

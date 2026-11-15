@@ -39,7 +39,7 @@ npm run build
 
 ## CB5 — Bảng kẹp & năm bước phát triển (shape 25)
 
-- Xem riêng: http://localhost:3210/shapes/cb5-clipboard; mẫu thứ 14 ở cuối trang chủ.
+- Xem riêng: http://localhost:3210/shapes/cb5-clipboard; mẫu thứ 14 trên trang chủ.
 - Giữ bố cục ảnh gốc: 5 mũi tên hướng trái, bảng checklist chồng phía phải, kẹp kim loại có lỗ treo phía trên, tiêu đề và 2 hàng × 9 icon phía dưới. Nền ngoài luôn trắng; nội dung tiếng Việt.
 - Component/CSS: `/Users/dangquangminh/Desktop/code_all_shape/src/components/shapes/cb5-clipboard/`.
 - 5 SVG mask và 5 bản SVG gốc: `/Users/dangquangminh/Desktop/code_all_shape/public/assets/shapes/cb5-clipboard/`. Path mũi tên được hợp nhất để bỏ đường nối khử răng cưa; các shape khác chỉ crop viewBox, không vẽ lại path.
@@ -47,6 +47,18 @@ npm run build
 - Icon dùng `react-icons/fa6`; chạm/click để chọn, Tab/↑/↓/Home/End để điều hướng, Enter/Space để chọn, Escape bỏ chọn mà giữ focus. Tôn trọng reduced motion.
 - Kiểm thử riêng (Node 22+, Chrome, server đang chạy): `node /Users/dangquangminh/Desktop/code_all_shape/scripts/check-cb5.mjs`. Có `TEST_BASE`, `TEST_OUTPUT`, `CHROME_BIN`; ảnh/kết quả mặc định tại `/tmp/cb5-check/`.
 - Thư mục tài liệu nguồn shape 25 được xoá sau khi tích hợp; ứng dụng chỉ dùng tài nguyên trong public, không phụ thuộc thư mục nguồn.
+
+## TC5 — Năm cúp thành tựu (shape 12)
+
+- Xem riêng: http://localhost:3210/shapes/tc5-trophy-cups; mẫu thứ 15 ở cuối trang chủ.
+- Giữ bố cục tham chiếu 715 × 500: năm cúp nối ngang, quai có khoảng trắng phân lớp, thân có mảng chéo, bệ STEP 01–05, năm cụm chữ phía dưới và bục vinh danh phía trên bên phải. Nền trắng.
+- Component/CSS/config: `/Users/dangquangminh/Desktop/code_all_shape/src/components/shapes/tc5-trophy-cups/`.
+- Hai SVG mask + hai SVG gốc byte-for-byte: `/Users/dangquangminh/Desktop/code_all_shape/public/assets/shapes/tc5-trophy-cups/`. Chỉ crop viewBox; giữ nguyên cả hai path trong mỗi SVG. Tái tạo mask: `node /Users/dangquangminh/Desktop/code_all_shape/scripts/generate_tc5_assets.mjs`.
+- `react-icons/fa6` và `react-icons/lu`, không thêm thư viện. Chạm/Enter/Space để chọn; Tab/←/→/Home/End điều hướng, Escape bỏ chọn mà giữ focus. Hover và chọn không dịch chuyển hình học.
+- Giữ năm cúp trên một hàng ở mobile; chữ mô tả ngắn thay cho mô tả dài, nội dung đầy đủ vẫn nằm trong tên truy cập của nút. Chữ nhỏ là đánh đổi của bố cục infographic cố định; pinch-zoom luôn được phép. Không dùng `cqw`, `@container`, `dvh` hoặc JS để tính kích thước; có `-webkit-mask` cho iOS 15.
+- Kiểm thử: `node /Users/dangquangminh/Desktop/code_all_shape/scripts/check-tc5.mjs` (Node 22+, Chrome, server đang chạy). Có `TEST_BASE`, `TEST_OUTPUT`, `CHROME_BIN`; mặc định ghi kết quả vào `/tmp/tc5-check/`.
+- Kiểm thử gồm 320–1440 px, iPhone 7 Plus dọc/ngang (414 × 736, 736 × 414), font hệ thống, chỉ dùng mask có tiền tố WebKit, bàn phím, chạm, zoom 200%, reduced motion, SSR không JavaScript và kiểm tra path SVG không bị thay đổi. Đây là kiểm thử Chrome, không phải xác nhận chạy trên iPhone thật.
+- Thư mục tài liệu nguồn shape 12 trong dự án được xoá sau khi tích hợp và đối chiếu SVG. Ứng dụng không tham chiếu thư mục này.
 
 ## Responsive trên iPhone / iOS 15
 
