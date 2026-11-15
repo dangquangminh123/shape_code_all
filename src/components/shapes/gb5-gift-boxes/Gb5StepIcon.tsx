@@ -31,7 +31,7 @@ export function Gb5StepIcon({
     }
     case 'team':
       return (
-        <svg viewBox="0 0 80 62" className={className} aria-hidden="true">
+        <svg viewBox="0 0 80 62" width="1em" height="1em" className={className} aria-hidden="true" focusable="false">
           {/* Left person (charcoal) */}
           <circle cx="19" cy="21" r="8.2" fill={darkColor} />
           <path

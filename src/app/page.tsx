@@ -11,6 +11,7 @@ import Ta4TargetArrow from '@/components/shapes/ta4-target-arrow/Ta4TargetArrow'
 import Wh9HeartRing from '@/components/shapes/wh9-heart-ring/Wh9HeartRing';
 import { Gb5GiftBoxes } from '@/components/shapes/gb5-gift-boxes';
 import Pn10PencilRibbon from '@/components/shapes/pn10-pencil-ribbon/Pn10PencilRibbon';
+import Cb5Clipboard from '@/components/shapes/cb5-clipboard/Cb5Clipboard';
 
 export default function HomePage() {
   return (
@@ -28,6 +29,7 @@ export default function HomePage() {
       <Wh9HeartRing theme="reference" />
       <Gb5GiftBoxes />
       <Pn10PencilRibbon theme="reference" />
+      <Cb5Clipboard />
     </>
   );
 }

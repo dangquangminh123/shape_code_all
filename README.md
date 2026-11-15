@@ -37,6 +37,35 @@ npm run build
 - 11 SVG mask chuẩn hóa + 11 bản gốc + manifest: `/Users/dangquangminh/Desktop/code_all_shape/public/assets/shapes/pn10-pencil-ribbon/`.
 - Icon dùng `react-icons/fa6`. Có hover/focus, chọn bằng chuột/chạm/bàn phím, phím ↑/↓/Home/End/Escape và giảm chuyển động.
 
+## CB5 — Bảng kẹp & năm bước phát triển (shape 25)
+
+- Xem riêng: http://localhost:3210/shapes/cb5-clipboard; mẫu thứ 14 ở cuối trang chủ.
+- Giữ bố cục ảnh gốc: 5 mũi tên hướng trái, bảng checklist chồng phía phải, kẹp kim loại có lỗ treo phía trên, tiêu đề và 2 hàng × 9 icon phía dưới. Nền ngoài luôn trắng; nội dung tiếng Việt.
+- Component/CSS: `/Users/dangquangminh/Desktop/code_all_shape/src/components/shapes/cb5-clipboard/`.
+- 5 SVG mask và 5 bản SVG gốc: `/Users/dangquangminh/Desktop/code_all_shape/public/assets/shapes/cb5-clipboard/`. Path mũi tên được hợp nhất để bỏ đường nối khử răng cưa; các shape khác chỉ crop viewBox, không vẽ lại path.
+- Hình giữ tỉ lệ trên mobile, không đổi thành bố cục cột. Dùng phần trăm, em, media queries và `-webkit-mask`; không cần container queries, `cqw` hay JS để tính kích thước. Mobile dùng mô tả ngắn; tên truy cập của nút giữ nội dung đầy đủ. Có thể pinch-zoom để đọc chữ nhỏ trong infographic.
+- Icon dùng `react-icons/fa6`; chạm/click để chọn, Tab/↑/↓/Home/End để điều hướng, Enter/Space để chọn, Escape bỏ chọn mà giữ focus. Tôn trọng reduced motion.
+- Kiểm thử riêng (Node 22+, Chrome, server đang chạy): `node /Users/dangquangminh/Desktop/code_all_shape/scripts/check-cb5.mjs`. Có `TEST_BASE`, `TEST_OUTPUT`, `CHROME_BIN`; ảnh/kết quả mặc định tại `/tmp/cb5-check/`.
+- Thư mục tài liệu nguồn shape 25 được xoá sau khi tích hợp; ứng dụng chỉ dùng tài nguyên trong public, không phụ thuộc thư mục nguồn.
+
+## Responsive trên iPhone / iOS 15
+
+- iPhone 7 Plus chạy tối đa iOS 15; Safari/WebView trên iOS này không hỗ trợ `@container`, `container-type` và `cqw` (Safari 16 mới hỗ trợ). Chỉ đổi chiều rộng trong Chrome DevTools không phát hiện được lỗi này.
+- Các stylesheet dùng `cqw` phải có giá trị `calc(... * var(--<module>-cqw))` trước khai báo hiện đại. Biến dự phòng tính theo chiều rộng viewport, padding và giới hạn artboard của từng module. Riêng GB5 có hai hệ đơn vị riêng: toàn sân khấu và từng hộp quà.
+- Các breakpoint `@container` có bản `@media` trong `@supports not (container-type: inline-size)`. Khi sửa layout phải cập nhật cả hai. Fallback CSS này dành cho các section toàn chiều rộng hiện tại; nếu nhúng vào sidebar hẹp trên trình duyệt cũ cần điều chỉnh kích thước dự phòng theo host.
+- `text-size-adjust: 100%` ngăn Safari tự phóng chữ trong hình; không dùng `user-scalable=no` hoặc khóa mức zoom.
+- Chạy server rồi kiểm tra bằng Node 22+ và Chrome có sẵn:
+  ```bash
+  cd /Users/dangquangminh/Desktop/code_all_shape
+  npm run dev
+  # Terminal khác:
+  node /Users/dangquangminh/Desktop/code_all_shape/scripts/check-responsive.mjs
+  # Kiểm tra production đã bật ở cổng khác:
+  TEST_BASE=http://localhost:3212 node /Users/dangquangminh/Desktop/code_all_shape/scripts/check-responsive.mjs
+  ```
+- Có thể đặt `CHROME_BIN`, `TEST_WIDTHS`, `TEST_MODES` và `TEST_OUTPUT`. Mặc định kiểm tra 320–1440px, cả CSS hiện đại và CSS bỏ các tính năng chưa có trên iOS 15; ảnh/kết quả ở `/tmp/shape-responsive-check/`.
+- Đây là kiểm tra hồi quy bằng Chrome CDP, **không phải máy ảo iOS**. Trước phát hành cần kiểm tra Safari và trình duyệt trong Messenger trên iPhone thật, cả dọc/ngang, zoom, cuộn, chạm chọn và sau khi tải lại bản deploy mới.
+
 ## Các file chính
 
 Với workspace hiện tại `/Users/dangquangminh/Desktop/code_all_shape`:

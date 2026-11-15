@@ -93,10 +93,39 @@
 .sr6-module--silver-red .sr6-timeline__step--06 { --sr6-accent:#b92b4e; }
 
 /* Responsive: keep the reference composition down to 720px. Under that, preserve scale and readability. */
+/*
+ iOS 15: viewport fallback; keep in sync with the container rule below.
+ */
+@supports not (container-type: inline-size) {
+  @media (max-width: 930px) and (min-width: 721px) {
+    .sr6-module__inner { padding-inline: 12px; }
+    .sr6-module__stage { grid-template-columns: 36% 64%; }
+    .sr6-timeline__copy { max-width: 54%; }
+  }
+}
 @container sr6-layout (max-width: 930px) and (min-width: 721px) {
   .sr6-module__inner { padding-inline: 12px; }
   .sr6-module__stage { grid-template-columns: 36% 64%; }
   .sr6-timeline__copy { max-width: 54%; }
+}
+/*
+ iOS 15: viewport fallback; keep in sync with the container rule below.
+ */
+@supports not (container-type: inline-size) {
+  @media (max-width: 720px) {
+    .sr6-module__inner { padding: 28px 18px 40px; }
+    .sr6-module__stage { display: flex; flex-direction: column; min-height: 0; margin-top: 0; gap: 22px; }
+    .sr6-module__rocket-column { width: 100%; }
+    .sr6-rocket { width: min(86vw, 350px); transform: none; }
+    .sr6-timeline { width: 100%; max-width: 560px; height: auto; transform: none; display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .sr6-timeline__arc { display: none; }
+    .sr6-timeline__step { position: relative; inset: auto; min-width: 0; display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 14px; align-items: center; padding: 11px; border: 1px solid #e2e8f0; border-radius: 12px; background: #f8fafc; pointer-events: auto; }
+    .sr6-timeline__pin { position: relative; top: auto; left: auto; translate: none; width: 46px; height: 46px; font-size: 19px; }
+    .sr6-timeline__copy { position: static; max-width: none; transform: none !important; }
+    .sr6-timeline__copy h3 { font-size: 16px; }
+    .sr6-timeline__copy p { max-width: none; font-size: 13px; }
+    .sr6-module--silver-red .sr6-timeline__step { background: rgb(255 255 255 / 85%); border-color: #e1e5eb; }
+  }
 }
 @container sr6-layout (max-width: 720px) {
   .sr6-module__inner { padding: 28px 18px 40px; }

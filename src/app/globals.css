@@ -24,6 +24,13 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Keep iOS text autosizing from inflating labels inside fixed SVG geometry.
+   Pinch zoom and browser text zoom remain available. */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 .app-main {
   width: 100%;
   min-height: 100vh;

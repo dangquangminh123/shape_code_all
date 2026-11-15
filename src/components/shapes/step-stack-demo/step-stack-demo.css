@@ -6,10 +6,11 @@
 }
 
 .step-stack-demo {
+  --ssd-vh: 1vh;
   --ssd-mask-top: url('/assets/shapes/step-stack-demo/ssd-stack-top.svg');
   --ssd-mask-mid: url('/assets/shapes/step-stack-demo/ssd-stack-mid.svg');
   --ssd-mask-base: url('/assets/shapes/step-stack-demo/ssd-stack-base.svg');
-  --ssd-unit: clamp(0.8px, min(0.104vw, 0.156dvh), 1.85px);
+  --ssd-unit: clamp(0.8px, min(0.104vw, calc(0.156 * var(--ssd-vh))), 1.85px);
   --ssd-stack-width: calc(216 * var(--ssd-unit));
   --ssd-stack-height: calc(484.084 * var(--ssd-unit));
   --ssd-top-offset: calc(156 * var(--ssd-unit));
@@ -268,9 +269,34 @@
 }
 
 /* Keep the two-column reference composition on tablets, too. */
+/* iOS 15: viewport fallback; keep in sync with the container rule below. */
+@supports not (container-type: inline-size) {
+  @media (max-width: 900px) {
+    .step-stack-demo {
+      --ssd-unit: clamp(0.6px, calc(0.135 * var(--ssd-vh)), 0.740741px);
+      --ssd-content-offset: 32px;
+      --ssd-content-row: 130px;
+      --ssd-content-width: 320px;
+      --ssd-column-gap: 26px;
+      padding: 32px 28px;
+    }
+
+    .ssd-no {
+      letter-spacing: -1px;
+    }
+
+    .ssd-content-box h3 {
+      font-size: 18px;
+    }
+
+    .ssd-content-box p {
+      font-size: 14px;
+    }
+  }
+}
 @container step-stack (max-width: 900px) {
   .step-stack-demo {
-    --ssd-unit: clamp(0.6px, 0.135dvh, 0.740741px);
+    --ssd-unit: clamp(0.6px, calc(0.135 * var(--ssd-vh)), 0.740741px);
     --ssd-content-offset: 32px;
     --ssd-content-row: 130px;
     --ssd-content-width: 320px;
@@ -292,9 +318,43 @@
 }
 
 /* Narrow screens: readable text below a centred, proportionate tower. */
+/* iOS 15: viewport fallback; keep in sync with the container rule below. */
+@supports not (container-type: inline-size) {
+  @media (max-width: 520px) {
+    .step-stack-demo {
+      --ssd-unit: clamp(0.52px, calc(0.085 * var(--ssd-vh)), 0.65px);
+      --ssd-content-offset: 0px;
+      --ssd-content-row: 0px;
+      --ssd-content-width: 350px;
+      padding: 24px;
+    }
+
+    .ssd-inner {
+      width: min(100%, var(--ssd-content-width));
+      grid-template-columns: minmax(0, 1fr);
+      gap: 32px;
+    }
+
+    .ssd-content-col {
+      width: 100%;
+      max-width: 350px;
+      margin: 0 auto;
+      padding-top: 0;
+      gap: 28px;
+    }
+
+    .ssd-content-box.content-1 {
+      min-height: 0;
+    }
+
+    .ssd-stack::after {
+      width: 112%;
+    }
+  }
+}
 @container step-stack (max-width: 520px) {
   .step-stack-demo {
-    --ssd-unit: clamp(0.52px, 0.085dvh, 0.65px);
+    --ssd-unit: clamp(0.52px, calc(0.085 * var(--ssd-vh)), 0.65px);
     --ssd-content-offset: 0px;
     --ssd-content-row: 0px;
     --ssd-content-width: 350px;
@@ -330,5 +390,9 @@
   .ssd-content-box h3 {
     transition: none;
   }
+}
+
+@supports (height: 100dvh) {
+  .step-stack-demo { --ssd-vh: 1dvh; }
 }
 

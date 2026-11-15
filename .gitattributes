@@ -1,0 +1,2 @@
+# Keep the supplied Illustrator SVG originals byte-for-byte, including CRLF.
+/public/assets/shapes/cb5-clipboard/originals/*.svg -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
