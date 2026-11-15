@@ -1,7 +1,6 @@
 'use client';
 
-import { useId, useRef, useState, type CSSProperties, type KeyboardEvent } from 'react';
-import { FaPerson } from 'react-icons/fa6';
+import { useRef, useState, type CSSProperties, type KeyboardEvent } from 'react';
 import { tc5Steps, type Tc5Step } from './tc5-trophy-cups.config';
 import './tc5-trophy-cups.css';
 
@@ -11,7 +10,6 @@ function stepStyle(step: Tc5Step): Tc5Style {
 }
 
 export default function Tc5TrophyCups() {
-  const id = useId();
   const [selected, setSelected] = useState<number | null>(null);
   const refs = useRef<Array<HTMLButtonElement | null>>([]);
 
@@ -29,20 +27,8 @@ export default function Tc5TrophyCups() {
   }
 
   return (
-    <section className="tc5-module" aria-labelledby={`${id}-heading`}>
+    <section className="tc5-module" aria-label="Năm cúp thành tựu">
       <div className="tc5-artwork">
-        <header className="tc5-heading">
-          <div className="tc5-heading__copy">
-            <h2 id={`${id}-heading`}>Thành tựu</h2>
-            <p>Năm bước nhỏ, một hành trình lớn.<br />Cùng nhau chinh phục mục tiêu.</p>
-          </div>
-          <div className="tc5-podium" aria-hidden="true">
-            <FaPerson className="tc5-podium__winner" />
-            <span className="tc5-podium__second">2</span>
-            <span className="tc5-podium__first">1</span>
-            <span className="tc5-podium__third">3</span>
-          </div>
-        </header>
         <ol className="tc5-steps" aria-label="Năm bước chinh phục mục tiêu">
           {tc5Steps.map((step, index) => {
             const Icon = step.icon;

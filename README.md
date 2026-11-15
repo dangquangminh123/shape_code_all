@@ -40,7 +40,7 @@ npm run build
 ## CB5 — Bảng kẹp & năm bước phát triển (shape 25)
 
 - Xem riêng: http://localhost:3210/shapes/cb5-clipboard; mẫu thứ 14 trên trang chủ.
-- Giữ bố cục ảnh gốc: 5 mũi tên hướng trái, bảng checklist chồng phía phải, kẹp kim loại có lỗ treo phía trên, tiêu đề và 2 hàng × 9 icon phía dưới. Nền ngoài luôn trắng; nội dung tiếng Việt.
+- Chỉ giữ infographic chính: 5 mũi tên hướng trái, bảng checklist chồng phía phải và kẹp kim loại có lỗ treo phía trên. Đã bỏ tiêu đề “business infographic” và hai hàng icon trang trí, không giữ khoảng trống của hai phần này. Nền ngoài luôn trắng; nội dung tiếng Việt.
 - Component/CSS: `/Users/dangquangminh/Desktop/code_all_shape/src/components/shapes/cb5-clipboard/`.
 - 5 SVG mask và 5 bản SVG gốc: `/Users/dangquangminh/Desktop/code_all_shape/public/assets/shapes/cb5-clipboard/`. Path mũi tên được hợp nhất để bỏ đường nối khử răng cưa; các shape khác chỉ crop viewBox, không vẽ lại path.
 - Hình giữ tỉ lệ trên mobile, không đổi thành bố cục cột. Dùng phần trăm, em, media queries và `-webkit-mask`; không cần container queries, `cqw` hay JS để tính kích thước. Mobile dùng mô tả ngắn; tên truy cập của nút giữ nội dung đầy đủ. Có thể pinch-zoom để đọc chữ nhỏ trong infographic.
@@ -51,7 +51,7 @@ npm run build
 ## TC5 — Năm cúp thành tựu (shape 12)
 
 - Xem riêng: http://localhost:3210/shapes/tc5-trophy-cups; mẫu thứ 15 ở cuối trang chủ.
-- Giữ bố cục tham chiếu 715 × 500: năm cúp nối ngang, quai có khoảng trắng phân lớp, thân có mảng chéo, bệ STEP 01–05, năm cụm chữ phía dưới và bục vinh danh phía trên bên phải. Nền trắng.
+- Giữ bố cục tham chiếu 715 × 500: năm cúp nối ngang, quai có khoảng trắng phân lớp, thân có mảng chéo, bệ STEP 01–05 và năm cụm chữ phía dưới. Đã bỏ cụm tiêu đề “Thành tựu”, mô tả ngắn và bục vinh danh phía trên bên phải; giữ nguyên vị trí, kích thước năm cúp và nền trắng.
 - Component/CSS/config: `/Users/dangquangminh/Desktop/code_all_shape/src/components/shapes/tc5-trophy-cups/`.
 - Hai SVG mask + hai SVG gốc byte-for-byte: `/Users/dangquangminh/Desktop/code_all_shape/public/assets/shapes/tc5-trophy-cups/`. Chỉ crop viewBox; giữ nguyên cả hai path trong mỗi SVG. Tái tạo mask: `node /Users/dangquangminh/Desktop/code_all_shape/scripts/generate_tc5_assets.mjs`.
 - `react-icons/fa6` và `react-icons/lu`, không thêm thư viện. Chạm/Enter/Space để chọn; Tab/←/→/Home/End điều hướng, Escape bỏ chọn mà giữ focus. Hover và chọn không dịch chuyển hình học.

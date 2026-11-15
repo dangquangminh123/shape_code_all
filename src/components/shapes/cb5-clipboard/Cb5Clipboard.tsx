@@ -1,12 +1,9 @@
 'use client';
 
-import { useId, useRef, useState, type CSSProperties, type KeyboardEvent } from 'react';
+import { useRef, useState, type CSSProperties, type KeyboardEvent } from 'react';
 import type { IconType } from 'react-icons';
 import {
-  FaBriefcase, FaBuilding, FaCalculator, FaCalendarDays, FaChartColumn,
-  FaChartLine, FaChartPie, FaCheck, FaComputer, FaGear, FaGlobe,
-  FaHouse, FaKeyboard, FaLocationDot, FaLockOpen, FaMagnifyingGlass,
-  FaPen, FaScissors, FaUser, FaUserTie, FaHandPointer, FaGrip,
+  FaCheck, FaHandPointer, FaHouse, FaLocationDot, FaMagnifyingGlass, FaUser,
 } from 'react-icons/fa6';
 import './cb5-clipboard.css';
 
@@ -26,12 +23,6 @@ const summaries = [
   'Đồng hành, phát triển bền vững.',
 ];
 
-const businessIcons: IconType[] = [
-  FaChartColumn, FaLockOpen, FaGear, FaUserTie, FaChartPie, FaCheck,
-  FaChartLine, FaBuilding, FaComputer, FaCalendarDays, FaBuilding, FaGlobe,
-  FaCalculator, FaPen, FaKeyboard, FaScissors, FaBriefcase, FaGrip,
-];
-
 type Cb5Style = CSSProperties & { [key: `--cb5-${string}`]: string };
 
 function stepStyle(step: typeof steps[number]): Cb5Style {
@@ -39,7 +30,6 @@ function stepStyle(step: typeof steps[number]): Cb5Style {
 }
 
 export default function Cb5Clipboard() {
-  const id = useId();
   const [selected, setSelected] = useState<number | null>(null);
   const [hovered, setHovered] = useState<number | null>(null);
   const [focused, setFocused] = useState<number | null>(null);
@@ -62,9 +52,8 @@ export default function Cb5Clipboard() {
   }
 
   return (
-    <section className="cb5-module" aria-labelledby={`${id}-heading`}>
+    <section className="cb5-module" aria-label="Bảng kẹp & năm bước phát triển">
       <div className="cb5-artwork">
-        <h2 className="cb5-heading" id={`${id}-heading`}><strong>business</strong> infographic</h2>
         <div className="cb5-stage">
           <div className="cb5-rails" role="group" aria-label="Năm bước phát triển">
             {steps.map((step, index) => {
@@ -113,9 +102,6 @@ export default function Cb5Clipboard() {
               ))}
             </ul>
           </div>
-        </div>
-        <div className="cb5-business-icons" aria-hidden="true">
-          {businessIcons.map((Icon, index) => <Icon key={index} />)}
         </div>
       </div>
     </section>

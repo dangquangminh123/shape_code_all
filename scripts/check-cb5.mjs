@@ -21,9 +21,12 @@ const measure = `(() => {
   const fits=e=>e.scrollWidth<=e.clientWidth+1&&e.scrollHeight<=e.clientHeight+1;
   const rows=q('.cb5-row'), board=el('.cb5-board'), stage=el('.cb5-stage');
   const boardRect=rect(board), stageRect=rect(stage);
-  const icons=q('.cb5-business-icons svg');
+  const artworkRect=rect(el('.cb5-artwork'));
   return {
-    counts:rows.length===5&&q('.cb5-checklist li').length===5&&icons.length===18,
+    counts:rows.length===5&&q('.cb5-checklist li').length===5&&q('.cb5-row__icon svg').length===5,
+    noDecorations:q('.cb5-heading,.cb5-business-icons').length===0&&!/business\\s+infographic/i.test(el('.cb5-module').textContent),
+    compactArtwork:Math.abs(artworkRect.top-stageRect.top)<1&&Math.abs(artworkRect.height-stageRect.height)<1,
+    namedSection:el('.cb5-module').getAttribute('aria-label')==='Bảng kẹp & năm bước phát triển',
     white:getComputedStyle(el('.cb5-module')).backgroundColor==='rgb(255, 255, 255)',
     overflow:document.documentElement.scrollWidth<=innerWidth+1,
     copy:q('.cb5-row__copy,.cb5-checklist li').every(fits),
@@ -33,7 +36,6 @@ const measure = `(() => {
     ratio:Math.abs(stageRect.height/stageRect.width-.555)<.001,
     overlap:Math.abs((boardRect.left-stageRect.left)/stageRect.width-.615)<.001&&rect(rows[0]).right>boardRect.left,
     clip:rect(el('.cb5-clip')).top<boardRect.top&&rect(el('.cb5-clip')).bottom>boardRect.top,
-    iconGrid:icons.slice(0,9).every(e=>Math.abs(rect(e).top-rect(icons[0]).top)<1)&&icons.slice(9).every(e=>Math.abs(rect(e).top-rect(icons[9]).top)<1),
     tapTargets:rows.every(e=>rect(e).height>=24&&rect(e).width>=24),
     zoomAllowed:!/(user-scalable=no|maximum-scale=1)/.test(el('meta[name=viewport]').content),
     accessible:rows.every(e=>e.getAttribute('aria-label')?.length>45&&e.hasAttribute('aria-pressed'))
@@ -96,6 +98,8 @@ try {
   await b.send('Emulation.setScriptExecutionDisabled',{value:true});
   await b.navigate(`${base}/shapes/cb5-clipboard?no-js=1`,414,736,'.cb5-row');
   check('server-rendered without JavaScript',await b.evaluate(`document.querySelectorAll('.cb5-row').length===5&&document.querySelectorAll('.cb5-checklist li').length===5`));
+  const noJs=await b.evaluate(measure);
+  check('clean composition without JavaScript',noJs.noDecorations&&noJs.compactArtwork&&noJs.namedSection);
   await b.send('Emulation.setScriptExecutionDisabled',{value:false});
   const css=await readFile(new URL('../src/components/shapes/cb5-clipboard/cb5-clipboard.css',import.meta.url),'utf8');
   check('no modern-only CSS units or queries',!/@container|\d(?:cqw|dvh)\b|color-mix\(/.test(css));
