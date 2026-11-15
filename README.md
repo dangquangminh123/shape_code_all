@@ -60,6 +60,19 @@ npm run build
 - Kiểm thử gồm 320–1440 px, iPhone 7 Plus dọc/ngang (414 × 736, 736 × 414), font hệ thống, chỉ dùng mask có tiền tố WebKit, bàn phím, chạm, zoom 200%, reduced motion, SSR không JavaScript và kiểm tra path SVG không bị thay đổi. Đây là kiểm thử Chrome, không phải xác nhận chạy trên iPhone thật.
 - Thư mục tài liệu nguồn shape 12 trong dự án được xoá sau khi tích hợp và đối chiếu SVG. Ứng dụng không tham chiếu thư mục này.
 
+## PB4 — Bình bơm bốn bước chăm sóc da (shape 29)
+
+- Xem riêng: http://localhost:3210/shapes/pb4-pump-bottle; mẫu thứ 16 cuối trang chủ.
+- Giữ artboard 525 × 350, nắp bơm xanh ngọc, thân bình tròn bốn dải màu 01–04, cung nối và bốn chấm/chú thích bên phải, bóng đổ mỏng và nền trắng. Nội dung tiếng Việt và icon `react-icons/lu`, không thêm thư viện.
+- Component/CSS/config: `/Users/dangquangminh/Desktop/code_all_shape/src/components/shapes/pb4-pump-bottle/`.
+- Sáu SVG mask và bản gốc byte-for-byte cùng ảnh tham chiếu nằm tại `/Users/dangquangminh/Desktop/code_all_shape/public/assets/shapes/pb4-pump-bottle/`. Crop viewBox, không vẽ lại path. Bốn dải được đặt riêng và cắt bởi mask thân bình; hình học SVG nguồn có sai khác nhỏ so với ảnh raster tham chiếu.
+- Tái tạo mask: `node /Users/dangquangminh/Desktop/code_all_shape/scripts/generate_pb4_assets.mjs` (không cần thư mục nguồn `shape 29`).
+- Bố cục vẫn ngang ở mobile, dùng mô tả ngắn dễ đọc hơn; tên truy cập giữ nội dung đầy đủ. Click/chạm/Enter/Space để chọn, Tab/↑/↓/Home/End để điều hướng, Escape bỏ chọn. Hỗ trợ reduced motion, SSR và pinch-zoom.
+- CSS dùng phần trăm/em và `-webkit-mask`, không phụ thuộc `cqw` hoặc container queries. Giống các mẫu toàn chiều rộng khác, font dự phòng tính theo viewport; nếu nhúng vào sidebar hẹp cần điều chỉnh theo host.
+- Kiểm thử: `node /Users/dangquangminh/Desktop/code_all_shape/scripts/check-pb4.mjs` (Node 22+, Chrome, server đang chạy), có `TEST_BASE`, `TEST_OUTPUT`, `CHROME_BIN`; kết quả/ảnh ở `/tmp/pb4-check/`.
+- Kiểm thử Chrome ở 320–1440px, gồm iPhone 7 Plus 414 × 736 và 736 × 414, mask có tiền tố WebKit, bàn phím/chạm/zoom, reduced motion, SSR và đối chiếu path. Đây không phải Safari/iPhone thật; cần kiểm tra trên thiết bị thật trước phát hành.
+- Thư mục nguồn `shape 29` được xóa sau khi lưu tài nguyên và kiểm tra; ứng dụng không phụ thuộc vào thư mục này.
+
 ## Responsive trên iPhone / iOS 15
 
 - iPhone 7 Plus chạy tối đa iOS 15; Safari/WebView trên iOS này không hỗ trợ `@container`, `container-type` và `cqw` (Safari 16 mới hỗ trợ). Chỉ đổi chiều rộng trong Chrome DevTools không phát hiện được lỗi này.

@@ -56,7 +56,7 @@ try {
         const mobile=innerWidth<=520;
         const out={
           viewport:innerWidth===${width},
-          allModules:q('.app-main > *').length===15,
+          allModules:q('.app-main > *').length===16,
           noPageOverflow:document.documentElement.scrollWidth<=innerWidth+1,
           stackCopyFits:q('.ssd-content-box').every(fits),
           giftCopyFits:q('.gb5-body-copy').every(fits),
@@ -84,7 +84,12 @@ try {
           trophyNamed:el('.tc5-module').getAttribute('aria-label')==='Năm cúp thành tựu'&&!el('.tc5-module').hasAttribute('aria-labelledby'),
           trophyCopy:q('.tc5-caption,.tc5-cup__number').every(fits),
           trophyTapTargets:q('.tc5-control').every(e=>r(e).height>=44&&r(e).width>=40),
-          trophyWhite:cs(el('.tc5-module')).backgroundColor==='rgb(255, 255, 255)'
+          trophyWhite:cs(el('.tc5-module')).backgroundColor==='rgb(255, 255, 255)',
+          pumpComposition:q('.pb4-control').length===4&&Math.abs(r(el('.pb4-artwork')).height/r(el('.pb4-artwork')).width-350/525)<.001,
+          pumpCopy:q('.pb4-caption,.pb4-label').every(fits),
+          pumpBounds:q('.pb4-body,.pb4-cap,.pb4-caption').every(e=>inside(e,el('.pb4-artwork'))),
+          pumpContent:q('.pb4-band').length===4&&q('.pb4-caption__icon svg').length===4,
+          pumpWhite:cs(el('.pb4-module')).backgroundColor==='rgb(255, 255, 255)'
         };
         if(mobile){
           out.stackSingleColumn=r(el('.ssd-content-col')).top>=r(el('.ssd-stack')).bottom;
@@ -102,7 +107,7 @@ try {
         if (!pass) failures.push(label);
       }
       if (width===414) {
-        for (const [name,selector] of [['stack','.ssd-wrapper'],['tube','.vt4'],['rocket','.sr6-module'],['star','.s8f-module'],['heart','.wh9-module'],['gift','.gb5-timeline-zone'],['clipboard','.cb5-module'],['trophies','.tc5-module']]) {
+        for (const [name,selector] of [['stack','.ssd-wrapper'],['tube','.vt4'],['rocket','.sr6-module'],['star','.s8f-module'],['heart','.wh9-module'],['gift','.gb5-timeline-zone'],['clipboard','.cb5-module'],['trophies','.tc5-module'],['pump-bottle','.pb4-module']]) {
           await b.evaluate(`document.querySelector('${selector}').scrollIntoView({block:'start'})`);
           await b.screenshot(`${output}/${mode}-${width}-${name}.png`);
         }
