@@ -29,6 +29,18 @@ npm run build
 
 Để kiểm tra giao diện thủ công, chạy `npm run dev` rồi mở trang chính và các trang shape trên trình duyệt ở kích thước desktop/mobile.
 
+## LM6 — Cấp độ & cột mốc (shape 1)
+
+- Xem riêng: http://localhost:3210/shapes/lm6-levels-marks; mẫu thứ 17, sau PB4 trên trang chủ.
+- Giữ bố cục ảnh 960 × 720: tiêu đề trái phía trên, sáu khối mũi tên nối ngang, cạnh vát đen, số 1–6, phản chiếu ngắn phía dưới và chú thích xen kẽ (1/3/5 trên, 2/4/6 dưới). Nền toàn bộ trắng, không chuyển thành danh sách/cột trên điện thoại.
+- Component, CSS và cấu hình nội dung/màu: `/Users/dangquangminh/Desktop/code_all_shape/src/components/shapes/lm6-levels-marks/`. Canvas tối đa 1320px. Nội dung tiếng Việt; `FaCircle` từ `react-icons/fa6` giữ dấu đầu dòng nhỏ như ảnh, không thêm icon lớn làm đổi bố cục.
+- Tài nguyên: `/Users/dangquangminh/Desktop/code_all_shape/public/assets/shapes/lm6-levels-marks/`. Hai SVG Illustrator được lưu nguyên byte trong `originals`, ảnh JPG và SHA-256 trong `manifest.json`. Bốn mặt của SVG 1 được tách thành mask, SVG 2 làm mặt phản chiếu; path/polygon giữ nguyên. CSS tạo khe trắng chéo giữa các khối và tô gradient.
+- Tái tạo mask: `node /Users/dangquangminh/Desktop/code_all_shape/scripts/generate_lm6_assets.mjs`. Không phụ thuộc thư mục nhập `shape 1` sau khi di chuyển tài nguyên.
+- Responsive dùng phần trăm, em, `min`/`clamp`, media queries và cả `-webkit-mask`; không phụ thuộc container queries, `cqw`, `:has`, `dvh` hoặc JS đo kích thước. Dưới 601px dùng nội dung rút gọn, tên truy cập của nút vẫn giữ đầy đủ nội dung. Cho phép pinch-zoom; trên điện thoại chữ nhỏ để bảo toàn bố cục sáu giai đoạn.
+- Click/chạm chọn một giai đoạn, click lại để bỏ chọn. Tab/←/→/Home/End điều hướng, Enter/Space chọn, Escape bỏ chọn và giữ focus. Có focus ring và reduced-motion. Hình/chữ vẫn hiển thị khi tắt JavaScript.
+- Kiểm thử riêng: `node /Users/dangquangminh/Desktop/code_all_shape/scripts/check-lm6.mjs` (Node 22+, Chrome và server đang chạy). Có `TEST_BASE`, `TEST_OUTPUT`, `CHROME_BIN`; ảnh/kết quả mặc định `/tmp/lm6-check/`. Phủ 320–1920px, breakpoint 600/601, iPhone 7 Plus 414 × 736 / 736 × 414, tràn chữ/hình, tọa độ bố cục, chạm/phím, zoom, SSR và mask tiền tố.
+- `scripts/check-responsive.mjs` kiểm tra cả 17 mẫu. Kiểm tra fallback bằng Chrome **không thay thế Safari/iPhone thật**; trước phát hành cần kiểm tra thiết bị thật (dọc/ngang, cuộn tới chú thích cuối, zoom, chạm, trình duyệt trong ứng dụng).
+
 ## PN10 — Chai bút & năm mũi tên (shape 15)
 
 - Xem riêng: http://localhost:3210/shapes/pn10-pencil-ribbon; theme đỏ/bạc: http://localhost:3210/shapes/pn10-pencil-ribbon?theme=silver-red.
@@ -64,13 +76,14 @@ npm run build
 
 - Xem riêng: http://localhost:3210/shapes/pb4-pump-bottle; mẫu thứ 16 cuối trang chủ.
 - Giữ artboard 525 × 350, nắp bơm xanh ngọc, thân bình tròn bốn dải màu 01–04, cung nối và bốn chấm/chú thích bên phải, bóng đổ mỏng và nền trắng. Nội dung tiếng Việt và icon `react-icons/lu`, không thêm thư viện.
+- Kích thước hiển thị tối đa 1.320 × 880px (tăng 20% so với bản 1.100px), giữ nguyên tỉ lệ bình/cung nối. Số, tiêu đề, mô tả, icon và chấm nối tăng riêng để dễ đọc hơn; mô tả mobile 9–12px và vẫn cho phép pinch-zoom.
 - Component/CSS/config: `/Users/dangquangminh/Desktop/code_all_shape/src/components/shapes/pb4-pump-bottle/`.
 - Sáu SVG mask và bản gốc byte-for-byte cùng ảnh tham chiếu nằm tại `/Users/dangquangminh/Desktop/code_all_shape/public/assets/shapes/pb4-pump-bottle/`. Crop viewBox, không vẽ lại path. Bốn dải được đặt riêng và cắt bởi mask thân bình; hình học SVG nguồn có sai khác nhỏ so với ảnh raster tham chiếu.
 - Tái tạo mask: `node /Users/dangquangminh/Desktop/code_all_shape/scripts/generate_pb4_assets.mjs` (không cần thư mục nguồn `shape 29`).
 - Bố cục vẫn ngang ở mobile, dùng mô tả ngắn dễ đọc hơn; tên truy cập giữ nội dung đầy đủ. Click/chạm/Enter/Space để chọn, Tab/↑/↓/Home/End để điều hướng, Escape bỏ chọn. Hỗ trợ reduced motion, SSR và pinch-zoom.
 - CSS dùng phần trăm/em và `-webkit-mask`, không phụ thuộc `cqw` hoặc container queries. Giống các mẫu toàn chiều rộng khác, font dự phòng tính theo viewport; nếu nhúng vào sidebar hẹp cần điều chỉnh theo host.
 - Kiểm thử: `node /Users/dangquangminh/Desktop/code_all_shape/scripts/check-pb4.mjs` (Node 22+, Chrome, server đang chạy), có `TEST_BASE`, `TEST_OUTPUT`, `CHROME_BIN`; kết quả/ảnh ở `/tmp/pb4-check/`.
-- Kiểm thử Chrome ở 320–1440px, gồm iPhone 7 Plus 414 × 736 và 736 × 414, mask có tiền tố WebKit, bàn phím/chạm/zoom, reduced motion, SSR và đối chiếu path. Đây không phải Safari/iPhone thật; cần kiểm tra trên thiết bị thật trước phát hành.
+- Kiểm thử Chrome ở 320–1920px, gồm iPhone 7 Plus 414 × 736 và 736 × 414, ngưỡng chuyển nội dung 600/601px và giới hạn canvas 1.320px. Kiểm tra kích thước chữ/icon/chấm nối, không chồng chữ, mask có tiền tố WebKit, bàn phím/chạm/zoom, reduced motion, SSR và đối chiếu path. Đây không phải Safari/iPhone thật; cần kiểm tra trên thiết bị thật trước phát hành.
 - Thư mục nguồn `shape 29` được xóa sau khi lưu tài nguyên và kiểm tra; ứng dụng không phụ thuộc vào thư mục này.
 
 ## Responsive trên iPhone / iOS 15

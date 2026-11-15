@@ -56,7 +56,7 @@ try {
         const mobile=innerWidth<=520;
         const out={
           viewport:innerWidth===${width},
-          allModules:q('.app-main > *').length===16,
+          allModules:q('.app-main > *').length===17,
           noPageOverflow:document.documentElement.scrollWidth<=innerWidth+1,
           stackCopyFits:q('.ssd-content-box').every(fits),
           giftCopyFits:q('.gb5-body-copy').every(fits),
@@ -89,7 +89,14 @@ try {
           pumpCopy:q('.pb4-caption,.pb4-label').every(fits),
           pumpBounds:q('.pb4-body,.pb4-cap,.pb4-caption').every(e=>inside(e,el('.pb4-artwork'))),
           pumpContent:q('.pb4-band').length===4&&q('.pb4-caption__icon svg').length===4,
-          pumpWhite:cs(el('.pb4-module')).backgroundColor==='rgb(255, 255, 255)'
+          pumpWhite:cs(el('.pb4-module')).backgroundColor==='rgb(255, 255, 255)',
+          levelsComposition:q('.lm6-control').length===6&&Math.abs(r(el('.lm6-artwork')).height/r(el('.lm6-artwork')).width-.75)<.001,
+          levelsHorizontal:q('.lm6-arrow').every(e=>Math.abs(r(e).top-r(el('.lm6-arrow')).top)<1),
+          levelsAlternating:q('.lm6-caption').every((e,i)=>i%2?r(e).top>r(q('.lm6-reflection')[i]).bottom:r(e).bottom<r(q('.lm6-arrow')[i]).top),
+          levelsCopy:q('.lm6-caption,.lm6-caption h3,.lm6-caption li').every(fits),
+          levelsBounds:q('.lm6-heading,.lm6-arrow,.lm6-caption,.lm6-reflection').every(e=>inside(e,el('.lm6-artwork'))),
+          levelsWhite:cs(el('.lm6-module')).backgroundColor==='rgb(255, 255, 255)',
+          levelsIcons:q('.lm6-caption li svg').length===12
         };
         if(mobile){
           out.stackSingleColumn=r(el('.ssd-content-col')).top>=r(el('.ssd-stack')).bottom;
@@ -107,7 +114,7 @@ try {
         if (!pass) failures.push(label);
       }
       if (width===414) {
-        for (const [name,selector] of [['stack','.ssd-wrapper'],['tube','.vt4'],['rocket','.sr6-module'],['star','.s8f-module'],['heart','.wh9-module'],['gift','.gb5-timeline-zone'],['clipboard','.cb5-module'],['trophies','.tc5-module'],['pump-bottle','.pb4-module']]) {
+        for (const [name,selector] of [['stack','.ssd-wrapper'],['tube','.vt4'],['rocket','.sr6-module'],['star','.s8f-module'],['heart','.wh9-module'],['gift','.gb5-timeline-zone'],['clipboard','.cb5-module'],['trophies','.tc5-module'],['pump-bottle','.pb4-module'],['levels-marks','.lm6-module']]) {
           await b.evaluate(`document.querySelector('${selector}').scrollIntoView({block:'start'})`);
           await b.screenshot(`${output}/${mode}-${width}-${name}.png`);
         }

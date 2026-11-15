@@ -27,6 +27,13 @@ const measure = `(() => {
     white:cs(el('.pb4-module')).backgroundColor==='rgb(255, 255, 255)',
     overflow:document.documentElement.scrollWidth<=innerWidth+1,
     referenceRatio:near(box.height/box.width,350/525),
+    enlargedCanvas:Math.abs(box.width-Math.min(innerWidth,1320))<1,
+    readableLabels:labels.every(e=>parseFloat(cs(e.querySelector('strong')).fontSize)>=box.width*29/525-.1&&parseFloat(cs(e.querySelector('span')).fontSize)>=box.width*10.8/525-.1),
+    readableCaptions:captions.every(e=>parseFloat(cs(e).fontSize)>=(innerWidth<=600?Math.min(12,Math.max(9,innerWidth*.024)):Math.max(12,box.width*8.4/525))-.1),
+    enlargedIcons:q('.pb4-caption__icon svg').every(e=>r(e).width>=parseFloat(cs(e.closest('.pb4-caption')).fontSize)*1.45-.1),
+    enlargedDots:dots.every(e=>r(e).width>=box.width*9/525-.1),
+    captionSeparation:captions.every((e,i)=>!i||r(e).top>=r(captions[i-1]).bottom+1),
+    iconCopySeparation:captions.every(e=>{const text=[...e.children].find(c=>!c.classList.contains('pb4-caption__icon')&&cs(c).display!=='none');return r(text).left>=r(e.querySelector('.pb4-caption__icon')).right+1&&inside(text,e);}),
     bottlePosition:near((r(body).left-box.left)/box.width,67/525)&&near((r(body).top-box.top)/box.height,110/350),
     capPosition:near((r(cap).left-box.left)/box.width,127/525)&&near((r(cap).top-box.top)/box.height,33/350),
     capConnected:Math.abs(r(cap).bottom-r(body).top)<box.height*.008,
@@ -56,7 +63,7 @@ async function key(value) {
 }
 
 try {
-  for (const [width,height] of [[320,568],[375,667],[414,736],[430,932],[525,350],[600,800],[736,414],[768,1024],[1024,768],[1440,1000]]) {
+  for (const [width,height] of [[320,568],[375,667],[414,736],[430,932],[525,350],[600,800],[601,800],[736,414],[768,1024],[1024,768],[1100,900],[1320,900],[1440,1000],[1920,1080]]) {
     await b.navigate(`${base}/shapes/pb4-pump-bottle`,width,height,'.pb4-control');
     await b.send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:width===414?3:1,mobile:width<800});
     for (const [name,pass] of Object.entries(await b.evaluate(measure))) check(`${width} ${name}`,pass);

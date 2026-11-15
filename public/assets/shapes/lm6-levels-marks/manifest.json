@@ -1,0 +1,42 @@
+{
+  "reference": {
+    "file": "lm6-reference.jpg",
+    "width": 960,
+    "height": 720,
+    "sha256": "e7225d140aaf6c9e2a1c78256f2a30e182874eac307e0dec07d1890f46a2d1c6"
+  },
+  "originals": [
+    {
+      "file": "originals/lm6-source-01.svg",
+      "bytes": 784,
+      "sha256": "c0f9e8689bfe9a585a5add6418f3dedb74bbfbb1494afc75e9bd30a67608a0d9"
+    },
+    {
+      "file": "originals/lm6-source-02.svg",
+      "bytes": 508,
+      "sha256": "6a9fa73f99547bf195aca9e1027016a295e4f8d1d2a95e5822c1065965b88c5c"
+    }
+  ],
+  "masks": [
+    {
+      "file": "lm6-front-mask.svg",
+      "viewBox": "0 0 95.53 80.6"
+    },
+    {
+      "file": "lm6-top-mask.svg",
+      "viewBox": "0 0 95.53 80.6"
+    },
+    {
+      "file": "lm6-side-mask.svg",
+      "viewBox": "0 0 95.53 80.6"
+    },
+    {
+      "file": "lm6-edge-mask.svg",
+      "viewBox": "0 0 95.53 80.6"
+    },
+    {
+      "file": "lm6-reflection-mask.svg",
+      "viewBox": "0 0 280.01 81"
+    }
+  ]
+}
