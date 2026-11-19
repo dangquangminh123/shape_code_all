@@ -15,6 +15,7 @@ import Cb5Clipboard from '@/components/shapes/cb5-clipboard/Cb5Clipboard';
 import Tc5TrophyCups from '@/components/shapes/tc5-trophy-cups/Tc5TrophyCups';
 import Pb4PumpBottle from '@/components/shapes/pb4-pump-bottle/Pb4PumpBottle';
 import Lm6LevelsMarks from '@/components/shapes/lm6-levels-marks/Lm6LevelsMarks';
+import Ls4LadderSteps from '@/components/shapes/ls4-ladder-steps/Ls4LadderSteps';
 
 export default function HomePage() {
   return (
@@ -36,6 +37,7 @@ export default function HomePage() {
       <Tc5TrophyCups />
       <Pb4PumpBottle />
       <Lm6LevelsMarks />
+      <Ls4LadderSteps />
     </>
   );
 }

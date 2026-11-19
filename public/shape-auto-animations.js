@@ -97,6 +97,12 @@
       track('.lm6-number', 6, 'pop', 350, 150, 600),
       track('.lm6-reflection', 6, 'fade', 650, 150, 700),
     ], idle('.lm6-surface--edge', 6, 'light', 4800)),
+    recipe('ls4-ladder-steps', '.ls4-module', 'Four-step isometric staircase ascent, icon pop and ambient 3D sheen', [
+      track('.ls4-step', 4, 'stair', 0, 160, 850),
+      track('.ls4-step__icon-circle', 4, 'pop', 350, 160, 600),
+      track('.ls4-step__text', 4, 'right', 480, 160, 650),
+      track('.ls4-step__badge', 4, 'fade', 600, 160, 550),
+    ], idle('.ls4-facet--side', 4, 'light', 4600)),
   ];
 
   // Transform keyframes ADD to the live CSS/attribute transform, not a cached matrix.
@@ -123,6 +129,7 @@
       case 'unfold': return move('translateX(18px) scaleX(.94)');
       case 'check': return move('scale(.35) rotate(-12deg)', 'scale(1.12) rotate(2deg)');
       case 'victory': return move('translateY(30px) scale(.96)', 'translateY(-4px) scale(1.01)');
+      case 'stair': return move('translate(-22px, 22px) scale(.95)', 'translate(2px, -2px) scale(1.01)');
       case 'domino': return move('translateY(18px) rotate(-4deg)', 'translateY(-2px) rotate(.5deg)');
       case 'press': return [{ transform: identity }, { transform: 'translateY(3px)', offset: .35 }, { transform: 'translateY(-1px)', offset: .7 }, { transform: identity }];
       case 'sector': return reveal('inset(0% 0% 100% 0%)');

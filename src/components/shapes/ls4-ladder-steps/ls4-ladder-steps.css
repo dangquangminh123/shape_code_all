@@ -1,0 +1,327 @@
+/* LS4 — Ladder Steps (4-Step Isometric Staircase, product growth theme)
+   Reference coordinates: 720 × 540 canvas (4:3 aspect ratio).
+   iOS 15 / WKWebView safe: no container queries, no cqw, no dynamic viewport units.
+   Uses SVG layer masks via -webkit-mask / mask for 3D facets. */
+
+.ls4-module {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  background: #ffffff;
+  isolation: isolate;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  padding: 2rem 1rem 3rem;
+  box-sizing: border-box;
+}
+
+.ls4-artwork {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  height: 0;
+  padding-bottom: min(75%, 720px);
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: min(1.388889vw, 14.5px);
+  line-height: 1.25;
+  color: #1f2937;
+  user-select: none;
+}
+
+/* Header lockup matching the reference slide */
+.ls4-header {
+  position: absolute;
+  left: 6.5%;
+  top: 5.5%;
+  width: 55%;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.ls4-header__title {
+  margin: 0 0 0.22em;
+  font-size: 2.15em;
+  font-weight: 850;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  color: #111827;
+  text-transform: uppercase;
+}
+
+.ls4-header__subtitle {
+  margin: 0;
+  font-size: 1.1em;
+  font-weight: 400;
+  color: #4b5563;
+  line-height: 1.2;
+}
+
+/* Staircase list containing 4 steps */
+.ls4-staircase {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Individual step container positioned according to isometric coordinate system */
+.ls4-step {
+  position: absolute;
+  left: var(--ls4-left);
+  top: var(--ls4-top);
+  width: 62.778%;
+  height: 18.889%;
+  pointer-events: none;
+  transition: transform 0.28s cubic-bezier(0.22, 0.61, 0.36, 1),
+              filter 0.25s ease;
+}
+
+/* 3D facets block */
+.ls4-step__block {
+  position: absolute;
+  inset: 0;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.08));
+  transition: filter 0.22s ease, transform 0.22s ease;
+}
+
+/* Facets using SVG masks */
+.ls4-facet {
+  position: absolute;
+  display: block;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+}
+
+/* Top Face - Left facet (above icon box) */
+.ls4-facet--top-icon {
+  left: 0;
+  top: 0;
+  width: 26.549%;
+  height: 26.471%;
+  background: var(--ls4-top-icon);
+  -webkit-mask-image: url('/assets/shapes/ls4-ladder-steps/ls4-top-icon-mask.svg');
+  mask-image: url('/assets/shapes/ls4-ladder-steps/ls4-top-icon-mask.svg');
+}
+
+/* Top Face - Right facet (above text box) */
+.ls4-facet--top-text {
+  left: 16.593%;
+  top: 0;
+  width: 83.407%;
+  height: 26.471%;
+  background: var(--ls4-top-text);
+  -webkit-mask-image: url('/assets/shapes/ls4-ladder-steps/ls4-top-text-mask.svg');
+  mask-image: url('/assets/shapes/ls4-ladder-steps/ls4-top-text-mask.svg');
+}
+
+/* Label on top-text facet ("Ý tưởng", "Xây dựng", "Ra mắt", "Mở rộng") */
+.ls4-step__badge {
+  position: absolute;
+  left: 28%;
+  top: 0;
+  width: 60%;
+  height: 26.471%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.15em;
+  letter-spacing: 0.025em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
+
+/* Right Side Face (3D isometric depth) */
+.ls4-facet--side {
+  left: 90.044%;
+  top: 0;
+  width: 9.956%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--ls4-side-facet) 0%, var(--ls4-highlight) 100%);
+  -webkit-mask-image: url('/assets/shapes/ls4-ladder-steps/ls4-side-facet-mask.svg');
+  mask-image: url('/assets/shapes/ls4-ladder-steps/ls4-side-facet-mask.svg');
+}
+
+/* Front Face - Left icon box (square) */
+.ls4-facet--front-icon {
+  left: 0;
+  top: 26.471%;
+  width: 16.593%;
+  height: 73.529%;
+  background: var(--ls4-icon-box);
+  -webkit-mask-image: url('/assets/shapes/ls4-ladder-steps/ls4-front-icon-mask.svg');
+  mask-image: url('/assets/shapes/ls4-ladder-steps/ls4-front-icon-mask.svg');
+}
+
+/* Front Face - Right text box (content rectangle) */
+.ls4-facet--front-text {
+  left: 16.593%;
+  top: 26.471%;
+  width: 73.451%;
+  height: 73.529%;
+  background: var(--ls4-text-box);
+  -webkit-mask-image: url('/assets/shapes/ls4-ladder-steps/ls4-front-text-mask.svg');
+  mask-image: url('/assets/shapes/ls4-ladder-steps/ls4-front-text-mask.svg');
+}
+
+/* Interactive control covering front surface */
+.ls4-control {
+  position: absolute;
+  left: 0;
+  top: 26.471%;
+  width: 90.044%;
+  height: 73.529%;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  background: transparent;
+  color: #ffffff;
+  font: inherit;
+  cursor: pointer;
+  pointer-events: auto;
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: stretch;
+  text-align: left;
+}
+
+.ls4-control:focus {
+  outline: 2px solid var(--ls4-ink);
+  outline-offset: 3px;
+}
+
+.ls4-control:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Icon container inside front icon box */
+.ls4-step__icon-box {
+  width: 18.428%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ls4-step__icon-circle {
+  width: 58%;
+  height: 58%;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.24s ease, border-color 0.24s ease;
+}
+
+.ls4-step__icon-circle svg {
+  display: block;
+  width: 62%;
+  height: 62%;
+  stroke-width: 2.1;
+  color: #ffffff;
+}
+
+/* Content container inside front text box */
+.ls4-step__text {
+  width: 81.572%;
+  height: 100%;
+  padding: 0.6em 1.2em;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ls4-step__description {
+  margin: 0;
+  color: #ffffff;
+  font-size: 0.8em;
+  line-height: 1.35;
+  font-weight: 400;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.ls4-step__detail {
+  display: none;
+  margin: 0.25em 0 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.76em;
+  line-height: 1.3;
+  font-style: italic;
+}
+
+/* Hover and selection states */
+@media (hover: hover) and (pointer: fine) {
+  .ls4-step:hover .ls4-step__block {
+    filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.16)) brightness(1.06);
+    transform: translateY(-2px);
+  }
+  .ls4-step:hover .ls4-step__icon-circle {
+    transform: scale(1.08);
+    border-color: #ffffff;
+  }
+}
+
+.ls4-step.is-selected .ls4-step__block {
+  filter: drop-shadow(0 12px 26px rgba(0, 0, 0, 0.22)) brightness(1.09);
+  transform: translateY(-3px);
+}
+
+.ls4-step.is-selected .ls4-step__icon-circle {
+  transform: scale(1.12);
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.ls4-step.is-selected .ls4-step__badge {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.ls4-step.is-selected .ls4-step__detail {
+  display: block;
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .ls4-step,
+  .ls4-step__block,
+  .ls4-step__icon-circle {
+    transition: none !important;
+  }
+}
+
+/* Responsive adjustments for mobile screens */
+@media (max-width: 640px) {
+  .ls4-module {
+    padding: 1.25rem 0.5rem 2rem;
+  }
+  .ls4-artwork {
+    font-size: clamp(8px, 2.2vw, 12px);
+  }
+  .ls4-header__title {
+    font-size: 1.7em;
+  }
+  .ls4-header__subtitle {
+    font-size: 0.95em;
+  }
+  .ls4-step__text {
+    padding: 0.3em 0.6em;
+  }
+  .ls4-step__description {
+    font-size: 0.72em;
+    line-height: 1.22;
+  }
+  .ls4-step__detail {
+    font-size: 0.68em;
+  }
+}

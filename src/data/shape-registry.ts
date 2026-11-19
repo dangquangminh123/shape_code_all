@@ -368,6 +368,27 @@ export const SHAPE_TEMPLATES_REGISTRY: ShapeTemplateMeta[] = [
     ],
   },
   {
+    id: 'ls4-ladder-steps',
+    prefix: 'ls4',
+    name: 'LS4 — Ladder Steps',
+    vietnameseTitle: 'Nấc thang tăng trưởng bốn bậc 3D',
+    description:
+      'Bốn bậc thang 3D isometric xếp tầng (Ý tưởng, Xây dựng, Ra mắt, Mở rộng) với mặt trên dốc, mặt trước chia ô icon và nội dung, cùng mặt hông 3D phản chiếu ánh sáng từ SVG mask gốc shape 2. Bảng màu navy, xanh biển, san hô và hổ phách.',
+    status: 'ready',
+    route: '/shapes/ls4-ladder-steps',
+    publicSvgFolder: 'public/assets/shapes/ls4-ladder-steps/',
+    componentSourceFolder: 'src/components/shapes/ls4-ladder-steps/',
+    assets: [
+      { role: 'Mặt trên dốc toàn phần', level: 1, prefixedFileName: 'ls4-top-full-mask.svg', dimensions: 'viewBox: 0 0 15042.56 866.88', description: 'Hai đa giác mặt trên dốc từ shape 1 gốc.' },
+      { role: 'Mặt trên ô icon', level: 2, prefixedFileName: 'ls4-top-icon-mask.svg', dimensions: 'viewBox: 0 0 4063.13 866.88', description: 'Mặt nghiêng phía trên ô icon bên trái.' },
+      { role: 'Mặt trên ô nội dung', level: 3, prefixedFileName: 'ls4-top-text-mask.svg', dimensions: 'viewBox: 0 0 12415.91 866.88', description: 'Mặt nghiêng phía trên chứa nhãn nấc thang.' },
+      { role: 'Mặt trước toàn phần', level: 4, prefixedFileName: 'ls4-front-face-mask.svg', dimensions: 'viewBox: 0 0 11894.11 2296.06', description: 'Hai hình chữ nhật ghép từ shape 2 gốc.' },
+      { role: 'Mặt trước ô icon', level: 5, prefixedFileName: 'ls4-front-icon-mask.svg', dimensions: 'viewBox: 0 0 2296.06 2296.06', description: 'Ô vuông bên trái chứa icon React/Lucide.' },
+      { role: 'Mặt trước ô nội dung', level: 6, prefixedFileName: 'ls4-front-text-mask.svg', dimensions: 'viewBox: 0 0 9598.04 2296.06', description: 'Ô chữ nhật bên phải chứa văn bản mô tả.' },
+      { role: 'Mặt hông 3D isometric', level: 7, prefixedFileName: 'ls4-side-facet-mask.svg', dimensions: 'viewBox: 0 0 943.75 2296.06', description: 'Đa giác mặt bên tạo độ sâu không gian 3D từ shape 3 gốc.' },
+    ],
+  },
+  {
     id: 'phase-shape-demo',
     prefix: 'psd',
     name: 'Phase Shape Demo',
