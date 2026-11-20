@@ -1,0 +1,93 @@
+/* OB3 — Three Options Infographic Banners (Exact Geometry 1:1) */
+.ob3-module {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: clamp(24px, 4vw, 56px);
+  background: radial-gradient(circle at 50% 20%, #fbfcfd 0%, #edf2f7 100%);
+  color: #1e293b;
+  box-sizing: border-box;
+}
+
+.ob3-inner {
+  width: min(100%, 1020px);
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.ob3-header {
+  text-align: left;
+  max-width: 800px;
+}
+
+.ob3-header__title {
+  margin: 0 0 10px;
+  font-size: clamp(26px, 3.2vw, 38px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+}
+
+.ob3-header__subtitle {
+  margin: 0;
+  font-size: clamp(14px, 1.4vw, 16px);
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* 3 Stacked Banners */
+.ob3-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+}
+
+.ob3-row {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  text-align: left;
+  display: block;
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1), filter 240ms ease;
+  filter: drop-shadow(0 6px 12px rgba(15, 23, 42, 0.08));
+}
+
+.ob3-row:hover,
+.ob3-row:focus-visible,
+.ob3-row.is-active {
+  transform: translateY(-4px);
+  filter: drop-shadow(0 12px 22px rgba(15, 23, 42, 0.16));
+}
+
+.ob3-svg {
+  width: 100%;
+  height: auto;
+  max-height: 140px;
+  display: block;
+  overflow: visible;
+}
+
+.ob3-icon-host {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.ob3-loop__arrow {
+  transition: filter 200ms ease;
+}
+
+.ob3-row.is-active .ob3-loop__arrow {
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
+}

@@ -389,6 +389,58 @@ export const SHAPE_TEMPLATES_REGISTRY: ShapeTemplateMeta[] = [
     ],
   },
   {
+    id: 'rt6-reverse-timeline',
+    prefix: 'rt6',
+    name: 'RT6 — Reverse Timeline',
+    vietnameseTitle: 'Tiến trình thời gian ngược 6 giai đoạn',
+    description:
+      'Sáu dải băng bậc thang xếp giật cấp chéo xuống từ trái qua phải (06 đến 01). Đầu dải băng uốn vòm 3D, đáy lượn cong bán nguyệt kèm nếp gập 3D bên hông từ bộ SVG gốc shape 4.',
+    status: 'ready',
+    route: '/shapes/rt6-reverse-timeline',
+    publicSvgFolder: 'public/assets/shapes/rt6-reverse-timeline/',
+    componentSourceFolder: 'src/components/shapes/rt6-reverse-timeline/',
+    assets: [
+      { role: 'Mặt trước dải băng', level: 1, prefixedFileName: 'rt6-banner-face-mask.svg', dimensions: 'viewBox: 0 0 42.6 81', description: 'Mask mặt dải băng uốn cong từ 1.svg gốc.' },
+      { role: 'Nếp gấp 3D cạnh hông', level: 2, prefixedFileName: 'rt6-fold-side-mask.svg', dimensions: 'viewBox: 0 0 10.61 81', description: 'Nếp gấp liên kết chéo giữa các dải từ 2.svg gốc.' },
+    ],
+  },
+  {
+    id: 'sq5-sqert-model',
+    prefix: 'sq5',
+    name: 'SQ5 — SQERT Model',
+    vietnameseTitle: 'Mô hình quản lý dự án SQERT 5 cánh',
+    description:
+      'Bố cục 2 cột cân bằng: Cột trái là danh sách 5 tiêu chí dự án có icon trực quan, Cột phải là cối xay gió xoáy (Vortex) 5 cánh (S-Q-E-R-T) ôm vòng tròn trung tâm từ bộ SVG gốc shape 5.',
+    status: 'ready',
+    route: '/shapes/sq5-sqert-model',
+    publicSvgFolder: 'public/assets/shapes/sq5-sqert-model/',
+    componentSourceFolder: 'src/components/shapes/sq5-sqert-model/',
+    assets: [
+      { role: 'Cánh S (Scope)', level: 1, prefixedFileName: 'sq5-petal-01-scope-mask.svg', dimensions: 'viewBox: 0 0 119.94 81', description: 'Cánh giọt nước xoắn Scope từ 1.svg gốc.' },
+      { role: 'Cánh Q (Quality)', level: 2, prefixedFileName: 'sq5-petal-02-quality-mask.svg', dimensions: 'viewBox: 0 0 80.52 81', description: 'Cánh giọt nước xoắn Quality từ 2.svg gốc.' },
+      { role: 'Cánh E (Effort)', level: 3, prefixedFileName: 'sq5-petal-03-effort-mask.svg', dimensions: 'viewBox: 0 0 56.57 81', description: 'Cánh giọt nước xoắn Effort từ 3.svg gốc.' },
+      { role: 'Cánh R (Risk)', level: 4, prefixedFileName: 'sq5-petal-04-risk-mask.svg', dimensions: 'viewBox: 0 0 127.36 81', description: 'Cánh giọt nước xoắn Risk từ 4.svg gốc.' },
+      { role: 'Cánh T (Time)', level: 5, prefixedFileName: 'sq5-petal-05-time-mask.svg', dimensions: 'viewBox: 0 0 51.37 81', description: 'Cánh giọt nước xoắn Time từ 5.svg gốc.' },
+      { role: 'Khối lõi SQERT', level: 6, prefixedFileName: 'sq5-core-circle-mask.svg', dimensions: 'viewBox: 0 0 81 81', description: 'Vòng tròn trung tâm từ Tròn.svg gốc.' },
+    ],
+  },
+  {
+    id: 'ob3-option-banners',
+    prefix: 'ob3',
+    name: 'OB3 — Option Banners',
+    vietnameseTitle: '3 Dải ruy băng gấp nếp lựa chọn chiến lược',
+    description:
+      'Ba dải ruy băng gấp nếp nằm ngang xếp chồng đứng. Vòng cuốn mũi tên bên trái chứa icon và tiêu đề, thanh chữ nhật bên phải chứa số thứ tự Option và đoạn mô tả từ bộ SVG gốc shape 8.',
+    status: 'ready',
+    route: '/shapes/ob3-option-banners',
+    publicSvgFolder: 'public/assets/shapes/ob3-option-banners/',
+    componentSourceFolder: 'src/components/shapes/ob3-option-banners/',
+    assets: [
+      { role: 'Thanh chữ nhật ngang', level: 1, prefixedFileName: 'ob3-banner-bar-mask.svg', dimensions: 'viewBox: 0 0 272.89 81', description: 'Thanh chữ nhật có góc vát gập từ 1.svg gốc.' },
+      { role: 'Vòng cuốn mũi tên trái', level: 2, prefixedFileName: 'ob3-arrow-loop-mask.svg', dimensions: 'viewBox: 0 0 182.2 81', description: 'Vòng cuộn gấp nếp mũi tên từ 2.svg gốc.' },
+    ],
+  },
+  {
     id: 'phase-shape-demo',
     prefix: 'psd',
     name: 'Phase Shape Demo',

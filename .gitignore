@@ -35,3 +35,4 @@ next-env.d.ts
 /shape_auto_motion_patch/
 /shape_auto_motion_patch-1.0.0.zip
 
+.multiagents/

@@ -103,6 +103,23 @@
       track('.ls4-step__text', 4, 'right', 480, 160, 650),
       track('.ls4-step__badge', 4, 'fade', 600, 160, 550),
     ], idle('.ls4-facet--side', 4, 'light', 4600)),
+    recipe('rt6-reverse-timeline', '.rt6-module', 'Cascade drop, stamp 3D badge, accordion fold connector', [
+      track('.rt6-step', 6, 'cascade-drop', 0, 150, 850),
+      track('.rt6-step__badge', 6, 'stamp-3d', 320, 150, 600),
+      track('.rt6-step__fold', 5, 'accordion-fold', 480, 150, 650),
+      track('.rt6-step__content', 6, 'fade', 580, 150, 650),
+    ], idle('.rt6-step__badge', 6, 'ribbon-wave', 4600)),
+    recipe('sq5-sqert-model', '.sq5-module', 'Vortex spin-in, SQERT core impact, legend cascade', [
+      track('.sq5-petal', 5, 'vortex-spin-in', 0, 150, 900),
+      track('.sq5-hub', 1, 'core-impact', 800, 0, 750),
+      track('.sq5-card', 5, 'legend-cascade', 350, 130, 700),
+    ], idle('.sq5-petal__letter', 5, 'turbine-breathe', 4400)),
+    recipe('ob3-option-banners', '.ob3-module', 'Ribbon curl, bar unroll, gear snap', [
+      track('.ob3-row', 3, 'ribbon-curl', 0, 200, 850),
+      track('.ob3-loop__icon-badge', 3, 'gear-snap', 350, 200, 600),
+      track('.ob3-bar__fill', 3, 'bar-unroll', 500, 200, 750),
+      track('.ob3-bar__content', 3, 'fade', 650, 200, 650),
+    ], idle('.ob3-loop__icon-badge', 3, 'seam-gleam', 4200)),
   ];
 
   // Transform keyframes ADD to the live CSS/attribute transform, not a cached matrix.
@@ -138,6 +155,15 @@
       case 'wipe': return reveal('inset(0% 100% 0% 0%)');
       case 'liquid': return reveal('inset(100% 0% 0% 0%)');
       case 'glow': return [{ opacity: .12 }, { opacity: 1, offset: .6 }, { opacity: .8, offset: .8 }, { opacity: 1 }];
+      case 'cascade-drop': return move('translateY(-55px) scaleY(.88)', 'translateY(6px) scaleY(1.03)');
+      case 'stamp-3d': return [{ transform: 'perspective(500px) rotateX(75deg) scale(.6)', opacity: 0 }, { transform: 'perspective(500px) rotateX(-12deg) scale(1.08)', opacity: 1, offset: .72 }, { transform: identity, opacity: 1 }];
+      case 'accordion-fold': return move('scaleX(.2) skewY(-8deg)', 'scaleX(1.05) skewY(1deg)');
+      case 'vortex-spin-in': return [{ transform: 'scale(.18) rotate(-110deg)', opacity: 0 }, { transform: 'scale(1.06) rotate(6deg)', opacity: 1, offset: .78 }, { transform: identity, opacity: 1 }];
+      case 'core-impact': return [{ transform: 'translate(-50%, -50%) scale(.3)', opacity: 0 }, { transform: 'translate(-50%, -50%) scale(1.15)', opacity: 1, offset: .65 }, { transform: 'translate(-50%, -50%) scale(.96)', offset: .85 }, { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 }];
+      case 'legend-cascade': return move('translateX(-42px) scale(.96)', 'translateX(3px) scale(1.01)');
+      case 'ribbon-curl': return [{ transform: 'perspective(600px) rotateY(-65deg) translateX(-30px)', opacity: 0 }, { transform: 'perspective(600px) rotateY(8deg) translateX(2px)', opacity: 1, offset: .76 }, { transform: identity, opacity: 1 }];
+      case 'gear-snap': return [{ transform: 'scale(.3) rotate(-120deg)', opacity: 0 }, { transform: 'scale(1.15) rotate(15deg)', opacity: 1, offset: .75 }, { transform: identity, opacity: 1 }];
+      case 'bar-unroll': return [{ clipPath: 'inset(0% 100% 0% 0%)', opacity: .3 }, { clipPath: 'inset(0% 0% 0% 0%)', opacity: 1 }];
       default: return [{ opacity: 0 }, { opacity: 1 }];
     }
   }
@@ -148,6 +174,9 @@
       case 'float': return [{ transform: identity }, { transform: 'translateY(-1.5px)', offset: .5 }, { transform: identity }];
       case 'sway': return [{ transform: 'rotate(0deg)' }, { transform: 'rotate(1.5deg)', offset: .3 }, { transform: 'rotate(-1deg)', offset: .65 }, { transform: 'rotate(0deg)' }];
       case 'pump': return [{ transform: identity }, { transform: 'translateY(1.5px)', offset: .2 }, { transform: identity, offset: .4 }, { transform: identity }];
+      case 'ribbon-wave': return [{ transform: identity }, { transform: 'translateY(-2.5px) scale(1.03)', offset: .4 }, { transform: identity }];
+      case 'turbine-breathe': return [{ transform: 'scale(1)', opacity: .9 }, { transform: 'scale(1.08)', opacity: 1, offset: .5 }, { transform: 'scale(1)', opacity: .9 }];
+      case 'seam-gleam': return [{ transform: 'rotate(0deg)' }, { transform: 'rotate(10deg)', offset: .25 }, { transform: 'rotate(-10deg)', offset: .75 }, { transform: 'rotate(0deg)' }];
       default: return [{ opacity: .84 }, { opacity: 1, offset: .4 }, { opacity: .84 }];
     }
   }

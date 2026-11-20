@@ -16,6 +16,9 @@ import Tc5TrophyCups from '@/components/shapes/tc5-trophy-cups/Tc5TrophyCups';
 import Pb4PumpBottle from '@/components/shapes/pb4-pump-bottle/Pb4PumpBottle';
 import Lm6LevelsMarks from '@/components/shapes/lm6-levels-marks/Lm6LevelsMarks';
 import Ls4LadderSteps from '@/components/shapes/ls4-ladder-steps/Ls4LadderSteps';
+import Rt6ReverseTimeline from '@/components/shapes/rt6-reverse-timeline/Rt6ReverseTimeline';
+import Sq5SqertModel from '@/components/shapes/sq5-sqert-model/Sq5SqertModel';
+import Ob3OptionBanners from '@/components/shapes/ob3-option-banners/Ob3OptionBanners';
 
 export default function HomePage() {
   return (
@@ -38,6 +41,9 @@ export default function HomePage() {
       <Pb4PumpBottle />
       <Lm6LevelsMarks />
       <Ls4LadderSteps />
+      <Rt6ReverseTimeline />
+      <Sq5SqertModel />
+      <Ob3OptionBanners />
     </>
   );
 }
