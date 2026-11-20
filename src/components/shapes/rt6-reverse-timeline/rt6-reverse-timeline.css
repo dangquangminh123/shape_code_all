@@ -100,7 +100,7 @@
 }
 
 .rt6-step__title {
-  font-size: 11.5px;
+  font-size: 13.5px;
   font-weight: 700;
   margin: 0 0 6px;
   line-height: 1.25;
@@ -110,7 +110,7 @@
 
 .rt6-step__desc {
   margin: 0;
-  font-size: 9.2px;
+  font-size: 10.5px;
   line-height: 1.45;
   color: rgba(255, 255, 255, 0.94);
   overflow-wrap: break-word;

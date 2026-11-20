@@ -10,6 +10,12 @@ export interface Rt6ReverseTimelineProps {
   className?: string;
 }
 
+const RAW_CARD_PATH =
+  'M42.6,81c-6.33,0.07-18.63-0.71-29.51-8.02c-5.72-3.84-8.2-7.58-8.89-8.68C0.37,58.23-0.02,52.1,0,49.08V0h42.6V81z';
+
+const RAW_FOLD_PATH =
+  'M8.27,70.78V10.81h2.34C7.07,7.21,3.54,3.6,0,0c0,23.81,0,47.63,0,71.44c3.22,3.19,6.44,6.37,9.65,9.56c0,0,0,0,0,0 C8.43,76.75,8.25,73.04,8.27,70.78z';
+
 export default function Rt6ReverseTimeline({
   headerTitle = 'Tiến Trình Thời Gian Ngược (Reverse Timeline)',
   headerSubtitle = 'Quy trình lùi 6 giai đoạn đưa mục tiêu bàn giao về kế hoạch hành động khởi đầu',
@@ -50,10 +56,11 @@ export default function Rt6ReverseTimeline({
     }
   }
 
-  const CARD_W = 154;
-  const CARD_H = 265;
-  const STEP_DX = 146;
-  const STEP_DY = 34;
+  const S = 3.2;
+  const cardW = 42.6 * S; // 136.32
+  const cardH = 81 * S;   // 259.2
+  const dx = 50.87 * S;   // 162.78
+  const dy = 10.81 * S;   // 34.59
 
   return (
     <section
@@ -72,7 +79,7 @@ export default function Rt6ReverseTimeline({
         <div className="rt6-stage" role="group" aria-label="6 giai đoạn tiến trình ngược">
           <svg
             className="rt6-svg"
-            viewBox="0 0 960 475"
+            viewBox="0 0 1020 500"
             preserveAspectRatio="xMidYMid meet"
             aria-hidden="true"
           >
@@ -93,7 +100,7 @@ export default function Rt6ReverseTimeline({
                 </linearGradient>
               ))}
 
-              {/* Fold Gradients for steps 0 to 4 (darker 3D bevel) */}
+              {/* Fold Gradients for steps 0 to 4 (darker 3D bevel matching template) */}
               {RT6_STEPS.slice(0, 5).map((step, idx) => (
                 <linearGradient
                   key={`fold-grad-${step.number}`}
@@ -104,29 +111,43 @@ export default function Rt6ReverseTimeline({
                   y2="100%"
                 >
                   <stop offset="0%" stopColor={step.foldColor} />
-                  <stop offset="100%" stopColor="#05101a" stopOpacity="0.85" />
+                  <stop offset="100%" stopColor="#081420" stopOpacity="0.88" />
                 </linearGradient>
               ))}
 
               {/* Ambient Drop Shadow for Cards */}
-              <filter id={`rt6-card-shadow-${instanceId}`} x="-20%" y="-10%" width="140%" height="135%">
-                <feDropShadow dx="-4" dy="8" stdDeviation="6" floodOpacity="0.18" />
+              <filter id={`rt6-card-shadow-${instanceId}`} x="-15%" y="-10%" width="130%" height="135%">
+                <feDropShadow dx="-2" dy="8" stdDeviation="6" floodOpacity="0.16" />
               </filter>
             </defs>
 
-            {/* Stacking: Step 0 (06) is on top, Step 5 (01) is at back */}
-            {/* Render in reverse order [5, 4, 3, 2, 1, 0] so Step 0 naturally layers on top */}
-            {[5, 4, 3, 2, 1, 0].map((idx) => {
-              const step = RT6_STEPS[idx];
-              const isActive = activeIndex === idx;
-              const x = idx * STEP_DX + 30;
-              const y = idx * STEP_DY + 25;
-              const badgeCx = x + 77;
-              const badgeCy = y + 42;
+            {/* 1. Fold connectors render first (sits behind the cards) */}
+            {RT6_STEPS.slice(0, 5).map((step, idx) => {
+              const x = 32 + idx * dx;
+              const y = 30 + idx * dy;
+              const fx = x + cardW;
+              const fy = y;
 
-              // Card contour: rounded top-left, straight top/right, sweeping bottom-left curve
-              const cardPath = `M${x + 14},${y} H${x + CARD_W} V${y + CARD_H} C${x + CARD_W * 0.6},${y + CARD_H} ${x + CARD_W * 0.18},${y + CARD_H - 30} ${x},${y + CARD_H - 75} V${y + 14} Q${x},${y} ${x + 14},${y} Z`;
-              const topHighlight = `M${x + 14},${y} H${x + CARD_W} V${y + 18} C${x + CARD_W * 0.6},${y + 18} ${x + CARD_W * 0.18},${y + 18} ${x},${y + 18} V${y + 14} Q${x},${y} ${x + 14},${y} Z`;
+              return (
+                <g
+                  key={`fold-${step.number}`}
+                  className="rt6-fold"
+                  transform={`translate(${fx}, ${fy}) scale(${S})`}
+                  pointerEvents="none"
+                >
+                  <path d={RAW_FOLD_PATH} fill={`url(#rt6-fold-grad-${instanceId}-${idx})`} />
+                </g>
+              );
+            })}
+
+            {/* 2. Six Cards render side-by-side: ZERO overlap between card bodies! */}
+            {RT6_STEPS.map((step, idx) => {
+              const isActive = activeIndex === idx;
+              const x = 32 + idx * dx;
+              const y = 30 + idx * dy;
+              const badgeCx = cardW / 2;
+              const badgeCy = 15.29 * S;
+              const badgeR = 7.35 * S;
 
               return (
                 <g
@@ -135,6 +156,7 @@ export default function Rt6ReverseTimeline({
                     stepRefs.current[idx] = el;
                   }}
                   className={`rt6-step ${isActive ? 'is-active' : ''}`}
+                  transform={`translate(${x}, ${y})`}
                   role="button"
                   tabIndex={0}
                   onClick={() => handleSelect(idx)}
@@ -146,58 +168,39 @@ export default function Rt6ReverseTimeline({
                   aria-pressed={selectedIndex === idx}
                   aria-label={`Giai đoạn ${step.number}: ${step.title}`}
                 >
-                  {/* Card Body */}
+                  {/* Card Body from 1.svg scaled exactly */}
                   <path
                     className="rt6-step__card"
-                    d={cardPath}
+                    d={RAW_CARD_PATH}
+                    transform={`scale(${S})`}
                     fill={`url(#rt6-grad-${instanceId}-${idx})`}
                     filter={`url(#rt6-card-shadow-${instanceId})`}
                   />
 
-                  {/* Top Highlight band */}
+                  {/* Top Highlight Sheen */}
                   <path
                     className="rt6-step__top-hl"
-                    d={topHighlight}
-                    fill="rgba(255, 255, 255, 0.32)"
+                    d={`M0,0 h${cardW} v20 c${-cardW * 0.4},0 ${-cardW * 0.8},-8 ${-cardW},-12 z`}
+                    fill="rgba(255, 255, 255, 0.26)"
                     pointerEvents="none"
                   />
 
-                  {/* 3D Ribbon Fold Connector (Steps 0 to 4 only):
-                      Sits strictly at the top transition (height ~78px, NOT full height) */}
-                  {idx < RT6_STEPS.length - 1 && (
-                    <g className="rt6-fold" pointerEvents="none">
-                      <polygon
-                        points={`${x + CARD_W},${y} ${x + CARD_W + 14},${y + 34} ${x + CARD_W + 14},${y + 78} ${x + CARD_W},${y + 48}`}
-                        fill={`url(#rt6-fold-grad-${instanceId}-${idx})`}
-                        opacity={0.96}
-                      />
-                      <line
-                        x1={x + CARD_W}
-                        y1={y}
-                        x2={x + CARD_W + 14}
-                        y2={y + 34}
-                        stroke="rgba(255, 255, 255, 0.45)"
-                        strokeWidth={1.5}
-                      />
-                    </g>
-                  )}
-
-                  {/* Circular Number Badge */}
+                  {/* Circular Number Badge centered horizontally on card face */}
                   <g className="rt6-step__badge" pointerEvents="none">
                     <circle
                       cx={badgeCx}
                       cy={badgeCy}
-                      r={21}
+                      r={badgeR}
                       fill={step.badgeBg}
-                      stroke="rgba(255, 255, 255, 0.85)"
-                      strokeWidth={2.2}
+                      stroke="rgba(255, 255, 255, 0.9)"
+                      strokeWidth={2}
                     />
                     <text
                       x={badgeCx}
-                      y={badgeCy + 5.5}
+                      y={badgeCy + 6}
                       textAnchor="middle"
                       fill="#ffffff"
-                      fontSize="15"
+                      fontSize="17"
                       fontWeight="800"
                       fontFamily="system-ui, -apple-system, sans-serif"
                     >
@@ -205,12 +208,12 @@ export default function Rt6ReverseTimeline({
                     </text>
                   </g>
 
-                  {/* ForeignObject with HTML content for responsive multiline text */}
+                  {/* Text Content: 100% visible, centered, ample padding */}
                   <foreignObject
-                    x={x + 12}
-                    y={y + 78}
-                    width={CARD_W - 24}
-                    height={170}
+                    x={8}
+                    y={32 * S}
+                    width={cardW - 16}
+                    height={cardH - 35 * S}
                     pointerEvents="none"
                   >
                     <div className="rt6-step__content">

@@ -152,7 +152,7 @@
 /* Petal & Path Interactions */
 .sq5-petal {
   transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1), opacity 200ms ease;
-  transform-origin: 0px 0px;
+  transform-origin: 221.9px 222.6px;
 }
 
 .sq5-petal__path {
@@ -181,7 +181,7 @@
 .sq5-hub {
   cursor: pointer;
   transition: transform 220ms ease;
-  transform-origin: 0px 0px;
+  transform-origin: 221.9px 222.6px;
 }
 
 .sq5-hub:hover {
