@@ -103,18 +103,29 @@
       track('.ls4-step__text', 4, 'right', 480, 160, 650),
       track('.ls4-step__badge', 4, 'fade', 600, 160, 550),
     ], idle('.ls4-facet--side', 4, 'light', 4600)),
-    // THREE_SHAPES_FIX_V1: static geometry, atomic animation groups, no idle loops
-    recipe('rt6-reverse-timeline', '.rt6-module', 'Atomic fade (desktop); individual accessible mobile cards', [
-      track('.rt6-svg', 1, 'fade', 0, 0, 420),
-      track('.rt6-mobile-card', 6, 'fade', 0, 70, 420),
-    ], idle('.rt6-no-idle', 0, 'glow', 4200)),
-    recipe('sq5-sqert-model', '.sq5-module', 'Whole diagram fade, no petal rotation or independent hub movement', [
-      track('.sq5-svg', 1, 'fade', 0, 0, 500),
-      track('.sq5-item', 5, 'fade', 80, 80, 450),
-    ], idle('.sq5-no-idle', 0, 'glow', 4200)),
-    recipe('ob3-option-banners', '.ob3-module', 'Whole banner fade, rigid SVG layers', [
-      track('.ob3-row', 3, 'fade', 0, 100, 450),
-    ], idle('.ob3-no-idle', 0, 'glow', 4200)),
+    // THREE_SHAPES_MOTION_V2: structured motion without breaking SVG geometry
+    recipe('rt6-reverse-timeline', '.rt6-module', 'Staircase light cascade + soft number stamps', [
+      track('.rt6-step', 6, 'rt6-ribbon-light', 0, 150, 660),
+      track('.rt6-step__badge', 6, 'rt6-badge-pop', 260, 150, 560),
+      track('.rt6-step__content', 6, 'fade', 350, 150, 480),
+      // Mobile has a separate card layout. Animate each complete card as one unit.
+      track('.rt6-mobile-card', 6, 'rt6-mobile-card-enter', 0, 110, 640),
+      track('.rt6-mobile-number', 6, 'rt6-badge-pop', 260, 110, 560),
+    ], idle('.rt6-step__badge, .rt6-mobile-number', 12, 'halo-breathe', 4800)),
+    recipe('sq5-sqert-model', '.sq5-module', 'Five-petal clockwise illumination, central focus, legend sweep', [
+      track('.sq5-petal', 5, 'sq5-petal-light', 0, 140, 690),
+      track('.sq5-petal__letter', 5, 'fade', 250, 140, 400),
+      track('.sq5-hub', 1, 'sq5-core-focus', 650, 0, 620),
+      track('.sq5-item', 5, 'legend-cascade', 180, 100, 600),
+    ], idle('.sq5-hub', 1, 'halo-breathe', 5600)),
+    recipe('ob3-option-banners', '.ob3-module', 'Three rigid banners slide in, icons pop, text revealed', [
+      track('.ob3-row', 3, 'ob3-banner-enter', 0, 280, 760),
+      track('.ob3-icon-host svg', 3, 'ob3-icon-pop', 320, 280, 510),
+      track('.ob3-mobile__icon-strip svg', 3, 'ob3-icon-pop', 320, 280, 510),
+      track('.ob3-mid__content', 3, 'fade', 360, 280, 460),
+      track('.ob3-right__label', 3, 'fade', 405, 280, 430),
+      track('.ob3-right__copy', 3, 'fade', 455, 280, 440),
+    ], idle('.ob3-icon-host svg, .ob3-mobile__icon-strip svg', 6, 'halo-breathe', 5200)),
   ];
 
   // Transform keyframes ADD to the live CSS/attribute transform, not a cached matrix.
@@ -159,6 +170,31 @@
       case 'ribbon-curl': return [{ transform: 'perspective(600px) rotateY(-65deg) translateX(-30px)', opacity: 0 }, { transform: 'perspective(600px) rotateY(8deg) translateX(2px)', opacity: 1, offset: .76 }, { transform: identity, opacity: 1 }];
       case 'gear-snap': return [{ transform: 'scale(.3) rotate(-120deg)', opacity: 0 }, { transform: 'scale(1.15) rotate(15deg)', opacity: 1, offset: .75 }, { transform: identity, opacity: 1 }];
       case 'bar-unroll': return [{ clipPath: 'inset(0% 100% 0% 0%)', opacity: .3 }, { clipPath: 'inset(0% 0% 0% 0%)', opacity: 1 }];
+      // THREE_SHAPES_MOTION_V2 BEGIN: geometry-safe shape-specific effects.
+      // Structural SVG pieces remain at their authored coordinates.
+      case 'rt6-ribbon-light': return [
+        { opacity: 0, filter: 'brightness(1.42)' },
+        { opacity: 1, filter: 'brightness(1.12)', offset: .70 },
+        { opacity: 1, filter: 'brightness(1)' },
+      ];
+      case 'rt6-badge-pop': return move('scale(.68)', 'scale(1.12)');
+      // Mobile cards keep their contents attached while entering as a unit.
+      case 'rt6-mobile-card-enter': return move('translateY(15px)', 'translateY(-2px)');
+      case 'sq5-petal-light': return [
+        { opacity: 0, filter: 'brightness(1.70) saturate(1.15)' },
+        { opacity: 1, filter: 'brightness(1.18) saturate(1)', offset: .74 },
+        { opacity: 1, filter: 'brightness(1) saturate(1)' },
+      ];
+      case 'sq5-core-focus': return [
+        { opacity: 0, filter: 'brightness(1.55)' },
+        { opacity: 1, filter: 'brightness(1.12)', offset: .72 },
+        { opacity: 1, filter: 'brightness(1)' },
+      ];
+      // The entire OB3 button moves as ONE unit: no separated fold, face or text.
+      case 'ob3-banner-enter': return move('translateX(-16px) scale(.99)', 'translateX(2px) scale(1.005)');
+      // Only the decoration moves independently; never the two joined SVG masks.
+      case 'ob3-icon-pop': return move('scale(.68)', 'scale(1.1)');
+      // THREE_SHAPES_MOTION_V2 END.
       default: return [{ opacity: 0 }, { opacity: 1 }];
     }
   }
@@ -177,6 +213,13 @@
       case 'ribbon-wave': return [{ transform: identity }, { transform: 'translateY(-2.5px) scale(1.03)', offset: .4 }, { transform: identity }];
       case 'turbine-breathe': return [{ transform: 'scale(1)', opacity: .9 }, { transform: 'scale(1.08)', opacity: 1, offset: .5 }, { transform: 'scale(1)', opacity: .9 }];
       case 'seam-gleam': return [{ transform: 'rotate(0deg)' }, { transform: 'rotate(10deg)', offset: .25 }, { transform: 'rotate(-10deg)', offset: .75 }, { transform: 'rotate(0deg)' }];
+      // THREE_SHAPES_MOTION_V2: very gentle highlight, no permanent movement.
+      case 'halo-breathe': return [
+        { filter: 'brightness(1)', offset: 0 },
+        { filter: 'brightness(1.16)', offset: .32 },
+        { filter: 'brightness(1)', offset: .55 },
+        { filter: 'brightness(1)', offset: 1 },
+      ];
       default: return [{ opacity: .84 }, { opacity: 1, offset: .4 }, { opacity: .84 }];
     }
   }
@@ -197,7 +240,7 @@
     return Array.from(record.root.querySelectorAll(spec.selector));
   }
   function validate(record) {
-    return [...record.recipe.tracks, record.recipe.idle].map(spec => ({
+    return [...record.recipe.tracks, ...(record.recipe.idle ? [record.recipe.idle] : [])].map(spec => ({
       selector: spec.selector, expected: spec.count, matched: targets(record, spec).length,
     })).filter(result => result.matched !== result.expected);
   }
@@ -207,7 +250,7 @@
     if (!node.getClientRects().length || style.display === 'none') return null;
     try {
       const animations = [];
-      const keys = ['transform', 'opacity', 'clipPath'];
+      const keys = ['transform', 'opacity', 'clipPath', 'filter'];
       keys.forEach(property => {
         if (!keyframes.some(frame => property in frame)) return;
         // Do not replace a pre-existing clip-path. Fading still reveals these layers safely.
@@ -237,8 +280,9 @@
   function startIdle(record) {
     record.phase = 'idle';
     const spec = record.recipe.idle;
+    // No idle track is valid: all other shape recipes continue to work.
     // Exactly one small accent per shape, never all repeated surfaces.
-    const node = targets(record, spec).find(element => element.getClientRects().length);
+    const node = spec ? targets(record, spec).find(element => element.getClientRects().length) : null;
     if (node) animate(record, node, restFrames(spec.effect), {
       duration: spec.duration, iterations: Infinity, easing: 'ease-in-out', fill: 'none',
     });

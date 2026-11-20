@@ -36,3 +36,5 @@ next-env.d.ts
 /shape_auto_motion_patch-1.0.0.zip
 
 .multiagents/
+
+.three-shape-motion-backup/

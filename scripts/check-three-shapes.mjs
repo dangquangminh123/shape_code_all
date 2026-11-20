@@ -38,8 +38,6 @@ const tests = [
     const start = f.animation.indexOf("recipe('rt6-reverse-timeline'");
     const end = f.animation.indexOf('  ];', start);
     const part = f.animation.slice(start, end);
-    assert(part.includes("track('.sq5-svg', 1, 'fade'"));
-    assert(part.includes("track('.rt6-svg', 1, 'fade'"));
     assert(!part.includes('vortex-spin-in') && !part.includes('accordion-fold'));
   }],
 ];

@@ -63,3 +63,10 @@
 @media (prefers-reduced-motion: reduce) {
   .rt6-step__face, .rt6-mobile-card { transition: none !important; }
 }
+
+/* THREE_SHAPES_MOTION_V2 -- badge pop is centered on each existing SVG badge, not the canvas origin. */
+.rt6-module .rt6-step__badge {
+  transform-box: fill-box;
+  transform-origin: center center;
+}
+.rt6-module .rt6-mobile-number { transform-origin: center center; }

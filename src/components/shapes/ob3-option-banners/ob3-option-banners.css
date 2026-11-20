@@ -52,3 +52,11 @@
   .ob3-mobile__desc { font-size: 12px; }
 }
 @media (prefers-reduced-motion: reduce) { .ob3-row { transition: none !important; } }
+
+/* THREE_SHAPES_MOTION_V2 -- animate only icon contents and the entire assembled banner. */
+.ob3-module .ob3-row { transform-origin: left center; }
+.ob3-module .ob3-icon-host svg,
+.ob3-module .ob3-mobile__icon-strip svg {
+  transform-origin: center center;
+  transform-box: fill-box;
+}
