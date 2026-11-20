@@ -1,7 +1,14 @@
 'use client';
 
 import React, { useId, useRef, useState, type CSSProperties, type KeyboardEvent } from 'react';
-import { SQ5_DIMENSIONS, type Sq5DimensionConfig, type Sq5DimensionId } from './sq5-sqert-model.config';
+import {
+  SQ5_DIMENSIONS,
+  SQ5_LETTER_RADIUS,
+  SQ5_PETAL_OFFSET_X,
+  SQ5_PETAL_OFFSET_Y,
+  SQ5_PETAL_PATH,
+  type Sq5DimensionId,
+} from './sq5-sqert-model.config';
 import './sq5-sqert-model.css';
 
 export interface Sq5SqertModelProps {
@@ -105,73 +112,66 @@ export default function Sq5SqertModel({
             })}
           </div>
 
-          {/* Right Column: Exact 1:1 Unified Pinwheel Stage */}
+          {/* Right Column: Perfect 5-Fold Symmetrical Pinwheel Vortex Stage */}
           <div className="sq5-stage" aria-label="Biểu đồ cánh quạt SQERT 5 góc tương tác">
             <div className="sq5-vortex">
               <svg
-                viewBox="70 60 260 260"
+                viewBox="-155 -155 310 310"
                 className="sq5-svg"
                 preserveAspectRatio="xMidYMid meet"
                 aria-hidden="true"
               >
                 <defs>
                   {/* Subtle 3D Drop Shadow */}
-                  <filter id={`sq5-shadow-${instanceId}`} x="-20%" y="-20%" width="140%" height="140%">
-                    <feDropShadow dx="0" dy="3" stdDeviation="4" floodOpacity="0.2" />
+                  <filter id={`sq5-shadow-${instanceId}`} x="-25%" y="-25%" width="150%" height="150%">
+                    <feDropShadow dx="0" dy="3" stdDeviation="4" floodOpacity="0.22" />
                   </filter>
-                  <filter id={`sq5-active-shadow-${instanceId}`} x="-30%" y="-30%" width="160%" height="160%">
+                  <filter id={`sq5-active-shadow-${instanceId}`} x="-35%" y="-35%" width="170%" height="170%">
                     <feDropShadow dx="0" dy="6" stdDeviation="8" floodOpacity="0.4" />
                   </filter>
-                  <filter id={`sq5-hub-shadow-${instanceId}`} x="-30%" y="-30%" width="160%" height="160%">
-                    <feDropShadow dx="0" dy="3" stdDeviation="4" floodOpacity="0.32" />
+                  <filter id={`sq5-hub-shadow-${instanceId}`} x="-35%" y="-35%" width="170%" height="170%">
+                    <feDropShadow dx="0" dy="3" stdDeviation="5" floodOpacity="0.35" />
                   </filter>
 
                   {/* Dimension Gradients matching original palette */}
-                  <linearGradient id={`sq5-grad-${instanceId}-scope`} x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#14b8a6" />
-                    <stop offset="100%" stopColor="#0f766e" />
-                  </linearGradient>
-                  <linearGradient id={`sq5-grad-${instanceId}-quality`} x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#84cc16" />
-                    <stop offset="100%" stopColor="#4d7c0f" />
-                  </linearGradient>
-                  <linearGradient id={`sq5-grad-${instanceId}-effort`} x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#f97316" />
-                    <stop offset="100%" stopColor="#c2410c" />
-                  </linearGradient>
-                  <linearGradient id={`sq5-grad-${instanceId}-risk`} x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#ef4444" />
-                    <stop offset="100%" stopColor="#b91c1c" />
-                  </linearGradient>
-                  <linearGradient id={`sq5-grad-${instanceId}-time`} x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#475569" />
-                    <stop offset="100%" stopColor="#1e293b" />
-                  </linearGradient>
+                  {SQ5_DIMENSIONS.map((dim) => (
+                    <linearGradient
+                      key={dim.id}
+                      id={`sq5-grad-${instanceId}-${dim.id}`}
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="100%"
+                    >
+                      <stop offset="0%" stopColor={dim.gradientTop} />
+                      <stop offset="100%" stopColor={dim.gradientBot} />
+                    </linearGradient>
+                  ))}
                 </defs>
 
-                {/* 5 Petals Layer in natural swirl stacking order: T(4) -> R(3) -> E(2) -> Q(1) -> S(0) */}
+                {/* 5 Petals Layer: 5-fold pure rotational symmetry (72° step)
+                    Rendered in natural counter-swirl order: T(4) -> R(3) -> E(2) -> Q(1) -> S(0) */}
                 {[4, 3, 2, 1, 0].map((idx) => {
                   const dim = SQ5_DIMENSIONS[idx];
                   const isActive = activeId === dim.id;
+                  const rot = idx * 72;
 
                   return (
                     <g
                       key={dim.id}
-                      transform={`translate(${dim.geometry.offsetX}, ${dim.geometry.offsetY})`}
+                      className={`sq5-petal ${isActive ? 'is-active' : ''}`}
+                      onClick={() => handleSelect(dim.id)}
+                      onMouseEnter={() => setHoveredId(dim.id)}
+                      onMouseLeave={() => setHoveredId(null)}
+                      style={{ cursor: 'pointer' }}
                     >
-                      <g
-                        className={`sq5-petal ${isActive ? 'is-active' : ''}`}
-                        onClick={() => handleSelect(dim.id)}
-                        onMouseEnter={() => setHoveredId(dim.id)}
-                        onMouseLeave={() => setHoveredId(null)}
-                        style={{ cursor: 'pointer' }}
-                      >
+                      <g transform={`rotate(${rot}) translate(${-SQ5_PETAL_OFFSET_X}, ${-SQ5_PETAL_OFFSET_Y})`}>
                         <path
-                          d={dim.path}
+                          d={SQ5_PETAL_PATH}
                           fill={`url(#sq5-grad-${instanceId}-${dim.id})`}
                           filter={isActive ? `url(#sq5-active-shadow-${instanceId})` : `url(#sq5-shadow-${instanceId})`}
                           stroke="#ffffff"
-                          strokeWidth="1.2"
+                          strokeWidth="1.5"
                           className="sq5-petal__path"
                         />
                       </g>
@@ -179,20 +179,24 @@ export default function Sq5SqertModel({
                   );
                 })}
 
-                {/* 5 Letters S, Q, E, R, T placed upright inside circular bulbs */}
+                {/* 5 Upright Letters S, Q, E, R, T placed at the exact same radius (82px)
+                    and perfectly separated by equal 72° angular intervals */}
                 {SQ5_DIMENSIONS.map((dim) => {
                   const isActive = activeId === dim.id;
+                  const rad = (dim.angle * Math.PI) / 180;
+                  const letterX = SQ5_LETTER_RADIUS * Math.cos(rad);
+                  const letterY = SQ5_LETTER_RADIUS * Math.sin(rad);
 
                   return (
                     <text
                       key={`label-${dim.id}`}
-                      x={dim.geometry.letterX}
-                      y={dim.geometry.letterY}
+                      x={letterX}
+                      y={letterY + 6.5}
                       className={`sq5-petal__letter ${isActive ? 'is-active' : ''}`}
                       textAnchor="middle"
                       dominantBaseline="central"
                       fill="#ffffff"
-                      fontSize="23"
+                      fontSize="24"
                       fontWeight="800"
                       fontFamily="system-ui, -apple-system, sans-serif"
                       style={{ pointerEvents: 'none', userSelect: 'none' }}
@@ -202,20 +206,21 @@ export default function Sq5SqertModel({
                   );
                 })}
 
-                {/* Center Hub: Dark Circle with "SQERT" */}
+                {/* Center Hub: Dark Circle with "SQERT" positioned precisely at center (0, 0) */}
                 <g className="sq5-hub" filter={`url(#sq5-hub-shadow-${instanceId})`}>
                   <circle
-                    cx="200"
-                    cy="200"
+                    cx="0"
+                    cy="0"
                     r="40.5"
                     fill="#1e293b"
                     stroke="#ffffff"
                     strokeWidth="2.5"
                   />
                   <text
-                    x="200"
-                    y="204.5"
+                    x="0"
+                    y="4.5"
                     textAnchor="middle"
+                    dominantBaseline="central"
                     fill="#ffffff"
                     fontSize="13.5"
                     fontWeight="800"

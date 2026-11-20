@@ -1,4 +1,4 @@
-/* SQ5 — SQERT Project Management Model (Exact 1:1 Vector Geometry) */
+/* SQ5 — SQERT Project Management Model (Exact 1:1 Vector Geometry & 5-Fold Symmetry) */
 .sq5-module {
   width: 100%;
   min-height: 100vh;
@@ -152,7 +152,7 @@
 /* Petal & Path Interactions */
 .sq5-petal {
   transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1), opacity 200ms ease;
-  transform-origin: center;
+  transform-origin: 0px 0px;
 }
 
 .sq5-petal__path {
@@ -181,7 +181,7 @@
 .sq5-hub {
   cursor: pointer;
   transition: transform 220ms ease;
-  transform-origin: 200px 200px;
+  transform-origin: 0px 0px;
 }
 
 .sq5-hub:hover {

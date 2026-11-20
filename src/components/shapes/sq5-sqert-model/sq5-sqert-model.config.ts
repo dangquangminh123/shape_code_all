@@ -3,13 +3,6 @@ import { LuAward, LuClock, LuCog, LuFileCheck, LuTriangleAlert } from 'react-ico
 
 export type Sq5DimensionId = 'scope' | 'quality' | 'effort' | 'risk' | 'time';
 
-export interface Sq5PetalGeometry {
-  offsetX: number;
-  offsetY: number;
-  letterX: number;
-  letterY: number;
-}
-
 export interface Sq5DimensionConfig {
   id: Sq5DimensionId;
   index: number;
@@ -18,14 +11,14 @@ export interface Sq5DimensionConfig {
   vietnameseTitle: string;
   description: string;
   color: string;
-  gradient: string;
+  gradientTop: string;
+  gradientBot: string;
   icon: IconType;
-  path: string;
-  geometry: Sq5PetalGeometry;
+  angle: number; // Rotational polar angle of petal bulb & upright letter
 }
 
-// 5.svg = Scope (S)
-export const PATH_S =
+// Master canonical petal path (from originals/SVG/5.svg)
+export const SQ5_PETAL_PATH =
   'M51.37,23.62c-0.32,0.18-0.65,0.36-0.96,0.55c-0.32,0.18-0.63,0.37-0.94,0.58c-0.93,0.58-1.84,1.2-2.73,1.86' +
   'c-0.3,0.22-0.59,0.44-0.88,0.67c-0.29,0.22-0.58,0.45-0.86,0.68c-0.02,0.02-0.04,0.03-0.05,0.04c-0.55,0.45-1.08,0.92-1.61,1.4' +
   'c-0.27,0.24-0.54,0.5-0.8,0.75c-0.26,0.25-0.52,0.51-0.78,0.77c-0.26,0.26-0.52,0.52-0.76,0.79c-0.26,0.26-0.51,0.53-0.74,0.81' +
@@ -35,49 +28,12 @@ export const PATH_S =
   'c0,7.18,1.76,13.94,4.87,19.88c-8.86-7.37-14.69-18.24-15.39-30.48C7.96,47.49,0,37.54,0,25.73C0,11.52,11.52,0,25.73,0' +
   'c7.59,0,14.41,3.28,19.11,8.51C48.51,12.58,50.9,17.83,51.37,23.62z';
 
-// 1.svg = Quality (Q)
-export const PATH_Q =
-  'M95.05,78.76c-0.43-0.4-0.86-0.8-1.31-1.18c-0.43-0.39-0.87-0.77-1.34-1.14c-1.33-1.13-2.73-2.2-4.16-3.21' +
-  'c-0.47-0.34-0.95-0.68-1.44-1c-0.48-0.33-0.96-0.65-1.46-0.96c-0.03-0.02-0.07-0.04-0.09-0.06c-0.96-0.61-1.92-1.19-2.9-1.74' +
-  'c-0.5-0.3-1.02-0.57-1.53-0.85c-0.51-0.28-1.02-0.54-1.55-0.8c-0.52-0.27-1.05-0.53-1.57-0.76c-0.53-0.26-1.06-0.5-1.59-0.73' +
-  'c-0.54-0.25-1.08-0.48-1.61-0.69c-0.55-0.24-1.08-0.45-1.63-0.64c-0.55-0.22-1.09-0.42-1.64-0.6c-0.55-0.21-1.11-0.39-1.66-0.56' +
-  'c-0.56-0.19-1.11-0.37-1.68-0.52c-5.04-1.5-10.28-2.42-15.6-2.71c-0.6-0.04-1.2-0.07-1.78-0.08c-0.59-0.02-1.19-0.04-1.78-0.02' +
-  'c-0.6-0.01-1.19-0.01-1.79,0.01c-0.59,0-1.19,0.03-1.79,0.07c-0.6,0.02-1.2,0.06-1.8,0.12c-5.3,0.4-10.64,1.44-15.92,3.15' +
-  'C16.55,67.38,7.18,73.36-0.28,81c6.8-17.04,20.39-31.22,38.59-38.31C37.54,24.77,48.7,7.83,66.59,2.02' +
-  'c21.51-6.99,44.62,4.78,51.61,26.3c3.73,11.49,2.12,23.43-3.48,33.12C110.37,69,103.59,75.2,95.05,78.76z';
+// Precise geometric offsets to align petal rotation center at (0, 0)
+export const SQ5_PETAL_OFFSET_X = 73.93;
+export const SQ5_PETAL_OFFSET_Y = 92.07;
 
-// 2.svg = Effort (E)
-export const PATH_E =
-  'M24.55,69.92c0.19-0.41,0.38-0.83,0.56-1.25c0.18-0.41,0.36-0.83,0.52-1.26c0.51-1.25,0.97-2.54,1.38-3.84' +
-  'c0.14-0.43,0.28-0.87,0.39-1.31c0.13-0.43,0.25-0.87,0.36-1.31c0-0.03,0.01-0.06,0.02-0.08c0.22-0.85,0.42-1.7,0.59-2.56' +
-  'c0.1-0.44,0.18-0.89,0.26-1.33c0.08-0.44,0.15-0.89,0.22-1.34c0.08-0.45,0.14-0.9,0.18-1.35c0.07-0.45,0.12-0.9,0.16-1.35' +
-  'c0.05-0.46,0.1-0.91,0.12-1.36c0.04-0.46,0.07-0.91,0.09-1.36c0.03-0.46,0.05-0.91,0.05-1.36c0.02-0.46,0.02-0.91,0.02-1.36' +
-  'c0.01-0.46,0.01-0.91-0.02-1.36c-0.1-4.09-0.68-8.18-1.75-12.18c-0.11-0.45-0.23-0.9-0.37-1.34c-0.13-0.44-0.26-0.89-0.41-1.33' +
-  'c-0.13-0.45-0.28-0.88-0.44-1.32c-0.15-0.44-0.31-0.87-0.48-1.31c-0.16-0.44-0.33-0.87-0.52-1.3c-1.57-3.82-3.62-7.52-6.15-11.01' +
-  'C14.11,9.17,7.44,3.68,0,0c14.23,0.94,27.97,7.57,37.58,19.32c13.06-4.87,28.26-0.69,36.86,11.14c10.33,14.22,7.18,34.13-7.04,44.46' +
-  'c-7.59,5.52-16.81,7.19-25.32,5.38C35.44,78.9,29.23,75.38,24.55,69.92z';
-
-// 3.svg = Risk (R)
-export const PATH_R =
-  'M4.02,39.02c0.39,0.05,0.79,0.09,1.18,0.12c0.39,0.04,0.78,0.07,1.18,0.09c1.17,0.09,2.36,0.12,3.54,0.11' +
-  'c0.39,0,0.79-0.01,1.18-0.03c0.39-0.01,0.78-0.02,1.18-0.05c0.02,0,0.05,0,0.07,0c0.76-0.05,1.52-0.11,2.28-0.2' +
-  'c0.39-0.04,0.78-0.09,1.17-0.14c0.39-0.05,0.77-0.11,1.17-0.18c0.39-0.06,0.78-0.13,1.16-0.21c0.39-0.07,0.78-0.14,1.16-0.23' +
-  'c0.39-0.08,0.78-0.16,1.15-0.27c0.39-0.09,0.77-0.18,1.14-0.29c0.39-0.1,0.76-0.2,1.13-0.32c0.38-0.11,0.76-0.23,1.13-0.35' +
-  'c0.38-0.12,0.75-0.24,1.12-0.38c3.35-1.18,6.57-2.75,9.59-4.71c0.34-0.22,0.68-0.44,1-0.66c0.33-0.22,0.67-0.45,0.98-0.69' +
-  'c0.33-0.23,0.65-0.47,0.97-0.72c0.32-0.24,0.64-0.49,0.95-0.75c0.32-0.25,0.63-0.51,0.94-0.78c2.74-2.32,5.24-5.01,7.44-8.03' +
-  'C51.37,14.11,54.11,7.12,55.15,0c3.04,11.99,1.25,25.12-5.87,36.2c7.52,9.48,8.15,23.14,0.69,33.41' +
-  'c-8.97,12.34-26.25,15.08-38.59,6.11C4.8,70.93,0.94,63.78,0.15,56.27C-0.47,50.42,0.77,44.34,4.02,39.02z';
-
-// 4.svg = Time (T)
-export const PATH_T =
-  'M49.82,1.09c0.11,0.57,0.23,1.14,0.36,1.71c0.12,0.56,0.25,1.12,0.4,1.69c0.41,1.68,0.9,3.34,1.46,4.98' +
-  'c0.18,0.55,0.36,1.1,0.57,1.64c0.19,0.54,0.39,1.08,0.61,1.61c0.02,0.03,0.03,0.07,0.04,0.1c0.41,1.04,0.84,2.07,1.31,3.08' +
-  'c0.23,0.53,0.48,1.05,0.73,1.57c0.24,0.52,0.5,1.03,0.77,1.54c0.26,0.52,0.53,1.03,0.82,1.52c0.27,0.52,0.55,1.02,0.85,1.51' +
-  'c0.29,0.51,0.58,1.01,0.89,1.48c0.3,0.51,0.61,0.99,0.93,1.46c0.31,0.49,0.63,0.97,0.96,1.44c0.32,0.49,0.66,0.95,1,1.41' +
-  'c0.34,0.47,0.67,0.94,1.04,1.39c3.16,4.13,6.81,7.91,10.9,11.23c0.46,0.38,0.91,0.75,1.38,1.1c0.46,0.36,0.93,0.72,1.41,1.06' +
-  'c0.47,0.36,0.95,0.7,1.44,1.03c0.48,0.34,0.97,0.67,1.47,0.99c0.49,0.33,0.99,0.64,1.51,0.95c4.47,2.76,9.35,5.03,14.57,6.73' +
-  'c10.74,3.49,21.72,4.15,32.12,2.38c-15.34,9.67-34.44,13.12-53.12,8.21c-9.8,14.77-28.57,21.84-46.25,16.1' +
-  'C6.72,72.1-4.92,49.25,1.99,27.99C5.68,16.63,13.91,8.02,24.02,3.52C31.89,0.01,40.92-1.02,49.82,1.09z';
+// Constant radius from center (0, 0) for all 5 letters S, Q, E, R, T
+export const SQ5_LETTER_RADIUS = 82.0;
 
 export const SQ5_DIMENSIONS: Sq5DimensionConfig[] = [
   {
@@ -88,15 +44,10 @@ export const SQ5_DIMENSIONS: Sq5DimensionConfig[] = [
     vietnameseTitle: 'Phạm Vi Bàn Giao',
     description: 'Xác định rõ ràng những gì được cam kết hoàn thành và bàn giao trong phạm vi dự án.',
     color: '#0d9488',
-    gradient: 'linear-gradient(135deg, #14b8a6 0%, #0d9488 100%)',
+    gradientTop: '#14b8a6',
+    gradientBot: '#0f766e',
     icon: LuFileCheck,
-    path: PATH_S,
-    geometry: {
-      offsetX: 129.52,
-      offsetY: 140.56,
-      letterX: 155.2,
-      letterY: 166.3,
-    },
+    angle: -126, // Top-Left (-126 deg)
   },
   {
     id: 'quality',
@@ -106,15 +57,10 @@ export const SQ5_DIMENSIONS: Sq5DimensionConfig[] = [
     vietnameseTitle: 'Chất Lượng Sản Phẩm',
     description: 'Bộ tiêu chuẩn đánh giá, độ ổn định và cấp độ hoàn thiện của sản phẩm bàn giao.',
     color: '#65a30d',
-    gradient: 'linear-gradient(135deg, #84cc16 0%, #65a30d 100%)',
+    gradientTop: '#84cc16',
+    gradientBot: '#4d7c0f',
     icon: LuAward,
-    path: PATH_Q,
-    geometry: {
-      offsetX: 139.43,
-      offsetY: 96.68,
-      letterX: 231.9,
-      letterY: 124.2,
-    },
+    angle: -54, // Top-Right (-54 deg = -126 + 72)
   },
   {
     id: 'effort',
@@ -124,15 +70,10 @@ export const SQ5_DIMENSIONS: Sq5DimensionConfig[] = [
     vietnameseTitle: 'Nỗ Lực & Nguồn Lực',
     description: 'Ngân sách đầu tư, quy mô nhân lực và công sức cần thiết để hoàn thành mục tiêu.',
     color: '#ea580c',
-    gradient: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
+    gradientTop: '#f97316',
+    gradientBot: '#c2410c',
     icon: LuCog,
-    path: PATH_E,
-    geometry: {
-      offsetX: 211.00,
-      offsetY: 150.81,
-      letterX: 266.0,
-      letterY: 202.8,
-    },
+    angle: 18, // Middle-Right (+18 deg = -54 + 72)
   },
   {
     id: 'risk',
@@ -142,15 +83,10 @@ export const SQ5_DIMENSIONS: Sq5DimensionConfig[] = [
     vietnameseTitle: 'Quản Trị Rủi Ro',
     description: 'Mức độ dung sai cho các biến động và độ lệch kỳ vọng so với kế hoạch ban đầu.',
     color: '#dc2626',
-    gradient: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)',
+    gradientTop: '#ef4444',
+    gradientBot: '#b91c1c',
     icon: LuTriangleAlert,
-    path: PATH_R,
-    geometry: {
-      offsetX: 189.75,
-      offsetY: 201.16,
-      letterX: 214.8,
-      letterY: 256.2,
-    },
+    angle: 90, // Straight Down (+90 deg = +18 + 72)
   },
   {
     id: 'time',
@@ -160,14 +96,9 @@ export const SQ5_DIMENSIONS: Sq5DimensionConfig[] = [
     vietnameseTitle: 'Thời Gian Thực Hiện',
     description: 'Thời hạn hoàn thành, tiến độ các mốc sự kiện và tổng thời gian đưa vào vận hành.',
     color: '#334155',
-    gradient: 'linear-gradient(135deg, #475569 0%, #334155 100%)',
+    gradientTop: '#475569',
+    gradientBot: '#1e293b',
     icon: LuClock,
-    path: PATH_T,
-    geometry: {
-      offsetX: 107.97,
-      offsetY: 198.88,
-      letterX: 136.0,
-      letterY: 230.9,
-    },
+    angle: 162, // Middle-Left (+162 deg = +90 + 72)
   },
 ];
