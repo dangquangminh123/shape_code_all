@@ -1,270 +1,54 @@
-/* OB3 — Three Options Infographic Banners (Exact 1:1 Vector Geometry & Multi-Layer Alignment) */
+/* OB3: 2 original SVG shapes are assembled into three rigid, non-moving layers. */
 .ob3-module {
-  width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: clamp(24px, 4vw, 56px);
-  background: #ffffff;
-  color: #1e293b;
-  box-sizing: border-box;
+  width: 100%; min-height: min(100dvh, 580px); background: #fff;
+  color: #334155; display: flex; align-items: center; justify-content: center;
+  box-sizing: border-box; padding: clamp(22px, 3.5vw, 45px);
 }
-
-.ob3-inner {
-  width: min(100%, 1060px);
-  margin-inline: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 36px;
-}
-
-.ob3-header {
-  text-align: left;
-  max-width: 800px;
-}
-
-.ob3-header__title {
-  margin: 0 0 10px;
-  font-size: clamp(26px, 3.2vw, 38px);
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  color: #0f172a;
-}
-
-.ob3-header__subtitle {
-  margin: 0;
-  font-size: clamp(14px, 1.4vw, 16px);
-  color: #64748b;
-  line-height: 1.5;
-}
-
-/* 3 Stacked Banners */
-.ob3-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  width: 100%;
-}
-
-.ob3-row-wrapper {
-  width: 100%;
-}
-
+.ob3-inner { width: min(100%, 1060px); margin-inline: auto; display: flex; flex-direction: column; gap: 26px; }
+.ob3-header { max-width: 860px; }
+.ob3-header__title { margin: 0 0 7px; font: 400 clamp(26px, 3vw, 37px)/1.18 system-ui, sans-serif; color: #545454; }
+.ob3-header__subtitle { margin: 0; color: #6b7280; font: 400 14px/1.45 system-ui, sans-serif; }
+.ob3-stack { display: flex; flex-direction: column; gap: clamp(15px, 2.1vw, 24px); }
+.ob3-row-wrapper, .ob3-row { display: block; width: 100%; min-width: 0; }
 .ob3-row {
-  width: 100%;
-  border: none;
-  background: transparent;
-  padding: 0;
-  cursor: pointer;
-  outline: none;
-  text-align: left;
-  display: block;
-  transform: none; /* lock static geometry: no translation */
-  filter: drop-shadow(0 3px 8px rgba(15, 23, 42, 0.08));
-  transition: filter 180ms ease;
+  padding: 0; margin: 0; border: none; background: transparent;
+  text-align: left; cursor: pointer; color: inherit;
+  transition: filter 150ms ease;
 }
-
-.ob3-row:focus-visible {
-  outline: 2px solid #0284c7;
-  outline-offset: 4px;
-}
-
-.ob3-row:hover,
-.ob3-row.is-active {
-  transform: none;
-  filter: drop-shadow(0 6px 16px rgba(15, 23, 42, 0.14)) brightness(1.04);
-}
-
-/* Desktop View (>= 721px) */
-.ob3-desktop-view {
-  display: block;
-  width: 100%;
-}
-
-.ob3-mobile-view {
-  display: none;
-}
-
-.ob3-svg {
-  width: 100%;
-  height: auto;
-  display: block;
-  overflow: visible;
-}
-
-/* Layer styles within SVG */
-.ob3-mid__content {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  color: #ffffff;
-  user-select: none;
-  box-sizing: border-box;
-  padding-left: 4px;
-}
-
-.ob3-mid__title {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 8.8px;
-  font-weight: 800;
-  line-height: 1.2;
-  color: #ffffff;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-}
-
-.ob3-mid__sub {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 6.5px;
-  font-weight: 500;
-  line-height: 1.25;
-  color: rgba(255, 255, 255, 0.9);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-}
-
-.ob3-icon-host {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  font-size: 15px;
-}
-
-.ob3-right__label {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 11.5px;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-}
-
-.ob3-right__desc {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  color: rgba(255, 255, 255, 0.96);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 7.8px;
-  line-height: 1.35;
-  font-weight: 500;
-  overflow: hidden;
-  user-select: none;
-}
-
-/* Mobile View (<= 720px) */
+.ob3-row:focus-visible { outline: 2px solid #1c83cb; outline-offset: 3px; }
+.ob3-row:is(:hover, .is-active) { filter: brightness(1.06); }
+.ob3-desktop-view { display: block; }
+.ob3-svg { width: 100%; height: auto; display: block; overflow: visible; }
+.ob3-mid__title { fill: #fff; font: 700 7.65px/1 system-ui, sans-serif; }
+.ob3-mid__sub { fill: #ffffffed; font: 400 6.05px/1 system-ui, sans-serif; }
+.ob3-right__label { fill: #fff; font: 700 11.6px/1 system-ui, sans-serif; }
+.ob3-right__copy text { fill: #fffffff5; font-family: system-ui, sans-serif; font-weight: 450; }
+.ob3-icon-host { width: 100%; height: 100%; display: grid; place-items: center; font-size: 18px; color: #fff; }
+.ob3-mobile-view { display: none; }
 @media (max-width: 720px) {
-  .ob3-desktop-view {
-    display: none;
-  }
-
+  .ob3-module { min-height: auto; padding: 26px 18px 34px; }
+  .ob3-inner { gap: 22px; }
+  .ob3-desktop-view { display: none; }
   .ob3-mobile-view {
-    display: flex;
-    align-items: stretch;
-    background: #ffffff;
-    border: 1.5px solid #e2e8f0;
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05);
-    transition: border-color 180ms ease, box-shadow 180ms ease;
+    display: flex; align-items: stretch; overflow: hidden;
+    border: 1px solid #e2e8f0; border-radius: 14px; background: #fff;
+    box-shadow: 0 2px 8px #0f172a12;
   }
-
-  .ob3-row:hover .ob3-mobile-view,
-  .ob3-row.is-active .ob3-mobile-view {
-    border-color: var(--ob3-primary);
-    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1);
-  }
-
   .ob3-mobile__icon-strip {
-    flex-shrink: 0;
-    width: 60px;
-    background: var(--ob3-primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
+    background: var(--ob3-primary); flex: 0 0 60px;
+    display: grid; place-items: center; font-size: 25px; color: #fff;
   }
-
-  .ob3-mobile__icon {
-    font-size: 26px;
-  }
-
-  .ob3-mobile__body {
-    flex: 1;
-    min-width: 0;
-    padding: 14px 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    text-align: left;
-  }
-
-  .ob3-mobile__header {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-
-  .ob3-mobile__badge {
-    font-size: 12px;
-    font-weight: 800;
-    color: var(--ob3-primary);
-    letter-spacing: -0.01em;
-  }
-
-  .ob3-mobile__title {
-    margin: 0;
-    font-size: 15px;
-    font-weight: 700;
-    color: #0f172a;
-  }
-
-  .ob3-mobile__desc {
-    margin: 0;
-    font-size: 13px;
-    color: #64748b;
-    line-height: 1.45;
-  }
+  .ob3-mobile__body { min-width: 0; padding: 15px; display: flex; flex-direction: column; gap: 5px; }
+  .ob3-mobile__header { display: flex; flex-wrap: wrap; gap: 7px; align-items: baseline; }
+  .ob3-mobile__badge { font: 800 12px/1.2 system-ui, sans-serif; color: var(--ob3-primary); }
+  .ob3-mobile__title { font: 700 16px/1.25 system-ui, sans-serif; color: #0f172a; }
+  .ob3-mobile__sub { font: 500 12px/1.35 system-ui, sans-serif; color: #475569; }
+  .ob3-mobile__desc { font: 400 13px/1.44 system-ui, sans-serif; color: #5d6878; }
 }
-
 @media (max-width: 360px) {
-  .ob3-mobile__icon-strip {
-    width: 48px;
-  }
-
-  .ob3-mobile__icon {
-    font-size: 20px;
-  }
-
-  .ob3-mobile__body {
-    padding: 10px 12px;
-  }
-
-  .ob3-mobile__title {
-    font-size: 14px;
-  }
-
-  .ob3-mobile__desc {
-    font-size: 12px;
-  }
+  .ob3-mobile__icon-strip { flex-basis: 48px; font-size: 21px; }
+  .ob3-mobile__body { padding: 11px; }
+  .ob3-mobile__title { font-size: 14px; }
+  .ob3-mobile__desc { font-size: 12px; }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .ob3-row,
-  .ob3-mobile-view {
-    transition: none !important;
-  }
-}
+@media (prefers-reduced-motion: reduce) { .ob3-row { transition: none !important; } }

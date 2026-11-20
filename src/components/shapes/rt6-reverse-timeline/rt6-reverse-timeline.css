@@ -1,158 +1,65 @@
-/* RT6 — Reverse Timeline Infographic Template (Exact 1:1 Vector Assembly) */
+/* RT6: geometry is fixed to original SVG 1.svg (face) + 2.svg (3D fold). */
 .rt6-module {
-  width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  background: #ffffff;
-  color: #0f172a;
-  box-sizing: border-box;
+  width: 100%; min-height: min(100dvh, 720px); padding: 0;
+  background: #fff; color: #111827; display: flex; align-items: center;
+  justify-content: center; box-sizing: border-box;
 }
-
-.rt6-inner {
-  width: min(100%, 1280px);
-  margin-inline: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.rt6-inner { width: min(100%, 1280px); margin-inline: auto; }
+.rt6-accessible-header {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
 }
-
-.rt6-stage {
-  position: relative;
-  display: block;
-  width: 100%;
-  overflow: visible;
-}
-
-.rt6-svg {
-  display: block;
-  width: 100%;
-  height: auto;
-  overflow: visible;
-}
-
-/* Header in SVG */
-.rt6-canvas__title {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 36px;
-  font-weight: 800;
-  fill: #111827;
-  letter-spacing: -0.025em;
-}
-
-.rt6-canvas__subtitle {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  fill: #64748b;
-  letter-spacing: -0.01em;
-}
-
-/* Step group & interactions */
-.rt6-step {
-  cursor: pointer;
-  outline: none;
-  transform: none;
-}
-
-.rt6-step:focus-visible {
-  outline: 2px solid #0284c7;
-  outline-offset: 4px;
-}
-
-.rt6-step,
-.rt6-step:hover,
-.rt6-step.is-active {
-  transform: none; /* lock static geometry: do not lift group */
-}
-
-.rt6-step__badge,
-.rt6-step:hover .rt6-step__badge,
-.rt6-step.is-active .rt6-step__badge {
-  transform: none; /* do not displace badge */
-}
-
-.rt6-step__face {
-  transition: filter 180ms ease;
-}
-
-.rt6-step:hover .rt6-step__face,
-.rt6-step.is-active .rt6-step__face {
-  filter: brightness(1.08);
-}
-
-.rt6-badge__text {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 18px;
-  font-weight: 800;
-  fill: #ffffff;
-}
-
-/* Text Content within foreignObject */
+.rt6-stage, .rt6-svg { width: 100%; display: block; }
+.rt6-svg { height: auto; overflow: hidden; }
+.rt6-canvas__title { font: 700 38px/1.2 system-ui, sans-serif; fill: #171717; letter-spacing: -.025em; }
+.rt6-canvas__subtitle { font: 400 14px/1.2 system-ui, sans-serif; fill: #6b7280; }
+.rt6-step { cursor: pointer; outline: none; }
+.rt6-step__face { transition: filter 160ms ease; }
+.rt6-step:is(:hover, :focus-visible, .is-active) .rt6-step__face { filter: brightness(1.08); }
+.rt6-step:focus-visible .rt6-step__face { stroke: #172554; stroke-width: 2px; vector-effect: non-scaling-stroke; }
+.rt6-badge__text { font: 750 18px/1 system-ui, sans-serif; fill: #fff; }
 .rt6-step__content {
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  font-family: Arial, Helvetica, -apple-system, sans-serif;
-  color: #ffffff;
-  pointer-events: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  box-sizing: border-box;
-  padding: 0 4px;
-  overflow: hidden;
+  width: 100%; height: 100%; box-sizing: border-box; padding: 0 3px;
+  display: flex; flex-direction: column; align-items: center;
+  overflow: hidden; text-align: center; color: #fff; font-family: Arial, sans-serif;
 }
-
 .rt6-step__title {
-  width: 100%;
-  margin: 0 0 8px;
-  font-size: 17px;
-  line-height: 1.25;
-  font-weight: 700;
-  color: #ffffff;
-  text-align: center;
+  margin: 0 0 7px; font-size: 16px; line-height: 1.18;
+  font-weight: 700; color: #fff; overflow-wrap: anywhere;
 }
-
 .rt6-step__desc {
-  width: 100%;
-  margin: 0;
-  font-size: 13.5px;
-  line-height: 1.35;
-  font-weight: 400;
-  color: #ffffff;
-  text-align: center;
-  overflow-wrap: anywhere;
+  margin: 0; font-size: 13px; line-height: 1.31; font-weight: 400;
+  color: #fff; overflow-wrap: anywhere;
 }
-
-/* Accessibility: sr-only header */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
+.rt6-mobile-list { display: none; }
+@media (max-width: 899px) {
+  .rt6-module { min-height: auto; padding: 28px 20px 36px; }
+  .rt6-stage { display: none; }
+  .rt6-mobile-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .rt6-mobile-item { min-width: 0; }
+  .rt6-mobile-card {
+    width: 100%; min-height: 208px; padding: 24px 20px 26px;
+    border: 0; border-radius: 15px 15px 44px 15px;
+    display: flex; flex-direction: column; align-items: flex-start;
+    gap: 9px; color: #fff; text-align: left; cursor: pointer;
+    background: linear-gradient(155deg, var(--rt6-top), var(--rt6-mid) 48%, var(--rt6-bottom));
+    transition: filter 160ms ease, box-shadow 160ms ease;
+  }
+  .rt6-mobile-card:is(:hover, .is-active) { filter: brightness(1.05); box-shadow: 0 4px 12px #0f172a30; }
+  .rt6-mobile-card:focus-visible { outline: 3px solid #0c4a6e; outline-offset: 3px; }
+  .rt6-mobile-number {
+    flex: none; width: 46px; height: 46px; border: 2px solid #ffffffd9;
+    border-radius: 50%; background: var(--rt6-badge); display: grid;
+    place-items: center; font: 750 18px/1 system-ui, sans-serif;
+  }
+  .rt6-mobile-title { font: 700 18px/1.18 system-ui, sans-serif; overflow-wrap: anywhere; }
+  .rt6-mobile-description { font: 400 14px/1.42 system-ui, sans-serif; overflow-wrap: anywhere; }
 }
-
-/* Mobile responsive horizontal scroll without breaking staircase geometry */
-@media (max-width: 900px) {
-  .rt6-stage {
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .rt6-svg {
-    width: 1100px;
-    max-width: none;
-  }
+@media (max-width: 560px) {
+  .rt6-module { padding-inline: 16px; }
+  .rt6-mobile-list { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .rt6-mobile-card { min-height: 168px; padding: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rt6-step__face, .rt6-mobile-card { transition: none !important; }
 }

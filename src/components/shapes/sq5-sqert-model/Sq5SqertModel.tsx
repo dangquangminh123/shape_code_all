@@ -4,14 +4,9 @@ import React, { useId, useRef, useState, type CSSProperties, type KeyboardEvent 
 import {
   SQ5_DIMENSIONS,
   SQ5_DIMENSIONS_MAP,
-  type Sq5DimensionConfig,
   type Sq5DimensionId,
 } from './sq5-sqert-model.config';
-import {
-  SQ5_HUB_GEOMETRY,
-  SQ5_PETALS_GEOMETRY,
-  SQ5_VIEWBOX,
-} from './sq5-sqert-model.geometry';
+import { SQ5_HUB_GEOMETRY, SQ5_PETALS_GEOMETRY, SQ5_VIEWBOX } from './sq5-sqert-model.geometry';
 import './sq5-sqert-model.css';
 
 export interface Sq5SqertModelProps {
@@ -26,185 +21,124 @@ export default function Sq5SqertModel({
   className = '',
 }: Sq5SqertModelProps) {
   const instanceId = useId();
-  const [hoveredId, setHoveredId] = useState<Sq5DimensionId | null>(null);
-  const [focusedId, setFocusedId] = useState<Sq5DimensionId | null>(null);
-  const [selectedId, setSelectedId] = useState<Sq5DimensionId | null>(null);
-  const cardRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const [hovered, setHovered] = useState<Sq5DimensionId | null>(null);
+  const [focused, setFocused] = useState<Sq5DimensionId | null>(null);
+  const [selected, setSelected] = useState<Sq5DimensionId | null>(null);
+  const legendRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const petalRefs = useRef<(SVGGElement | null)[]>([]);
+  const active = hovered ?? focused ?? selected;
 
-  const activeId = hoveredId ?? focusedId ?? selectedId;
-
-  function handleSelect(id: Sq5DimensionId) {
-    setSelectedId((prev) => (prev === id ? null : id));
+  function select(id: Sq5DimensionId) {
+    setSelected((previous) => previous === id ? null : id);
   }
 
-  function handleKeyDown(event: KeyboardEvent<HTMLButtonElement>, index: number) {
-    let nextIndex: number | null = null;
-    if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
-      nextIndex = (index + 1) % SQ5_DIMENSIONS.length;
-    } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
-      nextIndex = (index - 1 + SQ5_DIMENSIONS.length) % SQ5_DIMENSIONS.length;
-    } else if (event.key === 'Home') {
-      nextIndex = 0;
-    } else if (event.key === 'End') {
-      nextIndex = SQ5_DIMENSIONS.length - 1;
-    } else if (event.key === 'Escape') {
-      event.preventDefault();
-      setSelectedId(null);
-      setHoveredId(null);
-      return;
+  function keyNav(event: KeyboardEvent<SVGGElement | HTMLButtonElement>, index: number, target: 'legend' | 'petal') {
+    if (event.key === 'Escape') {
+      event.preventDefault(); setSelected(null); setHovered(null); return;
     }
-
-    if (nextIndex !== null) {
+    if (target === 'petal' && (event.key === 'Enter' || event.key === ' ')) {
+      event.preventDefault(); select(SQ5_DIMENSIONS[index].id); return;
+    }
+    const next = event.key === 'ArrowDown' || event.key === 'ArrowRight'
+      ? (index + 1) % SQ5_DIMENSIONS.length
+      : event.key === 'ArrowUp' || event.key === 'ArrowLeft'
+        ? (index - 1 + SQ5_DIMENSIONS.length) % SQ5_DIMENSIONS.length
+        : event.key === 'Home' ? 0 : event.key === 'End' ? SQ5_DIMENSIONS.length - 1 : null;
+    if (next !== null) {
       event.preventDefault();
-      cardRefs.current[nextIndex]?.focus();
+      (target === 'petal' ? petalRefs.current[next] : legendRefs.current[next])?.focus();
     }
   }
 
   return (
-    <section
-      className={`sq5-module ${className}`.trim()}
-      aria-labelledby={`${instanceId}-heading`}
-      data-sq5-root
-    >
+    <section className={`sq5-module ${className}`.trim()} aria-labelledby={`${instanceId}-heading`} data-sq5-root>
       <div className="sq5-inner">
         <header className="sq5-header">
-          <h2 className="sq5-header__title" id={`${instanceId}-heading`}>
-            {headerTitle}
-          </h2>
+          <h2 id={`${instanceId}-heading`} className="sq5-header__title">{headerTitle}</h2>
           <p className="sq5-header__subtitle">{headerSubtitle}</p>
         </header>
-
         <div className="sq5-layout">
-          {/* Left Column: 5 Elegant Legend Items matching original template */}
-          <div className="sq5-legend" role="list" aria-label="5 yếu tố cốt lõi của mô hình SQERT">
-            {SQ5_DIMENSIONS.map((item, idx) => {
-              const isActive = activeId === item.id;
-              const Icon = item.icon;
-
+          <div className="sq5-legend" role="list" aria-label="5 yếu tố của mô hình SQERT">
+            {SQ5_DIMENSIONS.map((dim, index) => {
+              const Icon = dim.icon;
               return (
-                <button
-                  key={item.id}
-                  ref={(el) => {
-                    cardRefs.current[idx] = el;
-                  }}
-                  type="button"
-                  role="listitem"
-                  className={`sq5-item ${isActive ? 'is-active' : ''}`}
-                  style={{ '--sq5-color': item.color } as CSSProperties}
-                  onClick={() => handleSelect(item.id)}
-                  onMouseEnter={() => setHoveredId(item.id)}
-                  onMouseLeave={() => setHoveredId(null)}
-                  onFocus={() => setFocusedId(item.id)}
-                  onBlur={() => setFocusedId(null)}
-                  onKeyDown={(e) => handleKeyDown(e, idx)}
-                  aria-pressed={selectedId === item.id}
-                  aria-label={`${item.letter} — ${item.name} (${item.vietnameseTitle})`}
-                >
-                  <span className="sq5-item__badge" aria-hidden="true">
-                    <Icon />
-                  </span>
-                  <div className="sq5-item__body">
-                    <div className="sq5-item__header">
-                      <span className="sq5-item__title">{item.name}</span>
-                      <span className="sq5-item__vntitle">— {item.vietnameseTitle}</span>
-                    </div>
-                    <p className="sq5-item__desc">{item.description}</p>
-                  </div>
-                </button>
+                <div role="listitem" key={dim.id} className="sq5-legend-item">
+                  <button
+                    type="button"
+                    ref={(node) => { legendRefs.current[index] = node; }}
+                    className={`sq5-item${active === dim.id ? ' is-active' : ''}`}
+                    style={{ '--sq5-color': dim.color } as CSSProperties}
+                    aria-pressed={selected === dim.id}
+                    aria-label={`${dim.name}, ${dim.vietnameseTitle}. ${dim.description}`}
+                    onClick={() => select(dim.id)}
+                    onMouseEnter={() => setHovered(dim.id)}
+                    onMouseLeave={() => setHovered(null)}
+                    onFocus={() => setFocused(dim.id)}
+                    onBlur={() => setFocused(null)}
+                    onKeyDown={(event) => keyNav(event, index, 'legend')}
+                  >
+                    <span className="sq5-item__badge" aria-hidden="true"><Icon /></span>
+                    <span className="sq5-item__body">
+                      <span className="sq5-item__header">
+                        <span className="sq5-item__title">{dim.name}</span>
+                        <span className="sq5-item__vntitle">— {dim.vietnameseTitle}</span>
+                      </span>
+                      <span className="sq5-item__desc">{dim.description}</span>
+                    </span>
+                  </button>
+                </div>
               );
             })}
           </div>
-
-          {/* Right Column: Exact 1:1 Unified Pinwheel Stage */}
-          <div className="sq5-stage" aria-label="Biểu đồ cánh quạt SQERT 5 góc tương tác">
+          <div className="sq5-stage">
             <div className="sq5-vortex">
-              <svg
-                viewBox={SQ5_VIEWBOX}
-                className="sq5-svg"
-                preserveAspectRatio="xMidYMid meet"
-                role="img"
-                aria-label="Mô hình SQERT ngũ giác"
-              >
+              <svg className="sq5-svg" viewBox={SQ5_VIEWBOX}
+                preserveAspectRatio="xMidYMid meet" role="group" aria-label="Biểu đồ SQERT gồm Scope, Quality, Effort, Risk, Time">
                 <defs>
-                  {/* Petal subtle gradients matching slide colors */}
                   {SQ5_DIMENSIONS.map((dim) => (
-                    <linearGradient
-                      key={`grad-${dim.id}`}
-                      id={`sq5-grad-${instanceId}-${dim.id}`}
-                      x1="0%"
-                      y1="0%"
-                      x2="100%"
-                      y2="100%"
-                    >
+                    <linearGradient key={dim.id} id={`sq5-fill-${instanceId}-${dim.id}`}
+                      x1="0" y1="0" x2="1" y2="1">
                       <stop offset="0%" stopColor={dim.gradientTop} />
                       <stop offset="100%" stopColor={dim.gradientBot} />
                     </linearGradient>
                   ))}
                 </defs>
-
-                {/* 5 Distinct Petals using their own original SVG paths & exact bounding boxes */}
-                {SQ5_PETALS_GEOMETRY.map((p) => {
-                  const dim = SQ5_DIMENSIONS_MAP[p.id];
-                  const isActive = activeId === p.id;
-
+                {/* Five independent, non-rotated original SVG paths; no approximated petals. */}
+                {SQ5_PETALS_GEOMETRY.map((petal, index) => {
+                  const dim = SQ5_DIMENSIONS_MAP[petal.id];
                   return (
                     <g
-                      key={p.id}
-                      className={`sq5-petal ${isActive ? 'is-active' : ''}`}
-                      onClick={() => handleSelect(p.id)}
-                      onMouseEnter={() => setHoveredId(p.id)}
-                      onMouseLeave={() => setHoveredId(null)}
-                      role="button"
-                      tabIndex={0}
-                      aria-label={`Yếu tố ${p.letter}: ${dim.name}`}
+                      key={petal.id}
+                      ref={(node) => { petalRefs.current[index] = node; }}
+                      className={`sq5-petal${active === petal.id ? ' is-active' : ''}`}
+                      data-dimension={petal.id}
+                      role="button" tabIndex={0}
+                      aria-label={`${dim.name}: ${dim.description}`}
+                      aria-pressed={selected === petal.id}
+                      onClick={() => select(petal.id)}
+                      onMouseEnter={() => setHovered(petal.id)}
+                      onMouseLeave={() => setHovered(null)}
+                      onFocus={() => setFocused(petal.id)}
+                      onBlur={() => setFocused(null)}
+                      onKeyDown={(event) => keyNav(event, index, 'petal')}
                     >
-                      <path
-                        className="sq5-petal__path"
-                        d={p.d}
-                        transform={`translate(${p.x} ${p.y}) scale(${p.scaleX} ${p.scaleY})`}
-                        fill={`url(#sq5-grad-${instanceId}-${p.id})`}
-                      />
+                      <path className="sq5-petal__path" d={petal.d}
+                        transform={`translate(${petal.x} ${petal.y}) scale(${petal.scaleX} ${petal.scaleY})`}
+                        fill={`url(#sq5-fill-${instanceId}-${petal.id})`} />
                     </g>
                   );
                 })}
-
-                {/* 5 Letters S, Q, E, R, T placed upright at optical centers of bulbs */}
-                {SQ5_PETALS_GEOMETRY.map((p) => {
-                  const isActive = activeId === p.id;
-
-                  return (
-                    <text
-                      key={`letter-${p.id}`}
-                      x={p.letterX}
-                      y={p.letterY}
-                      textAnchor="middle"
-                      dominantBaseline="central"
-                      className={`sq5-petal__letter ${isActive ? 'is-active' : ''}`}
-                      fontSize={28}
-                    >
-                      {p.letter}
-                    </text>
-                  );
-                })}
-
-                {/* Center Hub: Dark Circle with "SQERT" from Tròn.svg */}
+                {/* Text and central hub stay stationary even when a petal is selected. */}
+                {SQ5_PETALS_GEOMETRY.map((petal) => (
+                  <text key={`letter-${petal.id}`} x={petal.letterX} y={petal.letterY}
+                    className="sq5-petal__letter" textAnchor="middle" dominantBaseline="central"
+                    pointerEvents="none">{petal.letter}</text>
+                ))}
                 <g className="sq5-hub" pointerEvents="none">
-                  <circle
-                    cx={SQ5_HUB_GEOMETRY.cx}
-                    cy={SQ5_HUB_GEOMETRY.cy}
-                    r={SQ5_HUB_GEOMETRY.r}
-                    fill="#283542"
-                    className="sq5-hub__circle"
-                  />
-                  <text
-                    x={SQ5_HUB_GEOMETRY.cx}
-                    y={SQ5_HUB_GEOMETRY.cy}
-                    textAnchor="middle"
-                    dominantBaseline="central"
-                    className="sq5-hub__text"
-                  >
-                    {SQ5_HUB_GEOMETRY.text}
-                  </text>
+                  <circle className="sq5-hub__circle" cx={SQ5_HUB_GEOMETRY.cx}
+                    cy={SQ5_HUB_GEOMETRY.cy} r={SQ5_HUB_GEOMETRY.r} />
+                  <text className="sq5-hub__text" x={SQ5_HUB_GEOMETRY.cx} y={SQ5_HUB_GEOMETRY.cy}
+                    textAnchor="middle" dominantBaseline="central">{SQ5_HUB_GEOMETRY.text}</text>
                 </g>
               </svg>
             </div>

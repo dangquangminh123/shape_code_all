@@ -103,17 +103,17 @@
       track('.ls4-step__text', 4, 'right', 480, 160, 650),
       track('.ls4-step__badge', 4, 'fade', 600, 160, 550),
     ], idle('.ls4-facet--side', 4, 'light', 4600)),
-    recipe('rt6-reverse-timeline', '.rt6-module', 'Fade sequence and gentle step entrance', [
-      track('.rt6-step', 6, 'fade', 0, 120, 800),
-      track('.rt6-step__content', 6, 'fade', 350, 120, 600),
-    ]),
-    recipe('sq5-sqert-model', '.sq5-module', 'Quiet fixed-geometry fade-in', [
-      track('.sq5-petal', 5, 'fade', 0, 70, 520),
-      track('.sq5-hub', 1, 'fade', 180, 0, 480),
-      track('.sq5-item', 5, 'fade', 140, 60, 430),
-    ], idle('.sq5-hub', 1, 'quiet-opacity', 7000)),
-    recipe('ob3-option-banners', '.ob3-module', 'Fixed-geometry ribbon fade-in', [
-      track('.ob3-row', 3, 'fade', 0, 120, 540),
+    // THREE_SHAPES_FIX_V1: static geometry, atomic animation groups, no idle loops
+    recipe('rt6-reverse-timeline', '.rt6-module', 'Atomic fade (desktop); individual accessible mobile cards', [
+      track('.rt6-svg', 1, 'fade', 0, 0, 420),
+      track('.rt6-mobile-card', 6, 'fade', 0, 70, 420),
+    ], idle('.rt6-no-idle', 0, 'glow', 4200)),
+    recipe('sq5-sqert-model', '.sq5-module', 'Whole diagram fade, no petal rotation or independent hub movement', [
+      track('.sq5-svg', 1, 'fade', 0, 0, 500),
+      track('.sq5-item', 5, 'fade', 80, 80, 450),
+    ], idle('.sq5-no-idle', 0, 'glow', 4200)),
+    recipe('ob3-option-banners', '.ob3-module', 'Whole banner fade, rigid SVG layers', [
+      track('.ob3-row', 3, 'fade', 0, 100, 450),
     ], idle('.ob3-no-idle', 0, 'glow', 4200)),
   ];
 

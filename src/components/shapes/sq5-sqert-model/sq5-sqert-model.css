@@ -1,268 +1,67 @@
-/* SQ5 — SQERT Project Management Model (Exact 1:1 Vector Geometry & Multi-SVG Assembly) */
+/* SQERT: use five different original SVG paths with a stationary central hub. */
 .sq5-module {
-  width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: clamp(24px, 4vw, 56px);
-  background: #ffffff;
-  color: #1e293b;
-  box-sizing: border-box;
+  width: 100%; min-height: min(100dvh, 540px); background: #fff;
+  display: flex; align-items: center; justify-content: center;
+  padding: clamp(22px, 3.5vw, 42px); box-sizing: border-box;
+  color: #303b46;
 }
-
-.sq5-inner {
-  width: min(100%, 1160px);
-  margin-inline: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 36px;
-}
-
-.sq5-header {
-  text-align: left;
-  max-width: 800px;
-}
-
-.sq5-header__title {
-  margin: 0 0 8px;
-  font-size: clamp(26px, 3.2vw, 38px);
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  color: #0f172a;
-}
-
-.sq5-header__subtitle {
-  margin: 0;
-  font-size: clamp(14px, 1.4vw, 16px);
-  color: #64748b;
-  line-height: 1.5;
-}
-
-/* Two-column layout: Left legend, Right pinwheel */
+.sq5-inner { width: min(100%, 1160px); display: flex; flex-direction: column; gap: 22px; }
+.sq5-header { text-align: left; max-width: 900px; }
+.sq5-header__title { margin: 0 0 5px; font: 400 clamp(26px, 3.5vw, 39px)/1.17 system-ui, sans-serif; color: #5b5b5b; }
+.sq5-header__subtitle { margin: 0; font: 400 clamp(13px, 1.3vw, 15px)/1.4 system-ui, sans-serif; color: #777; }
 .sq5-layout {
-  display: grid;
-  grid-template-columns: 1.125fr 1fr;
-  align-items: center;
-  gap: clamp(24px, 3.5vw, 44px);
+  display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  align-items: center; gap: clamp(18px, 3vw, 42px);
 }
-
-/* Left Legend: Clean, elegant transparent rows matching original template */
-.sq5-legend {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 100%;
-}
-
+.sq5-legend { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.sq5-legend-item { min-width: 0; }
 .sq5-item {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 8px 0;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  cursor: pointer;
-  outline: none;
-  text-align: left;
-  transition: opacity 180ms ease;
-  box-shadow: none;
+  border: 0; background: transparent; width: 100%; margin: 0; padding: 0;
+  display: flex; align-items: center; gap: 20px; text-align: left;
+  cursor: pointer; color: inherit; transition: opacity 160ms ease;
 }
-
-.sq5-item:focus-visible {
-  outline: 2px solid #0284c7;
-  outline-offset: 4px;
-}
-
+.sq5-item:focus-visible { outline: 2px solid #1c83cb; outline-offset: 4px; }
 .sq5-item__badge {
-  flex-shrink: 0;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: var(--sq5-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  font-size: 26px;
-  transition: filter 180ms ease;
+  flex: 0 0 56px; height: 56px; border-radius: 50%;
+  display: grid; place-items: center; color: #fff;
+  background: var(--sq5-color); font-size: 26px;
+  transition: filter 160ms ease;
 }
-
-.sq5-item:hover .sq5-item__badge,
-.sq5-item.is-active .sq5-item__badge {
-  filter: brightness(1.1);
-}
-
-.sq5-item__body {
-  flex: 1;
-  min-width: 0;
-}
-
-.sq5-item__header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  margin-bottom: 4px;
-}
-
-.sq5-item__title {
-  font-size: 18px;
-  font-weight: 800;
-  color: var(--sq5-color);
-  letter-spacing: -0.01em;
-}
-
-.sq5-item:hover .sq5-item__title,
-.sq5-item.is-active .sq5-item__title {
-  text-decoration: underline;
-}
-
-.sq5-item__vntitle {
-  font-size: 14px;
-  font-weight: 600;
-  color: #475569;
-}
-
-.sq5-item__desc {
-  margin: 0;
-  font-size: 13.5px;
-  color: #64748b;
-  line-height: 1.45;
-}
-
-/* Right Pinwheel Stage */
-.sq5-stage {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.sq5-vortex {
-  width: 100%;
-  max-width: 480px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.sq5-svg {
-  width: 100%;
-  height: auto;
-  display: block;
-  overflow: visible;
-}
-
-/* Petal & Path Interactions: NO transform, only brightness */
-.sq5-petal {
-  cursor: pointer;
-  outline: none;
-  transform: none !important;
-}
-
-.sq5-petal__path {
-  transition: filter 180ms ease;
-}
-
-.sq5-petal:hover .sq5-petal__path,
-.sq5-petal.is-active .sq5-petal__path {
-  filter: brightness(1.08);
-}
-
+.sq5-item:is(:hover, .is-active) .sq5-item__badge { filter: brightness(1.09); }
+.sq5-item__body { min-width: 0; display: block; }
+.sq5-item__header { display: flex; align-items: baseline; flex-wrap: wrap; gap: 5px; }
+.sq5-item__title { font: 700 18px/1.2 system-ui, sans-serif; color: var(--sq5-color); }
+.sq5-item__vntitle { color: #6b7280; font: 500 12px/1.2 system-ui, sans-serif; }
+.sq5-item__desc { display: block; margin-top: 2px; font: 400 13.5px/1.33 system-ui, sans-serif; color: #585858; }
+.sq5-stage { width: 100%; min-width: 0; display: flex; justify-content: center; }
+.sq5-vortex { width: min(100%, 480px); }
+.sq5-svg { width: 100%; height: auto; overflow: visible; display: block; }
+.sq5-petal { cursor: pointer; outline: none; }
+.sq5-petal__path { transition: filter 160ms ease; }
+.sq5-petal:is(:hover, .is-active, :focus-visible) .sq5-petal__path { filter: brightness(1.075); }
+.sq5-petal:focus-visible .sq5-petal__path { stroke: #0b5989; stroke-width: 2px; vector-effect: non-scaling-stroke; }
 .sq5-petal__letter {
-  user-select: none;
-  pointer-events: none;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-weight: 800;
-  fill: #ffffff;
-  transform: none !important;
+  fill: #fff; font: 750 56px/1 system-ui, sans-serif; user-select: none;
+  stroke: none; paint-order: normal;
 }
-
-.sq5-hub {
-  cursor: pointer;
-  transform: none !important;
-}
-
-.sq5-hub__circle {
-  transition: filter 180ms ease;
-}
-
-.sq5-hub:hover .sq5-hub__circle {
-  filter: brightness(1.15);
-}
-
-.sq5-hub__text {
-  user-select: none;
-  pointer-events: none;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 13px;
-  font-weight: 800;
-  fill: #ffffff;
-  letter-spacing: 0.05em;
-  transform: none !important;
-}
-
-/* Tablet / mobile ≤ 850px: Diagram on top, Legend below */
+.sq5-hub__circle { fill: #484848; }
+.sq5-hub__text { fill: #fff; font: 400 18px/1 system-ui, sans-serif; }
 @media (max-width: 850px) {
-  .sq5-layout {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .sq5-stage {
-    order: 1; /* Diagram on top */
-    width: min(100%, 410px);
-    margin: 0 auto;
-  }
-
-  .sq5-legend {
-    order: 2; /* Legend below */
-    max-width: 600px;
-    margin: 0 auto;
-  }
+  .sq5-module { min-height: auto; padding: 24px 20px 30px; }
+  .sq5-layout { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+  .sq5-stage { order: 1; }
+  .sq5-vortex { width: min(100%, 440px); }
+  .sq5-legend { order: 2; max-width: 580px; width: 100%; margin-inline: auto; }
 }
-
-/* Mobile ≤ 520px */
-@media (max-width: 520px) {
-  .sq5-inner {
-    padding: 0 16px;
-  }
-
-  .sq5-header__title {
-    font-size: clamp(24px, 6vw, 30px);
-  }
-
-  .sq5-vortex {
-    max-width: 380px;
-  }
-
-  .sq5-item {
-    gap: 14px;
-    padding: 6px 0;
-  }
-
-  .sq5-item__badge {
-    width: 48px;
-    height: 48px;
-    font-size: 22px;
-  }
-
-  .sq5-item__title {
-    font-size: 16px;
-  }
-
-  .sq5-item__desc {
-    font-size: 12.5px;
-  }
+@media (max-width: 480px) {
+  .sq5-module { padding-inline: 16px; }
+  .sq5-item { gap: 13px; }
+  .sq5-item__badge { flex-basis: 47px; height: 47px; font-size: 21px; }
+  .sq5-item__title { font-size: 16px; }
+  .sq5-item__vntitle { display: none; }
+  .sq5-item__desc { font-size: 12.5px; }
+  .sq5-legend { gap: 14px; }
 }
-
 @media (prefers-reduced-motion: reduce) {
-  .sq5-item,
-  .sq5-petal__path,
-  .sq5-hub__circle {
-    transition: none !important;
-  }
+  .sq5-item, .sq5-item__badge, .sq5-petal__path { transition: none !important; }
 }
