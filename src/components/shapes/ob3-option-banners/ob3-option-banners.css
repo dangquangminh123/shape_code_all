@@ -88,6 +88,10 @@
   transition: filter 200ms ease;
 }
 
+.ob3-loop__icon-badge {
+  transform-origin: 25px 45px;
+}
+
 .ob3-row.is-active .ob3-loop__arrow {
   filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
 }

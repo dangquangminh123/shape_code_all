@@ -157,21 +157,24 @@ export default function Sq5SqertModel({
                   return (
                     <g
                       key={dim.id}
-                      className={`sq5-petal ${isActive ? 'is-active' : ''}`}
                       transform={`translate(${dim.geometry.offsetX}, ${dim.geometry.offsetY})`}
-                      onClick={() => handleSelect(dim.id)}
-                      onMouseEnter={() => setHoveredId(dim.id)}
-                      onMouseLeave={() => setHoveredId(null)}
-                      style={{ cursor: 'pointer' }}
                     >
-                      <path
-                        d={dim.path}
-                        fill={`url(#sq5-grad-${instanceId}-${dim.id})`}
-                        filter={isActive ? `url(#sq5-active-shadow-${instanceId})` : `url(#sq5-shadow-${instanceId})`}
-                        stroke="#ffffff"
-                        strokeWidth="1.2"
-                        className="sq5-petal__path"
-                      />
+                      <g
+                        className={`sq5-petal ${isActive ? 'is-active' : ''}`}
+                        onClick={() => handleSelect(dim.id)}
+                        onMouseEnter={() => setHoveredId(dim.id)}
+                        onMouseLeave={() => setHoveredId(null)}
+                        style={{ cursor: 'pointer' }}
+                      >
+                        <path
+                          d={dim.path}
+                          fill={`url(#sq5-grad-${instanceId}-${dim.id})`}
+                          filter={isActive ? `url(#sq5-active-shadow-${instanceId})` : `url(#sq5-shadow-${instanceId})`}
+                          stroke="#ffffff"
+                          strokeWidth="1.2"
+                          className="sq5-petal__path"
+                        />
+                      </g>
                     </g>
                   );
                 })}
@@ -184,11 +187,12 @@ export default function Sq5SqertModel({
                     <text
                       key={`label-${dim.id}`}
                       x={dim.geometry.letterX}
-                      y={dim.geometry.letterY + 7}
+                      y={dim.geometry.letterY}
                       className={`sq5-petal__letter ${isActive ? 'is-active' : ''}`}
                       textAnchor="middle"
+                      dominantBaseline="central"
                       fill="#ffffff"
-                      fontSize="24"
+                      fontSize="23"
                       fontWeight="800"
                       fontFamily="system-ui, -apple-system, sans-serif"
                       style={{ pointerEvents: 'none', userSelect: 'none' }}

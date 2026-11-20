@@ -141,37 +141,41 @@ export default function Ob3OptionBanners({
                     fill={`url(#ob3-mid-grad-${instanceId}-${idx})`}
                   />
 
-                  {/* 2. Middle Text Block on 2.svg */}
-                  <g className="ob3-bar__content">
+                  {/* 2. Middle Text Block on 2.svg: Cleanly fitted inside middle band */}
+                  <g className="ob3-bar__content" style={{ pointerEvents: 'none' }}>
                     <text
-                      x="84"
-                      y="40"
+                      x="82"
+                      y="38"
                       fill="#ffffff"
                       fontFamily="system-ui, -apple-system, sans-serif"
-                      fontSize="9"
+                      fontSize="9.5"
                       fontWeight="800"
                     >
                       {option.title}
                     </text>
                     <text
-                      x="84"
-                      y="54"
-                      fill="rgba(255,255,255,0.92)"
+                      x="82"
+                      y="52"
+                      fill="rgba(255,255,255,0.95)"
                       fontFamily="system-ui, -apple-system, sans-serif"
                       fontSize="6.2"
                       fontWeight="500"
                     >
-                      {option.description.slice(0, 36)}
+                      {idx === 0 && 'Kiến trúc linh hoạt'}
+                      {idx === 1 && 'Triển khai tự động'}
+                      {idx === 2 && 'Tối ưu hiệu năng'}
                     </text>
                     <text
-                      x="84"
-                      y="65"
-                      fill="rgba(255,255,255,0.8)"
+                      x="82"
+                      y="63"
+                      fill="rgba(255,255,255,0.85)"
                       fontFamily="system-ui, -apple-system, sans-serif"
                       fontSize="5.8"
                       fontWeight="400"
                     >
-                      {option.description.slice(36, 75)}...
+                      {idx === 0 && 'chuẩn công nghệ mới'}
+                      {idx === 1 && 'không gián đoạn 24/7'}
+                      {idx === 2 && 'phản hồi dưới 1 giây'}
                     </text>
                   </g>
 
@@ -219,11 +223,11 @@ export default function Ob3OptionBanners({
 
                     {/* Right Banner Content */}
                     <text
-                      x="34"
-                      y="42"
+                      x="30"
+                      y="43"
                       fill="#ffffff"
                       fontFamily="system-ui, -apple-system, sans-serif"
-                      fontSize="14.5"
+                      fontSize="13"
                       fontWeight="800"
                       letterSpacing="-0.02em"
                     >
@@ -231,11 +235,11 @@ export default function Ob3OptionBanners({
                     </text>
 
                     <text
-                      x="102"
-                      y="39"
+                      x="115"
+                      y="37"
                       fill="#ffffff"
                       fontFamily="system-ui, -apple-system, sans-serif"
-                      fontSize="7.6"
+                      fontSize="7.2"
                       fontWeight="600"
                     >
                       {idx === 0 && 'Xây dựng giao diện hiệu năng cao, tối ưu hóa'}
@@ -244,14 +248,14 @@ export default function Ob3OptionBanners({
                     </text>
 
                     <text
-                      x="102"
-                      y="53"
-                      fill="#ffffff"
+                      x="115"
+                      y="51"
+                      fill="rgba(255,255,255,0.9)"
                       fontFamily="system-ui, -apple-system, sans-serif"
-                      fontSize="7.6"
+                      fontSize="7.2"
                       fontWeight="500"
                     >
-                      {idx === 0 && 'trải nghiệm người dùng với tốc độ dưới 1s.'}
+                      {idx === 0 && 'trải nghiệm người dùng với tốc độ phản hồi tức thì.'}
                       {idx === 1 && 'tự động toàn diện và triển khai không downtime.'}
                       {idx === 2 && 'backlog và rút ngắn chu kỳ phát hành tính năng.'}
                     </text>

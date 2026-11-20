@@ -159,7 +159,7 @@
       case 'stamp-3d': return [{ transform: 'perspective(500px) rotateX(75deg) scale(.6)', opacity: 0 }, { transform: 'perspective(500px) rotateX(-12deg) scale(1.08)', opacity: 1, offset: .72 }, { transform: identity, opacity: 1 }];
       case 'accordion-fold': return move('scaleX(.2) skewY(-8deg)', 'scaleX(1.05) skewY(1deg)');
       case 'vortex-spin-in': return [{ transform: 'scale(.18) rotate(-110deg)', opacity: 0 }, { transform: 'scale(1.06) rotate(6deg)', opacity: 1, offset: .78 }, { transform: identity, opacity: 1 }];
-      case 'core-impact': return [{ transform: 'translate(-50%, -50%) scale(.3)', opacity: 0 }, { transform: 'translate(-50%, -50%) scale(1.15)', opacity: 1, offset: .65 }, { transform: 'translate(-50%, -50%) scale(.96)', offset: .85 }, { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 }];
+      case 'core-impact': return [{ transform: 'scale(.3)', opacity: 0 }, { transform: 'scale(1.15)', opacity: 1, offset: .65 }, { transform: 'scale(.96)', offset: .85 }, { transform: 'scale(1)', opacity: 1 }];
       case 'legend-cascade': return move('translateX(-42px) scale(.96)', 'translateX(3px) scale(1.01)');
       case 'ribbon-curl': return [{ transform: 'perspective(600px) rotateY(-65deg) translateX(-30px)', opacity: 0 }, { transform: 'perspective(600px) rotateY(8deg) translateX(2px)', opacity: 1, offset: .76 }, { transform: identity, opacity: 1 }];
       case 'gear-snap': return [{ transform: 'scale(.3) rotate(-120deg)', opacity: 0 }, { transform: 'scale(1.15) rotate(15deg)', opacity: 1, offset: .75 }, { transform: identity, opacity: 1 }];

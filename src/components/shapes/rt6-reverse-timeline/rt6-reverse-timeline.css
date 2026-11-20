@@ -1,36 +1,32 @@
-/* RT6 — Reverse Timeline Infographic Template (Exact 1:1 Geometric Cascade) */
+/* RT6 — Reverse Timeline Infographic Template (Exact 1:1 Vector Assembly) */
 .rt6-module {
-  --rt6-unit: clamp(0.72px, min(0.088vw, 0.13vh), 1.35px);
-  --rt6-mask-face: url('/assets/shapes/rt6-reverse-timeline/rt6-banner-face-mask.svg');
-  --rt6-mask-fold: url('/assets/shapes/rt6-reverse-timeline/rt6-fold-side-mask.svg');
   width: 100%;
   min-height: 100vh;
   min-height: 100dvh;
   display: grid;
   place-items: center;
-  padding: clamp(32px, 4vw, 64px);
+  padding: clamp(24px, 4vw, 56px);
   background: radial-gradient(circle at 50% 15%, #ffffff 0%, #f1f5f9 100%);
   color: #0f172a;
   box-sizing: border-box;
-  container: rt6-container / inline-size;
 }
 
 .rt6-inner {
-  width: min(100%, calc(1180 * var(--rt6-unit)));
+  width: min(100%, 1060px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: calc(40 * var(--rt6-unit));
+  gap: 36px;
 }
 
 .rt6-header {
   text-align: center;
-  max-width: 720px;
+  max-width: 760px;
 }
 
 .rt6-header__title {
   margin: 0 0 10px;
-  font-size: clamp(26px, calc(36 * var(--rt6-unit)), 42px);
+  font-size: clamp(26px, 3.2vw, 38px);
   font-weight: 800;
   letter-spacing: -0.025em;
   color: #0f172a;
@@ -38,240 +34,84 @@
 
 .rt6-header__subtitle {
   margin: 0;
-  font-size: clamp(14px, calc(16 * var(--rt6-unit)), 18px);
+  font-size: clamp(14px, 1.4vw, 16px);
   color: #64748b;
   line-height: 1.5;
 }
 
-/* 6-step staircase stage: 5 steps * 179px + 150px = 1045px width; 5 * 38px + 285px = 475px height */
+/* 6-step staircase SVG stage */
 .rt6-stage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
   position: relative;
-  width: calc(1045 * var(--rt6-unit));
-  height: calc(475 * var(--rt6-unit));
-  user-select: none;
-  isolation: isolate;
-  margin: 0 auto;
 }
 
-/* Floor Ambient Shadow */
-.rt6-stage::after {
-  content: '';
-  position: absolute;
-  left: 2%;
-  bottom: calc(-12 * var(--rt6-unit));
-  width: 96%;
-  height: calc(36 * var(--rt6-unit));
-  background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.18) 0%, rgba(15, 23, 42, 0) 70%);
-  filter: blur(10px);
-  z-index: 0;
-  pointer-events: none;
+.rt6-svg {
+  width: 100%;
+  max-width: 960px;
+  height: auto;
+  display: block;
+  overflow: visible;
 }
 
-/* Step container placed by left/top */
-.rt6-step-wrap {
-  position: absolute;
-  left: calc(var(--rt6-left) * var(--rt6-unit));
-  top: calc(var(--rt6-top) * var(--rt6-unit));
-  z-index: calc(20 - var(--rt6-index));
-  outline: none;
-}
-
-/* The Front Face Button: 150px wide, 285px high (Aspect 42.6 / 81) */
+/* Step group interactivity */
 .rt6-step {
-  position: relative;
-  width: calc(150 * var(--rt6-unit));
-  height: calc(285 * var(--rt6-unit));
   cursor: pointer;
   outline: none;
-  background: transparent;
-  border: none;
-  padding: 0;
-  text-align: inherit;
-  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), filter 220ms ease;
-  z-index: 2;
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center top;
 }
 
-/* Front Face: SVG Mask + Gradient */
-.rt6-step__face {
-  position: absolute;
-  inset: 0;
-  -webkit-mask: var(--rt6-mask-face) center / 100% 100% no-repeat;
-  mask: var(--rt6-mask-face) center / 100% 100% no-repeat;
-  background: var(--rt6-gradient);
-  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.14));
-  transition: filter 200ms ease;
+.rt6-step:hover,
+.rt6-step.is-active {
+  transform: translateY(-8px);
 }
 
-/* 3D Cylindrical Highlight along top & curved bottom */
-.rt6-step__face::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.15) 16%, rgba(255, 255, 255, 0) 36%, rgba(0, 0, 0, 0.18) 100%);
-  pointer-events: none;
+.rt6-step:focus-visible {
+  outline: 2px solid #0284c7;
+  outline-offset: 4px;
 }
 
-/* 3D Fold Connector on Right Side: connects 150px to 179px */
-.rt6-fold {
-  position: absolute;
-  left: calc(150 * var(--rt6-unit));
-  top: 0;
-  width: calc(37.4 * var(--rt6-unit));
-  height: calc(285 * var(--rt6-unit));
-  -webkit-mask: var(--rt6-mask-fold) center / 100% 100% no-repeat;
-  mask: var(--rt6-mask-fold) center / 100% 100% no-repeat;
-  background: var(--rt6-fold);
-  z-index: 1;
-  pointer-events: none;
-  filter: brightness(0.88);
+.rt6-step__card {
+  transition: filter 220ms ease;
 }
 
-.rt6-fold::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.05) 100%);
-  pointer-events: none;
+.rt6-step:hover .rt6-step__card,
+.rt6-step.is-active .rt6-step__card {
+  filter: drop-shadow(0 14px 24px rgba(15, 23, 42, 0.28));
 }
 
-/* Top Round Number Badge */
 .rt6-step__badge {
-  position: absolute;
-  top: calc(22 * var(--rt6-unit));
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(52 * var(--rt6-unit));
-  height: calc(52 * var(--rt6-unit));
-  border-radius: 50%;
-  background: var(--rt6-badge-bg);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25), inset 0 2px 3px rgba(255, 255, 255, 0.5);
-  border: 2.5px solid rgba(255, 255, 255, 0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  font-size: calc(22 * var(--rt6-unit));
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  z-index: 4;
+  transition: transform 220ms ease;
 }
 
-/* Content Area inside the 150px front face: fully centered, zero cut-off */
+.rt6-step:hover .rt6-step__badge,
+.rt6-step.is-active .rt6-step__badge {
+  transform: scale(1.08);
+}
+
 .rt6-step__content {
-  position: absolute;
-  top: calc(90 * var(--rt6-unit));
-  left: calc(12 * var(--rt6-unit));
-  right: calc(12 * var(--rt6-unit));
-  bottom: calc(28 * var(--rt6-unit));
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  z-index: 4;
   color: #ffffff;
+  text-align: center;
+  font-family: system-ui, -apple-system, sans-serif;
+  user-select: none;
   pointer-events: none;
 }
 
 .rt6-step__title {
-  margin: 0 0 calc(8 * var(--rt6-unit));
-  font-size: calc(14 * var(--rt6-unit));
+  font-size: 11.5px;
   font-weight: 700;
-  line-height: 1.3;
+  margin: 0 0 6px;
+  line-height: 1.25;
   color: #ffffff;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .rt6-step__desc {
   margin: 0;
-  font-size: calc(10.8 * var(--rt6-unit));
-  line-height: 1.48;
-  color: rgba(255, 255, 255, 0.95);
+  font-size: 9.2px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.94);
   overflow-wrap: break-word;
-}
-
-/* Hover / Active Interaction */
-.rt6-step:hover,
-.rt6-step.is-active {
-  transform: translateY(calc(-10 * var(--rt6-unit))) scale(1.03);
-}
-
-.rt6-step:hover .rt6-step__face,
-.rt6-step.is-active .rt6-step__face {
-  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.26)) brightness(1.08);
-}
-
-.rt6-step:focus-visible {
-  outline: 3px solid #0284c7;
-  outline-offset: 6px;
-  border-radius: 8px;
-}
-
-/* Mobile Responsive (< 860px) */
-@container rt6-container (max-width: 860px) {
-  .rt6-module {
-    --rt6-unit: clamp(0.65px, 0.2vw, 0.95px);
-    padding: 24px 16px;
-  }
-
-  .rt6-stage {
-    width: 100%;
-    max-width: 480px;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .rt6-stage::after {
-    display: none;
-  }
-
-  .rt6-step-wrap {
-    position: relative;
-    left: auto !important;
-    top: auto !important;
-    width: 100%;
-  }
-
-  .rt6-step {
-    width: 100%;
-    height: 124px;
-    display: flex;
-    align-items: center;
-    border-radius: 12px;
-    overflow: hidden;
-    background: var(--rt6-gradient);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-  }
-
-  .rt6-step__face,
-  .rt6-fold {
-    display: none;
-  }
-
-  .rt6-step__badge {
-    position: static;
-    transform: none;
-    margin-left: 18px;
-    flex-shrink: 0;
-    width: 48px;
-    height: 48px;
-    font-size: 20px;
-  }
-
-  .rt6-step__content {
-    position: static;
-    align-items: flex-start;
-    text-align: left;
-    padding: 14px 18px;
-  }
-
-  .rt6-step__title {
-    font-size: 16px;
-    margin-bottom: 4px;
-  }
-
-  .rt6-step__desc {
-    font-size: 12.5px;
-  }
 }

@@ -152,7 +152,7 @@
 /* Petal & Path Interactions */
 .sq5-petal {
   transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1), opacity 200ms ease;
-  transform-origin: 200px 200px;
+  transform-origin: center;
 }
 
 .sq5-petal__path {
