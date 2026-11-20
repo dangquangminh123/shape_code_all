@@ -1,18 +1,21 @@
-/* OB3 — Three Options Infographic Banners (Exact Geometry 1:1) */
+/* OB3 — Three Options Infographic Banners (Exact 1:1 Vector Geometry & Multi-Layer Alignment) */
 .ob3-module {
   width: 100%;
   min-height: 100vh;
   min-height: 100dvh;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: clamp(24px, 4vw, 56px);
-  background: radial-gradient(circle at 50% 20%, #fbfcfd 0%, #edf2f7 100%);
+  background: #ffffff;
   color: #1e293b;
   box-sizing: border-box;
 }
 
 .ob3-inner {
-  width: min(100%, 1020px);
+  width: min(100%, 1060px);
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
   gap: 36px;
@@ -46,6 +49,10 @@
   width: 100%;
 }
 
+.ob3-row-wrapper {
+  width: 100%;
+}
+
 .ob3-row {
   width: 100%;
   border: none;
@@ -55,23 +62,75 @@
   outline: none;
   text-align: left;
   display: block;
-  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1), filter 240ms ease;
-  filter: drop-shadow(0 4px 10px rgba(15, 23, 42, 0.08));
+  transform: none; /* lock static geometry: no translation */
+  filter: drop-shadow(0 3px 8px rgba(15, 23, 42, 0.08));
+  transition: filter 180ms ease;
+}
+
+.ob3-row:focus-visible {
+  outline: 2px solid #0284c7;
+  outline-offset: 4px;
 }
 
 .ob3-row:hover,
-.ob3-row:focus-visible,
 .ob3-row.is-active {
-  transform: translateY(-4px);
-  filter: drop-shadow(0 10px 20px rgba(15, 23, 42, 0.16));
+  transform: none;
+  filter: drop-shadow(0 6px 16px rgba(15, 23, 42, 0.14)) brightness(1.04);
+}
+
+/* Desktop View (>= 721px) */
+.ob3-desktop-view {
+  display: block;
+  width: 100%;
+}
+
+.ob3-mobile-view {
+  display: none;
 }
 
 .ob3-svg {
   width: 100%;
   height: auto;
-  max-height: 140px;
   display: block;
   overflow: visible;
+}
+
+/* Layer styles within SVG */
+.ob3-mid__content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: #ffffff;
+  user-select: none;
+  box-sizing: border-box;
+  padding-left: 4px;
+}
+
+.ob3-mid__title {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 8.8px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.ob3-mid__sub {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 6.5px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .ob3-icon-host {
@@ -81,19 +140,14 @@
   align-items: center;
   justify-content: center;
   color: #ffffff;
-  font-size: 13px;
+  font-size: 15px;
 }
 
-.ob3-loop__arrow {
-  transition: filter 200ms ease;
-}
-
-.ob3-loop__icon-badge {
-  transform-origin: 25px 45px;
-}
-
-.ob3-row.is-active .ob3-loop__arrow {
-  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
+.ob3-right__label {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
 }
 
 .ob3-right__desc {
@@ -101,11 +155,116 @@
   height: 100%;
   display: flex;
   align-items: center;
-  color: rgba(255, 255, 255, 0.95);
-  font-family: system-ui, -apple-system, sans-serif;
-  font-size: 8px;
+  color: rgba(255, 255, 255, 0.96);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 7.8px;
   line-height: 1.35;
   font-weight: 500;
   overflow: hidden;
   user-select: none;
+}
+
+/* Mobile View (<= 720px) */
+@media (max-width: 720px) {
+  .ob3-desktop-view {
+    display: none;
+  }
+
+  .ob3-mobile-view {
+    display: flex;
+    align-items: stretch;
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05);
+    transition: border-color 180ms ease, box-shadow 180ms ease;
+  }
+
+  .ob3-row:hover .ob3-mobile-view,
+  .ob3-row.is-active .ob3-mobile-view {
+    border-color: var(--ob3-primary);
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1);
+  }
+
+  .ob3-mobile__icon-strip {
+    flex-shrink: 0;
+    width: 60px;
+    background: var(--ob3-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+  }
+
+  .ob3-mobile__icon {
+    font-size: 26px;
+  }
+
+  .ob3-mobile__body {
+    flex: 1;
+    min-width: 0;
+    padding: 14px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: left;
+  }
+
+  .ob3-mobile__header {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .ob3-mobile__badge {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--ob3-primary);
+    letter-spacing: -0.01em;
+  }
+
+  .ob3-mobile__title {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  .ob3-mobile__desc {
+    margin: 0;
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.45;
+  }
+}
+
+@media (max-width: 360px) {
+  .ob3-mobile__icon-strip {
+    width: 48px;
+  }
+
+  .ob3-mobile__icon {
+    font-size: 20px;
+  }
+
+  .ob3-mobile__body {
+    padding: 10px 12px;
+  }
+
+  .ob3-mobile__title {
+    font-size: 14px;
+  }
+
+  .ob3-mobile__desc {
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ob3-row,
+  .ob3-mobile-view {
+    transition: none !important;
+  }
 }

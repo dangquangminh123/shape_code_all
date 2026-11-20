@@ -112,12 +112,9 @@
       track('.sq5-hub', 1, 'fade', 180, 0, 480),
       track('.sq5-item', 5, 'fade', 140, 60, 430),
     ], idle('.sq5-hub', 1, 'quiet-opacity', 7000)),
-    recipe('ob3-option-banners', '.ob3-module', 'Ribbon curl, bar unroll, gear snap', [
-      track('.ob3-row', 3, 'ribbon-curl', 0, 200, 850),
-      track('.ob3-loop__icon-badge', 3, 'gear-snap', 350, 200, 600),
-      track('.ob3-bar__fill', 3, 'bar-unroll', 500, 200, 750),
-      track('.ob3-bar__content', 3, 'fade', 650, 200, 650),
-    ], idle('.ob3-loop__icon-badge', 3, 'seam-gleam', 4200)),
+    recipe('ob3-option-banners', '.ob3-module', 'Fixed-geometry ribbon fade-in', [
+      track('.ob3-row', 3, 'fade', 0, 120, 540),
+    ], idle('.ob3-no-idle', 0, 'glow', 4200)),
   ];
 
   // Transform keyframes ADD to the live CSS/attribute transform, not a cached matrix.

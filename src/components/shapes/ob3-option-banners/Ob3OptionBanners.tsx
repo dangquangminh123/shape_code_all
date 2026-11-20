@@ -1,7 +1,15 @@
 'use client';
 
-import React, { useId, useRef, useState, type KeyboardEvent } from 'react';
+import React, { useId, useRef, useState, type CSSProperties, type KeyboardEvent } from 'react';
 import { OB3_OPTIONS, type Ob3OptionConfig } from './ob3-option-banners.config';
+import {
+  OB3_FOLD_POLYGON_POINTS,
+  OB3_LOOP_FRONT_PATH,
+  OB3_MIDDLE_BAND_PATH,
+  OB3_RIGHT_RECT,
+  OB3_RIGHT_TRANSFORM,
+  OB3_VIEWBOX,
+} from './ob3-option-banners.geometry';
 import './ob3-option-banners.css';
 
 export interface Ob3OptionBannersProps {
@@ -9,18 +17,6 @@ export interface Ob3OptionBannersProps {
   headerSubtitle?: string;
   className?: string;
 }
-
-// 2.svg: Element 1 (Left Loop & Arrowhead pointing right)
-const PATH_LOOP_FRONT =
-  'M51.95,73.07V56.31c-11.8,0.16-23.62,0.32-35.42,0.48c-1.56,0-5.97,0.22-10.28,3.3c-4,2.85-5.67,6.55-6.24,8.04' +
-  'c0-9.97,0-19.93,0-29.9c0.17-4.27,1.13-14.96,8.5-19.4c3.02-1.82,6.02-1.97,8-1.97c11.81-0.03,23.64-0.07,35.45-0.1V0' +
-  'c8.84,12.17,17.68,24.36,26.52,36.53C69.63,48.71,60.79,60.88,51.95,73.07z';
-
-// 2.svg: Element 2 (Middle Band emerging from under arrowhead: y=35.33 to 81, x=77.59 to 182.2)
-const PATH_MID_BAND =
-  'M77.59,35.31c0.3,0.41,0.59,0.81,0.89,1.22c-8.84,12.18-17.68,24.36-26.52,36.54V56.31c-11.8,0.16-23.62,0.32-35.42,0.48' +
-  'c-1.56,0-5.97,0.22-10.28,3.3c-4,2.85-5.67,6.55-6.24,8.04v-3.32c0,1.11,0,2.21,0,3.32c0.72,1.7,1.76,3.55,3.29,5.32' +
-  'c6.5,7.52,16.68,7.58,18.97,7.54H182.2V35.33C147.33,35.32,112.46,35.32,77.59,35.31z';
 
 export default function Ob3OptionBanners({
   headerTitle = '3 Lựa Chọn Chiến Lược (Option Banners)',
@@ -76,182 +72,144 @@ export default function Ob3OptionBanners({
           <p className="ob3-header__subtitle">{headerSubtitle}</p>
         </header>
 
-        {/* 3 Horizontal Ribbon Banners (Exact Template Anatomy) */}
+        {/* 3 Horizontal Ribbon Banners */}
         <div className="ob3-stack" role="list" aria-label="3 dải băng phương án lựa chọn">
           {OB3_OPTIONS.map((option, idx) => {
             const isActive = activeId === option.id;
             const Icon = option.icon;
 
             return (
-              <button
-                key={option.id}
-                ref={(el) => {
-                  rowRefs.current[idx] = el;
-                }}
-                type="button"
-                role="listitem"
-                className={`ob3-row ${isActive ? 'is-active' : ''}`}
-                onClick={() => handleSelect(option.id)}
-                onMouseEnter={() => setHoveredId(option.id)}
-                onMouseLeave={() => setHoveredId(null)}
-                onFocus={() => setFocusedId(option.id)}
-                onBlur={() => setFocusedId(null)}
-                onKeyDown={(e) => handleKeyDown(e, idx)}
-                aria-pressed={selectedId === option.id}
-                aria-label={`${option.label}: ${option.title}`}
-              >
-                <svg
-                  viewBox="0 0 460 85"
-                  className="ob3-svg"
-                  preserveAspectRatio="xMidYMid meet"
-                  aria-hidden="true"
+              <div key={option.id} role="listitem" className="ob3-row-wrapper">
+                <button
+                  ref={(el) => {
+                    rowRefs.current[idx] = el;
+                  }}
+                  type="button"
+                  className={`ob3-row ${isActive ? 'is-active' : ''}`}
+                  style={
+                    {
+                      '--ob3-primary': option.primaryColor,
+                      '--ob3-right': option.rightFaceColor,
+                      '--ob3-fold': option.foldColor,
+                    } as CSSProperties
+                  }
+                  onClick={() => handleSelect(option.id)}
+                  onMouseEnter={() => setHoveredId(option.id)}
+                  onMouseLeave={() => setHoveredId(null)}
+                  onFocus={() => setFocusedId(option.id)}
+                  onBlur={() => setFocusedId(null)}
+                  onKeyDown={(e) => handleKeyDown(e, idx)}
+                  aria-pressed={selectedId === option.id}
+                  aria-label={`${option.label}: ${option.title}`}
                 >
-                  <defs>
-                    <linearGradient id={`ob3-loop-grad-${instanceId}-${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor={option.lightColor} />
-                      <stop offset="100%" stopColor={option.primaryColor} />
-                    </linearGradient>
-
-                    <linearGradient id={`ob3-mid-grad-${instanceId}-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor={option.primaryColor} />
-                      <stop offset="100%" stopColor={option.darkColor} />
-                    </linearGradient>
-
-                    <linearGradient id={`ob3-fold-grad-${instanceId}-${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor={option.foldColor} />
-                      <stop offset="100%" stopColor={option.darkColor} />
-                    </linearGradient>
-
-                    <linearGradient id={`ob3-right-grad-${instanceId}-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor={option.primaryColor} />
-                      <stop offset="100%" stopColor={option.darkColor} />
-                    </linearGradient>
-
-                    <filter id={`ob3-loop-shadow-${instanceId}-${idx}`} x="-20%" y="-20%" width="150%" height="150%">
-                      <feDropShadow dx="2" dy="3" stdDeviation="3.5" floodOpacity="0.25" />
-                    </filter>
-                  </defs>
-
-                  {/* 1. Middle Band (Original Illustrator Path 2 of 2.svg): y=35.33 to 81 */}
-                  <path
-                    className="ob3-bar__fill"
-                    d={PATH_MID_BAND}
-                    fill={`url(#ob3-mid-grad-${instanceId}-${idx})`}
-                  />
-
-                  {/* 2. Middle Text Block on Middle Band: Title + Subtext */}
-                  <g className="ob3-bar__content" style={{ pointerEvents: 'none' }}>
-                    <text
-                      x="86"
-                      y="51"
-                      fill="#ffffff"
-                      fontFamily="system-ui, -apple-system, sans-serif"
-                      fontSize="9.2"
-                      fontWeight="800"
+                  {/* Desktop Vector SVG View (>= 721px) */}
+                  <div className="ob3-desktop-view">
+                    <svg
+                      viewBox={OB3_VIEWBOX}
+                      className="ob3-svg"
+                      preserveAspectRatio="xMidYMid meet"
+                      aria-hidden="true"
                     >
-                      {option.title}
-                    </text>
-                    <text
-                      x="86"
-                      y="63"
-                      fill="rgba(255,255,255,0.92)"
-                      fontFamily="system-ui, -apple-system, sans-serif"
-                      fontSize="6.2"
-                      fontWeight="500"
-                    >
-                      {option.subtext}
-                    </text>
-                    <text
-                      x="86"
-                      y="73"
-                      fill="rgba(255,255,255,0.8)"
-                      fontFamily="system-ui, -apple-system, sans-serif"
-                      fontSize="5.8"
-                      fontWeight="400"
-                    >
-                      {option.subtext2}
-                    </text>
-                  </g>
+                      {/* Layer 1: MIDDLE (Path #2 of 2.svg + title/subtext) */}
+                      <g className="ob3-layer--middle">
+                        <path
+                          className="ob3-mid__fill"
+                          d={OB3_MIDDLE_BAND_PATH}
+                          fill={option.primaryColor}
+                        />
+                        <foreignObject
+                          x="82"
+                          y="38"
+                          width="97"
+                          height="36"
+                          style={{ pointerEvents: 'none' }}
+                        >
+                          <div className="ob3-mid__content">
+                            <span className="ob3-mid__title">{option.title}</span>
+                            <span className="ob3-mid__sub">{option.subtext}</span>
+                          </div>
+                        </foreignObject>
+                      </g>
 
-                  {/* 3. Left Ribbon Loop with Arrowhead (Path 1 of 2.svg, Layered IN FRONT) */}
-                  <path
-                    className="ob3-loop__arrow"
-                    d={PATH_LOOP_FRONT}
-                    fill={`url(#ob3-loop-grad-${instanceId}-${idx})`}
-                    filter={`url(#ob3-loop-shadow-${instanceId}-${idx})`}
-                  />
+                      {/* Layer 2: RIGHT (1.svg 3D Fold Polygon + Right Rect Face + Option Label + Description) */}
+                      <g className="ob3-layer--right">
+                        <g transform={OB3_RIGHT_TRANSFORM}>
+                          <polygon
+                            points={OB3_FOLD_POLYGON_POINTS}
+                            fill={option.foldColor}
+                          />
+                          <rect
+                            x={OB3_RIGHT_RECT.x}
+                            y={OB3_RIGHT_RECT.y}
+                            width={OB3_RIGHT_RECT.width}
+                            height={OB3_RIGHT_RECT.height}
+                            fill={option.rightFaceColor}
+                          />
+                        </g>
 
-                  {/* 4. White Line Icon centered on curved face of Left Ribbon Loop */}
-                  <g className="ob3-loop__icon-badge">
-                    <circle
-                      cx="25"
-                      cy="45"
-                      r="12.5"
-                      fill="rgba(255, 255, 255, 0.2)"
-                      stroke="#ffffff"
-                      strokeWidth="1.5"
-                    />
-                    <foreignObject x="16" y="36" width="18" height="18" style={{ pointerEvents: 'none' }}>
-                      <div className="ob3-icon-host">
-                        <Icon />
-                      </div>
-                    </foreignObject>
-                  </g>
+                        {/* Option Label (Option 01 / 02 / 03) */}
+                        <text
+                          x="206"
+                          y="54.5"
+                          className="ob3-right__label"
+                          dominantBaseline="central"
+                          fill="#ffffff"
+                          style={{ pointerEvents: 'none', userSelect: 'none' }}
+                        >
+                          {option.label}
+                        </text>
 
-                  {/* 5. 3D Fold Connector: Steps up by 10.48px (from y=35.33..81 up to y=24.85..70.52) */}
-                  <polygon
-                    points="182.2,35.33 200.66,24.85 200.66,70.52 182.2,81"
-                    fill={`url(#ob3-fold-grad-${instanceId}-${idx})`}
-                  />
+                        {/* Description block */}
+                        <foreignObject
+                          x="264"
+                          y="30"
+                          width="181"
+                          height="43"
+                          style={{ pointerEvents: 'none' }}
+                        >
+                          <div className="ob3-right__desc">
+                            {option.description}
+                          </div>
+                        </foreignObject>
+                      </g>
 
-                  {/* 6. Right Banner: Exactly same height (45.67px) as middle band, stepped up seamlessly */}
-                  <rect
-                    x="200.66"
-                    y="24.85"
-                    width="253.34"
-                    height="45.67"
-                    fill={`url(#ob3-right-grad-${instanceId}-${idx})`}
-                  />
+                      {/* Layer 3: FRONT (Path #1 of 2.svg Arrow Loop + White Line Icon on Arrow) */}
+                      <g className="ob3-layer--front">
+                        <path
+                          className="ob3-loop__arrow"
+                          d={OB3_LOOP_FRONT_PATH}
+                          fill={option.primaryColor}
+                        />
+                        <foreignObject
+                          x="31"
+                          y="27"
+                          width="22"
+                          height="22"
+                          style={{ pointerEvents: 'none' }}
+                        >
+                          <div className="ob3-icon-host">
+                            <Icon />
+                          </div>
+                        </foreignObject>
+                      </g>
+                    </svg>
+                  </div>
 
-                  {/* 7. Right Banner Option Label ("Option 01") on the left of the banner */}
-                  <text
-                    x="214"
-                    y="52"
-                    fill="#ffffff"
-                    fontFamily="system-ui, -apple-system, sans-serif"
-                    fontSize="13"
-                    fontWeight="800"
-                    letterSpacing="-0.02em"
-                    style={{ pointerEvents: 'none', userSelect: 'none' }}
-                  >
-                    {option.label}
-                  </text>
-
-                  {/* 8. Vertical Divider Line on Right Banner */}
-                  <line
-                    x1="282"
-                    y1="33"
-                    x2="282"
-                    y2="63"
-                    stroke="rgba(255, 255, 255, 0.35)"
-                    strokeWidth="1"
-                    style={{ pointerEvents: 'none' }}
-                  />
-
-                  {/* 9. Right Banner Descriptive Paragraph (Auto-wrapped via foreignObject) */}
-                  <foreignObject
-                    x="292"
-                    y="28"
-                    width="156"
-                    height="40"
-                    style={{ pointerEvents: 'none' }}
-                  >
-                    <div className="ob3-right__desc">
-                      {option.description}
+                  {/* Mobile Card View (<= 720px) */}
+                  <div className="ob3-mobile-view" aria-hidden="true">
+                    <div className="ob3-mobile__icon-strip">
+                      <Icon className="ob3-mobile__icon" />
                     </div>
-                  </foreignObject>
-                </svg>
-              </button>
+                    <div className="ob3-mobile__body">
+                      <div className="ob3-mobile__header">
+                        <span className="ob3-mobile__badge">{option.label}</span>
+                        <h3 className="ob3-mobile__title">{option.title}</h3>
+                      </div>
+                      <p className="ob3-mobile__desc">{option.description}</p>
+                    </div>
+                  </div>
+                </button>
+              </div>
             );
           })}
         </div>

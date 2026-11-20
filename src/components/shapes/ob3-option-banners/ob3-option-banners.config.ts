@@ -10,7 +10,7 @@ export interface Ob3OptionConfig {
   subtext2: string;
   description: string;
   primaryColor: string;
-  darkColor: string;
+  rightFaceColor: string;
   foldColor: string;
   lightColor: string;
   icon: IconType;
@@ -25,10 +25,10 @@ export const OB3_OPTIONS: Ob3OptionConfig[] = [
     subtext: 'Kiến trúc linh hoạt',
     subtext2: 'chuẩn công nghệ mới',
     description: 'Xây dựng giao diện hiệu năng cao, tối ưu hóa trải nghiệm người dùng với tốc độ phản hồi tức thì.',
-    primaryColor: '#0284c7',
-    darkColor: '#0369a1',
-    foldColor: '#0c2340',
-    lightColor: '#38bdf8',
+    primaryColor: '#1d6bb7',
+    rightFaceColor: '#2482dc',
+    foldColor: '#124373',
+    lightColor: '#3b9bf5',
     icon: LuMonitor,
   },
   {
@@ -39,10 +39,10 @@ export const OB3_OPTIONS: Ob3OptionConfig[] = [
     subtext: 'Triển khai tự động',
     subtext2: 'không gián đoạn 24/7',
     description: 'Thiết lập quy trình CI/CD hoàn chỉnh, kiểm thử tự động toàn diện và triển khai không downtime.',
-    primaryColor: '#059669',
-    darkColor: '#047857',
-    foldColor: '#04281f',
-    lightColor: '#34d399',
+    primaryColor: '#26a669',
+    rightFaceColor: '#2ec77d',
+    foldColor: '#186942',
+    lightColor: '#42dc92',
     icon: LuCog,
   },
   {
@@ -53,10 +53,10 @@ export const OB3_OPTIONS: Ob3OptionConfig[] = [
     subtext: 'Đo lường thời gian thực',
     subtext2: 'tinh gọn chu kỳ',
     description: 'Đo lường thời gian phản hồi thực tế, tinh gọn backlog và rút ngắn chu kỳ phát hành tính năng.',
-    primaryColor: '#d97706',
-    darkColor: '#b45309',
-    foldColor: '#451a03',
-    lightColor: '#fbbf24',
+    primaryColor: '#c99124',
+    rightFaceColor: '#e2aa38',
+    foldColor: '#7d5710',
+    lightColor: '#f1bd4f',
     icon: LuTimer,
   },
 ];
