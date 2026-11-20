@@ -3,69 +3,60 @@
   width: 100%;
   min-height: 100vh;
   min-height: 100dvh;
-  display: grid;
-  place-items: center;
-  padding: clamp(24px, 4vw, 56px);
-  background: radial-gradient(circle at 50% 15%, #ffffff 0%, #f1f5f9 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background: #ffffff;
   color: #0f172a;
   box-sizing: border-box;
 }
 
 .rt6-inner {
-  width: min(100%, 1060px);
+  width: min(100%, 1280px);
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 36px;
 }
 
-.rt6-header {
-  text-align: center;
-  max-width: 760px;
-}
-
-.rt6-header__title {
-  margin: 0 0 10px;
-  font-size: clamp(26px, 3.2vw, 38px);
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  color: #0f172a;
-}
-
-.rt6-header__subtitle {
-  margin: 0;
-  font-size: clamp(14px, 1.4vw, 16px);
-  color: #64748b;
-  line-height: 1.5;
-}
-
-/* 6-step staircase SVG stage */
 .rt6-stage {
-  width: 100%;
-  display: flex;
-  justify-content: center;
   position: relative;
-}
-
-.rt6-svg {
-  width: 100%;
-  max-width: 960px;
-  height: auto;
   display: block;
+  width: 100%;
   overflow: visible;
 }
 
-/* Step group interactivity */
+.rt6-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Header in SVG */
+.rt6-canvas__title {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  fill: #111827;
+  letter-spacing: -0.025em;
+}
+
+.rt6-canvas__subtitle {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  fill: #64748b;
+  letter-spacing: -0.01em;
+}
+
+/* Step group & interactions */
 .rt6-step {
   cursor: pointer;
   outline: none;
-  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
-  transform-origin: center top;
-}
-
-.rt6-step:hover,
-.rt6-step.is-active {
-  transform: translateY(-8px);
+  transform: none;
 }
 
 .rt6-step:focus-visible {
@@ -73,45 +64,95 @@
   outline-offset: 4px;
 }
 
-.rt6-step__card {
-  transition: filter 220ms ease;
+.rt6-step,
+.rt6-step:hover,
+.rt6-step.is-active {
+  transform: none; /* lock static geometry: do not lift group */
 }
 
-.rt6-step:hover .rt6-step__card,
-.rt6-step.is-active .rt6-step__card {
-  filter: drop-shadow(0 14px 24px rgba(15, 23, 42, 0.28));
-}
-
-.rt6-step__badge {
-  transition: transform 220ms ease;
-}
-
+.rt6-step__badge,
 .rt6-step:hover .rt6-step__badge,
 .rt6-step.is-active .rt6-step__badge {
-  transform: scale(1.08);
+  transform: none; /* do not displace badge */
 }
 
+.rt6-step__face {
+  transition: filter 180ms ease;
+}
+
+.rt6-step:hover .rt6-step__face,
+.rt6-step.is-active .rt6-step__face {
+  filter: brightness(1.08);
+}
+
+.rt6-badge__text {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  fill: #ffffff;
+}
+
+/* Text Content within foreignObject */
 .rt6-step__content {
-  color: #ffffff;
+  width: 100%;
+  height: 100%;
   text-align: center;
-  font-family: system-ui, -apple-system, sans-serif;
-  user-select: none;
+  font-family: Arial, Helvetica, -apple-system, sans-serif;
+  color: #ffffff;
   pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  padding: 0 4px;
+  overflow: hidden;
 }
 
 .rt6-step__title {
-  font-size: 13.5px;
-  font-weight: 700;
-  margin: 0 0 6px;
+  width: 100%;
+  margin: 0 0 8px;
+  font-size: 17px;
   line-height: 1.25;
+  font-weight: 700;
   color: #ffffff;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  text-align: center;
 }
 
 .rt6-step__desc {
+  width: 100%;
   margin: 0;
-  font-size: 10.5px;
-  line-height: 1.45;
-  color: rgba(255, 255, 255, 0.94);
-  overflow-wrap: break-word;
+  font-size: 13.5px;
+  line-height: 1.35;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+/* Accessibility: sr-only header */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Mobile responsive horizontal scroll without breaking staircase geometry */
+@media (max-width: 900px) {
+  .rt6-stage {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .rt6-svg {
+    width: 1100px;
+    max-width: none;
+  }
 }

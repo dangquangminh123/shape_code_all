@@ -103,12 +103,10 @@
       track('.ls4-step__text', 4, 'right', 480, 160, 650),
       track('.ls4-step__badge', 4, 'fade', 600, 160, 550),
     ], idle('.ls4-facet--side', 4, 'light', 4600)),
-    recipe('rt6-reverse-timeline', '.rt6-module', 'Cascade drop, stamp 3D badge, accordion fold connector', [
-      track('.rt6-step', 6, 'cascade-drop', 0, 150, 850),
-      track('.rt6-step__badge', 6, 'stamp-3d', 320, 150, 600),
-      track('.rt6-fold', 5, 'accordion-fold', 480, 150, 650),
-      track('.rt6-step__content', 6, 'fade', 580, 150, 650),
-    ], idle('.rt6-step__badge', 6, 'ribbon-wave', 4600)),
+    recipe('rt6-reverse-timeline', '.rt6-module', 'Fade sequence and gentle step entrance', [
+      track('.rt6-step', 6, 'fade', 0, 120, 800),
+      track('.rt6-step__content', 6, 'fade', 350, 120, 600),
+    ]),
     recipe('sq5-sqert-model', '.sq5-module', 'Vortex spin-in, SQERT core impact, legend cascade', [
       track('.sq5-petal', 5, 'vortex-spin-in', 0, 150, 900),
       track('.sq5-hub', 1, 'core-impact', 800, 0, 750),
