@@ -1,7 +1,17 @@
 'use client';
 
 import React, { useId, useRef, useState, type CSSProperties, type KeyboardEvent } from 'react';
-import { SQ5_DIMENSIONS, type Sq5DimensionConfig, type Sq5DimensionId } from './sq5-sqert-model.config';
+import {
+  SQ5_DIMENSIONS,
+  SQ5_DIMENSIONS_MAP,
+  type Sq5DimensionConfig,
+  type Sq5DimensionId,
+} from './sq5-sqert-model.config';
+import {
+  SQ5_HUB_GEOMETRY,
+  SQ5_PETALS_GEOMETRY,
+  SQ5_VIEWBOX,
+} from './sq5-sqert-model.geometry';
 import './sq5-sqert-model.css';
 
 export interface Sq5SqertModelProps {
@@ -65,7 +75,7 @@ export default function Sq5SqertModel({
         </header>
 
         <div className="sq5-layout">
-          {/* Left Column: 5 Elegant Legend Items */}
+          {/* Left Column: 5 Elegant Legend Items matching original template */}
           <div className="sq5-legend" role="list" aria-label="5 yếu tố cốt lõi của mô hình SQERT">
             {SQ5_DIMENSIONS.map((item, idx) => {
               const isActive = activeId === item.id;
@@ -109,24 +119,14 @@ export default function Sq5SqertModel({
           <div className="sq5-stage" aria-label="Biểu đồ cánh quạt SQERT 5 góc tương tác">
             <div className="sq5-vortex">
               <svg
-                viewBox="20 15 400 380"
+                viewBox={SQ5_VIEWBOX}
                 className="sq5-svg"
                 preserveAspectRatio="xMidYMid meet"
-                aria-hidden="true"
+                role="img"
+                aria-label="Mô hình SQERT ngũ giác"
               >
                 <defs>
-                  {/* Subtle 3D Drop Shadow */}
-                  <filter id={`sq5-shadow-${instanceId}`} x="-15%" y="-15%" width="130%" height="130%">
-                    <feDropShadow dx="0" dy="4" stdDeviation="5" floodOpacity="0.20" />
-                  </filter>
-                  <filter id={`sq5-active-shadow-${instanceId}`} x="-25%" y="-25%" width="150%" height="150%">
-                    <feDropShadow dx="0" dy="6" stdDeviation="8" floodOpacity="0.35" />
-                  </filter>
-                  <filter id={`sq5-hub-shadow-${instanceId}`} x="-20%" y="-20%" width="140%" height="140%">
-                    <feDropShadow dx="0" dy="4" stdDeviation="5" floodOpacity="0.25" />
-                  </filter>
-
-                  {/* Dimension Gradients matching original palette */}
+                  {/* Petal subtle gradients matching slide colors */}
                   {SQ5_DIMENSIONS.map((dim) => (
                     <linearGradient
                       key={`grad-${dim.id}`}
@@ -142,79 +142,70 @@ export default function Sq5SqertModel({
                   ))}
                 </defs>
 
-                {/* 5 Petals Layer in natural swirl stacking order: T(4) -> R(3) -> E(2) -> Q(1) -> S(0) */}
-                {[4, 3, 2, 1, 0].map((idx) => {
-                  const dim = SQ5_DIMENSIONS[idx];
-                  const isActive = activeId === dim.id;
+                {/* 5 Distinct Petals using their own original SVG paths & exact bounding boxes */}
+                {SQ5_PETALS_GEOMETRY.map((p) => {
+                  const dim = SQ5_DIMENSIONS_MAP[p.id];
+                  const isActive = activeId === p.id;
 
                   return (
                     <g
-                      key={dim.id}
+                      key={p.id}
                       className={`sq5-petal ${isActive ? 'is-active' : ''}`}
-                      onClick={() => handleSelect(dim.id)}
-                      onMouseEnter={() => setHoveredId(dim.id)}
+                      onClick={() => handleSelect(p.id)}
+                      onMouseEnter={() => setHoveredId(p.id)}
                       onMouseLeave={() => setHoveredId(null)}
-                      style={{ cursor: 'pointer' }}
+                      role="button"
+                      tabIndex={0}
+                      aria-label={`Yếu tố ${p.letter}: ${dim.name}`}
                     >
                       <path
-                        d={dim.path}
-                        fill={`url(#sq5-grad-${instanceId}-${dim.id})`}
-                        filter={isActive ? `url(#sq5-active-shadow-${instanceId})` : `url(#sq5-shadow-${instanceId})`}
-                        stroke="#ffffff"
-                        strokeWidth="3"
                         className="sq5-petal__path"
+                        d={p.d}
+                        transform={`translate(${p.x} ${p.y}) scale(${p.scaleX} ${p.scaleY})`}
+                        fill={`url(#sq5-grad-${instanceId}-${p.id})`}
                       />
                     </g>
                   );
                 })}
 
-                {/* Center Hub: Dark Circle with "SQERT" */}
-                <g className="sq5-hub" filter={`url(#sq5-hub-shadow-${instanceId})`}>
-                  <circle
-                    cx="221.9"
-                    cy="222.6"
-                    r="36"
-                    fill="#1e293b"
-                    stroke="#ffffff"
-                    strokeWidth="3"
-                  />
-                  <text
-                    x="221.9"
-                    y="227"
-                    textAnchor="middle"
-                    fill="#ffffff"
-                    fontSize="12.5"
-                    fontWeight="800"
-                    fontFamily="system-ui, -apple-system, sans-serif"
-                    letterSpacing="0.06em"
-                    style={{ pointerEvents: 'none', userSelect: 'none' }}
-                  >
-                    SQERT
-                  </text>
-                </g>
-
-                {/* 5 Letters S, Q, E, R, T placed upright inside circular bulbs */}
-                {SQ5_DIMENSIONS.map((dim) => {
-                  const isActive = activeId === dim.id;
+                {/* 5 Letters S, Q, E, R, T placed upright at optical centers of bulbs */}
+                {SQ5_PETALS_GEOMETRY.map((p) => {
+                  const isActive = activeId === p.id;
 
                   return (
                     <text
-                      key={`label-${dim.id}`}
-                      x={dim.geometry.letterX}
-                      y={dim.geometry.letterY}
-                      className={`sq5-petal__letter ${isActive ? 'is-active' : ''}`}
+                      key={`letter-${p.id}`}
+                      x={p.letterX}
+                      y={p.letterY}
                       textAnchor="middle"
                       dominantBaseline="central"
-                      fill="#ffffff"
-                      fontSize="26"
-                      fontWeight="800"
-                      fontFamily="system-ui, -apple-system, sans-serif"
-                      style={{ pointerEvents: 'none', userSelect: 'none' }}
+                      className={`sq5-petal__letter ${isActive ? 'is-active' : ''}`}
+                      fontSize={28}
                     >
-                      {dim.letter}
+                      {p.letter}
                     </text>
                   );
                 })}
+
+                {/* Center Hub: Dark Circle with "SQERT" from Tròn.svg */}
+                <g className="sq5-hub" pointerEvents="none">
+                  <circle
+                    cx={SQ5_HUB_GEOMETRY.cx}
+                    cy={SQ5_HUB_GEOMETRY.cy}
+                    r={SQ5_HUB_GEOMETRY.r}
+                    fill="#283542"
+                    className="sq5-hub__circle"
+                  />
+                  <text
+                    x={SQ5_HUB_GEOMETRY.cx}
+                    y={SQ5_HUB_GEOMETRY.cy}
+                    textAnchor="middle"
+                    dominantBaseline="central"
+                    className="sq5-hub__text"
+                  >
+                    {SQ5_HUB_GEOMETRY.text}
+                  </text>
+                </g>
               </svg>
             </div>
           </div>

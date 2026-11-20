@@ -107,11 +107,11 @@
       track('.rt6-step', 6, 'fade', 0, 120, 800),
       track('.rt6-step__content', 6, 'fade', 350, 120, 600),
     ]),
-    recipe('sq5-sqert-model', '.sq5-module', 'Vortex spin-in, SQERT core impact, legend cascade', [
-      track('.sq5-petal', 5, 'vortex-spin-in', 0, 150, 900),
-      track('.sq5-hub', 1, 'core-impact', 800, 0, 750),
-      track('.sq5-item', 5, 'legend-cascade', 350, 130, 700),
-    ], idle('.sq5-petal__letter', 5, 'turbine-breathe', 4400)),
+    recipe('sq5-sqert-model', '.sq5-module', 'Quiet fixed-geometry fade-in', [
+      track('.sq5-petal', 5, 'fade', 0, 70, 520),
+      track('.sq5-hub', 1, 'fade', 180, 0, 480),
+      track('.sq5-item', 5, 'fade', 140, 60, 430),
+    ], idle('.sq5-hub', 1, 'quiet-opacity', 7000)),
     recipe('ob3-option-banners', '.ob3-module', 'Ribbon curl, bar unroll, gear snap', [
       track('.ob3-row', 3, 'ribbon-curl', 0, 200, 850),
       track('.ob3-loop__icon-badge', 3, 'gear-snap', 350, 200, 600),
@@ -167,6 +167,11 @@
   }
   function restFrames(effect) {
     switch (effect) {
+      case 'quiet-opacity': return [
+        { opacity: 1 },
+        { opacity: .96, offset: .5 },
+        { opacity: 1 }
+      ];
       case 'beat': return [1, 1.045, 1, 1.025, 1].map((s, i) => ({ transform: `scale(${s})`, offset: [0, .18, .35, .48, 1][i] }));
       case 'hover': return [{ transform: identity }, { transform: 'translateY(-3px)', offset: .5 }, { transform: identity }];
       case 'float': return [{ transform: identity }, { transform: 'translateY(-1.5px)', offset: .5 }, { transform: identity }];
