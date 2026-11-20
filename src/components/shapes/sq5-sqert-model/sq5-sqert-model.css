@@ -1,4 +1,4 @@
-/* SQERT Project Management Model (Exact Symmetrical Vector Geometry 1:1) */
+/* SQ5 — SQERT Project Management Model (Exact 1:1 Vector Geometry) */
 .sq5-module {
   width: 100%;
   min-height: 100vh;
@@ -15,7 +15,7 @@
   width: min(100%, 1120px);
   display: flex;
   flex-direction: column;
-  gap: 36px;
+  gap: 32px;
 }
 
 .sq5-header {
@@ -24,7 +24,7 @@
 }
 
 .sq5-header__title {
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   font-size: clamp(26px, 3.2vw, 38px);
   font-weight: 800;
   letter-spacing: -0.025em;
@@ -41,23 +41,23 @@
 /* Two-column layout: Left legend, Right pinwheel */
 .sq5-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.05fr 1fr;
   align-items: center;
-  gap: clamp(24px, 4vw, 48px);
+  gap: clamp(28px, 4.5vw, 56px);
 }
 
-/* Left Legend Column */
+/* Left Legend: Clean, elegant rows matching original slide */
 .sq5-legend {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
-.sq5-card {
+.sq5-item {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 14px 20px;
+  gap: 18px;
+  padding: 14px 18px;
   background: #ffffff;
   border: 1.5px solid #e2e8f0;
   border-radius: 14px;
@@ -65,47 +65,67 @@
   outline: none;
   text-align: left;
   transition: all 220ms cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.03);
 }
 
-.sq5-card:hover,
-.sq5-card:focus-visible,
-.sq5-card.is-active {
-  border-color: var(--sq5-accent, #0d9488);
+.sq5-item:hover,
+.sq5-item:focus-visible,
+.sq5-item.is-active {
+  border-color: var(--sq5-color, #0d9488);
   box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
   transform: translateX(4px);
 }
 
-.sq5-card__badge {
+.sq5-item__badge {
   flex-shrink: 0;
   width: 44px;
   height: 44px;
   border-radius: 50%;
+  background: var(--sq5-color, #0d9488);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #ffffff;
   font-size: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.14);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+  transition: transform 200ms ease;
 }
 
-.sq5-card__content {
+.sq5-item:hover .sq5-item__badge,
+.sq5-item.is-active .sq5-item__badge {
+  transform: scale(1.08);
+}
+
+.sq5-item__body {
   flex: 1;
   min-width: 0;
 }
 
-.sq5-card__title {
-  margin: 0 0 3px;
-  font-size: 16px;
-  font-weight: 700;
+.sq5-item__header {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 3px;
+}
+
+.sq5-item__title {
+  font-size: 16.5px;
+  font-weight: 800;
+  color: var(--sq5-color, #0d9488);
   letter-spacing: -0.01em;
 }
 
-.sq5-card__desc {
+.sq5-item__vntitle {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.sq5-item__desc {
   margin: 0;
   font-size: 13px;
   color: #64748b;
-  line-height: 1.4;
+  line-height: 1.42;
 }
 
 /* Right Pinwheel Stage */
@@ -129,25 +149,39 @@
   overflow: visible;
 }
 
-/* Petal & Hub Interaction */
+/* Petal & Path Interactions */
 .sq5-petal {
   transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1), opacity 200ms ease;
-  transform-origin: 0 0;
+  transform-origin: 200px 200px;
+}
+
+.sq5-petal__path {
+  transition: filter 220ms ease, opacity 200ms ease;
 }
 
 .sq5-petal:hover,
 .sq5-petal.is-active {
-  transform: scale(1.04);
+  opacity: 1;
 }
 
-.sq5-petal.is-active use {
-  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
+.sq5-petal:hover .sq5-petal__path,
+.sq5-petal.is-active .sq5-petal__path {
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.35));
+}
+
+.sq5-petal__letter {
+  transition: transform 200ms ease, font-size 200ms ease;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.sq5-petal__letter.is-active {
+  font-size: 28px;
 }
 
 .sq5-hub {
   cursor: pointer;
   transition: transform 220ms ease;
-  transform-origin: 0 0;
+  transform-origin: 200px 200px;
 }
 
 .sq5-hub:hover {

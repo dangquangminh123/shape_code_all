@@ -99,7 +99,7 @@ export default function Ob3OptionBanners({
                 aria-label={`${option.label}: ${option.title}`}
               >
                 <svg
-                  viewBox="0 0 456 81"
+                  viewBox="0 0 456 85"
                   className="ob3-svg"
                   preserveAspectRatio="xMidYMid meet"
                   aria-hidden="true"
@@ -115,52 +115,67 @@ export default function Ob3OptionBanners({
                       <stop offset="100%" stopColor={option.primaryColor} />
                     </linearGradient>
 
-                    <linearGradient id={`ob3-fold-grad-${instanceId}-${idx}`} x1="0%" y1="100%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#0a121e" stopOpacity="0.8" />
+                    {/* Darker shadow gradient for the 3D fold connector */}
+                    <linearGradient id={`ob3-fold-grad-${instanceId}-${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#081422" stopOpacity="0.85" />
                       <stop offset="100%" stopColor={option.darkColor} />
                     </linearGradient>
 
                     <linearGradient id={`ob3-right-grad-${instanceId}-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
                       <stop offset="0%" stopColor={option.primaryColor} />
-                      <stop offset="100%" stopColor={option.primaryColor} stopOpacity="0.88" />
+                      <stop offset="100%" stopColor={option.darkColor} />
                     </linearGradient>
 
                     <filter id={`ob3-loop-shadow-${instanceId}-${idx}`} x="-20%" y="-20%" width="150%" height="150%">
-                      <feDropShadow dx="3" dy="4" stdDeviation="4" floodOpacity="0.28" />
+                      <feDropShadow dx="2" dy="3" stdDeviation="3.5" floodOpacity="0.25" />
                     </filter>
                   </defs>
 
-                  {/* 1. Rear Loop Band extending into Middle Section */}
-                  <path
+                  {/* 1. 2.svg Middle Band: Extends from x=51.95 to 182.2, y=10.48 to 81 (height=70.52) */}
+                  <rect
                     className="ob3-bar__fill"
-                    d={PATH_MID_BAND}
+                    x="51.95"
+                    y="10.48"
+                    width="130.25"
+                    height="70.52"
                     fill={`url(#ob3-mid-grad-${instanceId}-${idx})`}
                   />
 
-                  {/* 2. Middle Text Block */}
+                  {/* 2. Middle Text Block on 2.svg */}
                   <g className="ob3-bar__content">
                     <text
-                      x="94"
-                      y="52"
+                      x="84"
+                      y="40"
                       fill="#ffffff"
                       fontFamily="system-ui, -apple-system, sans-serif"
-                      fontSize="9.5"
-                      fontWeight="700"
+                      fontSize="9"
+                      fontWeight="800"
                     >
                       {option.title}
                     </text>
                     <text
-                      x="94"
-                      y="65"
-                      fill="rgba(255,255,255,0.85)"
+                      x="84"
+                      y="54"
+                      fill="rgba(255,255,255,0.92)"
                       fontFamily="system-ui, -apple-system, sans-serif"
                       fontSize="6.2"
+                      fontWeight="500"
                     >
-                      {option.description.length > 55 ? option.description.slice(0, 52) + '...' : option.description}
+                      {option.description.slice(0, 36)}
+                    </text>
+                    <text
+                      x="84"
+                      y="65"
+                      fill="rgba(255,255,255,0.8)"
+                      fontFamily="system-ui, -apple-system, sans-serif"
+                      fontSize="5.8"
+                      fontWeight="400"
+                    >
+                      {option.description.slice(36, 75)}...
                     </text>
                   </g>
 
-                  {/* 3. Front Arrow Loop with Cylindrical curl */}
+                  {/* 3. 2.svg: Front Arrow Loop with Cylindrical curl (ON TOP of Middle Band) */}
                   <path
                     className="ob3-loop__arrow"
                     d={PATH_LOOP_FRONT}
@@ -185,15 +200,15 @@ export default function Ob3OptionBanners({
                     </foreignObject>
                   </g>
 
-                  {/* 5. Slanted 3D Fold Connector and Right Banner */}
+                  {/* 5. 1.svg: Connected fold stepping UP into Right Banner (Original Illustrator Vector) */}
                   <g transform="translate(182.2, 0)">
-                    {/* Slanted Fold */}
+                    {/* Fold connector stepping UP: (18.46,0) (0,10.48) (0,81) (18.46,70.52) */}
                     <polygon
                       points="18.46,0 0,10.48 0,81 18.46,70.52"
                       fill={`url(#ob3-fold-grad-${instanceId}-${idx})`}
                     />
 
-                    {/* Right Rectangle */}
+                    {/* Right Rectangle at y=0, height=70.52 */}
                     <rect
                       x="18.46"
                       y="0"
@@ -205,7 +220,7 @@ export default function Ob3OptionBanners({
                     {/* Right Banner Content */}
                     <text
                       x="34"
-                      y="40"
+                      y="42"
                       fill="#ffffff"
                       fontFamily="system-ui, -apple-system, sans-serif"
                       fontSize="14.5"
@@ -216,24 +231,29 @@ export default function Ob3OptionBanners({
                     </text>
 
                     <text
-                      x="118"
-                      y="32"
+                      x="102"
+                      y="39"
                       fill="#ffffff"
                       fontFamily="system-ui, -apple-system, sans-serif"
-                      fontSize="7.8"
+                      fontSize="7.6"
                       fontWeight="600"
                     >
-                      {option.description.slice(0, 48)}
+                      {idx === 0 && 'Xây dựng giao diện hiệu năng cao, tối ưu hóa'}
+                      {idx === 1 && 'Thiết lập quy trình CI/CD hoàn chỉnh, kiểm thử'}
+                      {idx === 2 && 'Đo lường thời gian phản hồi thực tế, tinh gọn'}
                     </text>
 
                     <text
-                      x="118"
-                      y="46"
-                      fill="rgba(255,255,255,0.88)"
+                      x="102"
+                      y="53"
+                      fill="#ffffff"
                       fontFamily="system-ui, -apple-system, sans-serif"
-                      fontSize="7.5"
+                      fontSize="7.6"
+                      fontWeight="500"
                     >
-                      {option.description.slice(48, 105)}
+                      {idx === 0 && 'trải nghiệm người dùng với tốc độ dưới 1s.'}
+                      {idx === 1 && 'tự động toàn diện và triển khai không downtime.'}
+                      {idx === 2 && 'backlog và rút ngắn chu kỳ phát hành tính năng.'}
                     </text>
                   </g>
                 </svg>

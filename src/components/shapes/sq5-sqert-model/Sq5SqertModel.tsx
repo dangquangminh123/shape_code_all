@@ -10,16 +10,6 @@ export interface Sq5SqertModelProps {
   className?: string;
 }
 
-const PETAL_PATH =
-  'M51.37,23.62c-0.32,0.18-0.65,0.36-0.96,0.55c-0.32,0.18-0.63,0.37-0.94,0.58c-0.93,0.58-1.84,1.2-2.73,1.86' +
-  'c-0.3,0.22-0.59,0.44-0.88,0.67c-0.29,0.22-0.58,0.45-0.86,0.68c-0.02,0.02-0.04,0.03-0.05,0.04c-0.55,0.45-1.08,0.92-1.61,1.4' +
-  'c-0.27,0.24-0.54,0.5-0.8,0.75c-0.26,0.25-0.52,0.51-0.78,0.77c-0.26,0.26-0.52,0.52-0.76,0.79c-0.26,0.26-0.51,0.53-0.74,0.81' +
-  'c-0.25,0.27-0.5,0.55-0.72,0.83c-0.25,0.28-0.48,0.56-0.7,0.85c-0.24,0.29-0.46,0.57-0.68,0.86c-0.23,0.29-0.45,0.59-0.66,0.88' +
-  'c-0.22,0.3-0.44,0.59-0.64,0.9c-1.87,2.72-3.44,5.67-4.64,8.79c-0.14,0.35-0.27,0.7-0.39,1.05c-0.13,0.35-0.25,0.71-0.36,1.06' +
-  'c-0.12,0.36-0.24,0.71-0.34,1.07c-0.11,0.36-0.22,0.72-0.31,1.08c-0.1,0.36-0.19,0.73-0.28,1.1c-0.79,3.24-1.21,6.64-1.21,10.12' +
-  'c0,7.18,1.76,13.94,4.87,19.88c-8.86-7.37-14.69-18.24-15.39-30.48C7.96,47.49,0,37.54,0,25.73C0,11.52,11.52,0,25.73,0' +
-  'c7.59,0,14.41,3.28,19.11,8.51C48.51,12.58,50.9,17.83,51.37,23.62z';
-
 export default function Sq5SqertModel({
   headerTitle = 'Mô Hình Quản Lý Dự Án SQERT',
   headerSubtitle = 'Cân bằng ngũ giác chiến lược giữa Phạm vi, Chất lượng, Nguồn lực, Rủi ro và Thời gian',
@@ -75,8 +65,8 @@ export default function Sq5SqertModel({
         </header>
 
         <div className="sq5-layout">
-          {/* Left Column: 5 Legend Cards */}
-          <div className="sq5-legend" role="list" aria-label="5 yếu tố cốt lõi của SQERT">
+          {/* Left Column: 5 Elegant Legend Items */}
+          <div className="sq5-legend" role="list" aria-label="5 yếu tố cốt lõi của mô hình SQERT">
             {SQ5_DIMENSIONS.map((item, idx) => {
               const isActive = activeId === item.id;
               const Icon = item.icon;
@@ -89,8 +79,8 @@ export default function Sq5SqertModel({
                   }}
                   type="button"
                   role="listitem"
-                  className={`sq5-card ${isActive ? 'is-active' : ''}`}
-                  style={{ '--sq5-accent': item.color } as CSSProperties}
+                  className={`sq5-item ${isActive ? 'is-active' : ''}`}
+                  style={{ '--sq5-color': item.color } as CSSProperties}
                   onClick={() => handleSelect(item.id)}
                   onMouseEnter={() => setHoveredId(item.id)}
                   onMouseLeave={() => setHoveredId(null)}
@@ -98,116 +88,135 @@ export default function Sq5SqertModel({
                   onBlur={() => setFocusedId(null)}
                   onKeyDown={(e) => handleKeyDown(e, idx)}
                   aria-pressed={selectedId === item.id}
-                  aria-label={`${item.name}: ${item.vietnameseTitle}`}
+                  aria-label={`${item.letter} — ${item.name} (${item.vietnameseTitle})`}
                 >
-                  <div className="sq5-card__badge" style={{ backgroundColor: item.color }} aria-hidden="true">
+                  <span className="sq5-item__badge" aria-hidden="true">
                     <Icon />
-                  </div>
-                  <div className="sq5-card__content">
-                    <h3 className="sq5-card__title" style={{ color: item.color }}>
-                      <span>{item.name}</span>
-                    </h3>
-                    <p className="sq5-card__desc">{item.description}</p>
+                  </span>
+                  <div className="sq5-item__body">
+                    <div className="sq5-item__header">
+                      <span className="sq5-item__title">{item.name}</span>
+                      <span className="sq5-item__vntitle">— {item.vietnameseTitle}</span>
+                    </div>
+                    <p className="sq5-item__desc">{item.description}</p>
                   </div>
                 </button>
               );
             })}
           </div>
 
-          {/* Right Column: Mathematical Symmetrical Pinwheel Vortex */}
-          <div className="sq5-stage" aria-label="Biểu đồ cối xay gió SQERT 5 cánh">
+          {/* Right Column: Exact 1:1 Unified Pinwheel Stage */}
+          <div className="sq5-stage" aria-label="Biểu đồ cánh quạt SQERT 5 góc tương tác">
             <div className="sq5-vortex">
               <svg
-                viewBox="-160 -160 320 320"
+                viewBox="70 60 260 260"
                 className="sq5-svg"
+                preserveAspectRatio="xMidYMid meet"
                 aria-hidden="true"
               >
                 <defs>
-                  {/* Master Petal Shape */}
-                  <path id={`sq5-petal-shape-${instanceId}`} d={PETAL_PATH} transform="translate(-25.73, -110)" />
-
-                  {/* Drop Shadow Filter */}
-                  <filter id={`sq5-shadow-${instanceId}`} x="-20%" y="-20%" width="150%" height="150%">
-                    <feDropShadow dx="0" dy="4" stdDeviation="6" floodOpacity="0.22" />
+                  {/* Subtle 3D Drop Shadow */}
+                  <filter id={`sq5-shadow-${instanceId}`} x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0" dy="3" stdDeviation="4" floodOpacity="0.2" />
+                  </filter>
+                  <filter id={`sq5-active-shadow-${instanceId}`} x="-30%" y="-30%" width="160%" height="160%">
+                    <feDropShadow dx="0" dy="6" stdDeviation="8" floodOpacity="0.4" />
                   </filter>
                   <filter id={`sq5-hub-shadow-${instanceId}`} x="-30%" y="-30%" width="160%" height="160%">
-                    <feDropShadow dx="0" dy="3" stdDeviation="5" floodOpacity="0.35" />
+                    <feDropShadow dx="0" dy="3" stdDeviation="4" floodOpacity="0.32" />
                   </filter>
 
-                  {/* Per-petal Gradients */}
-                  {SQ5_DIMENSIONS.map((dim) => (
-                    <linearGradient
-                      key={dim.id}
-                      id={`sq5-grad-${instanceId}-${dim.id}`}
-                      x1="0%"
-                      y1="0%"
-                      x2="0%"
-                      y2="100%"
-                    >
-                      <stop offset="0%" stopColor={dim.gradientTop} />
-                      <stop offset="100%" stopColor={dim.gradientBot} />
-                    </linearGradient>
-                  ))}
+                  {/* Dimension Gradients matching original palette */}
+                  <linearGradient id={`sq5-grad-${instanceId}-scope`} x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#14b8a6" />
+                    <stop offset="100%" stopColor="#0f766e" />
+                  </linearGradient>
+                  <linearGradient id={`sq5-grad-${instanceId}-quality`} x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#84cc16" />
+                    <stop offset="100%" stopColor="#4d7c0f" />
+                  </linearGradient>
+                  <linearGradient id={`sq5-grad-${instanceId}-effort`} x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#f97316" />
+                    <stop offset="100%" stopColor="#c2410c" />
+                  </linearGradient>
+                  <linearGradient id={`sq5-grad-${instanceId}-risk`} x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#ef4444" />
+                    <stop offset="100%" stopColor="#b91c1c" />
+                  </linearGradient>
+                  <linearGradient id={`sq5-grad-${instanceId}-time`} x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#475569" />
+                    <stop offset="100%" stopColor="#1e293b" />
+                  </linearGradient>
                 </defs>
 
-                {/* 5 Rotating Petals */}
-                {SQ5_DIMENSIONS.map((dim) => {
+                {/* 5 Petals Layer in natural swirl stacking order: T(4) -> R(3) -> E(2) -> Q(1) -> S(0) */}
+                {[4, 3, 2, 1, 0].map((idx) => {
+                  const dim = SQ5_DIMENSIONS[idx];
                   const isActive = activeId === dim.id;
-                  const rad = (dim.angle * Math.PI) / 180;
-                  const letterX = 84.27 * Math.sin(rad);
-                  const letterY = -84.27 * Math.cos(rad);
 
                   return (
                     <g
                       key={dim.id}
                       className={`sq5-petal ${isActive ? 'is-active' : ''}`}
+                      transform={`translate(${dim.geometry.offsetX}, ${dim.geometry.offsetY})`}
                       onClick={() => handleSelect(dim.id)}
                       onMouseEnter={() => setHoveredId(dim.id)}
                       onMouseLeave={() => setHoveredId(null)}
                       style={{ cursor: 'pointer' }}
                     >
-                      {/* Swirling Teardrop Petal rotated around center (0,0) */}
-                      <g transform={`rotate(${dim.angle})`}>
-                        <use
-                          href={`#sq5-petal-shape-${instanceId}`}
-                          fill={`url(#sq5-grad-${instanceId}-${dim.id})`}
-                          filter={`url(#sq5-shadow-${instanceId})`}
-                        />
-                      </g>
-
-                      {/* Upright Letter Centered in Bulb */}
-                      <text
-                        x={letterX}
-                        y={letterY}
-                        className="sq5-petal__letter"
-                        textAnchor="middle"
-                        dominantBaseline="central"
-                        fill="#ffffff"
-                        fontSize="26"
-                        fontWeight="800"
-                        fontFamily="system-ui, -apple-system, sans-serif"
-                        letterSpacing="0"
-                        style={{ pointerEvents: 'none', userSelect: 'none' }}
-                      >
-                        {dim.letter}
-                      </text>
+                      <path
+                        d={dim.path}
+                        fill={`url(#sq5-grad-${instanceId}-${dim.id})`}
+                        filter={isActive ? `url(#sq5-active-shadow-${instanceId})` : `url(#sq5-shadow-${instanceId})`}
+                        stroke="#ffffff"
+                        strokeWidth="1.2"
+                        className="sq5-petal__path"
+                      />
                     </g>
                   );
                 })}
 
-                {/* Central Dark Circular Hub */}
+                {/* 5 Letters S, Q, E, R, T placed upright inside circular bulbs */}
+                {SQ5_DIMENSIONS.map((dim) => {
+                  const isActive = activeId === dim.id;
+
+                  return (
+                    <text
+                      key={`label-${dim.id}`}
+                      x={dim.geometry.letterX}
+                      y={dim.geometry.letterY + 7}
+                      className={`sq5-petal__letter ${isActive ? 'is-active' : ''}`}
+                      textAnchor="middle"
+                      fill="#ffffff"
+                      fontSize="24"
+                      fontWeight="800"
+                      fontFamily="system-ui, -apple-system, sans-serif"
+                      style={{ pointerEvents: 'none', userSelect: 'none' }}
+                    >
+                      {dim.letter}
+                    </text>
+                  );
+                })}
+
+                {/* Center Hub: Dark Circle with "SQERT" */}
                 <g className="sq5-hub" filter={`url(#sq5-hub-shadow-${instanceId})`}>
-                  <circle cx="0" cy="0" r="35" fill="#2d3436" />
+                  <circle
+                    cx="200"
+                    cy="200"
+                    r="40.5"
+                    fill="#1e293b"
+                    stroke="#ffffff"
+                    strokeWidth="2.5"
+                  />
                   <text
-                    x="0"
-                    y="1"
+                    x="200"
+                    y="204.5"
                     textAnchor="middle"
-                    dominantBaseline="central"
                     fill="#ffffff"
                     fontSize="13.5"
                     fontWeight="800"
                     fontFamily="system-ui, -apple-system, sans-serif"
-                    letterSpacing="0.04em"
+                    letterSpacing="0.05em"
                     style={{ pointerEvents: 'none', userSelect: 'none' }}
                   >
                     SQERT
