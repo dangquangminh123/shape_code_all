@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useId, useRef, useState, type CSSProperties, type KeyboardEvent } from 'react';
+import React, { useId, useRef, useState, type KeyboardEvent } from 'react';
 import { OB3_OPTIONS, type Ob3OptionConfig } from './ob3-option-banners.config';
 import './ob3-option-banners.css';
 
@@ -10,11 +10,13 @@ export interface Ob3OptionBannersProps {
   className?: string;
 }
 
+// 2.svg: Element 1 (Left Loop & Arrowhead pointing right)
 const PATH_LOOP_FRONT =
   'M51.95,73.07V56.31c-11.8,0.16-23.62,0.32-35.42,0.48c-1.56,0-5.97,0.22-10.28,3.3c-4,2.85-5.67,6.55-6.24,8.04' +
   'c0-9.97,0-19.93,0-29.9c0.17-4.27,1.13-14.96,8.5-19.4c3.02-1.82,6.02-1.97,8-1.97c11.81-0.03,23.64-0.07,35.45-0.1V0' +
   'c8.84,12.17,17.68,24.36,26.52,36.53C69.63,48.71,60.79,60.88,51.95,73.07z';
 
+// 2.svg: Element 2 (Middle Band emerging from under arrowhead: y=35.33 to 81, x=77.59 to 182.2)
 const PATH_MID_BAND =
   'M77.59,35.31c0.3,0.41,0.59,0.81,0.89,1.22c-8.84,12.18-17.68,24.36-26.52,36.54V56.31c-11.8,0.16-23.62,0.32-35.42,0.48' +
   'c-1.56,0-5.97,0.22-10.28,3.3c-4,2.85-5.67,6.55-6.24,8.04v-3.32c0,1.11,0,2.21,0,3.32c0.72,1.7,1.76,3.55,3.29,5.32' +
@@ -74,7 +76,7 @@ export default function Ob3OptionBanners({
           <p className="ob3-header__subtitle">{headerSubtitle}</p>
         </header>
 
-        {/* 3 Horizontal Ribbon Banners */}
+        {/* 3 Horizontal Ribbon Banners (Exact Template Anatomy) */}
         <div className="ob3-stack" role="list" aria-label="3 dải băng phương án lựa chọn">
           {OB3_OPTIONS.map((option, idx) => {
             const isActive = activeId === option.id;
@@ -99,25 +101,24 @@ export default function Ob3OptionBanners({
                 aria-label={`${option.label}: ${option.title}`}
               >
                 <svg
-                  viewBox="0 0 456 85"
+                  viewBox="0 0 460 85"
                   className="ob3-svg"
                   preserveAspectRatio="xMidYMid meet"
                   aria-hidden="true"
                 >
                   <defs>
                     <linearGradient id={`ob3-loop-grad-${instanceId}-${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor={option.lightColor} />
+                      <stop offset="100%" stopColor={option.primaryColor} />
+                    </linearGradient>
+
+                    <linearGradient id={`ob3-mid-grad-${instanceId}-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
                       <stop offset="0%" stopColor={option.primaryColor} />
                       <stop offset="100%" stopColor={option.darkColor} />
                     </linearGradient>
 
-                    <linearGradient id={`ob3-mid-grad-${instanceId}-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor={option.darkColor} />
-                      <stop offset="100%" stopColor={option.primaryColor} />
-                    </linearGradient>
-
-                    {/* Darker shadow gradient for the 3D fold connector */}
                     <linearGradient id={`ob3-fold-grad-${instanceId}-${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#081422" stopOpacity="0.85" />
+                      <stop offset="0%" stopColor={option.foldColor} />
                       <stop offset="100%" stopColor={option.darkColor} />
                     </linearGradient>
 
@@ -131,55 +132,48 @@ export default function Ob3OptionBanners({
                     </filter>
                   </defs>
 
-                  {/* 1. 2.svg Middle Band: Extends from x=51.95 to 182.2, y=10.48 to 81 (height=70.52) */}
-                  <rect
+                  {/* 1. Middle Band (Original Illustrator Path 2 of 2.svg): y=35.33 to 81 */}
+                  <path
                     className="ob3-bar__fill"
-                    x="51.95"
-                    y="10.48"
-                    width="130.25"
-                    height="70.52"
+                    d={PATH_MID_BAND}
                     fill={`url(#ob3-mid-grad-${instanceId}-${idx})`}
                   />
 
-                  {/* 2. Middle Text Block on 2.svg: Cleanly fitted inside middle band */}
+                  {/* 2. Middle Text Block on Middle Band: Title + Subtext */}
                   <g className="ob3-bar__content" style={{ pointerEvents: 'none' }}>
                     <text
-                      x="82"
-                      y="38"
+                      x="86"
+                      y="51"
                       fill="#ffffff"
                       fontFamily="system-ui, -apple-system, sans-serif"
-                      fontSize="9.5"
+                      fontSize="9.2"
                       fontWeight="800"
                     >
                       {option.title}
                     </text>
                     <text
-                      x="82"
-                      y="52"
-                      fill="rgba(255,255,255,0.95)"
+                      x="86"
+                      y="63"
+                      fill="rgba(255,255,255,0.92)"
                       fontFamily="system-ui, -apple-system, sans-serif"
                       fontSize="6.2"
                       fontWeight="500"
                     >
-                      {idx === 0 && 'Kiến trúc linh hoạt'}
-                      {idx === 1 && 'Triển khai tự động'}
-                      {idx === 2 && 'Tối ưu hiệu năng'}
+                      {option.subtext}
                     </text>
                     <text
-                      x="82"
-                      y="63"
-                      fill="rgba(255,255,255,0.85)"
+                      x="86"
+                      y="73"
+                      fill="rgba(255,255,255,0.8)"
                       fontFamily="system-ui, -apple-system, sans-serif"
                       fontSize="5.8"
                       fontWeight="400"
                     >
-                      {idx === 0 && 'chuẩn công nghệ mới'}
-                      {idx === 1 && 'không gián đoạn 24/7'}
-                      {idx === 2 && 'phản hồi dưới 1 giây'}
+                      {option.subtext2}
                     </text>
                   </g>
 
-                  {/* 3. 2.svg: Front Arrow Loop with Cylindrical curl (ON TOP of Middle Band) */}
+                  {/* 3. Left Ribbon Loop with Arrowhead (Path 1 of 2.svg, Layered IN FRONT) */}
                   <path
                     className="ob3-loop__arrow"
                     d={PATH_LOOP_FRONT}
@@ -187,79 +181,75 @@ export default function Ob3OptionBanners({
                     filter={`url(#ob3-loop-shadow-${instanceId}-${idx})`}
                   />
 
-                  {/* 4. Circular Icon Badge on Loop Face */}
+                  {/* 4. White Line Icon centered on curved face of Left Ribbon Loop */}
                   <g className="ob3-loop__icon-badge">
                     <circle
                       cx="25"
                       cy="45"
-                      r="13"
-                      fill="rgba(255, 255, 255, 0.22)"
+                      r="12.5"
+                      fill="rgba(255, 255, 255, 0.2)"
                       stroke="#ffffff"
-                      strokeWidth="1.6"
+                      strokeWidth="1.5"
                     />
-                    <foreignObject x="17" y="37" width="16" height="16">
+                    <foreignObject x="16" y="36" width="18" height="18" style={{ pointerEvents: 'none' }}>
                       <div className="ob3-icon-host">
                         <Icon />
                       </div>
                     </foreignObject>
                   </g>
 
-                  {/* 5. 1.svg: Connected fold stepping UP into Right Banner (Original Illustrator Vector) */}
-                  <g transform="translate(182.2, 0)">
-                    {/* Fold connector stepping UP: (18.46,0) (0,10.48) (0,81) (18.46,70.52) */}
-                    <polygon
-                      points="18.46,0 0,10.48 0,81 18.46,70.52"
-                      fill={`url(#ob3-fold-grad-${instanceId}-${idx})`}
-                    />
+                  {/* 5. 3D Fold Connector: Steps up by 10.48px (from y=35.33..81 up to y=24.85..70.52) */}
+                  <polygon
+                    points="182.2,35.33 200.66,24.85 200.66,70.52 182.2,81"
+                    fill={`url(#ob3-fold-grad-${instanceId}-${idx})`}
+                  />
 
-                    {/* Right Rectangle at y=0, height=70.52 */}
-                    <rect
-                      x="18.46"
-                      y="0"
-                      width="254.44"
-                      height="70.52"
-                      fill={`url(#ob3-right-grad-${instanceId}-${idx})`}
-                    />
+                  {/* 6. Right Banner: Exactly same height (45.67px) as middle band, stepped up seamlessly */}
+                  <rect
+                    x="200.66"
+                    y="24.85"
+                    width="253.34"
+                    height="45.67"
+                    fill={`url(#ob3-right-grad-${instanceId}-${idx})`}
+                  />
 
-                    {/* Right Banner Content */}
-                    <text
-                      x="30"
-                      y="43"
-                      fill="#ffffff"
-                      fontFamily="system-ui, -apple-system, sans-serif"
-                      fontSize="13"
-                      fontWeight="800"
-                      letterSpacing="-0.02em"
-                    >
-                      {option.label}
-                    </text>
+                  {/* 7. Right Banner Option Label ("Option 01") on the left of the banner */}
+                  <text
+                    x="214"
+                    y="52"
+                    fill="#ffffff"
+                    fontFamily="system-ui, -apple-system, sans-serif"
+                    fontSize="13"
+                    fontWeight="800"
+                    letterSpacing="-0.02em"
+                    style={{ pointerEvents: 'none', userSelect: 'none' }}
+                  >
+                    {option.label}
+                  </text>
 
-                    <text
-                      x="115"
-                      y="37"
-                      fill="#ffffff"
-                      fontFamily="system-ui, -apple-system, sans-serif"
-                      fontSize="7.2"
-                      fontWeight="600"
-                    >
-                      {idx === 0 && 'Xây dựng giao diện hiệu năng cao, tối ưu hóa'}
-                      {idx === 1 && 'Thiết lập quy trình CI/CD hoàn chỉnh, kiểm thử'}
-                      {idx === 2 && 'Đo lường thời gian phản hồi thực tế, tinh gọn'}
-                    </text>
+                  {/* 8. Vertical Divider Line on Right Banner */}
+                  <line
+                    x1="282"
+                    y1="33"
+                    x2="282"
+                    y2="63"
+                    stroke="rgba(255, 255, 255, 0.35)"
+                    strokeWidth="1"
+                    style={{ pointerEvents: 'none' }}
+                  />
 
-                    <text
-                      x="115"
-                      y="51"
-                      fill="rgba(255,255,255,0.9)"
-                      fontFamily="system-ui, -apple-system, sans-serif"
-                      fontSize="7.2"
-                      fontWeight="500"
-                    >
-                      {idx === 0 && 'trải nghiệm người dùng với tốc độ phản hồi tức thì.'}
-                      {idx === 1 && 'tự động toàn diện và triển khai không downtime.'}
-                      {idx === 2 && 'backlog và rút ngắn chu kỳ phát hành tính năng.'}
-                    </text>
-                  </g>
+                  {/* 9. Right Banner Descriptive Paragraph (Auto-wrapped via foreignObject) */}
+                  <foreignObject
+                    x="292"
+                    y="28"
+                    width="156"
+                    height="40"
+                    style={{ pointerEvents: 'none' }}
+                  >
+                    <div className="ob3-right__desc">
+                      {option.description}
+                    </div>
+                  </foreignObject>
                 </svg>
               </button>
             );
