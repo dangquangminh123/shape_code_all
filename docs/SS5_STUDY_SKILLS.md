@@ -9,35 +9,24 @@
   - `2.svg`: Thân sách uốn cong và gáy sách (`viewBox="0 0 377.99 81"`).
   - `study-skills-mc-slide1.png`: Ảnh tham chiếu slide gốc (720 × 540).
 
-## 2. Cấu trúc hình học & Tọa độ
-- **Canvas ViewBox:** `0 0 720 540`
-- **Chiều cao mỗi cuốn sách:** `81px` (chuẩn 1:1 theo vector gốc).
-- **Khoảng cách trục dọc (stepY):** `85px` (bắt đầu từ `y = 76px`, độ phủ gối nhẹ 4px giữa các cuốn).
+## 2. Cấu trúc hình học & Tọa độ chuẩn hóa
+- **ViewBox tinh gọn:** `86 62 556 462` (ôm sát cụm 5 cuốn sách so le cùng vùng đổ bóng, không thừa khoảng trống đỉnh/đáy).
+- **Thân sách (`2.svg`):** Scale đồng nhất `86.5 / 81` (`1.0679`), chiều cao `86.5px`, chiều rộng `403.65px`, xếp sát khít theo bước dọc `stepY = 86.5px` bắt đầu tại `y = 76px`.
+- **Dải bookmark (`1.svg`):** Scale đồng nhất `57.5 / 81` (`0.7099`), chiều cao `57.5px`, căn giữa theo trục dọc thân sách (`tailOffsetY = +14.5px`) và luồn gọn dưới mép viền gáy sách.
 - **So le ngang (Staggered Offset):**
-  - Sách lẻ (1, 3, 5): `tailX = 147`, `spineX = 220` (độ rộng ~452px, kết thúc tại `x = 598`).
-  - Sách chẵn (2, 4): `tailX = 112`, `spineX = 185` (dịch sang trái 35px, kết thúc tại `x = 563`).
-- **Độ ăn khớp hai lớp:**
-  - Lớp 1 (Dưới): Ruy-băng bookmark chứa icon nét trắng.
-  - Lớp 2 (Trên): Thân sách gồm viền gáy ngoài, mặt phẳng màu chính, đường cong gáy highlight (`SS5_SPINE_ARC_PATH`) và dòng văn bản mô tả.
+  - Sách lẻ (1, 3, 5): `tailX = 138`, `spineX = 222`.
+  - Sách chẵn (2, 4): `tailX = 104`, `spineX = 188` (dịch sang trái `34px`).
 
-## 3. Bảng màu & Nội dung
-1. **Book 01 (Teal):**
-   - Màu: Body `#1ea185`, Tail `#167964`, Spine `#5ee1c5`, Shadow `#105c4c`
-   - Nội dung: *"You get anxious or nervous a lot right before a test or quiz."*
-2. **Book 02 (Olive Green):**
-   - Màu: Body `#9bbb5c`, Tail `#77943e`, Spine `#b2d373`, Shadow `#5d7430`
-   - Nội dung: *"You don't feel very confident when it's time to take the test."*
-3. **Book 03 (Amber/Orange):**
-   - Màu: Body `#f29b26`, Tail `#c6770c`, Spine `#f7c37d`, Shadow `#9c5d09`
-   - Nội dung: *"You don't remember much information after you spend time studying."*
-4. **Book 04 (Crimson Red):**
-   - Màu: Body `#bd392f`, Tail `#8e2b23`, Spine `#d65349`, Shadow `#6d211b`
-   - Nội dung: *"It's hard for you to stay focused when you try to study."*
-5. **Book 05 (Slate Blue):**
-   - Màu: Body `#445469`, Tail `#333f4f`, Spine `#8497b0`, Shadow `#28313e`
-   - Nội dung: *"You don't do as well as you think you should on tests or quizzes."*
+## 3. Ngắt dòng chữ SVG & Bảng màu
+- **Ngắt dòng tự động an toàn:** Hàm `wrapWords(book.text, 38)` chia văn bản thành các `<tspan>` nằm gọn bên trong vùng an toàn `[64..332]` của `2.svg`, tuyệt đối không tràn qua mép trang lõm bên phải (`x ≈ 354`) và tương thích Safari/Chrome (không dùng `<foreignObject>` cho văn bản).
+- **Bảng màu 5 cuốn (khớp ảnh mẫu):**
+  1. **Book 01 (Teal):** Body `#1ea185`, Tail/Rim `#167964`, Spine `#5ee1c5`.
+  2. **Book 02 (Olive Green):** Body `#9bbb5c`, Tail/Rim `#77943e`, Spine `#c4d79e`.
+  3. **Book 03 (Amber Orange):** Body `#f29b26`, Tail/Rim `#c6770c`, Spine `#f7c37d`.
+  4. **Book 04 (Crimson Red):** Body `#bd392f`, Tail/Rim `#8e2b23`, Spine `#de827b`.
+  5. **Book 05 (Slate Blue):** Body `#445469`, Tail/Rim `#333f4f`, Spine `#8497b0`.
 
-## 4. Tương thích & Responsive
-- **Desktop (>640px):** SVG co dãn linh hoạt với `aspect-ratio: 4/3`, `max-width: 960px`.
-- **Mobile (<=640px):** Chuyển sang danh sách thẻ bài viết `.ss5-mobile-list` chống tràn ngang, đảm bảo chữ đọc rõ ràng trên điện thoại 320px–390px.
-- **Animation:** WAAPI cascade entrance từ trên xuống dưới, không bóp méo hình học SVG.
+## 4. Responsive & Animation
+- **Desktop (>600px):** SVG giữ nguyên path gốc, tương tác bàn phím đầy đủ (`ArrowUp/Down/Left/Right`, `Home/End`, `Enter/Space`, `Escape`).
+- **Mobile (<=600px):** Chuyển sang 5 nút thẻ `.ss5-mobile-card` mang cùng dải màu tail/spine/body, hỗ trợ từ màn hình nhỏ `320px` đến `600px` không tràn ngang.
+- **Animation:** Kết nối WAAPI qua `.ss5-module`, `.ss5-book-row`, `.ss5-icon-host svg`, `.ss5-copy-text`, `.ss5-mobile-card` trong `public/shape-auto-animations.js`.
