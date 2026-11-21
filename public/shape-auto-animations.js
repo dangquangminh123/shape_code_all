@@ -126,6 +126,12 @@
       track('.ob3-right__label', 3, 'fade', 405, 280, 430),
       track('.ob3-right__copy', 3, 'fade', 455, 280, 440),
     ], idle('.ob3-icon-host svg, .ob3-mobile__icon-strip svg', 6, 'halo-breathe', 5200)),
+    recipe('ss5-study-skills', '.ss5-module', 'Five stacked books slide in, icons pop, copy revealed', [
+      track('.ss5-book-row', 5, 'ss5-book-enter', 0, 135, 720),
+      track('.ss5-icon-host svg', 5, 'ss5-icon-pop', 250, 135, 480),
+      track('.ss5-copy-text', 5, 'fade', 320, 135, 420),
+      track('.ss5-mobile-card', 5, 'ss5-mobile-card-enter', 0, 115, 600),
+    ], idle('.ss5-icon-host svg', 5, 'halo-breathe', 5000)),
   ];
 
   // Transform keyframes ADD to the live CSS/attribute transform, not a cached matrix.
@@ -194,6 +200,10 @@
       case 'ob3-banner-enter': return move('translateX(-16px) scale(.99)', 'translateX(2px) scale(1.005)');
       // Only the decoration moves independently; never the two joined SVG masks.
       case 'ob3-icon-pop': return move('scale(.68)', 'scale(1.1)');
+      // SS5 Study Skills
+      case 'ss5-book-enter': return move('translateX(-20px) scale(.99)', 'translateX(2px) scale(1.005)');
+      case 'ss5-icon-pop': return move('scale(.7)', 'scale(1.12)');
+      case 'ss5-mobile-card-enter': return move('translateY(16px)', 'translateY(-2px)');
       // THREE_SHAPES_MOTION_V2 END.
       default: return [{ opacity: 0 }, { opacity: 1 }];
     }

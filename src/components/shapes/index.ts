@@ -11,3 +11,5 @@ export { default as Sq5SqertModel } from './sq5-sqert-model/Sq5SqertModel';
 export * from './sq5-sqert-model/sq5-sqert-model.config';
 export { default as Ob3OptionBanners } from './ob3-option-banners/Ob3OptionBanners';
 export * from './ob3-option-banners/ob3-option-banners.config';
+export { default as Ss5StudySkills } from './ss5-study-skills/Ss5StudySkills';
+export * from './ss5-study-skills/ss5-study-skills.config';

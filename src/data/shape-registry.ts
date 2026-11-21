@@ -441,6 +441,22 @@ export const SHAPE_TEMPLATES_REGISTRY: ShapeTemplateMeta[] = [
     ],
   },
   {
+    id: 'ss5-study-skills',
+    prefix: 'ss5',
+    name: 'SS5 — Study Skills',
+    vietnameseTitle: '5 Cuốn sách kỹ năng học tập xếp chồng (Study Skills)',
+    description:
+      'Năm khối sách nằm ngang xếp chồng so le với dải ruy-băng bookmark bên trái chứa icon và thân sách bo tròn bên phải từ bộ SVG gốc 6_tick.',
+    status: 'ready',
+    route: '/shapes/ss5-study-skills',
+    publicSvgFolder: 'public/assets/shapes/ss5-study-skills/',
+    componentSourceFolder: 'src/components/shapes/ss5-study-skills/',
+    assets: [
+      { role: 'Dải ruy-băng bookmark', level: 1, prefixedFileName: 'ss5-bookmark-tail-mask.svg', dimensions: 'viewBox: 0 0 131.33 81', description: 'Đuôi ruy băng có vết cắt V và uốn cong từ 1.svg gốc.' },
+      { role: 'Thân sách uốn cong & gáy', level: 2, prefixedFileName: 'ss5-book-body-mask.svg', dimensions: 'viewBox: 0 0 377.99 81', description: 'Thân sách nằm ngang với gáy bo tròn và mép trang lõm từ 2.svg gốc.' },
+    ],
+  },
+  {
     id: 'phase-shape-demo',
     prefix: 'psd',
     name: 'Phase Shape Demo',

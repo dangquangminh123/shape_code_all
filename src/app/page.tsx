@@ -19,6 +19,7 @@ import Ls4LadderSteps from '@/components/shapes/ls4-ladder-steps/Ls4LadderSteps'
 import Rt6ReverseTimeline from '@/components/shapes/rt6-reverse-timeline/Rt6ReverseTimeline';
 import Sq5SqertModel from '@/components/shapes/sq5-sqert-model/Sq5SqertModel';
 import Ob3OptionBanners from '@/components/shapes/ob3-option-banners/Ob3OptionBanners';
+import Ss5StudySkills from '@/components/shapes/ss5-study-skills/Ss5StudySkills';
 
 export default function HomePage() {
   return (
@@ -44,6 +45,7 @@ export default function HomePage() {
       <Rt6ReverseTimeline />
       <Sq5SqertModel />
       <Ob3OptionBanners />
+      <Ss5StudySkills />
     </>
   );
 }
