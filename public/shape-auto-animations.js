@@ -132,6 +132,31 @@
       track('.ss5-copy-text', 5, 'fade', 320, 135, 420),
       track('.ss5-mobile-card', 5, 'ss5-mobile-card-enter', 0, 115, 600),
     ], idle('.ss5-icon-host svg', 5, 'halo-breathe', 5000)),
+    recipe('dt4-dual-tubes', '.dt4-module', 'Dual tubes settle, trapezoid ribbons spread, numbers and icons pop', [
+      track('.dt4-tube--left', 1, 'dt4-tube-drop', 0, 0, 820),
+      track('.dt4-tube--right', 1, 'dt4-tube-drop', 110, 0, 820),
+      track('.dt4-row', 4, 'dt4-ribbon-spread', 220, 130, 760),
+      track('.dt4-tube-num', 4, 'pop', 420, 130, 540),
+      track('.dt4-tube-icon', 4, 'pop', 490, 130, 540),
+      track('.dt4-row__copy', 4, 'fade', 550, 130, 480),
+      track('.dt4-mobile-card', 4, 'dt4-mobile-enter', 0, 110, 560),
+    ], idle('.dt4-tube__gloss', 2, 'halo-breathe', 4800)),
+    recipe('ec4-ecology-plant', '.ec4-module', 'Earth bowl settles, stem sprouts upward, leaves unfurl, step banners branch outward', [
+      track('.ec4-bowl', 1, 'ec4-bowl-settle', 0, 0, 700),
+      track('.ec4-stem', 1, 'liquid', 180, 0, 820),
+      track('.ec4-leaf', 4, 'pop', 420, 130, 620),
+      track('.ec4-card', 4, 'ec4-card-branch', 520, 140, 760),
+      track('.ec4-badge', 4, 'pop', 720, 140, 520),
+      track('.ec4-card__icon', 4, 'pop', 800, 140, 480),
+      track('.ec4-mobile-card', 4, 'dt4-mobile-enter', 0, 110, 560),
+    ], idle('.ec4-leaf', 4, 'sway', 5200)),
+    recipe('tp5-trophy-tiers', '.tp5-module', 'Trophy pedestal rises, 5 tiers stack bottom-up, handles open, legend slides in', [
+      track('.tp5-pedestal', 1, 'tp5-pedestal-rise', 0, 0, 650),
+      track('.tp5-band', 5, 'tp5-band-stack', 160, 120, 620, true),
+      track('.tp5-handles', 1, 'tp5-handles-open', 580, 0, 700),
+      track('.tp5-legend-item', 5, 'right', 380, 110, 580),
+      track('.tp5-legend-icon', 5, 'pop', 520, 110, 480),
+    ], idle('.tp5-cup-sheen', 1, 'light', 4600)),
   ];
 
   // Transform keyframes ADD to the live CSS/attribute transform, not a cached matrix.
@@ -204,6 +229,17 @@
       case 'ss5-book-enter': return move('translateX(-20px) scale(.99)', 'translateX(2px) scale(1.005)');
       case 'ss5-icon-pop': return move('scale(.7)', 'scale(1.12)');
       case 'ss5-mobile-card-enter': return move('translateY(16px)', 'translateY(-2px)');
+      // DT4 Dual Squeeze Tubes (Shape 13)
+      case 'dt4-tube-drop': return move('translateY(-24px) scale(.97)', 'translateY(3px) scale(1.008)');
+      case 'dt4-ribbon-spread': return move('scaleX(.72)', 'scaleX(1.02)');
+      case 'dt4-mobile-enter': return move('translateY(16px)', 'translateY(-2px)');
+      // EC4 Ecology Plant (Shape 20)
+      case 'ec4-bowl-settle': return move('translateY(22px) scale(.95)', 'translateY(-2px) scale(1.01)');
+      case 'ec4-card-branch': return move(`translateX(${index % 2 === 0 ? 20 : -20}px) scale(.96)`, `translateX(${index % 2 === 0 ? -3 : 3}px) scale(1.008)`);
+      // TP5 Trophy Tiers (Shape 34)
+      case 'tp5-pedestal-rise': return move('translateY(18px) scaleY(.92)', 'translateY(-2px) scaleY(1.015)');
+      case 'tp5-band-stack': return move('translateY(-18px) scaleX(.94)', 'translateY(2px) scaleX(1.015)');
+      case 'tp5-handles-open': return move('scaleX(.84) scaleY(.96)', 'scaleX(1.025) scaleY(1.005)');
       // THREE_SHAPES_MOTION_V2 END.
       default: return [{ opacity: 0 }, { opacity: 1 }];
     }

@@ -1,0 +1,307 @@
+/* ==========================================================================
+   TP5 — 5-Tier Trophy Cup & Synchronized Legend (Shape 34)
+   CSS masks preserving shape 1..7.svg silhouettes with 3-zone flat-3D shading.
+   ========================================================================== */
+
+.tp5-module,
+.tp5-module *,
+.tp5-module *::before,
+.tp5-module *::after {
+  box-sizing: border-box;
+}
+
+.tp5-module {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  min-height: min(100dvh, 760px);
+  padding: clamp(28px, 4vw, 52px) clamp(16px, 3vw, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  isolation: isolate;
+  overflow-x: clip;
+  font-family: Inter, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+.tp5-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.tp5-layout {
+  width: min(100%, 1240px);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(28px, 4.5vw, 72px);
+}
+
+/* ==========================================================================
+   Left Column: Trophy Cup Stage (Proportions calibrated to 34.png)
+   ========================================================================== */
+
+.tp5-trophy-stage {
+  position: relative;
+  width: min(100%, 580px);
+  aspect-ratio: 220 / 196;
+  margin-inline: auto;
+  container-type: inline-size;
+  isolation: isolate;
+  user-select: none;
+}
+
+/* Curved Handles (shape 1.svg) */
+.tp5-handles {
+  position: absolute;
+  left: 6%;
+  top: 12%;
+  width: 88%;
+  height: 51%;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, #4b5563 0%, #374151 100%);
+  -webkit-mask: var(--tp5-mask-handles) center / 100% 100% no-repeat;
+  mask: var(--tp5-mask-handles) center / 100% 100% no-repeat;
+}
+
+/* Stepped Pedestal Base (shape 2.svg) */
+.tp5-pedestal {
+  position: absolute;
+  left: 26%;
+  top: 67.5%;
+  width: 48%;
+  height: 27%;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    #4b5563 0%,
+    #64748b 58%,
+    #334155 66%,
+    #1e293b 82%,
+    #111827 100%
+  );
+  -webkit-mask: var(--tp5-mask-pedestal) center / 100% 100% no-repeat;
+  mask: var(--tp5-mask-pedestal) center / 100% 100% no-repeat;
+}
+
+/* 5-Band Tapered Cup Bowl (shape 3..7.svg) */
+.tp5-cup {
+  position: absolute;
+  left: 17.5%;
+  top: 5.5%;
+  width: 65%;
+  height: 65.5%;
+  z-index: 4;
+  isolation: isolate;
+}
+
+.tp5-band {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+  color: #ffffff;
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), filter 160ms ease;
+}
+
+.tp5-band:focus-visible {
+  outline: 2px solid #0f172a;
+  outline-offset: 2px;
+  z-index: 8;
+}
+
+.tp5-band:is(:hover, .is-active) {
+  transform: scale(1.035);
+  filter: brightness(1.08);
+  z-index: 7;
+}
+
+.tp5-band.is-selected {
+  transform: scale(1.045);
+  filter: brightness(1.12);
+  z-index: 8;
+}
+
+.tp5-band--1 { left: 0%; width: 100%; top: 0%; height: 18.8%; }
+.tp5-band--2 { left: 1.25%; width: 97.5%; top: 20.3%; height: 18.8%; }
+.tp5-band--3 { left: 3.5%; width: 93%; top: 40.6%; height: 18.8%; }
+.tp5-band--4 { left: 8.75%; width: 82.5%; top: 60.9%; height: 18.8%; }
+.tp5-band--5 { left: 14.5%; width: 71%; top: 81.2%; height: 18.8%; }
+
+.tp5-band__paint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    var(--tp5-light) 0%,
+    var(--tp5-light) 23%,
+    var(--tp5-mid) 23.5%,
+    var(--tp5-mid) 76.5%,
+    var(--tp5-dark) 77%,
+    var(--tp5-dark) 100%
+  );
+  -webkit-mask: var(--tp5-band-mask) center / 100% 100% no-repeat;
+  mask: var(--tp5-band-mask) center / 100% 100% no-repeat;
+}
+
+.tp5-band__label {
+  position: relative;
+  z-index: 2;
+  font-size: clamp(12px, 5.2cqw, 28px);
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(15, 23, 42, 0.22);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.tp5-cup-sheen {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.16) 0%,
+    rgba(255, 255, 255, 0.04) 42%,
+    rgba(255, 255, 255, 0) 45%
+  );
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   Right Column: 5-Row Synchronized Legend
+   ========================================================================== */
+
+.tp5-legend {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 1.6vw, 20px);
+  width: 100%;
+  min-width: 0;
+}
+
+.tp5-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 11px 14px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: #1e293b;
+  transition: background-color 160ms ease, border-color 160ms ease, transform 180ms ease;
+}
+
+.tp5-legend-item:is(:hover, .is-active) {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+  transform: translateX(4px);
+}
+
+.tp5-legend-item.is-selected {
+  background: #f1f5f9;
+  border-color: var(--tp5-mid);
+}
+
+.tp5-legend-item:focus-visible {
+  outline: 2px solid var(--tp5-dark);
+  outline-offset: 2px;
+}
+
+.tp5-legend-icon {
+  flex: 0 0 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: var(--tp5-dark);
+  transition: transform 180ms ease;
+}
+
+.tp5-legend-item:is(:hover, .is-active, .is-selected) .tp5-legend-icon {
+  transform: scale(1.12);
+}
+
+.tp5-legend-copy {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tp5-legend-title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #0f172a;
+}
+
+.tp5-legend-desc {
+  font-size: 15px;
+  line-height: 1.45;
+  color: #475569;
+  overflow-wrap: anywhere;
+}
+
+/* ==========================================================================
+   Responsive Stacking (<= 760px)
+   ========================================================================== */
+
+@media (max-width: 760px) {
+  .tp5-module {
+    min-height: auto;
+    padding: 26px 16px 34px;
+  }
+
+  .tp5-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .tp5-trophy-stage {
+    width: min(100%, 340px);
+  }
+
+  .tp5-legend-item {
+    padding: 8px 10px;
+  }
+
+  .tp5-legend-item:is(:hover, .is-active) {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tp5-band,
+  .tp5-legend-item,
+  .tp5-legend-icon {
+    transition: none !important;
+  }
+}

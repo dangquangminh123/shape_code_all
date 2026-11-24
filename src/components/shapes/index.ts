@@ -13,3 +13,9 @@ export { default as Ob3OptionBanners } from './ob3-option-banners/Ob3OptionBanne
 export * from './ob3-option-banners/ob3-option-banners.config';
 export { default as Ss5StudySkills } from './ss5-study-skills/Ss5StudySkills';
 export * from './ss5-study-skills/ss5-study-skills.config';
+export { default as Dt4DualTubes } from './dt4-dual-tubes/Dt4DualTubes';
+export * from './dt4-dual-tubes/dt4-dual-tubes.config';
+export { default as Ec4EcologyPlant } from './ec4-ecology-plant/Ec4EcologyPlant';
+export * from './ec4-ecology-plant/ec4-ecology-plant.config';
+export { default as Tp5TrophyTiers } from './tp5-trophy-tiers/Tp5TrophyTiers';
+export * from './tp5-trophy-tiers/tp5-trophy-tiers.config';

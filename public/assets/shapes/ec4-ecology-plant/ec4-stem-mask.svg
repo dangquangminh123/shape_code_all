@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="1700 102 562 2318" role="img" aria-hidden="true">
+  <!-- Normalized central plant stem and node buds from shape 20/shape 5.svg -->
+  <g fill="#ffffff">
+    <rect x="1931.8" y="152.4" width="98.6" height="2263.5" />
+    <rect x="1935.7" y="33.3" transform="matrix(-1.836970e-16 1 -1 -1.836970e-16 2178.8296 -1783.3492)" width="90.7" height="328.8" />
+    <ellipse cx="2158.3" cy="197.7" rx="100.7" ry="92.6" />
+    <ellipse cx="1803.8" cy="197.7" rx="100.7" ry="92.6" />
+    <rect x="1935.7" y="1339.9" transform="matrix(-1.836970e-16 1 -1 -1.836970e-16 3485.3735 -476.8054)" width="90.7" height="328.8" />
+    <ellipse cx="2145.5" cy="1504.3" rx="100.7" ry="92.6" />
+    <ellipse cx="1816.7" cy="1504.3" rx="100.7" ry="92.6" />
+  </g>
+</svg>

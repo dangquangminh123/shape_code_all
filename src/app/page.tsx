@@ -20,6 +20,9 @@ import Rt6ReverseTimeline from '@/components/shapes/rt6-reverse-timeline/Rt6Reve
 import Sq5SqertModel from '@/components/shapes/sq5-sqert-model/Sq5SqertModel';
 import Ob3OptionBanners from '@/components/shapes/ob3-option-banners/Ob3OptionBanners';
 import Ss5StudySkills from '@/components/shapes/ss5-study-skills/Ss5StudySkills';
+import Dt4DualTubes from '@/components/shapes/dt4-dual-tubes/Dt4DualTubes';
+import Ec4EcologyPlant from '@/components/shapes/ec4-ecology-plant/Ec4EcologyPlant';
+import Tp5TrophyTiers from '@/components/shapes/tp5-trophy-tiers/Tp5TrophyTiers';
 
 export default function HomePage() {
   return (
@@ -46,6 +49,9 @@ export default function HomePage() {
       <Sq5SqertModel />
       <Ob3OptionBanners />
       <Ss5StudySkills />
+      <Dt4DualTubes />
+      <Ec4EcologyPlant />
+      <Tp5TrophyTiers />
     </>
   );
 }
