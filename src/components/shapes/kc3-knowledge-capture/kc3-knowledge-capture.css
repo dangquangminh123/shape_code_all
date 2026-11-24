@@ -1,0 +1,233 @@
+/* ==========================================================================
+   KC3 — 3 Vertical Diamond-Cap Chevron Banners (Shape 12)
+   Layered CSS masks preserving 12/1.svg (diamond cap) & 12/2.svg (chevron).
+   ========================================================================== */
+
+.kc3-module,
+.kc3-module *,
+.kc3-module *::before,
+.kc3-module *::after {
+  box-sizing: border-box;
+}
+
+.kc3-module {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  min-height: min(100dvh, 780px);
+  padding: clamp(32px, 4.5vw, 56px) clamp(16px, 3vw, 40px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  isolation: isolate;
+  overflow-x: clip;
+  font-family: Inter, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+.kc3-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.kc3-grid {
+  position: relative;
+  width: min(100%, 1180px);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 2.2vw, 32px);
+  align-items: start;
+  isolation: isolate;
+}
+
+.kc3-grid-sheen {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  background: linear-gradient(
+    112deg,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0.14) 50%,
+    rgba(255, 255, 255, 0) 80%
+  );
+  opacity: 0.72;
+}
+
+/* ==========================================================================
+   Individual Card Column: Overhanging Diamond Cap + Chevron Body
+   ========================================================================== */
+
+.kc3-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+  color: #ffffff;
+  font: inherit;
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1), filter 180ms ease;
+}
+
+.kc3-card:focus-visible {
+  outline: 2px solid #0f172a;
+  outline-offset: 6px;
+  border-radius: 12px;
+}
+
+.kc3-card:is(:hover, .is-active) {
+  transform: translateY(-6px) scale(1.02);
+  filter: drop-shadow(0 16px 26px var(--kc3-glow)) brightness(1.04);
+  z-index: 5;
+}
+
+.kc3-card.is-selected {
+  transform: translateY(-8px) scale(1.03);
+  filter: drop-shadow(0 20px 32px var(--kc3-glow)) brightness(1.07);
+  z-index: 6;
+}
+
+/* Top Diamond Cap (12/1.svg aspect 158.53 : 81) */
+.kc3-cap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 158.53 / 81;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10% 18% 12%;
+  container-type: inline-size;
+  filter: drop-shadow(0 8px 12px rgba(15, 23, 42, 0.22));
+  pointer-events: none;
+}
+
+.kc3-cap__paint {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(155deg, var(--kc3-cap-light) 0%, var(--kc3-cap-dark) 100%);
+  -webkit-mask: var(--kc3-mask-cap) center / 100% 100% no-repeat;
+  mask: var(--kc3-mask-cap) center / 100% 100% no-repeat;
+}
+
+.kc3-cap__icon {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(26px, 9.5cqw, 40px);
+  color: #ffffff;
+  filter: drop-shadow(0 1px 3px rgba(15, 23, 42, 0.25));
+}
+
+.kc3-cap__title {
+  position: relative;
+  z-index: 2;
+  font-size: clamp(15px, 5.4cqw, 22px);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(15, 23, 42, 0.25);
+  white-space: nowrap;
+}
+
+/* Lower Chevron Body (12/2.svg aspect 55.48 : 81, 88% width tucked neatly under cap) */
+.kc3-body {
+  position: relative;
+  width: 88%;
+  aspect-ratio: 55.48 / 81;
+  margin-top: -21.2%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 36% 12% 24%;
+  container-type: inline-size;
+  pointer-events: none;
+}
+
+/* Clean white inner moat so outer hairline border + inner solid body pop cleanly */
+.kc3-body__surface {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: #ffffff;
+  clip-path: polygon(0% 0%, 50% 17.5%, 100% 0%, 100% 83%, 50% 100%, 0% 83%);
+}
+
+.kc3-body__frame {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: var(--kc3-frame);
+  -webkit-mask: var(--kc3-mask-frame) center / 100% 100% no-repeat;
+  mask: var(--kc3-mask-frame) center / 100% 100% no-repeat;
+}
+
+.kc3-body__fill {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: linear-gradient(180deg, var(--kc3-body-light) 0%, var(--kc3-body-dark) 100%);
+  -webkit-mask: var(--kc3-mask-fill) center / 100% 100% no-repeat;
+  mask: var(--kc3-mask-fill) center / 100% 100% no-repeat;
+}
+
+.kc3-body__copy {
+  position: relative;
+  z-index: 4;
+  font-size: clamp(12.5px, 4.7cqw, 16.5px);
+  font-weight: 500;
+  line-height: 1.52;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(15, 23, 42, 0.16);
+  overflow-wrap: anywhere;
+}
+
+/* ==========================================================================
+   Responsive Stacking (<= 880px)
+   ========================================================================== */
+
+@media (max-width: 880px) {
+  .kc3-module {
+    min-height: auto;
+    padding: 28px 16px 36px;
+  }
+
+  .kc3-grid {
+    grid-template-columns: minmax(0, 390px);
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .kc3-card:is(:hover, .is-active),
+  .kc3-card.is-selected {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kc3-card {
+    transition: none !important;
+  }
+}

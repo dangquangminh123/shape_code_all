@@ -1,0 +1,442 @@
+/* ==========================================================================
+   AC4 — 4-Arrow Folded Cyclic Ribbon (Shape 5)
+   Exact 4-fold rotational tiling of 5/Untitled-19.svg inside 122.84 x 122.84.
+   ========================================================================== */
+
+.ac4-module,
+.ac4-module *,
+.ac4-module *::before,
+.ac4-module *::after {
+  box-sizing: border-box;
+}
+
+.ac4-module {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  min-height: min(100dvh, 760px);
+  padding: clamp(32px, 4.5vw, 56px) clamp(16px, 3vw, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  isolation: isolate;
+  overflow-x: clip;
+  font-family: Inter, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+.ac4-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Desktop / Tablet Layout: 4 Corner Captions Flanking Center Octagon Ring
+   ========================================================================== */
+
+.ac4-layout {
+  position: relative;
+  width: min(100%, 1260px);
+  min-height: 540px;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Center Ring Stage (Exact 122.84 x 122.84 tiled bounding square) */
+.ac4-ring {
+  position: relative;
+  width: min(100%, 540px);
+  aspect-ratio: 1 / 1;
+  container-type: inline-size;
+  isolation: isolate;
+  user-select: none;
+  z-index: 3;
+  filter: drop-shadow(0 12px 24px rgba(15, 23, 42, 0.1));
+}
+
+.ac4-flaps,
+.ac4-arrows {
+  position: absolute;
+  inset: 0;
+}
+
+.ac4-flaps {
+  z-index: 1;
+  pointer-events: none;
+}
+
+.ac4-arrows {
+  z-index: 3;
+}
+
+/* Individual Tile Box: 46.97 / 122.84 = 38.2367%, 81 / 122.84 = 65.9394% */
+.ac4-flap,
+.ac4-arrow {
+  position: absolute;
+  width: 38.2367%;
+  height: 65.9394%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  appearance: none;
+}
+
+/*
+   Rotated tiles via CSS width/height & transform-origin around tile center:
+   Tile A (0 deg):   left: 0%,         top: 11.3969%   (14.00 / 122.84)
+   Tile B (90 CW):   left: 22.6473%,   top: 0%,        w: 65.9394%, h: 38.2367%
+   Tile C (180 deg): left: 61.7633%,   top: 22.6636%
+   Tile D (270 CW):  left: 11.4132%,   top: 61.7633%,  w: 65.9394%, h: 38.2367%
+   We keep the 38.2367% x 65.9394% inner `.ac4-arrow__tile` (and `.ac4-flap__paint`)
+   positioned cleanly at (0,0) rotated around its center or bounding anchor.
+*/
+
+.ac4-flap--a,
+.ac4-arrow--a {
+  left: 0%;
+  top: 11.3969%;
+}
+
+.ac4-flap--b,
+.ac4-arrow--b {
+  left: 22.6636%;
+  top: 0%;
+  width: 65.9394%;
+  height: 38.2367%;
+}
+
+.ac4-flap--c,
+.ac4-arrow--c {
+  left: 61.7633%;
+  top: 22.6636%;
+}
+
+.ac4-flap--d,
+.ac4-arrow--d {
+  left: 11.3969%;
+  top: 61.7633%;
+  width: 65.9394%;
+  height: 38.2367%;
+}
+
+.ac4-flap__paint,
+.ac4-arrow__tile {
+  position: absolute;
+  inset: 0;
+  display: block;
+  pointer-events: none;
+}
+
+/* Rotate raw 46.97x81 shapes smoothly inside their 90-deg containers */
+.ac4-flap--b .ac4-flap__paint,
+.ac4-arrow--b .ac4-arrow__tile {
+  inset: auto;
+  left: 50%;
+  top: 50%;
+  width: 57.9877%; /* 46.97 / 81 */
+  height: 172.4505%; /* 81 / 46.97 */
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.ac4-flap--c .ac4-flap__paint,
+.ac4-arrow--c .ac4-arrow__tile {
+  transform: rotate(180deg);
+}
+
+.ac4-flap--d .ac4-flap__paint,
+.ac4-arrow--d .ac4-arrow__tile {
+  inset: auto;
+  left: 50%;
+  top: 50%;
+  width: 57.9877%;
+  height: 172.4505%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+/* Dark folded return tab */
+.ac4-flap__paint {
+  background: var(--ac4-flap);
+  -webkit-mask: var(--ac4-mask-flap) center / 100% 100% no-repeat;
+  mask: var(--ac4-mask-flap) center / 100% 100% no-repeat;
+  transition: filter 180ms ease;
+}
+
+.ac4-flap.is-active .ac4-flap__paint {
+  filter: brightness(1.16);
+}
+
+/* Arrow clickable surface */
+.ac4-arrow {
+  cursor: pointer;
+  z-index: 3;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), filter 180ms ease;
+}
+
+.ac4-arrow:focus-visible {
+  outline: 2px solid #0f172a;
+  outline-offset: 4px;
+  border-radius: 10px;
+  z-index: 8;
+}
+
+.ac4-arrow:is(:hover, .is-active) {
+  transform: scale(1.04);
+  filter: drop-shadow(0 8px 16px var(--ac4-glow)) brightness(1.06);
+  z-index: 7;
+}
+
+.ac4-arrow.is-selected {
+  transform: scale(1.055);
+  filter: drop-shadow(0 10px 20px var(--ac4-glow)) brightness(1.09);
+  z-index: 8;
+}
+
+.ac4-arrow__rim {
+  position: absolute;
+  inset: 0;
+  background: var(--ac4-rim);
+  -webkit-mask: var(--ac4-mask-rim) center / 100% 100% no-repeat;
+  mask: var(--ac4-mask-rim) center / 100% 100% no-repeat;
+}
+
+.ac4-arrow__face {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--ac4-face-light) 0%, var(--ac4-face-dark) 100%);
+  -webkit-mask: var(--ac4-mask-face) center / 100% 100% no-repeat;
+  mask: var(--ac4-mask-face) center / 100% 100% no-repeat;
+}
+
+/* Upright / Tilted Serif Letters A, B, C, D matching shaft axes */
+.ac4-arrow__letter {
+  position: absolute;
+  z-index: 4;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(22px, 7.6cqw, 44px);
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(15, 23, 42, 0.25);
+  pointer-events: none;
+}
+
+.ac4-arrow--a .ac4-arrow__letter {
+  left: 48%;
+  top: 29%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.ac4-arrow--b .ac4-arrow__letter {
+  left: 71%;
+  top: 48%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.ac4-arrow--c .ac4-arrow__letter {
+  left: 52%;
+  top: 71%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.ac4-arrow--d .ac4-arrow__letter {
+  left: 29%;
+  top: 52%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.ac4-ring-sheen {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 34%, rgba(255, 255, 255, 0.14) 0%, transparent 62%);
+  opacity: 0.78;
+}
+
+/* ==========================================================================
+   4 Corner Captions (Top-Left, Top-Right, Bottom-Right, Bottom-Left)
+   ========================================================================== */
+
+.ac4-captions {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.ac4-caption {
+  position: absolute;
+  width: clamp(240px, 24vw, 320px);
+  min-height: 76px;
+  padding: 12px 16px;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+  font: inherit;
+  color: #1e293b;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: background-color 180ms ease, border-color 180ms ease, transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ac4-caption--top-left {
+  left: 0;
+  top: 6%;
+  text-align: right;
+  align-items: flex-end;
+}
+
+.ac4-caption--bottom-left {
+  left: 0;
+  bottom: 6%;
+  text-align: right;
+  align-items: flex-end;
+}
+
+.ac4-caption--top-right {
+  right: 0;
+  top: 6%;
+  text-align: left;
+  align-items: flex-start;
+}
+
+.ac4-caption--bottom-right {
+  right: 0;
+  bottom: 6%;
+  text-align: left;
+  align-items: flex-start;
+}
+
+.ac4-caption:is(:hover, .is-active) {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+  transform: translateY(-2px);
+}
+
+.ac4-caption.is-selected {
+  background: #f1f5f9;
+  border-color: var(--ac4-face-dark);
+  box-shadow: 0 10px 24px -10px var(--ac4-glow);
+}
+
+.ac4-caption:focus-visible {
+  outline: 2px solid var(--ac4-face-dark);
+  outline-offset: 2px;
+}
+
+.ac4-caption__header {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ac4-caption--top-left .ac4-caption__header,
+.ac4-caption--bottom-left .ac4-caption__header {
+  flex-direction: row-reverse;
+}
+
+.ac4-caption__icon {
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--ac4-face-dark) 14%, transparent);
+  color: var(--ac4-face-dark);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.ac4-caption__title {
+  font-size: clamp(16px, 1.3vw, 20px);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #0f172a;
+}
+
+.ac4-caption__desc {
+  font-size: clamp(13.5px, 1vw, 15px);
+  line-height: 1.46;
+  color: #475569;
+  overflow-wrap: anywhere;
+}
+
+/* ==========================================================================
+   Responsive Stacking (<= 1060px)
+   ========================================================================== */
+
+@media (max-width: 1060px) {
+  .ac4-module {
+    min-height: auto;
+    padding: 28px 16px 36px;
+  }
+
+  .ac4-layout {
+    min-height: auto;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .ac4-ring {
+    width: min(100%, 420px);
+  }
+
+  .ac4-captions {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    width: 100%;
+    pointer-events: auto;
+  }
+
+  .ac4-caption {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    width: 100%;
+    text-align: left;
+    align-items: flex-start;
+    border-color: #e2e8f0;
+    background: #ffffff;
+  }
+
+  .ac4-caption--top-left .ac4-caption__header,
+  .ac4-caption--bottom-left .ac4-caption__header {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 600px) {
+  .ac4-ring {
+    width: min(100%, 320px);
+  }
+
+  .ac4-captions {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ac4-flap__paint,
+  .ac4-arrow,
+  .ac4-caption {
+    transition: none !important;
+  }
+}

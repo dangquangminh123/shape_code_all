@@ -19,3 +19,17 @@ export { default as Ec4EcologyPlant } from './ec4-ecology-plant/Ec4EcologyPlant'
 export * from './ec4-ecology-plant/ec4-ecology-plant.config';
 export { default as Tp5TrophyTiers } from './tp5-trophy-tiers/Tp5TrophyTiers';
 export * from './tp5-trophy-tiers/tp5-trophy-tiers.config';
+export { default as Lb6LightbulbIdeas } from './lb6-lightbulb-ideas/Lb6LightbulbIdeas';
+export * from './lb6-lightbulb-ideas/lb6-lightbulb-ideas.config';
+export { default as Ab4ArcBulb } from './ab4-arc-bulb/Ab4ArcBulb';
+export * from './ab4-arc-bulb/ab4-arc-bulb.config';
+export { default as Ac4ArrowCycle } from './ac4-arrow-cycle/Ac4ArrowCycle';
+export * from './ac4-arrow-cycle/ac4-arrow-cycle.config';
+export { default as Km6KnowledgeRings } from './km6-knowledge-rings/Km6KnowledgeRings';
+export * from './km6-knowledge-rings/km6-knowledge-rings.config';
+export { default as Cs6SlantedPillars } from './cs6-slanted-pillars/Cs6SlantedPillars';
+export * from './cs6-slanted-pillars/cs6-slanted-pillars.config';
+export { default as Co3CubeOptions } from './co3-cube-options/Co3CubeOptions';
+export * from './co3-cube-options/co3-cube-options.config';
+export { default as Kc3KnowledgeCapture } from './kc3-knowledge-capture/Kc3KnowledgeCapture';
+export * from './kc3-knowledge-capture/kc3-knowledge-capture.config';

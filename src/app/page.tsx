@@ -23,6 +23,13 @@ import Ss5StudySkills from '@/components/shapes/ss5-study-skills/Ss5StudySkills'
 import Dt4DualTubes from '@/components/shapes/dt4-dual-tubes/Dt4DualTubes';
 import Ec4EcologyPlant from '@/components/shapes/ec4-ecology-plant/Ec4EcologyPlant';
 import Tp5TrophyTiers from '@/components/shapes/tp5-trophy-tiers/Tp5TrophyTiers';
+import Lb6LightbulbIdeas from '@/components/shapes/lb6-lightbulb-ideas/Lb6LightbulbIdeas';
+import Ab4ArcBulb from '@/components/shapes/ab4-arc-bulb/Ab4ArcBulb';
+import Ac4ArrowCycle from '@/components/shapes/ac4-arrow-cycle/Ac4ArrowCycle';
+import Km6KnowledgeRings from '@/components/shapes/km6-knowledge-rings/Km6KnowledgeRings';
+import Cs6SlantedPillars from '@/components/shapes/cs6-slanted-pillars/Cs6SlantedPillars';
+import Co3CubeOptions from '@/components/shapes/co3-cube-options/Co3CubeOptions';
+import Kc3KnowledgeCapture from '@/components/shapes/kc3-knowledge-capture/Kc3KnowledgeCapture';
 
 export default function HomePage() {
   return (
@@ -52,6 +59,13 @@ export default function HomePage() {
       <Dt4DualTubes />
       <Ec4EcologyPlant />
       <Tp5TrophyTiers />
+      <Lb6LightbulbIdeas />
+      <Ab4ArcBulb />
+      <Ac4ArrowCycle />
+      <Km6KnowledgeRings />
+      <Cs6SlantedPillars />
+      <Co3CubeOptions />
+      <Kc3KnowledgeCapture />
     </>
   );
 }

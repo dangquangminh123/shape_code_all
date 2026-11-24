@@ -157,6 +157,56 @@
       track('.tp5-legend-item', 5, 'right', 380, 110, 580),
       track('.tp5-legend-icon', 5, 'pop', 520, 110, 480),
     ], idle('.tp5-cup-sheen', 1, 'light', 4600)),
+    recipe('lb6-lightbulb-ideas', '.lb6-module', 'Bulb base anchors, glass blooms, bolt sparks, 6 flanking pillars unfold', [
+      track('.lb6-bulb-base', 1, 'lb6-base-anchor', 0, 0, 560),
+      track('.lb6-bulb-head', 1, 'lb6-bulb-bloom', 110, 0, 680),
+      track('.lb6-bolt', 1, 'lb6-bolt-spark', 320, 0, 620),
+      track('.lb6-item--left', 3, 'left', 260, 120, 580),
+      track('.lb6-item--right', 3, 'right', 260, 120, 580),
+      track('.lb6-badge', 6, 'pop', 400, 80, 480),
+    ], idle('.lb6-bolt', 1, 'light', 3400)),
+    recipe('ab4-arc-bulb', '.ab4-module', 'Bulb ignites with 9 radiating rays, arch sweeps overhead, 4 milestones pop outward', [
+      track('.ab4-bulb-base', 1, 'ab4-base-lock', 0, 0, 540),
+      track('.ab4-bulb-glass', 1, 'ab4-bulb-ignite', 90, 0, 640),
+      track('.ab4-bulb-filament', 1, 'pop', 220, 0, 520),
+      track('.ab4-bulb-rays', 1, 'ab4-rays-burst', 300, 0, 660),
+      track('.ab4-arc', 1, 'ab4-arc-sweep', 360, 0, 760),
+      track('.ab4-node', 4, 'pop', 480, 110, 520),
+      track('.ab4-caption', 4, 'ab4-caption-fan', 580, 110, 540),
+      track('.ab4-mobile-card', 4, 'dt4-mobile-enter', 0, 110, 560),
+    ], idle('.ab4-bulb-rays', 1, 'ab4-rays-pulse', 4200)),
+    recipe('ac4-arrow-cycle', '.ac4-module', 'Folded tabs tuck in, 4 cyclic arrows glide clockwise A-B-C-D, corner captions appear', [
+      track('.ac4-flap', 4, 'ac4-flap-tuck', 0, 110, 520),
+      track('.ac4-arrow', 4, 'ac4-arrow-glide', 120, 130, 620),
+      track('.ac4-arrow__letter', 4, 'pop', 320, 130, 460),
+      track('.ac4-caption', 4, 'ac4-corner-enter', 360, 110, 560),
+    ], idle('.ac4-ring-sheen', 1, 'light', 4400)),
+    recipe('km6-knowledge-rings', '.km6-module', 'Six 3-arrow rings swirl clockwise around hexagon, numbers stamp upright, 6 pillars reveal', [
+      track('.km6-ring', 6, 'km6-ring-bloom', 0, 95, 620),
+      track('.km6-ring__body', 6, 'km6-ring-swirl', 40, 95, 680),
+      track('.km6-ring__rim', 6, 'km6-ring-swirl', 40, 95, 680),
+      track('.km6-ring__num', 6, 'pop', 260, 95, 460),
+      track('.km6-caption--right', 3, 'right', 300, 110, 560),
+      track('.km6-caption--left', 3, 'left', 300, 110, 560),
+      track('.km6-caption__icon', 6, 'pop', 440, 75, 460),
+    ], idle('.km6-hex-sheen', 1, 'light', 4600)),
+    recipe('cs6-slanted-pillars', '.cs6-module', 'Six slanted 3D pillars glide into accordion alignment with dark fold wings and checkmark columns', [
+      track('.cs6-bar', 6, 'cs6-bar-unfurl', 0, 95, 620),
+      track('.cs6-wing', 5, 'cs6-wing-fold', 140, 95, 560),
+      track('.cs6-detail', 6, 'up', 280, 85, 540),
+      track('.cs6-detail__icon', 6, 'pop', 420, 85, 460),
+    ], idle('.cs6-ribbon-sheen', 1, 'light', 4500)),
+    recipe('co3-cube-options', '.co3-module', 'Bottom-up 3D cubes land in place, stepped arrow banners shoot right, icons pop', [
+      track('.co3-cube', 3, 'co3-cube-drop', 0, 140, 560, true),
+      track('.co3-banner', 3, 'co3-banner-shoot', 160, 140, 620, true),
+      track('.co3-banner__icon', 3, 'pop', 380, 140, 460, true),
+    ], idle('.co3-stack-sheen', 1, 'light', 4500)),
+    recipe('kc3-knowledge-capture', '.kc3-module', 'Diamond caps crown each column, double-rimmed chevron banners unfurl downward', [
+      track('.kc3-cap', 3, 'kc3-cap-drop', 0, 130, 580),
+      track('.kc3-body', 3, 'kc3-chevron-unfold', 160, 130, 680),
+      track('.kc3-cap__icon', 3, 'pop', 220, 130, 460),
+      track('.kc3-body__copy', 3, 'fade', 380, 130, 500),
+    ], idle('.kc3-grid-sheen', 1, 'light', 4600)),
   ];
 
   // Transform keyframes ADD to the live CSS/attribute transform, not a cached matrix.
@@ -240,6 +290,41 @@
       case 'tp5-pedestal-rise': return move('translateY(18px) scaleY(.92)', 'translateY(-2px) scaleY(1.015)');
       case 'tp5-band-stack': return move('translateY(-18px) scaleX(.94)', 'translateY(2px) scaleX(1.015)');
       case 'tp5-handles-open': return move('scaleX(.84) scaleY(.96)', 'scaleX(1.025) scaleY(1.005)');
+      // LB6 Lightbulb 6-Pillar Ideas (Shape 1)
+      case 'lb6-base-anchor': return move('translateY(18px) scaleY(.92)', 'translateY(-2px) scaleY(1.015)');
+      case 'lb6-bulb-bloom': return move('translateY(14px) scale(.92)', 'translateY(-2px) scale(1.02)');
+      case 'lb6-bolt-spark': return move('translateY(-16px) scale(.72)', 'scale(1.12)');
+      // AB4 Arc & Lightbulb Business Ideas (Shape 2)
+      case 'ab4-base-lock': return move('translateY(16px) scaleY(.92)', 'translateY(-2px) scaleY(1.015)');
+      case 'ab4-bulb-ignite': return move('scale(.88)', 'scale(1.03)');
+      case 'ab4-rays-burst': return move('scale(.76)', 'scale(1.06)');
+      case 'ab4-arc-sweep': return reveal('inset(0% 50% 0% 50%)');
+      case 'ab4-caption-fan': return move(`translateX(${index < 2 ? 14 : -14}px)`);
+      // AC4 4-Arrow Folded Cyclic Ribbon (Shape 5)
+      case 'ac4-flap-tuck': return move('scale(.82)');
+      case 'ac4-arrow-glide': {
+        const dirs = ['translate(-16px, 16px)', 'translate(-16px, -16px)', 'translate(16px, -16px)', 'translate(16px, 16px)'];
+        return move(`${dirs[index % 4]} scale(.92)`, 'scale(1.02)');
+      }
+      case 'ac4-corner-enter': {
+        const dx = index === 0 || index === 3 ? 16 : -16;
+        return move(`translateX(${dx}px)`);
+      }
+      // KM6 Knowledge Management 6 Rings (Shape 8)
+      case 'km6-ring-bloom': {
+        const dirs = ['translateY(16px)', 'translate(-14px, 10px)', 'translate(-14px, -10px)', 'translateY(-16px)', 'translate(14px, -10px)', 'translate(14px, 10px)'];
+        return move(`${dirs[index % 6]} scale(.88)`, 'scale(1.03)');
+      }
+      case 'km6-ring-swirl': return move('rotate(-36deg) scale(.9)', 'rotate(3deg) scale(1.015)');
+      // CS6 6 Slanted Accordion Pillars (Shape 10)
+      case 'cs6-bar-unfurl': return move('translate(16px, -22px) scale(.94)', 'translate(-2px, 3px) scale(1.015)');
+      case 'cs6-wing-fold': return move('scaleX(.72)', 'scaleX(1.02)');
+      // CO3 3 Cube Options (Shape 11)
+      case 'co3-cube-drop': return move('translateY(-18px) scale(.92)', 'translateY(3px) scale(1.015)');
+      case 'co3-banner-shoot': return reveal('inset(0% 100% 0% 0%)');
+      // KC3 3 Diamond-Cap Chevron Banners (Shape 12)
+      case 'kc3-cap-drop': return move('translateY(-22px) scale(.92)', 'translateY(3px) scale(1.015)');
+      case 'kc3-chevron-unfold': return reveal('inset(0% 0% 100% 0%)');
       // THREE_SHAPES_MOTION_V2 END.
       default: return [{ opacity: 0 }, { opacity: 1 }];
     }
@@ -259,6 +344,7 @@
       case 'ribbon-wave': return [{ transform: identity }, { transform: 'translateY(-2.5px) scale(1.03)', offset: .4 }, { transform: identity }];
       case 'turbine-breathe': return [{ transform: 'scale(1)', opacity: .9 }, { transform: 'scale(1.08)', opacity: 1, offset: .5 }, { transform: 'scale(1)', opacity: .9 }];
       case 'seam-gleam': return [{ transform: 'rotate(0deg)' }, { transform: 'rotate(10deg)', offset: .25 }, { transform: 'rotate(-10deg)', offset: .75 }, { transform: 'rotate(0deg)' }];
+      case 'ab4-rays-pulse': return [{ transform: identity, opacity: 1 }, { transform: 'scale(1.045)', opacity: .82, offset: .5 }, { transform: identity, opacity: 1 }];
       // THREE_SHAPES_MOTION_V2: very gentle highlight, no permanent movement.
       case 'halo-breathe': return [
         { filter: 'brightness(1)', offset: 0 },
