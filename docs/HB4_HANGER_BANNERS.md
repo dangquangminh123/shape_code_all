@@ -81,7 +81,7 @@ Sửa `HB4_HEADING` và bốn phần tử `HB4_BANNERS` trong `hb4-hanger-banner
 | `colors.ink` | Màu tiêu đề và mô tả |
 | `colors.glow` | Ánh sáng quanh đĩa icon khi chọn |
 
-Nền toàn module, màu số, đĩa trắng và màu pictogram nằm trong CSS. Nên giữ tiêu đề ngắn và kiểm tra cả `description` lẫn `summary` sau khi sửa; khoảng trống phía trên đĩa icon là cố định. Bốn giá trị `icon` được hỗ trợ là `idea`, `gears`, `database`, `target`.
+Module có nền trong suốt; tiêu đề kế thừa màu chữ của trang chứa để hiển thị rõ trên nền trang hiện tại. Màu số, đĩa trắng và màu pictogram nằm trong CSS. Nên giữ tiêu đề ngắn và kiểm tra cả `description` lẫn `summary` sau khi sửa; khoảng trống phía trên đĩa icon là cố định. Bốn giá trị `icon` được hỗ trợ là `idea`, `gears`, `database`, `target`.
 
 Component nhận `className` và `masks?: { hanger?: string; banner?: string; medallion?: string }`. Nếu không truyền `masks`, đường dẫn mặc định lấy từ `HB4_ASSET_BASE` và `HB4_MASK_FILES`. Mask thay thế cần cùng tỉ lệ và hình học tương ứng để giữ bố cục. Thay số lượng cột cần cập nhật đồng thời config, geometry và số lượng selector trong recipe; module hiện tại được thiết kế cho đúng bốn cột.
 

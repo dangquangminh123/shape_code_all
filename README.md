@@ -32,7 +32,7 @@ npm run build
 ## HB4 — Bốn banner móc treo
 
 - Xem riêng: http://localhost:3210/shapes/hb4-hanger-banners. HB4 được nối sau KC3, là mẫu thứ **33** trên trang chủ.
-- Giữ bố cục bốn móc treo **thấp–cao–thấp–cao**, banner đáy tròn, số 01–04 và các icon đầu người/bóng đèn, hai bánh răng, dữ liệu, bia có mũi tên. Canvas triển khai **735 × 400**, tối đa rộng **1.320px**; nền than đậm và màu riêng cho từng cột.
+- Giữ bố cục bốn móc treo **thấp–cao–thấp–cao**, banner đáy tròn, số 01–04 và các icon đầu người/bóng đèn, hai bánh răng, dữ liệu, bia có mũi tên. Canvas triển khai **735 × 400**, tối đa rộng **1.320px**; nền trong suốt, tiêu đề kế thừa màu chữ của trang và màu riêng cho từng cột.
 - Component, CSS và cấu hình: `src/components/shapes/hb4-hanger-banners/`. Sửa nội dung và màu trong `hb4-hanger-banners.config.ts`; vị trí, kích thước và các lớp mask nằm trong `hb4-hanger-banners.css`.
 - Hai SVG được giữ nguyên byte trong `public/assets/shapes/hb4-hanger-banners/originals/`. Ba mask dùng lại path/circle gốc: móc treo từ `shape 2.svg`, thân banner và đĩa icon từ `shape 1.svg`. Thân được xoay −90° rồi cắt phần chữ nhật dư để giữ đáy tròn; `manifest.json` ghi nguồn, phép biến đổi và SHA-256. Tái tạo bằng `node scripts/generate_hb4_assets.mjs` từ thư mục gốc repo.
 - Hoạt cảnh riêng: cả cụm móc/banner đung đưa quanh điểm treo, thân mở từ trên xuống, chữ hiện dần và icon vào sau; khi nghỉ chỉ một cụm đung đưa nhẹ. Dùng engine WAAPI hiện có, cùng cơ chế pause/resume, dừng ngoài màn hình và reduced motion.
