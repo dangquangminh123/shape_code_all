@@ -128,6 +128,81 @@ Chi tiết nguồn SVG, geometry, responsive và thao tác bàn phím nằm tron
 [tài liệu HB4](HB4_HANGER_BANNERS.md). Các script lịch sử hardcode 17 mẫu cần
 được đối chiếu phạm vi trước khi dùng; phần này không khẳng định các script đó đã kiểm tra HB4.
 
+## CS5 — Năm ống trụ với đai số so le
+
+Recipe `cs5-cylinder-steps` dùng root `.cs5-module` tại
+`/shapes/cs5-cylinder-steps`. Hoạt cảnh đi theo cấu tạo của năm hàng ống:
+nét nối từ callout bên trái được vẽ ra, thân ống mở sang phải, đai trong mờ
+trượt tới vị trí so le của từng hàng, rồi số rõ dần và icon nhấn nhẹ.
+Callout, chữ và vùng bấm của cả hàng giữ nguyên tọa độ.
+
+| Selector | Số phần tử | Delay đầu hàng | Stagger giữa hàng | Thời lượng | Hiệu ứng |
+| --- | --- | --- | --- | --- | --- |
+| `.cs5-connector-line` | 5 | 0ms | 130ms | 240ms | Mở nét nối từ trái sang phải |
+| `.cs5-cylinder` | 5 | 240ms | 130ms | 520ms | Mở toàn bộ thân ống từ trái sang phải |
+| `.cs5-sleeve` | 5 | 780ms | 130ms | 540ms | Trượt đai và số cùng nhau tới vị trí CSS cuối |
+| `.cs5-number` | 5 | 1.320ms | 130ms | 280ms | Hiện số, giảm blur từ 1px về 0 |
+| `.cs5-icon` | 5 | 1.420ms | 130ms | 280ms | Nhấn tỉ lệ 1 → 1,06 → 1, tăng độ rõ |
+
+Với mỗi hàng, phần mở ống kết thúc tại **760ms**, trước khi đai bắt đầu
+trượt tại **780ms**. Thứ tự này cần được giữ vì `.cs5-sleeve` nằm trong
+`.cs5-cylinder`: clip của ống không được cắt mất đai đang di chuyển.
+Đai về đúng chỗ tại 1.320ms trước khi số hiện rõ. Toàn bộ năm hàng hoàn tất
+sau khoảng **2.220ms** nếu không bị pause.
+
+`.cs5-sleeve` chứa các lớp mặt đai, viền và số. CSS đặt nhóm ở tọa độ cuối,
+đồng thời cung cấp `--cs5-sleeve-travel` là khoảng cách dương, có đơn vị
+`px` hoặc `em`, từ điểm xuất phát bên trái tới vị trí đó. Keyframe đầu là
+`translateX(calc(-1 * var(--cs5-sleeve-travel, 0px)))`; keyframe cuối là
+transform trung tính. Dùng `em` theo font của artboard giúp quãng trượt đổi
+tỉ lệ cùng hình. Không dùng phần trăm nếu muốn đo khoảng cách theo thân
+ống, vì phần trăm trong `translateX` được tính theo chính chiều rộng đai.
+Engine không ghi lại `left`, style hay transform tĩnh sau chuyển động.
+
+Nét nối và ống dùng clip reveal trên wrapper không có `clip-path` tĩnh;
+mask hình học nằm ở các lớp con. Nếu wrapper đã có `clip-path`, engine giữ
+nguyên clip đó và chỉ chạy phần opacity để bảo toàn hình gốc. `.cs5-card`
+và `.cs5-callout` không có track chuyển vị. Vùng bấm luôn bám hàng ở vị trí
+tĩnh; chỉ đai trang trí cùng số được dịch bên trong ống.
+
+### Vệt sáng khi nghỉ
+
+Idle dùng selector `.cs5-sleeve-glint`, dự kiến có **5** phần tử nhưng engine
+chỉ chạy trên **một** phần tử đầu tiên có layout. Chu kỳ **6.200ms** có một
+lần quét sáng ngắn; phần lớn thời gian không chuyển động nhìn thấy. Không
+xoay hay đung đưa ống.
+
+Glint là dải nền trắng có alpha thấp, đặt `left: -35%`, `width: 25%`, cao
+bằng đai trong một wrapper có mask/overflow để giữ ánh sáng bên trong.
+Đặt **`opacity: 1`** trong CSS: engine nhân opacity keyframe với opacity
+gốc, nên `opacity: 0` sẽ làm vệt sáng luôn vô hình. Vị trí nằm ngoài wrapper
+giữ trạng thái tĩnh không có vệt sáng khi JavaScript hoặc chuyển động bị tắt.
+
+Keyframe chờ tới 56% chu kỳ, đi từ `translateX(0%)` qua `translateX(280%)`
+ở 72%, rồi `translateX(560%)` ở 88%; opacity lần lượt là `0 → 0,55 → 0`.
+Đầu và cuối chu kỳ đều ở ngoài vùng clip, nên lần lặp không tạo bước nhảy
+nhìn thấy. Không đặt glint chung với số hoặc cả mặt đai để tránh làm mờ
+nội dung khi hiệu ứng thay đổi opacity.
+
+CS5 dùng nguyên cơ chế pause/resume, offscreen/reentry, tab ẩn, unmount và
+`prefers-reduced-motion` của engine. Transform dùng `composite: add`, các
+effect kết thúc được hủy, không thêm timer hay thay đổi tài nguyên SVG.
+Reduced motion trả về hình tĩnh đầy đủ, còn hover/focus của component do
+CSS xử lý độc lập.
+
+```js
+window.__shapeAutoMotion?.status().find(item => item.id === 'cs5-cylinder-steps')
+window.__shapeAutoMotion?.replay('cs5-cylinder-steps')
+window.__shapeAutoMotion?.pause()
+window.__shapeAutoMotion?.resume()
+```
+
+Khi kiểm tra tích hợp, đối chiếu đủ năm phần tử của mỗi selector, đai bắt
+đầu bên trái và kết thúc đúng tọa độ ở mọi chiều rộng, số đi cùng đai,
+idle chỉ có một vệt sáng, và không còn animation sau khi rời viewport hoặc
+bật reduced motion. Những hướng dẫn và số lượng 17 mẫu trong tài liệu cũ
+không phải báo cáo kiểm thử cho CS5.
+
 
 ## Lifecycle and safety contract
 

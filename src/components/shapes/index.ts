@@ -36,3 +36,6 @@ export * from './kc3-knowledge-capture/kc3-knowledge-capture.config';
 export { default as Hb4HangerBanners } from './hb4-hanger-banners/Hb4HangerBanners';
 export type { Hb4HangerBannersProps } from './hb4-hanger-banners/Hb4HangerBanners';
 export * from './hb4-hanger-banners/hb4-hanger-banners.config';
+export { default as Cs5CylinderSteps } from './cs5-cylinder-steps/Cs5CylinderSteps';
+export type { Cs5CylinderStepsProps } from './cs5-cylinder-steps/Cs5CylinderSteps';
+export * from './cs5-cylinder-steps/cs5-cylinder-steps.config';

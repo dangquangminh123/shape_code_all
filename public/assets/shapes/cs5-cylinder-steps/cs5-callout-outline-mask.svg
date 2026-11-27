@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 207 66" preserveAspectRatio="none">
+<defs>
+<path id="cs5-callout-source" d="M3079.8,1944.5H741.6c-258.9,0-481-157.4-575.9-381.7c-31.6-74.8-49.1-157-49.1-243.3c0-345.2,279.8-625,625-625h2338.2
+		c38.2,0,75.5,3.4,111.8,10c-203.2,52.7-357.4,308-357.4,615c0,307,154.2,562.3,357.4,615C3155.3,1941,3118,1944.5,3079.8,1944.5z" fill="none" stroke="#000" stroke-width="26.162790698" stroke-linejoin="round"/>
+<clipPath id="cs5-callout-clip-0" clipPathUnits="userSpaceOnUse"><rect x="-0.25" y="-1" width="35.25" height="68"/></clipPath>
+<clipPath id="cs5-callout-clip-1" clipPathUnits="userSpaceOnUse"><rect x="33" y="-1" width="159" height="68"/></clipPath>
+<clipPath id="cs5-callout-clip-2" clipPathUnits="userSpaceOnUse"><rect x="190" y="-1" width="17.25" height="68"/></clipPath>
+</defs>
+<g clip-path="url(#cs5-callout-clip-0)"><use href="#cs5-callout-source" transform="matrix(0.0516 0 0 0.0516 -5.26656 -35.0862)"/></g>
+<g clip-path="url(#cs5-callout-clip-1)"><use href="#cs5-callout-source" transform="matrix(0.075982032 0 0 0.0516 -23.348274873 -35.0862)"/></g>
+<g clip-path="url(#cs5-callout-clip-2)"><use href="#cs5-callout-source" transform="matrix(0.039871293 0 0 0.0516 78.996782317 -35.0862)"/></g>
+</svg>

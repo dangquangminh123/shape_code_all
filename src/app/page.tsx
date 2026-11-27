@@ -31,6 +31,7 @@ import Cs6SlantedPillars from '@/components/shapes/cs6-slanted-pillars/Cs6Slante
 import Co3CubeOptions from '@/components/shapes/co3-cube-options/Co3CubeOptions';
 import Kc3KnowledgeCapture from '@/components/shapes/kc3-knowledge-capture/Kc3KnowledgeCapture';
 import Hb4HangerBanners from '@/components/shapes/hb4-hanger-banners/Hb4HangerBanners';
+import Cs5CylinderSteps from '@/components/shapes/cs5-cylinder-steps/Cs5CylinderSteps';
 
 export default function HomePage() {
   return (
@@ -68,6 +69,7 @@ export default function HomePage() {
       <Co3CubeOptions />
       <Kc3KnowledgeCapture />
       <Hb4HangerBanners />
+      <Cs5CylinderSteps />
     </>
   );
 }

@@ -644,6 +644,28 @@ export const SHAPE_TEMPLATES_REGISTRY: ShapeTemplateMeta[] = [
     ],
   },
   {
+    id: 'cs5-cylinder-steps',
+    prefix: 'cs5',
+    name: 'CS5 — Cylinder Steps',
+    vietnameseTitle: 'Năm thanh trụ ngang với dải số trong suốt so le',
+    description:
+      'Năm khung chú thích lõm nối với thanh trụ gradient, mặt elip hẹp và dải số dịch dần sang phải; tái sử dụng hai SVG gốc, nền trong suốt và hoạt cảnh trượt đai riêng.',
+    status: 'ready',
+    route: '/shapes/cs5-cylinder-steps',
+    publicSvgFolder: 'public/assets/shapes/cs5-cylinder-steps/',
+    componentSourceFolder: 'src/components/shapes/cs5-cylinder-steps/',
+    assets: [
+      { role: 'Thân trụ và mặt elip phải', level: 1, prefixedFileName: 'cs5-cylinder-body-mask.svg', dimensions: 'viewBox: 0 0 280 54', description: 'Thân và cap tách từ path/ellipse của shape 1(1).svg; chia lát để giữ đầu tròn hẹp khi kéo dài thân thẳng.' },
+      { role: 'Mặt elip phải', level: 2, prefixedFileName: 'cs5-cylinder-cap-mask.svg', dimensions: 'viewBox: 0 0 280 54', description: 'Ellipse gốc đặt trong cùng hệ tọa độ với thân, rộng 12px ở đầu phải.' },
+      { role: 'Khung chú thích viền mảnh', level: 3, prefixedFileName: 'cs5-callout-outline-mask.svg', dimensions: 'viewBox: 0 0 207 66', description: 'Path của shape 2(1).svg chuyển thành outline; bên trong trong suốt, đầu trái tròn và mép phải lõm.' },
+      { role: 'Đường nối', level: 4, prefixedFileName: 'cs5-connector-line-mask.svg', dimensions: 'viewBox: 0 0 36 1.4', description: 'Rect gốc của shape 2(1).svg, căn giữa từng hàng.' },
+      { role: 'Vòng tròn cuối đường nối', level: 5, prefixedFileName: 'cs5-connector-dot-mask.svg', dimensions: 'viewBox: 0 0 7 7', description: 'Ellipse gốc của shape 2(1).svg chuẩn hóa thành vòng rỗng.' },
+      { role: 'Dải số trong suốt', level: 6, prefixedFileName: 'cs5-sleeve-mask.svg', dimensions: 'viewBox: 0 0 101 54', description: 'Dải cong lấy từ path nguồn, CSS vẽ gradient bán trong suốt và giữ số trong cùng lớp chuyển động.' },
+      { role: 'Viền sáng dải số', level: 7, prefixedFileName: 'cs5-sleeve-rim-mask.svg', dimensions: 'viewBox: 0 0 101 54', description: 'Viền cong tách lớp làm rõ hiệu ứng dải quấn quanh thanh trụ.' },
+      { role: 'Silhouette toàn trụ', level: 8, prefixedFileName: 'cs5-cylinder-full-mask.svg', dimensions: 'viewBox: 0 0 280 54', description: 'Path thân và ellipse cap cùng hệ tọa độ; giới hạn dải số/ánh sáng bên trong biên trụ khi chuyển động.' },
+    ],
+  },
+  {
     id: 'phase-shape-demo',
     prefix: 'psd',
     name: 'Phase Shape Demo',

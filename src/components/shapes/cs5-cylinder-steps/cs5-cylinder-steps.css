@@ -1,0 +1,332 @@
+/* CS5 — 602 × 612 reference. Every row retains its callout, connector and cylinder.
+   SVG slices preserve endpoint curves while CSS supplies independent color layers. */
+.cs5-module,
+.cs5-module *,
+.cs5-module *::before,
+.cs5-module *::after { box-sizing: border-box; }
+
+.cs5-module {
+  width: 100%;
+  min-width: 0;
+  isolation: isolate;
+  background: transparent;
+  color: inherit;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+.cs5-artwork {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  height: 0;
+  padding-bottom: min(101.66113%, 1118.272425px);
+  margin-inline: auto;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: min(1.66113vw, 18.272425px);
+  line-height: 1.35;
+}
+
+.cs5-heading {
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  top: 8.986928%; /* 55 / 612 */
+  text-align: center;
+}
+
+.cs5-heading-title {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .3em;
+  margin: 0;
+  color: inherit;
+  font-size: 1.3em;
+  line-height: 1.4;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.cs5-heading-title strong { font-weight: 700; }
+
+.cs5-heading-dot {
+  flex: 0 0 auto;
+  width: .64em;
+  height: .64em;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #ffe000 0%, #f38a00 42%, #c80078 100%);
+}
+
+.cs5-heading-description {
+  width: 52%;
+  margin: .28em auto 0;
+  padding-top: .5em;
+  border-top: 1px solid currentColor;
+  font-size: .78em;
+  line-height: 1.45;
+  opacity: .75;
+}
+
+.cs5-steps {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.cs5-item {
+  position: absolute;
+  left: 6.810631%; /* 41 / 602 */
+  width: 86.212625%; /* 519 / 602 */
+  height: 10.784314%; /* 66 / 612 */
+}
+
+.cs5-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: .35em;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Extend the invisible hit area into the row gap, preserving all visual geometry. */
+.cs5-card::before { content: ''; position: absolute; inset: max(-6px, -1.1em) 0; }
+.cs5-card > span { pointer-events: none; }
+.cs5-card:focus-visible { outline: max(2px, .12em) solid var(--cs5-accent); outline-offset: .45em; }
+
+.cs5-callout {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 39.884393%; /* 207 / 519 */
+  height: 100%;
+}
+
+.cs5-callout-outline {
+  position: absolute;
+  inset: 0;
+  background: var(--cs5-accent);
+  -webkit-mask: var(--cs5-mask-callout) center / 100% 100% no-repeat;
+  mask: var(--cs5-mask-callout) center / 100% 100% no-repeat;
+  transition: filter 180ms ease;
+}
+
+.cs5-icon {
+  position: absolute;
+  left: 6.280193%; /* 13 / 207 */
+  top: 24.242424%; /* 16 / 66 */
+  display: grid;
+  place-items: center;
+  width: 16.425121%; /* 34 / 207 */
+  height: 51.515152%; /* 34 / 66 */
+  color: var(--cs5-accent);
+  transform-origin: 50% 50%;
+}
+
+.cs5-pictogram { display: block; width: 100%; height: 100%; overflow: visible; }
+.cs5-pictogram--tap { height: 118%; }
+.cs5-pictogram--growth { width: 83%; height: 72%; }
+.cs5-icon--growth::after {
+  content: '';
+  position: absolute;
+  left: 8.5%;
+  right: 8.5%;
+  bottom: 9%;
+  height: .13em;
+  background: currentColor;
+}
+
+.cs5-copy {
+  position: absolute;
+  left: 31.884058%; /* 66 / 207; x = 107 in the artwork */
+  top: 13.636364%; /* 9 / 66 */
+  width: 54.10628%; /* 112 / 207 */
+  color: inherit;
+}
+
+.cs5-title {
+  display: block;
+  margin-bottom: .25em;
+  font-size: .94em;
+  line-height: 1.2;
+  font-weight: 650;
+}
+
+.cs5-description,
+.cs5-summary {
+  display: block;
+  font-size: .78em;
+  line-height: 1.38;
+  font-weight: 400;
+  overflow-wrap: break-word;
+}
+.cs5-summary { display: none; }
+
+.cs5-connector {
+  position: absolute;
+  left: 36.99422%; /* 192 / 519; starts at the callout's concavity */
+  top: 50%;
+  width: 6.936416%; /* 36 / 519 */
+  height: 0;
+  color: var(--cs5-accent);
+}
+
+.cs5-connector-line {
+  position: absolute;
+  top: -.07em;
+  left: 0;
+  width: calc(100% - .35em);
+  height: .14em;
+  background: currentColor;
+  -webkit-mask: var(--cs5-mask-line) center / 100% 100% no-repeat;
+  mask: var(--cs5-mask-line) center / 100% 100% no-repeat;
+  transform-origin: 0 50%;
+}
+
+.cs5-connector-dot {
+  position: absolute;
+  left: calc(100% - .35em);
+  top: -.35em;
+  width: .7em;
+  height: .7em;
+  background: currentColor;
+  -webkit-mask: var(--cs5-mask-dot) center / 100% 100% no-repeat;
+  mask: var(--cs5-mask-dot) center / 100% 100% no-repeat;
+}
+
+.cs5-cylinder {
+  position: absolute;
+  left: 46.050096%; /* 239 / 519; x = 280 in the artwork */
+  top: 10.606061%; /* 7 / 66 */
+  width: 53.949904%; /* 280 / 519 */
+  height: 81.818182%; /* 54 / 66 */
+  transform-origin: 0 50%;
+  -webkit-mask: var(--cs5-mask-cylinder) center / 100% 100% no-repeat;
+  mask: var(--cs5-mask-cylinder) center / 100% 100% no-repeat;
+}
+
+.cs5-cylinder-body,
+.cs5-cylinder-cap,
+.cs5-sleeve-paint,
+.cs5-sleeve-rim,
+.cs5-sleeve-glint-clip { position: absolute; inset: 0; }
+
+.cs5-cylinder-body {
+  background: linear-gradient(180deg, var(--cs5-top) 0%, var(--cs5-middle) 45%, var(--cs5-bottom) 100%);
+  -webkit-mask: var(--cs5-mask-body) center / 100% 100% no-repeat;
+  mask: var(--cs5-mask-body) center / 100% 100% no-repeat;
+  transition: filter 180ms ease;
+}
+
+.cs5-cylinder-cap {
+  background: var(--cs5-cap);
+  -webkit-mask: var(--cs5-mask-cap) center / 100% 100% no-repeat;
+  mask: var(--cs5-mask-cap) center / 100% 100% no-repeat;
+}
+
+.cs5-sleeve {
+  position: absolute;
+  left: var(--cs5-sleeve-left);
+  top: 0;
+  width: 36.071429%; /* 101 / 280 */
+  height: 100%;
+  transform-origin: 50% 50%;
+}
+
+.cs5-sleeve-paint {
+  background: linear-gradient(180deg,
+    rgba(255, 255, 255, .7) 0%, rgba(255, 255, 255, .4) 12%,
+    rgba(255, 255, 255, .18) 40%, rgba(255, 255, 255, .14) 52%,
+    rgba(255, 255, 255, .38) 86%, rgba(255, 255, 255, .64) 100%);
+  -webkit-mask: var(--cs5-mask-sleeve) center / 100% 100% no-repeat;
+  mask: var(--cs5-mask-sleeve) center / 100% 100% no-repeat;
+}
+
+.cs5-sleeve-rim {
+  background: linear-gradient(180deg, rgba(255, 255, 255, .8), rgba(255, 255, 255, .22) 50%, rgba(255, 255, 255, .66));
+  -webkit-mask: var(--cs5-mask-sleeve-rim) center / 100% 100% no-repeat;
+  mask: var(--cs5-mask-sleeve-rim) center / 100% 100% no-repeat;
+}
+
+.cs5-sleeve-glint-clip {
+  overflow: hidden;
+  -webkit-mask: var(--cs5-mask-sleeve) center / 100% 100% no-repeat;
+  mask: var(--cs5-mask-sleeve) center / 100% 100% no-repeat;
+}
+
+.cs5-sleeve-glint {
+  position: absolute;
+  left: -35%;
+  top: 0;
+  width: 25%;
+  height: 100%;
+  opacity: 1;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, .52), transparent);
+}
+
+.cs5-number {
+  position: absolute;
+  inset: 0 8% 0 5%;
+  display: grid;
+  place-items: center;
+  color: var(--cs5-number-ink);
+  font-size: 3.35em;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -.055em;
+  font-variant-numeric: tabular-nums;
+  -webkit-text-stroke: .025em rgba(255, 255, 255, .38);
+  paint-order: stroke fill;
+  text-shadow: 0 .035em .025em rgba(0, 0, 0, .14);
+}
+
+.cs5-card.is-selected .cs5-title { text-decoration: underline; text-underline-offset: .2em; }
+.cs5-card.is-selected .cs5-cylinder-body { filter: saturate(1.12) brightness(1.04); }
+.cs5-card.is-selected .cs5-callout-outline { filter: brightness(.85); }
+
+@media (hover: hover) and (pointer: fine) {
+  .cs5-card:hover .cs5-cylinder-body { filter: brightness(1.07); }
+  .cs5-card:hover .cs5-title { text-decoration: underline; text-underline-offset: .2em; }
+}
+
+/* Retain all five horizontal rows on phones; concise copy fits the same callout. */
+@media (max-width: 600px) {
+  .cs5-copy { top: 12%; }
+  .cs5-title { font-size: max(.94em, 8px); margin-bottom: .2em; }
+  .cs5-description { display: none; }
+  .cs5-summary { display: block; font-size: max(.78em, 7px); line-height: 1.28; }
+  .cs5-heading-title { font-size: max(1.3em, 9px); }
+  .cs5-heading-description { font-size: max(.78em, 6px); }
+}
+
+@supports (container-type: inline-size) {
+  .cs5-module { container-type: inline-size; container-name: cs5; }
+  .cs5-artwork { font-size: min(1.66113cqw, 18.272425px); }
+
+  @container cs5 (max-width: 600px) {
+    .cs5-copy { top: 12%; }
+    .cs5-title { font-size: max(.94em, 8px); margin-bottom: .2em; }
+    .cs5-description { display: none; }
+    .cs5-summary { display: block; font-size: max(.78em, 7px); line-height: 1.28; }
+    .cs5-heading-title { font-size: max(1.3em, 9px); }
+    .cs5-heading-description { font-size: max(.78em, 6px); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs5-callout-outline,
+  .cs5-cylinder-body { transition: none; }
+}

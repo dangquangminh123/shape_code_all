@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 54" preserveAspectRatio="none">
+<defs>
+<path id="cs5-cylinder-source" d="M3459.4,1899.6c-38.2,6.9-77.6,10.5-117.8,10.5H878.5c-272.7,0-506.7-165.8-606.6-402.1c-33.3-78.8-51.7-165.4-51.7-256.3
+		c0-363.6,294.8-658.4,658.4-658.4h2463.1c40.2,0,79.6,3.6,117.8,10.5c-214.1,55.5-376.5,324.5-376.5,647.9
+		C3083,1575.1,3245.4,1844,3459.4,1899.6z"/>
+<clipPath id="cs5-cylinder-clip-0" clipPathUnits="userSpaceOnUse"><rect x="-1" y="-1" width="21" height="56"/></clipPath>
+<clipPath id="cs5-cylinder-clip-1" clipPathUnits="userSpaceOnUse"><rect x="18" y="-1" width="250" height="56"/></clipPath>
+<clipPath id="cs5-cylinder-clip-2" clipPathUnits="userSpaceOnUse"><rect x="266" y="-1" width="15" height="56"/></clipPath>
+</defs>
+<g clip-path="url(#cs5-cylinder-clip-0)"><use href="#cs5-cylinder-source" transform="matrix(0.027339004 0 0 0.040902894 -6.020048603 -24.128616876)"/></g>
+<g clip-path="url(#cs5-cylinder-clip-1)"><use href="#cs5-cylinder-source" transform="matrix(0.113414689 0 0 0.040902894 -81.646146169 -24.128616876)"/></g>
+<g clip-path="url(#cs5-cylinder-clip-2)"><use href="#cs5-cylinder-source" transform="matrix(0.019175455 0 0 0.040902894 208.883988495 -24.128616876)"/></g>
+<rect x="267" y="0.5" width="7" height="53"/>
+</svg>

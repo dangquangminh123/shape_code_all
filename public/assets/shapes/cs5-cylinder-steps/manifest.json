@@ -1,0 +1,571 @@
+{
+  "generator": "scripts/generate_cs5_assets.mjs",
+  "reference": {
+    "file": "cs5-reference.png",
+    "uploadedName": "28.png",
+    "width": 602,
+    "height": 612,
+    "bytes": 240088,
+    "sha256": "61244010d35dc8f94dda1270921e3e466666fb54a040c8ed69794993d1806aee"
+  },
+  "originals": [
+    {
+      "file": "originals/cs5-source-cylinder.svg",
+      "uploadedName": "shape 1(1).svg",
+      "bytes": 2168,
+      "sha256": "448a11a6af9f6f725e443a78e01f795f2cd14cd2599e30fb9b40771a09b77624"
+    },
+    {
+      "file": "originals/cs5-source-callout.svg",
+      "uploadedName": "shape 2(1).svg",
+      "bytes": 2252,
+      "sha256": "ce01af6aa807244f22144ee8be2e2350ae3c6c43a868407d9a7ba7a3be499713"
+    }
+  ],
+  "sourceGeometry": {
+    "artboard": "0 0 4000 2500",
+    "cylinderBody": {
+      "source": "originals/cs5-source-cylinder.svg",
+      "element": "path[2]",
+      "bounds": {
+        "x": 220.2,
+        "y": 593.3,
+        "width": 3239.3,
+        "height": 1316.8
+      }
+    },
+    "cylinderCap": {
+      "source": "originals/cs5-source-cylinder.svg",
+      "element": "ellipse[1]",
+      "cx": 3395.8,
+      "cy": 1250,
+      "rx": 312.9,
+      "ry": 660.1
+    },
+    "callout": {
+      "source": "originals/cs5-source-callout.svg",
+      "element": "path[3]",
+      "bounds": {
+        "x": 116.6,
+        "y": 694.5,
+        "width": 3075,
+        "height": 1250
+      }
+    },
+    "connectorLine": {
+      "source": "originals/cs5-source-callout.svg",
+      "element": "rect[0]",
+      "x": 2832.3,
+      "y": 1291.9,
+      "width": 741.6,
+      "height": 55.1
+    },
+    "connectorDot": {
+      "source": "originals/cs5-source-callout.svg",
+      "element": "ellipse[2]",
+      "cx": 3585.3,
+      "cy": 1319.5,
+      "rx": 67.5,
+      "ry": 104.1
+    },
+    "excluded": "Degenerate polygons and off-artboard construction paths remain intact in originals. The visible cylinder face also supplies the sleeve; no tracing or replacement curved paths are introduced."
+  },
+  "masks": [
+    {
+      "file": "cs5-cylinder-body-mask.svg",
+      "source": "originals/cs5-source-cylinder.svg",
+      "sourceElements": [
+        "path[2]"
+      ],
+      "geometry": {
+        "sourceX": [
+          220.2,
+          878.6,
+          3082.9,
+          3708.7
+        ],
+        "targetX": [
+          0,
+          18,
+          268,
+          280
+        ],
+        "sourceY": [
+          589.9,
+          1910.1
+        ],
+        "targetY": [
+          0,
+          54
+        ],
+        "clipOverlap": {
+          "pixels": 2,
+          "direction": "Extend end slices into the straight center only"
+        },
+        "slices": [
+          {
+            "sourceX": [
+              220.2,
+              878.6
+            ],
+            "targetX": [
+              0,
+              18
+            ],
+            "transform": "matrix(0.027339004 0 0 0.040902894 -6.020048603 -24.128616876)"
+          },
+          {
+            "sourceX": [
+              878.6,
+              3082.9
+            ],
+            "targetX": [
+              18,
+              268
+            ],
+            "transform": "matrix(0.113414689 0 0 0.040902894 -81.646146169 -24.128616876)"
+          },
+          {
+            "sourceX": [
+              3082.9,
+              3708.7
+            ],
+            "targetX": [
+              268,
+              280
+            ],
+            "transform": "matrix(0.019175455 0 0 0.040902894 208.883988495 -24.128616876)"
+          }
+        ],
+        "capJoinBacking": {
+          "x": 267,
+          "y": 0.5,
+          "width": 7,
+          "height": 53
+        },
+        "note": "Left convex tip 18px; central run 250px; right end region 12px. Shared canvas with cap. An internal backing rectangle prevents a transparent body/cap join; it stays below the cap and inside the original combined silhouette."
+      },
+      "viewBox": "0 0 280 54",
+      "bytes": 1296,
+      "sha256": "3f8cf5ede26e601cbf40716f9248d596df36073533d6c6de4d7c1ae5b98c0700"
+    },
+    {
+      "file": "cs5-cylinder-cap-mask.svg",
+      "source": "originals/cs5-source-cylinder.svg",
+      "sourceElements": [
+        "ellipse[1]"
+      ],
+      "geometry": {
+        "original": {
+          "cx": 3395.8,
+          "cy": 1250,
+          "rx": 312.9,
+          "ry": 660.1
+        },
+        "transform": "matrix(0.019175455 0 0 0.040902894 208.883988495 -24.128616876)",
+        "targetBounds": {
+          "x": 268,
+          "y": 0,
+          "width": 12,
+          "height": 54
+        }
+      },
+      "viewBox": "0 0 280 54",
+      "bytes": 310,
+      "sha256": "9050b05d3ac24018dafac089a331a53d657f8ee860cb4c147b1e86da366f7c6a"
+    },
+    {
+      "file": "cs5-cylinder-full-mask.svg",
+      "source": "originals/cs5-source-cylinder.svg",
+      "sourceElements": [
+        "path[2]",
+        "ellipse[1]"
+      ],
+      "geometry": {
+        "sourceX": [
+          220.2,
+          878.6,
+          3082.9,
+          3708.7
+        ],
+        "targetX": [
+          0,
+          18,
+          268,
+          280
+        ],
+        "sourceY": [
+          589.9,
+          1910.1
+        ],
+        "targetY": [
+          0,
+          54
+        ],
+        "clipOverlap": {
+          "pixels": 2,
+          "direction": "Extend end slices into the straight center only"
+        },
+        "slices": [
+          {
+            "sourceX": [
+              220.2,
+              878.6
+            ],
+            "targetX": [
+              0,
+              18
+            ],
+            "transform": "matrix(0.027339004 0 0 0.040902894 -6.020048603 -24.128616876)"
+          },
+          {
+            "sourceX": [
+              878.6,
+              3082.9
+            ],
+            "targetX": [
+              18,
+              268
+            ],
+            "transform": "matrix(0.113414689 0 0 0.040902894 -81.646146169 -24.128616876)"
+          },
+          {
+            "sourceX": [
+              3082.9,
+              3708.7
+            ],
+            "targetX": [
+              268,
+              280
+            ],
+            "transform": "matrix(0.019175455 0 0 0.040902894 208.883988495 -24.128616876)"
+          }
+        ],
+        "capJoinBacking": {
+          "x": 267,
+          "y": 0.5,
+          "width": 7,
+          "height": 53
+        },
+        "note": "Combined silhouette for clipping highlights. Body/cap layers use the same viewBox; an internal backing rectangle removes alpha seams without changing the outer contour."
+      },
+      "viewBox": "0 0 280 54",
+      "bytes": 1495,
+      "sha256": "756d4f41c9a66c9a6a6bb584f5f626c93ccada2a84808241d8699b014dffb417"
+    },
+    {
+      "file": "cs5-callout-outline-mask.svg",
+      "source": "originals/cs5-source-callout.svg",
+      "sourceElements": [
+        "path[3]"
+      ],
+      "geometry": {
+        "sourceX": [
+          116.6,
+          741.6,
+          2834.2,
+          3191.6
+        ],
+        "targetX": [
+          0.75,
+          33,
+          192,
+          206.25
+        ],
+        "sourceY": [
+          694.5,
+          1944.5
+        ],
+        "targetY": [
+          0.75,
+          65.25
+        ],
+        "clipOverlap": {
+          "pixels": 2,
+          "direction": "Extend end slices into the straight center only"
+        },
+        "slices": [
+          {
+            "sourceX": [
+              116.6,
+              741.6
+            ],
+            "targetX": [
+              0.75,
+              33
+            ],
+            "transform": "matrix(0.0516 0 0 0.0516 -5.26656 -35.0862)"
+          },
+          {
+            "sourceX": [
+              741.6,
+              2834.2
+            ],
+            "targetX": [
+              33,
+              192
+            ],
+            "transform": "matrix(0.075982032 0 0 0.0516 -23.348274873 -35.0862)"
+          },
+          {
+            "sourceX": [
+              2834.2,
+              3191.6
+            ],
+            "targetX": [
+              192,
+              206.25
+            ],
+            "transform": "matrix(0.039871293 0 0 0.0516 78.996782317 -35.0862)"
+          }
+        ],
+        "outlineWidth": 1.35,
+        "note": "Transparent stroke only; no white fill. The center of the concave edge is x=192, y=33."
+      },
+      "viewBox": "0 0 207 66",
+      "bytes": 1264,
+      "sha256": "70fa783ee55637ce333e6c639aa459c128fdba903cfb18591e05c5cb9dc17475"
+    },
+    {
+      "file": "cs5-connector-line-mask.svg",
+      "source": "originals/cs5-source-callout.svg",
+      "sourceElements": [
+        "rect[0]"
+      ],
+      "geometry": {
+        "original": {
+          "x": 2832.3,
+          "y": 1291.9,
+          "width": 741.6,
+          "height": 55.1
+        },
+        "transform": "matrix(0.048543689 0 0 0.025408348 -137.490291262 -32.825045372)",
+        "note": "Solid connector; preserve the uploaded rectangle coordinates. Render at 32.5px width so it stops at the left edge of the transparent dot centered 36px from the connector origin."
+      },
+      "viewBox": "0 0 36 1.4",
+      "bytes": 231,
+      "sha256": "ef9ffbe724447c10dd5a6d3c5cdc5a7aab425d22323fff8e4f569ceebdc61252"
+    },
+    {
+      "file": "cs5-connector-dot-mask.svg",
+      "source": "originals/cs5-source-callout.svg",
+      "sourceElements": [
+        "ellipse[2]"
+      ],
+      "geometry": {
+        "original": {
+          "cx": 3585.3,
+          "cy": 1319.5,
+          "rx": 67.5,
+          "ry": 104.1
+        },
+        "center": [
+          3.5,
+          3.5
+        ],
+        "outerRadius": 3.4,
+        "innerRadius": 2.1,
+        "note": "Two affine copies of the uploaded ellipse form a transparent circular ring; background is visible through its center."
+      },
+      "viewBox": "0 0 7 7",
+      "bytes": 680,
+      "sha256": "0a9249351ee7f075cf437a13282ba7bb66deb0d501bb6e8787488024d8532441"
+    },
+    {
+      "file": "cs5-sleeve-mask.svg",
+      "source": "originals/cs5-source-cylinder.svg",
+      "sourceElements": [
+        "path[2]"
+      ],
+      "geometry": {
+        "sourceX": [
+          220.2,
+          878.6,
+          3082.9,
+          3459.5
+        ],
+        "targetX": [
+          0,
+          6,
+          95,
+          101
+        ],
+        "sourceY": [
+          593.3,
+          1910.1
+        ],
+        "targetY": [
+          0,
+          54
+        ],
+        "clipOverlap": {
+          "pixels": 2,
+          "direction": "Extend end slices into the straight center only"
+        },
+        "slices": [
+          {
+            "sourceX": [
+              220.2,
+              878.6
+            ],
+            "targetX": [
+              0,
+              6
+            ],
+            "transform": "matrix(0.009113001 0 0 0.041008505 -2.006682868 -24.330346294)"
+          },
+          {
+            "sourceX": [
+              878.6,
+              3082.9
+            ],
+            "targetX": [
+              6,
+              95
+            ],
+            "transform": "matrix(0.040375629 0 0 0.041008505 -29.474028036 -24.330346294)"
+          },
+          {
+            "sourceX": [
+              3082.9,
+              3459.5
+            ],
+            "targetX": [
+              95,
+              101
+            ],
+            "transform": "matrix(0.015932023 0 0 0.041008505 45.883165162 -24.330346294)"
+          }
+        ],
+        "note": "Reuse the concave cylinder face at sleeve width; apply translucent fill with CSS."
+      },
+      "viewBox": "0 0 101 54",
+      "bytes": 1224,
+      "sha256": "85df8621111cb351cfb94a4ef80718eea54375c58dd11f1a644d0efd2cfab42b"
+    },
+    {
+      "file": "cs5-sleeve-rim-mask.svg",
+      "source": "originals/cs5-source-cylinder.svg",
+      "sourceElements": [
+        "path[2]"
+      ],
+      "geometry": {
+        "sourceX": [
+          220.2,
+          878.6,
+          3082.9,
+          3459.5
+        ],
+        "targetX": [
+          0,
+          6,
+          95,
+          101
+        ],
+        "sourceY": [
+          593.3,
+          1910.1
+        ],
+        "targetY": [
+          0,
+          54
+        ],
+        "clipOverlap": {
+          "pixels": 2,
+          "direction": "Extend end slices into the straight center only"
+        },
+        "slices": [
+          {
+            "sourceX": [
+              220.2,
+              878.6
+            ],
+            "targetX": [
+              0,
+              6
+            ],
+            "transform": "matrix(0.009113001 0 0 0.041008505 -2.006682868 -24.330346294)"
+          },
+          {
+            "sourceX": [
+              878.6,
+              3082.9
+            ],
+            "targetX": [
+              6,
+              95
+            ],
+            "transform": "matrix(0.040375629 0 0 0.041008505 -29.474028036 -24.330346294)"
+          },
+          {
+            "sourceX": [
+              3082.9,
+              3459.5
+            ],
+            "targetX": [
+              95,
+              101
+            ],
+            "transform": "matrix(0.015932023 0 0 0.041008505 45.883165162 -24.330346294)"
+          }
+        ],
+        "rimInset": 1.3,
+        "innerTransform": "matrix(0.974257426 0 0 0.951851852 1.3 1.3)",
+        "note": "Outer sleeve minus an inset affine copy; all curves still come from the original path."
+      },
+      "viewBox": "0 0 101 54",
+      "bytes": 1619,
+      "sha256": "037fe673f4578c11954bada87d3e2b35a0bc799ce40773ea0ada066b89ae3d95"
+    }
+  ],
+  "composition": {
+    "artboard": {
+      "width": 602,
+      "height": 612,
+      "background": "transparent"
+    },
+    "rowTops": [
+      127,
+      218,
+      309,
+      400,
+      491
+    ],
+    "callout": {
+      "left": 41,
+      "width": 207,
+      "height": 66
+    },
+    "cylinder": {
+      "left": 280,
+      "topWithinRow": 7,
+      "width": 280,
+      "height": 54
+    },
+    "connector": {
+      "left": 233,
+      "centerYWithinRow": 33,
+      "lineMaskWidth": 36,
+      "renderedLineWidth": 32.5,
+      "dotCenterX": 269,
+      "dotDiameter": 7
+    },
+    "sleeve": {
+      "leftByRow": [
+        307,
+        330,
+        362,
+        389,
+        417
+      ],
+      "width": 101,
+      "height": 54
+    },
+    "content": {
+      "iconCenterX": 71,
+      "textLeft": 107,
+      "textWidth": 112
+    },
+    "note": "The reference PNG is source evidence only. Do not render its background, watermarks, or branding as module UI."
+  }
+}

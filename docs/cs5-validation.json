@@ -1,0 +1,4148 @@
+{
+  "browser": "Chromium via managed browser",
+  "productionBuild": true,
+  "widthChecks": [
+    {
+      "viewport": 320,
+      "stage": {
+        "x": 0,
+        "y": 0,
+        "width": 320,
+        "height": 325.3125,
+        "right": 320,
+        "bottom": 325.3125
+      },
+      "background": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "none",
+      "overflow": false,
+      "focused": null,
+      "rows": [
+        {
+          "number": "01",
+          "row": {
+            "x": 40.98,
+            "y": 126.98,
+            "width": 518.99,
+            "height": 65.99,
+            "right": 559.97,
+            "bottom": 192.98
+          },
+          "callout": {
+            "x": 40.98,
+            "y": 126.98,
+            "width": 206.97,
+            "height": 65.99,
+            "right": 247.94,
+            "bottom": 192.98
+          },
+          "cylinder": {
+            "x": 279.95,
+            "y": 133.98,
+            "width": 279.98,
+            "height": 53.97,
+            "right": 559.94,
+            "bottom": 187.95
+          },
+          "sleeve": {
+            "x": 306.94,
+            "y": 133.98,
+            "width": 100.97,
+            "height": 53.97,
+            "right": 407.91,
+            "bottom": 187.95
+          },
+          "icon": {
+            "x": 53.97,
+            "y": 142.97,
+            "width": 33.98,
+            "height": 33.98,
+            "right": 87.95,
+            "bottom": 176.96
+          },
+          "copyBottomGap": 3.35,
+          "copyRightGap": 29.04,
+          "copyOverflow": false,
+          "summary": "block",
+          "titleFont": "8px",
+          "descriptionFont": "4.14618px",
+          "hitHeight": 46.772485,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "02",
+          "row": {
+            "x": 40.98,
+            "y": 217.99,
+            "width": 518.99,
+            "height": 65.99,
+            "right": 559.97,
+            "bottom": 283.98
+          },
+          "callout": {
+            "x": 40.98,
+            "y": 217.99,
+            "width": 206.97,
+            "height": 65.99,
+            "right": 247.94,
+            "bottom": 283.98
+          },
+          "cylinder": {
+            "x": 279.95,
+            "y": 224.99,
+            "width": 279.98,
+            "height": 53.97,
+            "right": 559.94,
+            "bottom": 278.95
+          },
+          "sleeve": {
+            "x": 329.92,
+            "y": 224.99,
+            "width": 100.97,
+            "height": 53.97,
+            "right": 430.89,
+            "bottom": 278.95
+          },
+          "icon": {
+            "x": 53.97,
+            "y": 233.98,
+            "width": 33.98,
+            "height": 33.98,
+            "right": 87.95,
+            "bottom": 267.96
+          },
+          "copyBottomGap": 3.35,
+          "copyRightGap": 29.04,
+          "copyOverflow": false,
+          "summary": "block",
+          "titleFont": "8px",
+          "descriptionFont": "4.14618px",
+          "hitHeight": 46.772485,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "03",
+          "row": {
+            "x": 40.98,
+            "y": 309,
+            "width": 518.99,
+            "height": 65.99,
+            "right": 559.97,
+            "bottom": 374.99
+          },
+          "callout": {
+            "x": 40.98,
+            "y": 309,
+            "width": 206.97,
+            "height": 65.99,
+            "right": 247.94,
+            "bottom": 374.99
+          },
+          "cylinder": {
+            "x": 279.95,
+            "y": 315.99,
+            "width": 279.98,
+            "height": 53.97,
+            "right": 559.94,
+            "bottom": 369.96
+          },
+          "sleeve": {
+            "x": 361.93,
+            "y": 315.99,
+            "width": 100.97,
+            "height": 53.97,
+            "right": 462.91,
+            "bottom": 369.96
+          },
+          "icon": {
+            "x": 53.97,
+            "y": 324.99,
+            "width": 33.98,
+            "height": 33.98,
+            "right": 87.95,
+            "bottom": 358.97
+          },
+          "copyBottomGap": 3.35,
+          "copyRightGap": 29.04,
+          "copyOverflow": false,
+          "summary": "block",
+          "titleFont": "8px",
+          "descriptionFont": "4.14618px",
+          "hitHeight": 46.772485,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "04",
+          "row": {
+            "x": 40.98,
+            "y": 399.97,
+            "width": 518.99,
+            "height": 65.99,
+            "right": 559.97,
+            "bottom": 465.96
+          },
+          "callout": {
+            "x": 40.98,
+            "y": 399.97,
+            "width": 206.97,
+            "height": 65.99,
+            "right": 247.94,
+            "bottom": 465.96
+          },
+          "cylinder": {
+            "x": 279.95,
+            "y": 406.97,
+            "width": 279.98,
+            "height": 53.97,
+            "right": 559.94,
+            "bottom": 460.94
+          },
+          "sleeve": {
+            "x": 388.92,
+            "y": 406.97,
+            "width": 100.97,
+            "height": 53.97,
+            "right": 489.89,
+            "bottom": 460.94
+          },
+          "icon": {
+            "x": 53.97,
+            "y": 415.96,
+            "width": 33.98,
+            "height": 33.98,
+            "right": 87.95,
+            "bottom": 449.94
+          },
+          "copyBottomGap": 3.35,
+          "copyRightGap": 29.04,
+          "copyOverflow": false,
+          "summary": "block",
+          "titleFont": "8px",
+          "descriptionFont": "4.14618px",
+          "hitHeight": 46.772485,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "05",
+          "row": {
+            "x": 40.98,
+            "y": 490.98,
+            "width": 518.99,
+            "height": 65.99,
+            "right": 559.97,
+            "bottom": 556.97
+          },
+          "callout": {
+            "x": 40.98,
+            "y": 490.98,
+            "width": 206.97,
+            "height": 65.99,
+            "right": 247.94,
+            "bottom": 556.97
+          },
+          "cylinder": {
+            "x": 279.95,
+            "y": 497.97,
+            "width": 279.98,
+            "height": 53.97,
+            "right": 559.94,
+            "bottom": 551.94
+          },
+          "sleeve": {
+            "x": 416.93,
+            "y": 497.97,
+            "width": 100.97,
+            "height": 53.97,
+            "right": 517.9,
+            "bottom": 551.94
+          },
+          "icon": {
+            "x": 53.97,
+            "y": 506.97,
+            "width": 33.98,
+            "height": 33.98,
+            "right": 87.95,
+            "bottom": 540.95
+          },
+          "copyBottomGap": 3.35,
+          "copyRightGap": 29.04,
+          "copyOverflow": false,
+          "summary": "block",
+          "titleFont": "8px",
+          "descriptionFont": "4.14618px",
+          "hitHeight": 46.772485,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        }
+      ],
+      "motion": {
+        "id": "cs5-cylinder-steps",
+        "root": ".cs5-module",
+        "mounted": true,
+        "visible": true,
+        "running": false,
+        "paused": true,
+        "reducedMotion": false,
+        "supported": true,
+        "instances": [
+          {
+            "instance": 1,
+            "visible": true,
+            "phase": "idle",
+            "plays": 1,
+            "running": false,
+            "animations": 2,
+            "mismatches": [],
+            "errors": []
+          }
+        ]
+      }
+    },
+    {
+      "viewport": 375,
+      "stage": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 381.21875,
+        "right": 375,
+        "bottom": 381.21875
+      },
+      "background": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "none",
+      "overflow": false,
+      "focused": null,
+      "rows": [
+        {
+          "number": "01",
+          "row": {
+            "x": 40.99,
+            "y": 126.97,
+            "width": 519,
+            "height": 65.99,
+            "right": 559.99,
+            "bottom": 192.97
+          },
+          "callout": {
+            "x": 40.99,
+            "y": 126.97,
+            "width": 206.99,
+            "height": 65.99,
+            "right": 247.97,
+            "bottom": 192.97
+          },
+          "cylinder": {
+            "x": 279.98,
+            "y": 133.97,
+            "width": 279.98,
+            "height": 53.98,
+            "right": 559.96,
+            "bottom": 187.95
+          },
+          "sleeve": {
+            "x": 306.97,
+            "y": 133.97,
+            "width": 100.99,
+            "height": 53.98,
+            "right": 407.96,
+            "bottom": 187.95
+          },
+          "icon": {
+            "x": 53.98,
+            "y": 142.95,
+            "width": 33.99,
+            "height": 33.99,
+            "right": 87.97,
+            "bottom": 176.94
+          },
+          "copyBottomGap": 25.76,
+          "copyRightGap": 29.02,
+          "copyOverflow": false,
+          "summary": "block",
+          "titleFont": "8px",
+          "descriptionFont": "4.85881px",
+          "hitHeight": 53.109375,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "02",
+          "row": {
+            "x": 40.99,
+            "y": 217.97,
+            "width": 519,
+            "height": 65.99,
+            "right": 559.99,
+            "bottom": 283.97
+          },
+          "callout": {
+            "x": 40.99,
+            "y": 217.97,
+            "width": 206.99,
+            "height": 65.99,
+            "right": 247.97,
+            "bottom": 283.97
+          },
+          "cylinder": {
+            "x": 279.98,
+            "y": 224.97,
+            "width": 279.98,
+            "height": 53.98,
+            "right": 559.96,
+            "bottom": 278.95
+          },
+          "sleeve": {
+            "x": 329.97,
+            "y": 224.97,
+            "width": 100.99,
+            "height": 53.98,
+            "right": 430.96,
+            "bottom": 278.95
+          },
+          "icon": {
+            "x": 53.98,
+            "y": 233.95,
+            "width": 33.99,
+            "height": 33.99,
+            "right": 87.97,
+            "bottom": 267.94
+          },
+          "copyBottomGap": 11.39,
+          "copyRightGap": 29.02,
+          "copyOverflow": false,
+          "summary": "block",
+          "titleFont": "8px",
+          "descriptionFont": "4.85881px",
+          "hitHeight": 53.109375,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "03",
+          "row": {
+            "x": 40.99,
+            "y": 308.98,
+            "width": 519,
+            "height": 65.99,
+            "right": 559.99,
+            "bottom": 374.97
+          },
+          "callout": {
+            "x": 40.99,
+            "y": 308.98,
+            "width": 206.99,
+            "height": 65.99,
+            "right": 247.97,
+            "bottom": 374.97
+          },
+          "cylinder": {
+            "x": 279.98,
+            "y": 315.97,
+            "width": 279.98,
+            "height": 53.98,
+            "right": 559.96,
+            "bottom": 369.95
+          },
+          "sleeve": {
+            "x": 361.95,
+            "y": 315.97,
+            "width": 100.99,
+            "height": 53.98,
+            "right": 462.94,
+            "bottom": 369.95
+          },
+          "icon": {
+            "x": 53.98,
+            "y": 324.95,
+            "width": 33.99,
+            "height": 33.99,
+            "right": 87.97,
+            "bottom": 358.94
+          },
+          "copyBottomGap": 11.39,
+          "copyRightGap": 29.02,
+          "copyOverflow": false,
+          "summary": "block",
+          "titleFont": "8px",
+          "descriptionFont": "4.85881px",
+          "hitHeight": 53.109375,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "04",
+          "row": {
+            "x": 40.99,
+            "y": 399.98,
+            "width": 519,
+            "height": 65.99,
+            "right": 559.99,
+            "bottom": 465.97
+          },
+          "callout": {
+            "x": 40.99,
+            "y": 399.98,
+            "width": 206.99,
+            "height": 65.99,
+            "right": 247.97,
+            "bottom": 465.97
+          },
+          "cylinder": {
+            "x": 279.98,
+            "y": 406.98,
+            "width": 279.98,
+            "height": 53.98,
+            "right": 559.96,
+            "bottom": 460.96
+          },
+          "sleeve": {
+            "x": 388.97,
+            "y": 406.98,
+            "width": 100.99,
+            "height": 53.98,
+            "right": 489.95,
+            "bottom": 460.96
+          },
+          "icon": {
+            "x": 53.98,
+            "y": 415.96,
+            "width": 33.99,
+            "height": 33.99,
+            "right": 87.97,
+            "bottom": 449.94
+          },
+          "copyBottomGap": 25.76,
+          "copyRightGap": 29.02,
+          "copyOverflow": false,
+          "summary": "block",
+          "titleFont": "8px",
+          "descriptionFont": "4.85881px",
+          "hitHeight": 53.109375,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "05",
+          "row": {
+            "x": 40.99,
+            "y": 490.98,
+            "width": 519,
+            "height": 65.99,
+            "right": 559.99,
+            "bottom": 556.98
+          },
+          "callout": {
+            "x": 40.99,
+            "y": 490.98,
+            "width": 206.99,
+            "height": 65.99,
+            "right": 247.97,
+            "bottom": 556.98
+          },
+          "cylinder": {
+            "x": 279.98,
+            "y": 497.98,
+            "width": 279.98,
+            "height": 53.98,
+            "right": 559.96,
+            "bottom": 551.96
+          },
+          "sleeve": {
+            "x": 416.96,
+            "y": 497.98,
+            "width": 100.99,
+            "height": 53.98,
+            "right": 517.95,
+            "bottom": 551.96
+          },
+          "icon": {
+            "x": 53.98,
+            "y": 506.96,
+            "width": 33.99,
+            "height": 33.99,
+            "right": 87.97,
+            "bottom": 540.95
+          },
+          "copyBottomGap": 11.39,
+          "copyRightGap": 29.02,
+          "copyOverflow": false,
+          "summary": "block",
+          "titleFont": "8px",
+          "descriptionFont": "4.85881px",
+          "hitHeight": 53.109375,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        }
+      ],
+      "motion": {
+        "id": "cs5-cylinder-steps",
+        "root": ".cs5-module",
+        "mounted": true,
+        "visible": true,
+        "running": false,
+        "paused": true,
+        "reducedMotion": false,
+        "supported": true,
+        "instances": [
+          {
+            "instance": 1,
+            "visible": true,
+            "phase": "idle",
+            "plays": 1,
+            "running": false,
+            "animations": 2,
+            "mismatches": [],
+            "errors": []
+          }
+        ]
+      }
+    },
+    {
+      "viewport": 390,
+      "stage": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 396.46875,
+        "right": 390,
+        "bottom": 396.46875
+      },
+      "background": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "none",
+      "overflow": false,
+      "focused": null,
+      "rows": [
+        {
+          "number": "01",
+          "row": {
+            "x": 40.98,
+            "y": 126.98,
+            "width": 518.98,
+            "height": 65.99,
+            "right": 559.96,
+            "bottom": 192.97
+          },
+          "callout": {
+            "x": 40.98,
+            "y": 126.98,
+            "width": 206.99,
+            "height": 65.99,
+            "right": 247.96,
+            "bottom": 192.97
+          },
+          "cylinder": {
+            "x": 279.97,
+            "y": 133.98,
+            "width": 279.97,
+            "height": 53.98,
+            "right": 559.94,
+            "bottom": 187.96
+          },
+          "sleeve": {
+            "x": 306.96,
+            "y": 133.98,
+            "width": 100.98,
+            "height": 53.98,
+            "right": 407.94,
+            "bottom": 187.96
+          },
+          "icon": {
+            "x": 53.95,
+            "y": 142.97,
+            "width": 33.98,
+            "height": 33.98,
+            "right": 87.94,
+            "bottom": 176.96
+          },
+          "copyBottomGap": 26.99,
+          "copyRightGap": 29.01,
+          "copyOverflow": false,
+          "summary": "block",
+          "titleFont": "8px",
+          "descriptionFont": "5.05316px",
+          "hitHeight": 54.75,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "02",
+          "row": {
+            "x": 40.98,
+            "y": 217.98,
+            "width": 518.98,
+            "height": 65.99,
+            "right": 559.96,
+            "bottom": 283.97
+          },
+          "callout": {
+            "x": 40.98,
+            "y": 217.98,
+            "width": 206.99,
+            "height": 65.99,
+            "right": 247.96,
+            "bottom": 283.97
+          },
+          "cylinder": {
+            "x": 279.97,
+            "y": 224.98,
+            "width": 279.97,
+            "height": 53.98,
+            "right": 559.94,
+            "bottom": 278.96
+          },
+          "sleeve": {
+            "x": 329.94,
+            "y": 224.98,
+            "width": 100.98,
+            "height": 53.98,
+            "right": 430.93,
+            "bottom": 278.96
+          },
+          "icon": {
+            "x": 53.95,
+            "y": 233.97,
+            "width": 33.98,
+            "height": 33.98,
+            "right": 87.94,
+            "bottom": 267.96
+          },
+          "copyBottomGap": 13.17,
+          "copyRightGap": 29.01,
+          "copyOverflow": false,
+          "summary": "block",
+          "titleFont": "8px",
+          "descriptionFont": "5.05316px",
+          "hitHeight": 54.75,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "03",
+          "row": {
+            "x": 40.98,
+            "y": 308.98,
+            "width": 518.98,
+            "height": 65.99,
+            "right": 559.96,
+            "bottom": 374.97
+          },
+          "callout": {
+            "x": 40.98,
+            "y": 308.98,
+            "width": 206.99,
+            "height": 65.99,
+            "right": 247.96,
+            "bottom": 374.97
+          },
+          "cylinder": {
+            "x": 279.97,
+            "y": 315.98,
+            "width": 279.97,
+            "height": 53.98,
+            "right": 559.94,
+            "bottom": 369.96
+          },
+          "sleeve": {
+            "x": 361.95,
+            "y": 315.98,
+            "width": 100.98,
+            "height": 53.98,
+            "right": 462.93,
+            "bottom": 369.96
+          },
+          "icon": {
+            "x": 53.95,
+            "y": 324.97,
+            "width": 33.98,
+            "height": 33.98,
+            "right": 87.94,
+            "bottom": 358.96
+          },
+          "copyBottomGap": 13.17,
+          "copyRightGap": 29.01,
+          "copyOverflow": false,
+          "summary": "block",
+          "titleFont": "8px",
+          "descriptionFont": "5.05316px",
+          "hitHeight": 54.75,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "04",
+          "row": {
+            "x": 40.98,
+            "y": 399.98,
+            "width": 518.98,
+            "height": 65.99,
+            "right": 559.96,
+            "bottom": 465.97
+          },
+          "callout": {
+            "x": 40.98,
+            "y": 399.98,
+            "width": 206.99,
+            "height": 65.99,
+            "right": 247.96,
+            "bottom": 465.97
+          },
+          "cylinder": {
+            "x": 279.97,
+            "y": 406.98,
+            "width": 279.97,
+            "height": 53.98,
+            "right": 559.94,
+            "bottom": 460.95
+          },
+          "sleeve": {
+            "x": 388.94,
+            "y": 406.98,
+            "width": 100.98,
+            "height": 53.98,
+            "right": 489.92,
+            "bottom": 460.95
+          },
+          "icon": {
+            "x": 53.95,
+            "y": 415.97,
+            "width": 33.98,
+            "height": 33.98,
+            "right": 87.94,
+            "bottom": 449.96
+          },
+          "copyBottomGap": 26.99,
+          "copyRightGap": 29.01,
+          "copyOverflow": false,
+          "summary": "block",
+          "titleFont": "8px",
+          "descriptionFont": "5.05316px",
+          "hitHeight": 54.75,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "05",
+          "row": {
+            "x": 40.98,
+            "y": 490.98,
+            "width": 518.98,
+            "height": 65.99,
+            "right": 559.96,
+            "bottom": 556.97
+          },
+          "callout": {
+            "x": 40.98,
+            "y": 490.98,
+            "width": 206.99,
+            "height": 65.99,
+            "right": 247.96,
+            "bottom": 556.97
+          },
+          "cylinder": {
+            "x": 279.97,
+            "y": 497.98,
+            "width": 279.97,
+            "height": 53.98,
+            "right": 559.94,
+            "bottom": 551.95
+          },
+          "sleeve": {
+            "x": 416.94,
+            "y": 497.98,
+            "width": 100.98,
+            "height": 53.98,
+            "right": 517.92,
+            "bottom": 551.95
+          },
+          "icon": {
+            "x": 53.95,
+            "y": 506.97,
+            "width": 33.98,
+            "height": 33.98,
+            "right": 87.94,
+            "bottom": 540.96
+          },
+          "copyBottomGap": 26.99,
+          "copyRightGap": 29.01,
+          "copyOverflow": false,
+          "summary": "block",
+          "titleFont": "8px",
+          "descriptionFont": "5.05316px",
+          "hitHeight": 54.75,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        }
+      ],
+      "motion": {
+        "id": "cs5-cylinder-steps",
+        "root": ".cs5-module",
+        "mounted": true,
+        "visible": true,
+        "running": false,
+        "paused": true,
+        "reducedMotion": false,
+        "supported": true,
+        "instances": [
+          {
+            "instance": 1,
+            "visible": true,
+            "phase": "idle",
+            "plays": 1,
+            "running": false,
+            "animations": 2,
+            "mismatches": [],
+            "errors": []
+          }
+        ]
+      }
+    },
+    {
+      "viewport": 600,
+      "stage": {
+        "x": 0,
+        "y": 0,
+        "width": 600,
+        "height": 609.953125,
+        "right": 600,
+        "bottom": 609.953125
+      },
+      "background": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "none",
+      "overflow": false,
+      "focused": null,
+      "rows": [
+        {
+          "number": "01",
+          "row": {
+            "x": 41,
+            "y": 126.98,
+            "width": 518.99,
+            "height": 65.98,
+            "right": 559.99,
+            "bottom": 192.97
+          },
+          "callout": {
+            "x": 41,
+            "y": 126.98,
+            "width": 206.98,
+            "height": 65.98,
+            "right": 247.98,
+            "bottom": 192.97
+          },
+          "cylinder": {
+            "x": 279.98,
+            "y": 133.98,
+            "width": 279.99,
+            "height": 53.98,
+            "right": 559.97,
+            "bottom": 187.95
+          },
+          "sleeve": {
+            "x": 306.97,
+            "y": 133.98,
+            "width": 100.99,
+            "height": 53.98,
+            "right": 407.96,
+            "bottom": 187.95
+          },
+          "icon": {
+            "x": 53.99,
+            "y": 142.97,
+            "width": 33.99,
+            "height": 33.99,
+            "right": 87.98,
+            "bottom": 176.96
+          },
+          "copyBottomGap": 34.93,
+          "copyRightGap": 29.02,
+          "copyOverflow": false,
+          "summary": "block",
+          "titleFont": "9.36877px",
+          "descriptionFont": "7.77409px",
+          "hitHeight": 77.765625,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "02",
+          "row": {
+            "x": 41,
+            "y": 217.99,
+            "width": 518.99,
+            "height": 65.98,
+            "right": 559.99,
+            "bottom": 283.97
+          },
+          "callout": {
+            "x": 41,
+            "y": 217.99,
+            "width": 206.98,
+            "height": 65.98,
+            "right": 247.98,
+            "bottom": 283.97
+          },
+          "cylinder": {
+            "x": 279.98,
+            "y": 224.98,
+            "width": 279.99,
+            "height": 53.98,
+            "right": 559.97,
+            "bottom": 278.96
+          },
+          "sleeve": {
+            "x": 329.97,
+            "y": 224.98,
+            "width": 100.99,
+            "height": 53.98,
+            "right": 430.96,
+            "bottom": 278.96
+          },
+          "icon": {
+            "x": 53.99,
+            "y": 233.98,
+            "width": 33.99,
+            "height": 33.99,
+            "right": 87.98,
+            "bottom": 267.97
+          },
+          "copyBottomGap": 34.93,
+          "copyRightGap": 29.02,
+          "copyOverflow": false,
+          "summary": "block",
+          "titleFont": "9.36877px",
+          "descriptionFont": "7.77409px",
+          "hitHeight": 77.765625,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "03",
+          "row": {
+            "x": 41,
+            "y": 308.98,
+            "width": 518.99,
+            "height": 65.98,
+            "right": 559.99,
+            "bottom": 374.96
+          },
+          "callout": {
+            "x": 41,
+            "y": 308.98,
+            "width": 206.98,
+            "height": 65.98,
+            "right": 247.98,
+            "bottom": 374.96
+          },
+          "cylinder": {
+            "x": 279.98,
+            "y": 315.97,
+            "width": 279.99,
+            "height": 53.98,
+            "right": 559.97,
+            "bottom": 369.95
+          },
+          "sleeve": {
+            "x": 361.97,
+            "y": 315.97,
+            "width": 100.99,
+            "height": 53.98,
+            "right": 462.96,
+            "bottom": 369.95
+          },
+          "icon": {
+            "x": 53.99,
+            "y": 324.97,
+            "width": 33.99,
+            "height": 33.99,
+            "right": 87.98,
+            "bottom": 358.96
+          },
+          "copyBottomGap": 34.93,
+          "copyRightGap": 29.02,
+          "copyOverflow": false,
+          "summary": "block",
+          "titleFont": "9.36877px",
+          "descriptionFont": "7.77409px",
+          "hitHeight": 77.765625,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "04",
+          "row": {
+            "x": 41,
+            "y": 399.99,
+            "width": 518.99,
+            "height": 65.98,
+            "right": 559.99,
+            "bottom": 465.97
+          },
+          "callout": {
+            "x": 41,
+            "y": 399.99,
+            "width": 206.98,
+            "height": 65.98,
+            "right": 247.98,
+            "bottom": 465.97
+          },
+          "cylinder": {
+            "x": 279.98,
+            "y": 406.98,
+            "width": 279.99,
+            "height": 53.98,
+            "right": 559.97,
+            "bottom": 460.95
+          },
+          "sleeve": {
+            "x": 388.96,
+            "y": 406.98,
+            "width": 100.99,
+            "height": 53.98,
+            "right": 489.96,
+            "bottom": 460.95
+          },
+          "icon": {
+            "x": 53.99,
+            "y": 415.98,
+            "width": 33.99,
+            "height": 33.99,
+            "right": 87.98,
+            "bottom": 449.96
+          },
+          "copyBottomGap": 34.93,
+          "copyRightGap": 29.02,
+          "copyOverflow": false,
+          "summary": "block",
+          "titleFont": "9.36877px",
+          "descriptionFont": "7.77409px",
+          "hitHeight": 77.765625,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "05",
+          "row": {
+            "x": 41,
+            "y": 490.97,
+            "width": 518.99,
+            "height": 65.98,
+            "right": 559.99,
+            "bottom": 556.96
+          },
+          "callout": {
+            "x": 41,
+            "y": 490.97,
+            "width": 206.98,
+            "height": 65.98,
+            "right": 247.98,
+            "bottom": 556.96
+          },
+          "cylinder": {
+            "x": 279.98,
+            "y": 497.97,
+            "width": 279.99,
+            "height": 53.98,
+            "right": 559.97,
+            "bottom": 551.94
+          },
+          "sleeve": {
+            "x": 416.96,
+            "y": 497.97,
+            "width": 100.99,
+            "height": 53.98,
+            "right": 517.96,
+            "bottom": 551.94
+          },
+          "icon": {
+            "x": 53.99,
+            "y": 506.97,
+            "width": 33.99,
+            "height": 33.99,
+            "right": 87.98,
+            "bottom": 540.95
+          },
+          "copyBottomGap": 34.93,
+          "copyRightGap": 29.02,
+          "copyOverflow": false,
+          "summary": "block",
+          "titleFont": "9.36877px",
+          "descriptionFont": "7.77409px",
+          "hitHeight": 77.765625,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        }
+      ],
+      "motion": {
+        "id": "cs5-cylinder-steps",
+        "root": ".cs5-module",
+        "mounted": true,
+        "visible": true,
+        "running": false,
+        "paused": true,
+        "reducedMotion": false,
+        "supported": true,
+        "instances": [
+          {
+            "instance": 1,
+            "visible": true,
+            "phase": "idle",
+            "plays": 1,
+            "running": false,
+            "animations": 2,
+            "mismatches": [],
+            "errors": []
+          }
+        ]
+      }
+    },
+    {
+      "viewport": 601,
+      "stage": {
+        "x": 0,
+        "y": 0,
+        "width": 601,
+        "height": 610.96875,
+        "right": 601,
+        "bottom": 610.96875
+      },
+      "background": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "none",
+      "overflow": false,
+      "focused": null,
+      "rows": [
+        {
+          "number": "01",
+          "row": {
+            "x": 40.99,
+            "y": 126.99,
+            "width": 518.99,
+            "height": 65.98,
+            "right": 559.98,
+            "bottom": 192.98
+          },
+          "callout": {
+            "x": 40.99,
+            "y": 126.99,
+            "width": 206.98,
+            "height": 65.98,
+            "right": 247.97,
+            "bottom": 192.98
+          },
+          "cylinder": {
+            "x": 279.98,
+            "y": 133.99,
+            "width": 279.98,
+            "height": 53.98,
+            "right": 559.96,
+            "bottom": 187.97
+          },
+          "sleeve": {
+            "x": 306.98,
+            "y": 133.99,
+            "width": 100.98,
+            "height": 53.98,
+            "right": 407.96,
+            "bottom": 187.97
+          },
+          "icon": {
+            "x": 53.98,
+            "y": 142.99,
+            "width": 33.99,
+            "height": 33.98,
+            "right": 87.97,
+            "bottom": 176.97
+          },
+          "copyBottomGap": 21.86,
+          "copyRightGap": 29.02,
+          "copyOverflow": false,
+          "summary": "none",
+          "titleFont": "9.38439px",
+          "descriptionFont": "7.78705px",
+          "hitHeight": 77.875,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "02",
+          "row": {
+            "x": 40.99,
+            "y": 217.99,
+            "width": 518.99,
+            "height": 65.98,
+            "right": 559.98,
+            "bottom": 283.97
+          },
+          "callout": {
+            "x": 40.99,
+            "y": 217.99,
+            "width": 206.98,
+            "height": 65.98,
+            "right": 247.97,
+            "bottom": 283.97
+          },
+          "cylinder": {
+            "x": 279.98,
+            "y": 224.98,
+            "width": 279.98,
+            "height": 53.98,
+            "right": 559.96,
+            "bottom": 278.96
+          },
+          "sleeve": {
+            "x": 329.97,
+            "y": 224.98,
+            "width": 100.98,
+            "height": 53.98,
+            "right": 430.95,
+            "bottom": 278.96
+          },
+          "icon": {
+            "x": 53.98,
+            "y": 233.98,
+            "width": 33.99,
+            "height": 33.98,
+            "right": 87.97,
+            "bottom": 267.96
+          },
+          "copyBottomGap": 21.86,
+          "copyRightGap": 29.02,
+          "copyOverflow": false,
+          "summary": "none",
+          "titleFont": "9.38439px",
+          "descriptionFont": "7.78705px",
+          "hitHeight": 77.875,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "03",
+          "row": {
+            "x": 40.99,
+            "y": 308.98,
+            "width": 518.99,
+            "height": 65.98,
+            "right": 559.98,
+            "bottom": 374.97
+          },
+          "callout": {
+            "x": 40.99,
+            "y": 308.98,
+            "width": 206.98,
+            "height": 65.98,
+            "right": 247.97,
+            "bottom": 374.97
+          },
+          "cylinder": {
+            "x": 279.98,
+            "y": 315.98,
+            "width": 279.98,
+            "height": 53.98,
+            "right": 559.96,
+            "bottom": 369.96
+          },
+          "sleeve": {
+            "x": 361.96,
+            "y": 315.98,
+            "width": 100.98,
+            "height": 53.98,
+            "right": 462.94,
+            "bottom": 369.96
+          },
+          "icon": {
+            "x": 53.98,
+            "y": 324.98,
+            "width": 33.99,
+            "height": 33.98,
+            "right": 87.97,
+            "bottom": 358.96
+          },
+          "copyBottomGap": 21.86,
+          "copyRightGap": 29.02,
+          "copyOverflow": false,
+          "summary": "none",
+          "titleFont": "9.38439px",
+          "descriptionFont": "7.78705px",
+          "hitHeight": 77.875,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "04",
+          "row": {
+            "x": 40.99,
+            "y": 399.98,
+            "width": 518.99,
+            "height": 65.98,
+            "right": 559.98,
+            "bottom": 465.96
+          },
+          "callout": {
+            "x": 40.99,
+            "y": 399.98,
+            "width": 206.98,
+            "height": 65.98,
+            "right": 247.97,
+            "bottom": 465.96
+          },
+          "cylinder": {
+            "x": 279.98,
+            "y": 406.97,
+            "width": 279.98,
+            "height": 53.98,
+            "right": 559.96,
+            "bottom": 460.95
+          },
+          "sleeve": {
+            "x": 388.96,
+            "y": 406.97,
+            "width": 100.98,
+            "height": 53.98,
+            "right": 489.94,
+            "bottom": 460.95
+          },
+          "icon": {
+            "x": 53.98,
+            "y": 415.97,
+            "width": 33.99,
+            "height": 33.98,
+            "right": 87.97,
+            "bottom": 449.95
+          },
+          "copyBottomGap": 21.86,
+          "copyRightGap": 29.02,
+          "copyOverflow": false,
+          "summary": "none",
+          "titleFont": "9.38439px",
+          "descriptionFont": "7.78705px",
+          "hitHeight": 77.875,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "05",
+          "row": {
+            "x": 40.99,
+            "y": 490.99,
+            "width": 518.99,
+            "height": 65.98,
+            "right": 559.98,
+            "bottom": 556.97
+          },
+          "callout": {
+            "x": 40.99,
+            "y": 490.99,
+            "width": 206.98,
+            "height": 65.98,
+            "right": 247.97,
+            "bottom": 556.97
+          },
+          "cylinder": {
+            "x": 279.98,
+            "y": 497.98,
+            "width": 279.98,
+            "height": 53.98,
+            "right": 559.96,
+            "bottom": 551.96
+          },
+          "sleeve": {
+            "x": 416.96,
+            "y": 497.98,
+            "width": 100.98,
+            "height": 53.98,
+            "right": 517.94,
+            "bottom": 551.96
+          },
+          "icon": {
+            "x": 53.98,
+            "y": 506.98,
+            "width": 33.99,
+            "height": 33.98,
+            "right": 87.97,
+            "bottom": 540.96
+          },
+          "copyBottomGap": 21.86,
+          "copyRightGap": 29.02,
+          "copyOverflow": false,
+          "summary": "none",
+          "titleFont": "9.38439px",
+          "descriptionFont": "7.78705px",
+          "hitHeight": 77.875,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        }
+      ],
+      "motion": {
+        "id": "cs5-cylinder-steps",
+        "root": ".cs5-module",
+        "mounted": true,
+        "visible": true,
+        "running": false,
+        "paused": true,
+        "reducedMotion": false,
+        "supported": true,
+        "instances": [
+          {
+            "instance": 1,
+            "visible": true,
+            "phase": "idle",
+            "plays": 1,
+            "running": false,
+            "animations": 2,
+            "mismatches": [],
+            "errors": []
+          }
+        ]
+      }
+    },
+    {
+      "viewport": 602,
+      "stage": {
+        "x": 0,
+        "y": 0,
+        "width": 602,
+        "height": 612,
+        "right": 602,
+        "bottom": 612
+      },
+      "background": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "none",
+      "overflow": false,
+      "focused": null,
+      "rows": [
+        {
+          "number": "01",
+          "row": {
+            "x": 40.98,
+            "y": 127,
+            "width": 519,
+            "height": 66,
+            "right": 559.98,
+            "bottom": 193
+          },
+          "callout": {
+            "x": 40.98,
+            "y": 127,
+            "width": 207,
+            "height": 66,
+            "right": 247.98,
+            "bottom": 193
+          },
+          "cylinder": {
+            "x": 279.98,
+            "y": 134,
+            "width": 280,
+            "height": 54,
+            "right": 559.98,
+            "bottom": 188
+          },
+          "sleeve": {
+            "x": 306.98,
+            "y": 134,
+            "width": 101,
+            "height": 54,
+            "right": 407.98,
+            "bottom": 188
+          },
+          "icon": {
+            "x": 53.97,
+            "y": 143,
+            "width": 34,
+            "height": 34,
+            "right": 87.97,
+            "bottom": 177
+          },
+          "copyBottomGap": 21.88,
+          "copyRightGap": 29,
+          "copyOverflow": false,
+          "summary": "none",
+          "titleFont": "9.4px",
+          "descriptionFont": "7.8px",
+          "hitHeight": 78,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "02",
+          "row": {
+            "x": 40.98,
+            "y": 218,
+            "width": 519,
+            "height": 66,
+            "right": 559.98,
+            "bottom": 284
+          },
+          "callout": {
+            "x": 40.98,
+            "y": 218,
+            "width": 207,
+            "height": 66,
+            "right": 247.98,
+            "bottom": 284
+          },
+          "cylinder": {
+            "x": 279.98,
+            "y": 225,
+            "width": 280,
+            "height": 54,
+            "right": 559.98,
+            "bottom": 279
+          },
+          "sleeve": {
+            "x": 329.98,
+            "y": 225,
+            "width": 101,
+            "height": 54,
+            "right": 430.98,
+            "bottom": 279
+          },
+          "icon": {
+            "x": 53.97,
+            "y": 234,
+            "width": 34,
+            "height": 34,
+            "right": 87.97,
+            "bottom": 268
+          },
+          "copyBottomGap": 21.88,
+          "copyRightGap": 29,
+          "copyOverflow": false,
+          "summary": "none",
+          "titleFont": "9.4px",
+          "descriptionFont": "7.8px",
+          "hitHeight": 78,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "03",
+          "row": {
+            "x": 40.98,
+            "y": 309,
+            "width": 519,
+            "height": 66,
+            "right": 559.98,
+            "bottom": 375
+          },
+          "callout": {
+            "x": 40.98,
+            "y": 309,
+            "width": 207,
+            "height": 66,
+            "right": 247.98,
+            "bottom": 375
+          },
+          "cylinder": {
+            "x": 279.98,
+            "y": 316,
+            "width": 280,
+            "height": 54,
+            "right": 559.98,
+            "bottom": 370
+          },
+          "sleeve": {
+            "x": 361.98,
+            "y": 316,
+            "width": 101,
+            "height": 54,
+            "right": 462.98,
+            "bottom": 370
+          },
+          "icon": {
+            "x": 53.97,
+            "y": 325,
+            "width": 34,
+            "height": 34,
+            "right": 87.97,
+            "bottom": 359
+          },
+          "copyBottomGap": 21.88,
+          "copyRightGap": 29,
+          "copyOverflow": false,
+          "summary": "none",
+          "titleFont": "9.4px",
+          "descriptionFont": "7.8px",
+          "hitHeight": 78,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "04",
+          "row": {
+            "x": 40.98,
+            "y": 400,
+            "width": 519,
+            "height": 66,
+            "right": 559.98,
+            "bottom": 466
+          },
+          "callout": {
+            "x": 40.98,
+            "y": 400,
+            "width": 207,
+            "height": 66,
+            "right": 247.98,
+            "bottom": 466
+          },
+          "cylinder": {
+            "x": 279.98,
+            "y": 407,
+            "width": 280,
+            "height": 54,
+            "right": 559.98,
+            "bottom": 461
+          },
+          "sleeve": {
+            "x": 388.98,
+            "y": 407,
+            "width": 101,
+            "height": 54,
+            "right": 489.98,
+            "bottom": 461
+          },
+          "icon": {
+            "x": 53.97,
+            "y": 416,
+            "width": 34,
+            "height": 34,
+            "right": 87.97,
+            "bottom": 450
+          },
+          "copyBottomGap": 21.88,
+          "copyRightGap": 29,
+          "copyOverflow": false,
+          "summary": "none",
+          "titleFont": "9.4px",
+          "descriptionFont": "7.8px",
+          "hitHeight": 78,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "05",
+          "row": {
+            "x": 40.98,
+            "y": 491,
+            "width": 519,
+            "height": 66,
+            "right": 559.98,
+            "bottom": 557
+          },
+          "callout": {
+            "x": 40.98,
+            "y": 491,
+            "width": 207,
+            "height": 66,
+            "right": 247.98,
+            "bottom": 557
+          },
+          "cylinder": {
+            "x": 279.98,
+            "y": 498,
+            "width": 280,
+            "height": 54,
+            "right": 559.98,
+            "bottom": 552
+          },
+          "sleeve": {
+            "x": 416.98,
+            "y": 498,
+            "width": 101,
+            "height": 54,
+            "right": 517.98,
+            "bottom": 552
+          },
+          "icon": {
+            "x": 53.97,
+            "y": 507,
+            "width": 34,
+            "height": 34,
+            "right": 87.97,
+            "bottom": 541
+          },
+          "copyBottomGap": 21.88,
+          "copyRightGap": 29,
+          "copyOverflow": false,
+          "summary": "none",
+          "titleFont": "9.4px",
+          "descriptionFont": "7.8px",
+          "hitHeight": 78,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        }
+      ],
+      "motion": {
+        "id": "cs5-cylinder-steps",
+        "root": ".cs5-module",
+        "mounted": true,
+        "visible": true,
+        "running": false,
+        "paused": true,
+        "reducedMotion": false,
+        "supported": true,
+        "instances": [
+          {
+            "instance": 1,
+            "visible": true,
+            "phase": "idle",
+            "plays": 1,
+            "running": false,
+            "animations": 2,
+            "mismatches": [],
+            "errors": []
+          }
+        ]
+      }
+    },
+    {
+      "viewport": 768,
+      "stage": {
+        "x": 0,
+        "y": 0,
+        "width": 768,
+        "height": 780.75,
+        "right": 768,
+        "bottom": 780.75
+      },
+      "background": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "none",
+      "overflow": false,
+      "focused": null,
+      "rows": [
+        {
+          "number": "01",
+          "row": {
+            "x": 40.99,
+            "y": 127,
+            "width": 519,
+            "height": 65.99,
+            "right": 559.99,
+            "bottom": 192.99
+          },
+          "callout": {
+            "x": 40.99,
+            "y": 127,
+            "width": 207,
+            "height": 65.99,
+            "right": 247.99,
+            "bottom": 192.99
+          },
+          "cylinder": {
+            "x": 279.98,
+            "y": 133.99,
+            "width": 280,
+            "height": 53.99,
+            "right": 559.98,
+            "bottom": 187.98
+          },
+          "sleeve": {
+            "x": 306.98,
+            "y": 133.99,
+            "width": 100.99,
+            "height": 53.99,
+            "right": 407.97,
+            "bottom": 187.98
+          },
+          "icon": {
+            "x": 53.99,
+            "y": 142.99,
+            "width": 34,
+            "height": 33.99,
+            "right": 87.99,
+            "bottom": 176.98
+          },
+          "copyBottomGap": 21.86,
+          "copyRightGap": 29.01,
+          "copyOverflow": false,
+          "summary": "none",
+          "titleFont": "11.992px",
+          "descriptionFont": "9.95083px",
+          "hitHeight": 96.1875,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "02",
+          "row": {
+            "x": 40.99,
+            "y": 218,
+            "width": 519,
+            "height": 65.99,
+            "right": 559.99,
+            "bottom": 283.99
+          },
+          "callout": {
+            "x": 40.99,
+            "y": 218,
+            "width": 207,
+            "height": 65.99,
+            "right": 247.99,
+            "bottom": 283.99
+          },
+          "cylinder": {
+            "x": 279.98,
+            "y": 224.99,
+            "width": 280,
+            "height": 53.99,
+            "right": 559.98,
+            "bottom": 278.98
+          },
+          "sleeve": {
+            "x": 329.98,
+            "y": 224.99,
+            "width": 100.99,
+            "height": 53.99,
+            "right": 430.97,
+            "bottom": 278.98
+          },
+          "icon": {
+            "x": 53.99,
+            "y": 233.99,
+            "width": 34,
+            "height": 33.99,
+            "right": 87.99,
+            "bottom": 267.98
+          },
+          "copyBottomGap": 21.86,
+          "copyRightGap": 29.01,
+          "copyOverflow": false,
+          "summary": "none",
+          "titleFont": "11.992px",
+          "descriptionFont": "9.95083px",
+          "hitHeight": 96.1875,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "03",
+          "row": {
+            "x": 40.99,
+            "y": 308.99,
+            "width": 519,
+            "height": 65.99,
+            "right": 559.99,
+            "bottom": 374.98
+          },
+          "callout": {
+            "x": 40.99,
+            "y": 308.99,
+            "width": 207,
+            "height": 65.99,
+            "right": 247.99,
+            "bottom": 374.98
+          },
+          "cylinder": {
+            "x": 279.98,
+            "y": 315.98,
+            "width": 280,
+            "height": 53.99,
+            "right": 559.98,
+            "bottom": 369.97
+          },
+          "sleeve": {
+            "x": 361.98,
+            "y": 315.98,
+            "width": 100.99,
+            "height": 53.99,
+            "right": 462.98,
+            "bottom": 369.97
+          },
+          "icon": {
+            "x": 53.99,
+            "y": 324.98,
+            "width": 34,
+            "height": 33.99,
+            "right": 87.99,
+            "bottom": 358.97
+          },
+          "copyBottomGap": 21.86,
+          "copyRightGap": 29.01,
+          "copyOverflow": false,
+          "summary": "none",
+          "titleFont": "11.992px",
+          "descriptionFont": "9.95083px",
+          "hitHeight": 96.1875,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "04",
+          "row": {
+            "x": 40.99,
+            "y": 399.99,
+            "width": 519,
+            "height": 65.99,
+            "right": 559.99,
+            "bottom": 465.98
+          },
+          "callout": {
+            "x": 40.99,
+            "y": 399.99,
+            "width": 207,
+            "height": 65.99,
+            "right": 247.99,
+            "bottom": 465.98
+          },
+          "cylinder": {
+            "x": 279.98,
+            "y": 406.98,
+            "width": 280,
+            "height": 53.99,
+            "right": 559.98,
+            "bottom": 460.97
+          },
+          "sleeve": {
+            "x": 388.98,
+            "y": 406.98,
+            "width": 100.99,
+            "height": 53.99,
+            "right": 489.97,
+            "bottom": 460.97
+          },
+          "icon": {
+            "x": 53.99,
+            "y": 415.98,
+            "width": 34,
+            "height": 33.99,
+            "right": 87.99,
+            "bottom": 449.97
+          },
+          "copyBottomGap": 21.86,
+          "copyRightGap": 29.01,
+          "copyOverflow": false,
+          "summary": "none",
+          "titleFont": "11.992px",
+          "descriptionFont": "9.95083px",
+          "hitHeight": 96.1875,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "05",
+          "row": {
+            "x": 40.99,
+            "y": 490.99,
+            "width": 519,
+            "height": 65.99,
+            "right": 559.99,
+            "bottom": 556.98
+          },
+          "callout": {
+            "x": 40.99,
+            "y": 490.99,
+            "width": 207,
+            "height": 65.99,
+            "right": 247.99,
+            "bottom": 556.98
+          },
+          "cylinder": {
+            "x": 279.98,
+            "y": 497.98,
+            "width": 280,
+            "height": 53.99,
+            "right": 559.98,
+            "bottom": 551.97
+          },
+          "sleeve": {
+            "x": 416.97,
+            "y": 497.98,
+            "width": 100.99,
+            "height": 53.99,
+            "right": 517.97,
+            "bottom": 551.97
+          },
+          "icon": {
+            "x": 53.99,
+            "y": 506.98,
+            "width": 34,
+            "height": 33.99,
+            "right": 87.99,
+            "bottom": 540.97
+          },
+          "copyBottomGap": 21.86,
+          "copyRightGap": 29.01,
+          "copyOverflow": false,
+          "summary": "none",
+          "titleFont": "11.992px",
+          "descriptionFont": "9.95083px",
+          "hitHeight": 96.1875,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        }
+      ],
+      "motion": {
+        "id": "cs5-cylinder-steps",
+        "root": ".cs5-module",
+        "mounted": true,
+        "visible": true,
+        "running": false,
+        "paused": true,
+        "reducedMotion": false,
+        "supported": true,
+        "instances": [
+          {
+            "instance": 1,
+            "visible": true,
+            "phase": "idle",
+            "plays": 1,
+            "running": false,
+            "animations": 2,
+            "mismatches": [],
+            "errors": []
+          }
+        ]
+      }
+    },
+    {
+      "viewport": 1100,
+      "stage": {
+        "x": 0,
+        "y": 0,
+        "width": 1100,
+        "height": 1118.265625,
+        "right": 1100,
+        "bottom": 1118.265625
+      },
+      "background": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "none",
+      "overflow": false,
+      "focused": null,
+      "rows": [
+        {
+          "number": "01",
+          "row": {
+            "x": 40.99,
+            "y": 126.99,
+            "width": 518.99,
+            "height": 66,
+            "right": 559.99,
+            "bottom": 192.99
+          },
+          "callout": {
+            "x": 40.99,
+            "y": 126.99,
+            "width": 207,
+            "height": 66,
+            "right": 247.99,
+            "bottom": 192.99
+          },
+          "cylinder": {
+            "x": 279.99,
+            "y": 133.99,
+            "width": 279.99,
+            "height": 53.99,
+            "right": 559.98,
+            "bottom": 187.98
+          },
+          "sleeve": {
+            "x": 306.99,
+            "y": 133.99,
+            "width": 100.99,
+            "height": 53.99,
+            "right": 407.97,
+            "bottom": 187.98
+          },
+          "icon": {
+            "x": 53.99,
+            "y": 142.99,
+            "width": 34,
+            "height": 33.99,
+            "right": 87.99,
+            "bottom": 176.98
+          },
+          "copyBottomGap": 21.87,
+          "copyRightGap": 29.01,
+          "copyOverflow": false,
+          "summary": "none",
+          "titleFont": "17.1761px",
+          "descriptionFont": "14.2525px",
+          "hitHeight": 132.59375,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "02",
+          "row": {
+            "x": 40.99,
+            "y": 217.99,
+            "width": 518.99,
+            "height": 66,
+            "right": 559.99,
+            "bottom": 283.99
+          },
+          "callout": {
+            "x": 40.99,
+            "y": 217.99,
+            "width": 207,
+            "height": 66,
+            "right": 247.99,
+            "bottom": 283.99
+          },
+          "cylinder": {
+            "x": 279.99,
+            "y": 224.99,
+            "width": 279.99,
+            "height": 53.99,
+            "right": 559.98,
+            "bottom": 278.98
+          },
+          "sleeve": {
+            "x": 329.98,
+            "y": 224.99,
+            "width": 100.99,
+            "height": 53.99,
+            "right": 430.97,
+            "bottom": 278.98
+          },
+          "icon": {
+            "x": 53.99,
+            "y": 233.99,
+            "width": 34,
+            "height": 33.99,
+            "right": 87.99,
+            "bottom": 267.98
+          },
+          "copyBottomGap": 21.87,
+          "copyRightGap": 29.01,
+          "copyOverflow": false,
+          "summary": "none",
+          "titleFont": "17.1761px",
+          "descriptionFont": "14.2525px",
+          "hitHeight": 132.59375,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "03",
+          "row": {
+            "x": 40.99,
+            "y": 309,
+            "width": 518.99,
+            "height": 66,
+            "right": 559.99,
+            "bottom": 374.99
+          },
+          "callout": {
+            "x": 40.99,
+            "y": 309,
+            "width": 207,
+            "height": 66,
+            "right": 247.99,
+            "bottom": 374.99
+          },
+          "cylinder": {
+            "x": 279.99,
+            "y": 315.99,
+            "width": 279.99,
+            "height": 53.99,
+            "right": 559.98,
+            "bottom": 369.98
+          },
+          "sleeve": {
+            "x": 361.99,
+            "y": 315.99,
+            "width": 100.99,
+            "height": 53.99,
+            "right": 462.98,
+            "bottom": 369.98
+          },
+          "icon": {
+            "x": 53.99,
+            "y": 324.99,
+            "width": 34,
+            "height": 33.99,
+            "right": 87.99,
+            "bottom": 358.99
+          },
+          "copyBottomGap": 21.87,
+          "copyRightGap": 29.01,
+          "copyOverflow": false,
+          "summary": "none",
+          "titleFont": "17.1761px",
+          "descriptionFont": "14.2525px",
+          "hitHeight": 132.59375,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "04",
+          "row": {
+            "x": 40.99,
+            "y": 400,
+            "width": 518.99,
+            "height": 66,
+            "right": 559.99,
+            "bottom": 465.99
+          },
+          "callout": {
+            "x": 40.99,
+            "y": 400,
+            "width": 207,
+            "height": 66,
+            "right": 247.99,
+            "bottom": 465.99
+          },
+          "cylinder": {
+            "x": 279.99,
+            "y": 406.99,
+            "width": 279.99,
+            "height": 53.99,
+            "right": 559.98,
+            "bottom": 460.98
+          },
+          "sleeve": {
+            "x": 388.98,
+            "y": 406.99,
+            "width": 100.99,
+            "height": 53.99,
+            "right": 489.97,
+            "bottom": 460.98
+          },
+          "icon": {
+            "x": 53.99,
+            "y": 416,
+            "width": 34,
+            "height": 33.99,
+            "right": 87.99,
+            "bottom": 449.99
+          },
+          "copyBottomGap": 21.87,
+          "copyRightGap": 29.01,
+          "copyOverflow": false,
+          "summary": "none",
+          "titleFont": "17.1761px",
+          "descriptionFont": "14.2525px",
+          "hitHeight": 132.59375,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "05",
+          "row": {
+            "x": 40.99,
+            "y": 490.99,
+            "width": 518.99,
+            "height": 66,
+            "right": 559.99,
+            "bottom": 556.99
+          },
+          "callout": {
+            "x": 40.99,
+            "y": 490.99,
+            "width": 207,
+            "height": 66,
+            "right": 247.99,
+            "bottom": 556.99
+          },
+          "cylinder": {
+            "x": 279.99,
+            "y": 497.98,
+            "width": 279.99,
+            "height": 53.99,
+            "right": 559.98,
+            "bottom": 551.98
+          },
+          "sleeve": {
+            "x": 416.98,
+            "y": 497.98,
+            "width": 100.99,
+            "height": 53.99,
+            "right": 517.97,
+            "bottom": 551.98
+          },
+          "icon": {
+            "x": 53.99,
+            "y": 506.99,
+            "width": 34,
+            "height": 33.99,
+            "right": 87.99,
+            "bottom": 540.98
+          },
+          "copyBottomGap": 21.87,
+          "copyRightGap": 29.01,
+          "copyOverflow": false,
+          "summary": "none",
+          "titleFont": "17.1761px",
+          "descriptionFont": "14.2525px",
+          "hitHeight": 132.59375,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        }
+      ],
+      "motion": {
+        "id": "cs5-cylinder-steps",
+        "root": ".cs5-module",
+        "mounted": true,
+        "visible": true,
+        "running": false,
+        "paused": true,
+        "reducedMotion": false,
+        "supported": true,
+        "instances": [
+          {
+            "instance": 1,
+            "visible": true,
+            "phase": "idle",
+            "plays": 1,
+            "running": false,
+            "animations": 2,
+            "mismatches": [],
+            "errors": []
+          }
+        ]
+      }
+    },
+    {
+      "viewport": 1440,
+      "stage": {
+        "x": 170,
+        "y": 0,
+        "width": 1100,
+        "height": 1118.265625,
+        "right": 1270,
+        "bottom": 1118.265625
+      },
+      "background": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "none",
+      "overflow": false,
+      "focused": null,
+      "rows": [
+        {
+          "number": "01",
+          "row": {
+            "x": 40.99,
+            "y": 126.99,
+            "width": 518.99,
+            "height": 66,
+            "right": 559.99,
+            "bottom": 192.99
+          },
+          "callout": {
+            "x": 40.99,
+            "y": 126.99,
+            "width": 207,
+            "height": 66,
+            "right": 247.99,
+            "bottom": 192.99
+          },
+          "cylinder": {
+            "x": 279.99,
+            "y": 133.99,
+            "width": 279.99,
+            "height": 53.99,
+            "right": 559.98,
+            "bottom": 187.98
+          },
+          "sleeve": {
+            "x": 306.99,
+            "y": 133.99,
+            "width": 100.99,
+            "height": 53.99,
+            "right": 407.97,
+            "bottom": 187.98
+          },
+          "icon": {
+            "x": 53.99,
+            "y": 142.99,
+            "width": 34,
+            "height": 33.99,
+            "right": 87.99,
+            "bottom": 176.98
+          },
+          "copyBottomGap": 21.87,
+          "copyRightGap": 29.01,
+          "copyOverflow": false,
+          "summary": "none",
+          "titleFont": "17.1761px",
+          "descriptionFont": "14.2525px",
+          "hitHeight": 132.59375,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "02",
+          "row": {
+            "x": 40.99,
+            "y": 217.99,
+            "width": 518.99,
+            "height": 66,
+            "right": 559.99,
+            "bottom": 283.99
+          },
+          "callout": {
+            "x": 40.99,
+            "y": 217.99,
+            "width": 207,
+            "height": 66,
+            "right": 247.99,
+            "bottom": 283.99
+          },
+          "cylinder": {
+            "x": 279.99,
+            "y": 224.99,
+            "width": 279.99,
+            "height": 53.99,
+            "right": 559.98,
+            "bottom": 278.98
+          },
+          "sleeve": {
+            "x": 329.98,
+            "y": 224.99,
+            "width": 100.99,
+            "height": 53.99,
+            "right": 430.97,
+            "bottom": 278.98
+          },
+          "icon": {
+            "x": 53.99,
+            "y": 233.99,
+            "width": 34,
+            "height": 33.99,
+            "right": 87.99,
+            "bottom": 267.98
+          },
+          "copyBottomGap": 21.87,
+          "copyRightGap": 29.01,
+          "copyOverflow": false,
+          "summary": "none",
+          "titleFont": "17.1761px",
+          "descriptionFont": "14.2525px",
+          "hitHeight": 132.59375,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "03",
+          "row": {
+            "x": 40.99,
+            "y": 309,
+            "width": 518.99,
+            "height": 66,
+            "right": 559.99,
+            "bottom": 374.99
+          },
+          "callout": {
+            "x": 40.99,
+            "y": 309,
+            "width": 207,
+            "height": 66,
+            "right": 247.99,
+            "bottom": 374.99
+          },
+          "cylinder": {
+            "x": 279.99,
+            "y": 315.99,
+            "width": 279.99,
+            "height": 53.99,
+            "right": 559.98,
+            "bottom": 369.98
+          },
+          "sleeve": {
+            "x": 361.99,
+            "y": 315.99,
+            "width": 100.99,
+            "height": 53.99,
+            "right": 462.98,
+            "bottom": 369.98
+          },
+          "icon": {
+            "x": 53.99,
+            "y": 324.99,
+            "width": 34,
+            "height": 33.99,
+            "right": 87.99,
+            "bottom": 358.99
+          },
+          "copyBottomGap": 21.87,
+          "copyRightGap": 29.01,
+          "copyOverflow": false,
+          "summary": "none",
+          "titleFont": "17.1761px",
+          "descriptionFont": "14.2525px",
+          "hitHeight": 132.59375,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "04",
+          "row": {
+            "x": 40.99,
+            "y": 400,
+            "width": 518.99,
+            "height": 66,
+            "right": 559.99,
+            "bottom": 465.99
+          },
+          "callout": {
+            "x": 40.99,
+            "y": 400,
+            "width": 207,
+            "height": 66,
+            "right": 247.99,
+            "bottom": 465.99
+          },
+          "cylinder": {
+            "x": 279.99,
+            "y": 406.99,
+            "width": 279.99,
+            "height": 53.99,
+            "right": 559.98,
+            "bottom": 460.98
+          },
+          "sleeve": {
+            "x": 388.98,
+            "y": 406.99,
+            "width": 100.99,
+            "height": 53.99,
+            "right": 489.97,
+            "bottom": 460.98
+          },
+          "icon": {
+            "x": 53.99,
+            "y": 416,
+            "width": 34,
+            "height": 33.99,
+            "right": 87.99,
+            "bottom": 449.99
+          },
+          "copyBottomGap": 21.87,
+          "copyRightGap": 29.01,
+          "copyOverflow": false,
+          "summary": "none",
+          "titleFont": "17.1761px",
+          "descriptionFont": "14.2525px",
+          "hitHeight": 132.59375,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "05",
+          "row": {
+            "x": 40.99,
+            "y": 490.99,
+            "width": 518.99,
+            "height": 66,
+            "right": 559.99,
+            "bottom": 556.99
+          },
+          "callout": {
+            "x": 40.99,
+            "y": 490.99,
+            "width": 207,
+            "height": 66,
+            "right": 247.99,
+            "bottom": 556.99
+          },
+          "cylinder": {
+            "x": 279.99,
+            "y": 497.98,
+            "width": 279.99,
+            "height": 53.99,
+            "right": 559.98,
+            "bottom": 551.98
+          },
+          "sleeve": {
+            "x": 416.98,
+            "y": 497.98,
+            "width": 100.99,
+            "height": 53.99,
+            "right": 517.97,
+            "bottom": 551.98
+          },
+          "icon": {
+            "x": 53.99,
+            "y": 506.99,
+            "width": 34,
+            "height": 33.99,
+            "right": 87.99,
+            "bottom": 540.98
+          },
+          "copyBottomGap": 21.87,
+          "copyRightGap": 29.01,
+          "copyOverflow": false,
+          "summary": "none",
+          "titleFont": "17.1761px",
+          "descriptionFont": "14.2525px",
+          "hitHeight": 132.59375,
+          "sleeveTransform": "none",
+          "pressed": "false"
+        }
+      ],
+      "motion": {
+        "id": "cs5-cylinder-steps",
+        "root": ".cs5-module",
+        "mounted": true,
+        "visible": true,
+        "running": false,
+        "paused": true,
+        "reducedMotion": false,
+        "supported": true,
+        "instances": [
+          {
+            "instance": 1,
+            "visible": true,
+            "phase": "idle",
+            "plays": 1,
+            "running": false,
+            "animations": 2,
+            "mismatches": [],
+            "errors": []
+          }
+        ]
+      }
+    }
+  ],
+  "embedded390": {
+    "viewport": 1440,
+    "stage": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 396.46875,
+      "right": 390,
+      "bottom": 396.46875
+    },
+    "background": "rgba(0, 0, 0, 0)",
+    "backgroundImage": "none",
+    "overflow": false,
+    "focused": null,
+    "rows": [
+      {
+        "number": "01",
+        "row": {
+          "x": 40.98,
+          "y": 126.98,
+          "width": 518.98,
+          "height": 65.99,
+          "right": 559.96,
+          "bottom": 192.97
+        },
+        "callout": {
+          "x": 40.98,
+          "y": 126.98,
+          "width": 206.99,
+          "height": 65.99,
+          "right": 247.96,
+          "bottom": 192.97
+        },
+        "cylinder": {
+          "x": 279.97,
+          "y": 133.98,
+          "width": 279.97,
+          "height": 53.98,
+          "right": 559.94,
+          "bottom": 187.96
+        },
+        "sleeve": {
+          "x": 306.96,
+          "y": 133.98,
+          "width": 100.98,
+          "height": 53.98,
+          "right": 407.94,
+          "bottom": 187.96
+        },
+        "icon": {
+          "x": 53.95,
+          "y": 142.97,
+          "width": 33.98,
+          "height": 33.98,
+          "right": 87.94,
+          "bottom": 176.96
+        },
+        "copyBottomGap": 26.99,
+        "copyRightGap": 29.01,
+        "copyOverflow": false,
+        "summary": "block",
+        "titleFont": "8px",
+        "descriptionFont": "5.05316px",
+        "hitHeight": 54.75,
+        "sleeveTransform": "none",
+        "pressed": "false"
+      },
+      {
+        "number": "02",
+        "row": {
+          "x": 40.98,
+          "y": 217.98,
+          "width": 518.98,
+          "height": 65.99,
+          "right": 559.96,
+          "bottom": 283.97
+        },
+        "callout": {
+          "x": 40.98,
+          "y": 217.98,
+          "width": 206.99,
+          "height": 65.99,
+          "right": 247.96,
+          "bottom": 283.97
+        },
+        "cylinder": {
+          "x": 279.97,
+          "y": 224.98,
+          "width": 279.97,
+          "height": 53.98,
+          "right": 559.94,
+          "bottom": 278.96
+        },
+        "sleeve": {
+          "x": 329.94,
+          "y": 224.98,
+          "width": 100.98,
+          "height": 53.98,
+          "right": 430.93,
+          "bottom": 278.96
+        },
+        "icon": {
+          "x": 53.95,
+          "y": 233.97,
+          "width": 33.98,
+          "height": 33.98,
+          "right": 87.94,
+          "bottom": 267.96
+        },
+        "copyBottomGap": 13.17,
+        "copyRightGap": 29.01,
+        "copyOverflow": false,
+        "summary": "block",
+        "titleFont": "8px",
+        "descriptionFont": "5.05316px",
+        "hitHeight": 54.75,
+        "sleeveTransform": "none",
+        "pressed": "false"
+      },
+      {
+        "number": "03",
+        "row": {
+          "x": 40.98,
+          "y": 308.98,
+          "width": 518.98,
+          "height": 65.99,
+          "right": 559.96,
+          "bottom": 374.97
+        },
+        "callout": {
+          "x": 40.98,
+          "y": 308.98,
+          "width": 206.99,
+          "height": 65.99,
+          "right": 247.96,
+          "bottom": 374.97
+        },
+        "cylinder": {
+          "x": 279.97,
+          "y": 315.98,
+          "width": 279.97,
+          "height": 53.98,
+          "right": 559.94,
+          "bottom": 369.96
+        },
+        "sleeve": {
+          "x": 361.95,
+          "y": 315.98,
+          "width": 100.98,
+          "height": 53.98,
+          "right": 462.93,
+          "bottom": 369.96
+        },
+        "icon": {
+          "x": 53.95,
+          "y": 324.97,
+          "width": 33.98,
+          "height": 33.98,
+          "right": 87.94,
+          "bottom": 358.96
+        },
+        "copyBottomGap": 13.17,
+        "copyRightGap": 29.01,
+        "copyOverflow": false,
+        "summary": "block",
+        "titleFont": "8px",
+        "descriptionFont": "5.05316px",
+        "hitHeight": 54.75,
+        "sleeveTransform": "none",
+        "pressed": "false"
+      },
+      {
+        "number": "04",
+        "row": {
+          "x": 40.98,
+          "y": 399.98,
+          "width": 518.98,
+          "height": 65.99,
+          "right": 559.96,
+          "bottom": 465.97
+        },
+        "callout": {
+          "x": 40.98,
+          "y": 399.98,
+          "width": 206.99,
+          "height": 65.99,
+          "right": 247.96,
+          "bottom": 465.97
+        },
+        "cylinder": {
+          "x": 279.97,
+          "y": 406.98,
+          "width": 279.97,
+          "height": 53.98,
+          "right": 559.94,
+          "bottom": 460.95
+        },
+        "sleeve": {
+          "x": 388.94,
+          "y": 406.98,
+          "width": 100.98,
+          "height": 53.98,
+          "right": 489.92,
+          "bottom": 460.95
+        },
+        "icon": {
+          "x": 53.95,
+          "y": 415.97,
+          "width": 33.98,
+          "height": 33.98,
+          "right": 87.94,
+          "bottom": 449.96
+        },
+        "copyBottomGap": 26.99,
+        "copyRightGap": 29.01,
+        "copyOverflow": false,
+        "summary": "block",
+        "titleFont": "8px",
+        "descriptionFont": "5.05316px",
+        "hitHeight": 54.75,
+        "sleeveTransform": "none",
+        "pressed": "false"
+      },
+      {
+        "number": "05",
+        "row": {
+          "x": 40.98,
+          "y": 490.98,
+          "width": 518.98,
+          "height": 65.99,
+          "right": 559.96,
+          "bottom": 556.97
+        },
+        "callout": {
+          "x": 40.98,
+          "y": 490.98,
+          "width": 206.99,
+          "height": 65.99,
+          "right": 247.96,
+          "bottom": 556.97
+        },
+        "cylinder": {
+          "x": 279.97,
+          "y": 497.98,
+          "width": 279.97,
+          "height": 53.98,
+          "right": 559.94,
+          "bottom": 551.95
+        },
+        "sleeve": {
+          "x": 416.94,
+          "y": 497.98,
+          "width": 100.98,
+          "height": 53.98,
+          "right": 517.92,
+          "bottom": 551.95
+        },
+        "icon": {
+          "x": 53.95,
+          "y": 506.97,
+          "width": 33.98,
+          "height": 33.98,
+          "right": 87.94,
+          "bottom": 540.96
+        },
+        "copyBottomGap": 26.99,
+        "copyRightGap": 29.01,
+        "copyOverflow": false,
+        "summary": "block",
+        "titleFont": "8px",
+        "descriptionFont": "5.05316px",
+        "hitHeight": 54.75,
+        "sleeveTransform": "none",
+        "pressed": "false"
+      }
+    ],
+    "motion": {
+      "id": "cs5-cylinder-steps",
+      "root": ".cs5-module",
+      "mounted": true,
+      "visible": true,
+      "running": false,
+      "paused": true,
+      "reducedMotion": false,
+      "supported": true,
+      "instances": [
+        {
+          "instance": 1,
+          "visible": true,
+          "phase": "idle",
+          "plays": 1,
+          "running": false,
+          "animations": 2,
+          "mismatches": [],
+          "errors": []
+        }
+      ]
+    }
+  },
+  "keyboard": {
+    "click": "true",
+    "enterToggle": "false",
+    "spaceToggle": "true",
+    "arrowFocus": true,
+    "endFocus": true,
+    "exclusive": [
+      "false",
+      "false",
+      "false",
+      "false",
+      "true"
+    ],
+    "wrapFocus": true,
+    "escape": {
+      "focusFirst": true,
+      "pressed": [
+        "false",
+        "false",
+        "false",
+        "false",
+        "false"
+      ]
+    }
+  },
+  "motion": {
+    "motionSamples": [
+      {
+        "ms": 10,
+        "sleeves": [
+          {
+            "x": 279.984375,
+            "transform": "matrix(1, 0, 0, 1, -27, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.984375,
+            "transform": "matrix(1, 0, 0, 1, -50, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.9843444824219,
+            "transform": "matrix(1, 0, 0, 1, -82, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.9843444824219,
+            "transform": "matrix(1, 0, 0, 1, -109, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.98431396484375,
+            "transform": "matrix(1, 0, 0, 1, -137, 0)",
+            "opacity": "0"
+          }
+        ],
+        "active": 50
+      },
+      {
+        "ms": 93,
+        "sleeves": [
+          {
+            "x": 279.984375,
+            "transform": "matrix(1, 0, 0, 1, -27, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.984375,
+            "transform": "matrix(1, 0, 0, 1, -50, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.9843444824219,
+            "transform": "matrix(1, 0, 0, 1, -82, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.9843444824219,
+            "transform": "matrix(1, 0, 0, 1, -109, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.98431396484375,
+            "transform": "matrix(1, 0, 0, 1, -137, 0)",
+            "opacity": "0"
+          }
+        ],
+        "active": 50
+      },
+      {
+        "ms": 233,
+        "sleeves": [
+          {
+            "x": 279.984375,
+            "transform": "matrix(1, 0, 0, 1, -27, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.984375,
+            "transform": "matrix(1, 0, 0, 1, -50, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.9843444824219,
+            "transform": "matrix(1, 0, 0, 1, -82, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.9843444824219,
+            "transform": "matrix(1, 0, 0, 1, -109, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.98431396484375,
+            "transform": "matrix(1, 0, 0, 1, -137, 0)",
+            "opacity": "0"
+          }
+        ],
+        "active": 50
+      },
+      {
+        "ms": 256,
+        "sleeves": [
+          {
+            "x": 279.984375,
+            "transform": "matrix(1, 0, 0, 1, -27, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.984375,
+            "transform": "matrix(1, 0, 0, 1, -50, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.9843444824219,
+            "transform": "matrix(1, 0, 0, 1, -82, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.9843444824219,
+            "transform": "matrix(1, 0, 0, 1, -109, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.98431396484375,
+            "transform": "matrix(1, 0, 0, 1, -137, 0)",
+            "opacity": "0"
+          }
+        ],
+        "active": 48
+      },
+      {
+        "ms": 262,
+        "sleeves": [
+          {
+            "x": 279.984375,
+            "transform": "matrix(1, 0, 0, 1, -27, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.984375,
+            "transform": "matrix(1, 0, 0, 1, -50, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.9843444824219,
+            "transform": "matrix(1, 0, 0, 1, -82, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.9843444824219,
+            "transform": "matrix(1, 0, 0, 1, -109, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.98431396484375,
+            "transform": "matrix(1, 0, 0, 1, -137, 0)",
+            "opacity": "0"
+          }
+        ],
+        "active": 48
+      },
+      {
+        "ms": 277,
+        "sleeves": [
+          {
+            "x": 279.984375,
+            "transform": "matrix(1, 0, 0, 1, -27, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.984375,
+            "transform": "matrix(1, 0, 0, 1, -50, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.9843444824219,
+            "transform": "matrix(1, 0, 0, 1, -82, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.9843444824219,
+            "transform": "matrix(1, 0, 0, 1, -109, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.98431396484375,
+            "transform": "matrix(1, 0, 0, 1, -137, 0)",
+            "opacity": "0"
+          }
+        ],
+        "active": 48
+      },
+      {
+        "ms": 293,
+        "sleeves": [
+          {
+            "x": 279.984375,
+            "transform": "matrix(1, 0, 0, 1, -27, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.984375,
+            "transform": "matrix(1, 0, 0, 1, -50, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.9843444824219,
+            "transform": "matrix(1, 0, 0, 1, -82, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.9843444824219,
+            "transform": "matrix(1, 0, 0, 1, -109, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.98431396484375,
+            "transform": "matrix(1, 0, 0, 1, -137, 0)",
+            "opacity": "0"
+          }
+        ],
+        "active": 48
+      },
+      {
+        "ms": 310,
+        "sleeves": [
+          {
+            "x": 279.984375,
+            "transform": "matrix(1, 0, 0, 1, -27, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.984375,
+            "transform": "matrix(1, 0, 0, 1, -50, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.9843444824219,
+            "transform": "matrix(1, 0, 0, 1, -82, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.9843444824219,
+            "transform": "matrix(1, 0, 0, 1, -109, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.98431396484375,
+            "transform": "matrix(1, 0, 0, 1, -137, 0)",
+            "opacity": "0"
+          }
+        ],
+        "active": 48
+      },
+      {
+        "ms": 694,
+        "sleeves": [
+          {
+            "x": 279.984375,
+            "transform": "matrix(1, 0, 0, 1, -27, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.984375,
+            "transform": "matrix(1, 0, 0, 1, -50, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.9843444824219,
+            "transform": "matrix(1, 0, 0, 1, -82, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.9843444824219,
+            "transform": "matrix(1, 0, 0, 1, -109, 0)",
+            "opacity": "0"
+          },
+          {
+            "x": 279.98431396484375,
+            "transform": "matrix(1, 0, 0, 1, -137, 0)",
+            "opacity": "0"
+          }
+        ],
+        "active": 42
+      },
+      {
+        "ms": 1295,
+        "sleeves": [
+          {
+            "x": 306.971923828125,
+            "transform": "matrix(1, 0, 0, 1, -0.0124576, 0)",
+            "opacity": "0.999539"
+          },
+          {
+            "x": 328.4328308105469,
+            "transform": "matrix(1, 0, 0, 1, -1.55154, 0)",
+            "opacity": "0.968969"
+          },
+          {
+            "x": 350.4841003417969,
+            "transform": "matrix(1, 0, 0, 1, -11.5003, 0)",
+            "opacity": "0.859753"
+          },
+          {
+            "x": 342.897216796875,
+            "transform": "matrix(1, 0, 0, 1, -46.0872, 0)",
+            "opacity": "0.577182"
+          },
+          {
+            "x": 279.98431396484375,
+            "transform": "matrix(1, 0, 0, 1, -137, 0)",
+            "opacity": "0"
+          }
+        ],
+        "active": 30
+      },
+      {
+        "ms": 1893,
+        "sleeves": [
+          {
+            "x": 306.984375,
+            "transform": "none",
+            "opacity": "1"
+          },
+          {
+            "x": 329.984375,
+            "transform": "none",
+            "opacity": "1"
+          },
+          {
+            "x": 361.984375,
+            "transform": "none",
+            "opacity": "1"
+          },
+          {
+            "x": 388.984375,
+            "transform": "none",
+            "opacity": "1"
+          },
+          {
+            "x": 416.984375,
+            "transform": "none",
+            "opacity": "1"
+          }
+        ],
+        "active": 10
+      },
+      {
+        "ms": 2497,
+        "sleeves": [
+          {
+            "x": 306.984375,
+            "transform": "none",
+            "opacity": "1"
+          },
+          {
+            "x": 329.984375,
+            "transform": "none",
+            "opacity": "1"
+          },
+          {
+            "x": 361.984375,
+            "transform": "none",
+            "opacity": "1"
+          },
+          {
+            "x": 388.984375,
+            "transform": "none",
+            "opacity": "1"
+          },
+          {
+            "x": 416.984375,
+            "transform": "none",
+            "opacity": "1"
+          }
+        ],
+        "active": 2
+      },
+      {
+        "ms": 3094,
+        "sleeves": [
+          {
+            "x": 306.984375,
+            "transform": "none",
+            "opacity": "1"
+          },
+          {
+            "x": 329.984375,
+            "transform": "none",
+            "opacity": "1"
+          },
+          {
+            "x": 361.984375,
+            "transform": "none",
+            "opacity": "1"
+          },
+          {
+            "x": 388.984375,
+            "transform": "none",
+            "opacity": "1"
+          },
+          {
+            "x": 416.984375,
+            "transform": "none",
+            "opacity": "1"
+          }
+        ],
+        "active": 2
+      }
+    ],
+    "motion": {
+      "id": "cs5-cylinder-steps",
+      "root": ".cs5-module",
+      "mounted": true,
+      "visible": true,
+      "running": true,
+      "paused": false,
+      "reducedMotion": false,
+      "supported": true,
+      "instances": [
+        {
+          "instance": 1,
+          "visible": true,
+          "phase": "idle",
+          "plays": 2,
+          "running": true,
+          "animations": 2,
+          "mismatches": [],
+          "errors": []
+        }
+      ]
+    }
+  },
+  "reducedMotionSimulation": {
+    "viewport": 375,
+    "stage": {
+      "x": 0,
+      "y": 0,
+      "width": 375,
+      "height": 381.21875,
+      "right": 375,
+      "bottom": 381.21875
+    },
+    "background": "rgba(0, 0, 0, 0)",
+    "backgroundImage": "none",
+    "overflow": false,
+    "focused": null,
+    "rows": [
+      {
+        "number": "01",
+        "row": {
+          "x": 40.99,
+          "y": 126.97,
+          "width": 519,
+          "height": 65.99,
+          "right": 559.99,
+          "bottom": 192.97
+        },
+        "callout": {
+          "x": 40.99,
+          "y": 126.97,
+          "width": 206.99,
+          "height": 65.99,
+          "right": 247.97,
+          "bottom": 192.97
+        },
+        "cylinder": {
+          "x": 279.98,
+          "y": 133.97,
+          "width": 279.98,
+          "height": 53.98,
+          "right": 559.96,
+          "bottom": 187.95
+        },
+        "sleeve": {
+          "x": 306.97,
+          "y": 133.97,
+          "width": 100.99,
+          "height": 53.98,
+          "right": 407.96,
+          "bottom": 187.95
+        },
+        "icon": {
+          "x": 53.98,
+          "y": 142.95,
+          "width": 33.99,
+          "height": 33.99,
+          "right": 87.97,
+          "bottom": 176.94
+        },
+        "copyBottomGap": 25.76,
+        "copyRightGap": 29.02,
+        "copyOverflow": false,
+        "summary": "block",
+        "titleFont": "8px",
+        "descriptionFont": "4.85881px",
+        "hitHeight": 53.109375,
+        "sleeveTransform": "none",
+        "pressed": "false"
+      },
+      {
+        "number": "02",
+        "row": {
+          "x": 40.99,
+          "y": 217.97,
+          "width": 519,
+          "height": 65.99,
+          "right": 559.99,
+          "bottom": 283.97
+        },
+        "callout": {
+          "x": 40.99,
+          "y": 217.97,
+          "width": 206.99,
+          "height": 65.99,
+          "right": 247.97,
+          "bottom": 283.97
+        },
+        "cylinder": {
+          "x": 279.98,
+          "y": 224.97,
+          "width": 279.98,
+          "height": 53.98,
+          "right": 559.96,
+          "bottom": 278.95
+        },
+        "sleeve": {
+          "x": 329.97,
+          "y": 224.97,
+          "width": 100.99,
+          "height": 53.98,
+          "right": 430.96,
+          "bottom": 278.95
+        },
+        "icon": {
+          "x": 53.98,
+          "y": 233.95,
+          "width": 33.99,
+          "height": 33.99,
+          "right": 87.97,
+          "bottom": 267.94
+        },
+        "copyBottomGap": 11.39,
+        "copyRightGap": 29.02,
+        "copyOverflow": false,
+        "summary": "block",
+        "titleFont": "8px",
+        "descriptionFont": "4.85881px",
+        "hitHeight": 53.109375,
+        "sleeveTransform": "none",
+        "pressed": "false"
+      },
+      {
+        "number": "03",
+        "row": {
+          "x": 40.99,
+          "y": 308.98,
+          "width": 519,
+          "height": 65.99,
+          "right": 559.99,
+          "bottom": 374.97
+        },
+        "callout": {
+          "x": 40.99,
+          "y": 308.98,
+          "width": 206.99,
+          "height": 65.99,
+          "right": 247.97,
+          "bottom": 374.97
+        },
+        "cylinder": {
+          "x": 279.98,
+          "y": 315.97,
+          "width": 279.98,
+          "height": 53.98,
+          "right": 559.96,
+          "bottom": 369.95
+        },
+        "sleeve": {
+          "x": 361.95,
+          "y": 315.97,
+          "width": 100.99,
+          "height": 53.98,
+          "right": 462.94,
+          "bottom": 369.95
+        },
+        "icon": {
+          "x": 53.98,
+          "y": 324.95,
+          "width": 33.99,
+          "height": 33.99,
+          "right": 87.97,
+          "bottom": 358.94
+        },
+        "copyBottomGap": 11.39,
+        "copyRightGap": 29.02,
+        "copyOverflow": false,
+        "summary": "block",
+        "titleFont": "8px",
+        "descriptionFont": "4.85881px",
+        "hitHeight": 53.109375,
+        "sleeveTransform": "none",
+        "pressed": "false"
+      },
+      {
+        "number": "04",
+        "row": {
+          "x": 40.99,
+          "y": 399.98,
+          "width": 519,
+          "height": 65.99,
+          "right": 559.99,
+          "bottom": 465.97
+        },
+        "callout": {
+          "x": 40.99,
+          "y": 399.98,
+          "width": 206.99,
+          "height": 65.99,
+          "right": 247.97,
+          "bottom": 465.97
+        },
+        "cylinder": {
+          "x": 279.98,
+          "y": 406.98,
+          "width": 279.98,
+          "height": 53.98,
+          "right": 559.96,
+          "bottom": 460.96
+        },
+        "sleeve": {
+          "x": 388.97,
+          "y": 406.98,
+          "width": 100.99,
+          "height": 53.98,
+          "right": 489.95,
+          "bottom": 460.96
+        },
+        "icon": {
+          "x": 53.98,
+          "y": 415.96,
+          "width": 33.99,
+          "height": 33.99,
+          "right": 87.97,
+          "bottom": 449.94
+        },
+        "copyBottomGap": 25.76,
+        "copyRightGap": 29.02,
+        "copyOverflow": false,
+        "summary": "block",
+        "titleFont": "8px",
+        "descriptionFont": "4.85881px",
+        "hitHeight": 53.109375,
+        "sleeveTransform": "none",
+        "pressed": "false"
+      },
+      {
+        "number": "05",
+        "row": {
+          "x": 40.99,
+          "y": 490.98,
+          "width": 519,
+          "height": 65.99,
+          "right": 559.99,
+          "bottom": 556.98
+        },
+        "callout": {
+          "x": 40.99,
+          "y": 490.98,
+          "width": 206.99,
+          "height": 65.99,
+          "right": 247.97,
+          "bottom": 556.98
+        },
+        "cylinder": {
+          "x": 279.98,
+          "y": 497.98,
+          "width": 279.98,
+          "height": 53.98,
+          "right": 559.96,
+          "bottom": 551.96
+        },
+        "sleeve": {
+          "x": 416.96,
+          "y": 497.98,
+          "width": 100.99,
+          "height": 53.98,
+          "right": 517.95,
+          "bottom": 551.96
+        },
+        "icon": {
+          "x": 53.98,
+          "y": 506.96,
+          "width": 33.99,
+          "height": 33.99,
+          "right": 87.97,
+          "bottom": 540.95
+        },
+        "copyBottomGap": 11.39,
+        "copyRightGap": 29.02,
+        "copyOverflow": false,
+        "summary": "block",
+        "titleFont": "8px",
+        "descriptionFont": "4.85881px",
+        "hitHeight": 53.109375,
+        "sleeveTransform": "none",
+        "pressed": "false"
+      }
+    ],
+    "motion": {
+      "id": "cs5-cylinder-steps",
+      "root": ".cs5-module",
+      "mounted": true,
+      "visible": true,
+      "running": false,
+      "paused": false,
+      "reducedMotion": true,
+      "supported": true,
+      "instances": [
+        {
+          "instance": 1,
+          "visible": true,
+          "phase": "waiting",
+          "plays": 0,
+          "running": false,
+          "animations": 0,
+          "mismatches": [],
+          "errors": []
+        }
+      ]
+    }
+  },
+  "noApplicationJavaScript": {
+    "viewport": 375,
+    "stage": {
+      "x": 0,
+      "y": 0,
+      "width": 375,
+      "height": 381.21875,
+      "right": 375,
+      "bottom": 381.21875
+    },
+    "background": "rgba(0, 0, 0, 0)",
+    "backgroundImage": "none",
+    "overflow": false,
+    "focused": null,
+    "rows": [
+      {
+        "number": "01",
+        "row": {
+          "x": 40.99,
+          "y": 126.97,
+          "width": 519,
+          "height": 65.99,
+          "right": 559.99,
+          "bottom": 192.97
+        },
+        "callout": {
+          "x": 40.99,
+          "y": 126.97,
+          "width": 206.99,
+          "height": 65.99,
+          "right": 247.97,
+          "bottom": 192.97
+        },
+        "cylinder": {
+          "x": 279.98,
+          "y": 133.97,
+          "width": 279.98,
+          "height": 53.98,
+          "right": 559.96,
+          "bottom": 187.95
+        },
+        "sleeve": {
+          "x": 306.97,
+          "y": 133.97,
+          "width": 100.99,
+          "height": 53.98,
+          "right": 407.96,
+          "bottom": 187.95
+        },
+        "icon": {
+          "x": 53.98,
+          "y": 142.95,
+          "width": 33.99,
+          "height": 33.99,
+          "right": 87.97,
+          "bottom": 176.94
+        },
+        "copyBottomGap": 25.76,
+        "copyRightGap": 29.02,
+        "copyOverflow": false,
+        "summary": "block",
+        "titleFont": "8px",
+        "descriptionFont": "4.85881px",
+        "hitHeight": 53.109375,
+        "sleeveTransform": "none",
+        "pressed": "false"
+      },
+      {
+        "number": "02",
+        "row": {
+          "x": 40.99,
+          "y": 217.97,
+          "width": 519,
+          "height": 65.99,
+          "right": 559.99,
+          "bottom": 283.97
+        },
+        "callout": {
+          "x": 40.99,
+          "y": 217.97,
+          "width": 206.99,
+          "height": 65.99,
+          "right": 247.97,
+          "bottom": 283.97
+        },
+        "cylinder": {
+          "x": 279.98,
+          "y": 224.97,
+          "width": 279.98,
+          "height": 53.98,
+          "right": 559.96,
+          "bottom": 278.95
+        },
+        "sleeve": {
+          "x": 329.97,
+          "y": 224.97,
+          "width": 100.99,
+          "height": 53.98,
+          "right": 430.96,
+          "bottom": 278.95
+        },
+        "icon": {
+          "x": 53.98,
+          "y": 233.95,
+          "width": 33.99,
+          "height": 33.99,
+          "right": 87.97,
+          "bottom": 267.94
+        },
+        "copyBottomGap": 11.39,
+        "copyRightGap": 29.02,
+        "copyOverflow": false,
+        "summary": "block",
+        "titleFont": "8px",
+        "descriptionFont": "4.85881px",
+        "hitHeight": 53.109375,
+        "sleeveTransform": "none",
+        "pressed": "false"
+      },
+      {
+        "number": "03",
+        "row": {
+          "x": 40.99,
+          "y": 308.98,
+          "width": 519,
+          "height": 65.99,
+          "right": 559.99,
+          "bottom": 374.97
+        },
+        "callout": {
+          "x": 40.99,
+          "y": 308.98,
+          "width": 206.99,
+          "height": 65.99,
+          "right": 247.97,
+          "bottom": 374.97
+        },
+        "cylinder": {
+          "x": 279.98,
+          "y": 315.97,
+          "width": 279.98,
+          "height": 53.98,
+          "right": 559.96,
+          "bottom": 369.95
+        },
+        "sleeve": {
+          "x": 361.95,
+          "y": 315.97,
+          "width": 100.99,
+          "height": 53.98,
+          "right": 462.94,
+          "bottom": 369.95
+        },
+        "icon": {
+          "x": 53.98,
+          "y": 324.95,
+          "width": 33.99,
+          "height": 33.99,
+          "right": 87.97,
+          "bottom": 358.94
+        },
+        "copyBottomGap": 11.39,
+        "copyRightGap": 29.02,
+        "copyOverflow": false,
+        "summary": "block",
+        "titleFont": "8px",
+        "descriptionFont": "4.85881px",
+        "hitHeight": 53.109375,
+        "sleeveTransform": "none",
+        "pressed": "false"
+      },
+      {
+        "number": "04",
+        "row": {
+          "x": 40.99,
+          "y": 399.98,
+          "width": 519,
+          "height": 65.99,
+          "right": 559.99,
+          "bottom": 465.97
+        },
+        "callout": {
+          "x": 40.99,
+          "y": 399.98,
+          "width": 206.99,
+          "height": 65.99,
+          "right": 247.97,
+          "bottom": 465.97
+        },
+        "cylinder": {
+          "x": 279.98,
+          "y": 406.98,
+          "width": 279.98,
+          "height": 53.98,
+          "right": 559.96,
+          "bottom": 460.96
+        },
+        "sleeve": {
+          "x": 388.97,
+          "y": 406.98,
+          "width": 100.99,
+          "height": 53.98,
+          "right": 489.95,
+          "bottom": 460.96
+        },
+        "icon": {
+          "x": 53.98,
+          "y": 415.96,
+          "width": 33.99,
+          "height": 33.99,
+          "right": 87.97,
+          "bottom": 449.94
+        },
+        "copyBottomGap": 25.76,
+        "copyRightGap": 29.02,
+        "copyOverflow": false,
+        "summary": "block",
+        "titleFont": "8px",
+        "descriptionFont": "4.85881px",
+        "hitHeight": 53.109375,
+        "sleeveTransform": "none",
+        "pressed": "false"
+      },
+      {
+        "number": "05",
+        "row": {
+          "x": 40.99,
+          "y": 490.98,
+          "width": 519,
+          "height": 65.99,
+          "right": 559.99,
+          "bottom": 556.98
+        },
+        "callout": {
+          "x": 40.99,
+          "y": 490.98,
+          "width": 206.99,
+          "height": 65.99,
+          "right": 247.97,
+          "bottom": 556.98
+        },
+        "cylinder": {
+          "x": 279.98,
+          "y": 497.98,
+          "width": 279.98,
+          "height": 53.98,
+          "right": 559.96,
+          "bottom": 551.96
+        },
+        "sleeve": {
+          "x": 416.96,
+          "y": 497.98,
+          "width": 100.99,
+          "height": 53.98,
+          "right": 517.95,
+          "bottom": 551.96
+        },
+        "icon": {
+          "x": 53.98,
+          "y": 506.96,
+          "width": 33.99,
+          "height": 33.99,
+          "right": 87.97,
+          "bottom": 540.95
+        },
+        "copyBottomGap": 11.39,
+        "copyRightGap": 29.02,
+        "copyOverflow": false,
+        "summary": "block",
+        "titleFont": "8px",
+        "descriptionFont": "4.85881px",
+        "hitHeight": 53.109375,
+        "sleeveTransform": "none",
+        "pressed": "false"
+      }
+    ],
+    "motion": null,
+    "applicationScripts": 0
+  },
+  "pause": {
+    "id": "cs5-cylinder-steps",
+    "root": ".cs5-module",
+    "mounted": true,
+    "visible": true,
+    "running": false,
+    "paused": true,
+    "reducedMotion": false,
+    "supported": true,
+    "instances": [
+      {
+        "instance": 1,
+        "visible": true,
+        "phase": "idle",
+        "plays": 1,
+        "running": false,
+        "animations": 2,
+        "mismatches": [],
+        "errors": []
+      }
+    ]
+  },
+  "resume": {
+    "id": "cs5-cylinder-steps",
+    "root": ".cs5-module",
+    "mounted": true,
+    "visible": true,
+    "running": true,
+    "paused": false,
+    "reducedMotion": false,
+    "supported": true,
+    "instances": [
+      {
+        "instance": 1,
+        "visible": true,
+        "phase": "idle",
+        "plays": 1,
+        "running": true,
+        "animations": 2,
+        "mismatches": [],
+        "errors": []
+      }
+    ]
+  },
+  "offscreen": {
+    "id": "cs5-cylinder-steps",
+    "root": ".cs5-module",
+    "mounted": true,
+    "visible": false,
+    "running": false,
+    "paused": false,
+    "reducedMotion": false,
+    "supported": true,
+    "instances": [
+      {
+        "instance": 1,
+        "visible": false,
+        "phase": "waiting",
+        "plays": 1,
+        "running": false,
+        "animations": 0,
+        "mismatches": [],
+        "errors": []
+      }
+    ]
+  },
+  "reentry": {
+    "id": "cs5-cylinder-steps",
+    "root": ".cs5-module",
+    "mounted": true,
+    "visible": true,
+    "running": true,
+    "paused": false,
+    "reducedMotion": false,
+    "supported": true,
+    "instances": [
+      {
+        "instance": 1,
+        "visible": true,
+        "phase": "idle",
+        "plays": 2,
+        "running": true,
+        "animations": 2,
+        "mismatches": [],
+        "errors": []
+      }
+    ]
+  },
+  "finalVisualCheck": {
+    "desktop": "previews/cs5-desktop.jpg",
+    "mobile": "previews/cs5-mobile.jpg",
+    "background": "transparent",
+    "applicationConsoleErrors": [],
+    "seamFix": {
+      "overlapIntoStraightMiddle": 2,
+      "internalCapJoinBacking": {
+        "x": 267,
+        "y": 0.5,
+        "width": 7,
+        "height": 53
+      },
+      "rasterWidths": [
+        175,
+        197,
+        280
+      ],
+      "joinAlpha": 255,
+      "newPixelsOutsidePreviousSilhouette": 0
+    },
+    "maskSha256": {
+      "cs5-cylinder-body-mask.svg": "3f8cf5ede26e601cbf40716f9248d596df36073533d6c6de4d7c1ae5b98c0700",
+      "cs5-cylinder-cap-mask.svg": "9050b05d3ac24018dafac089a331a53d657f8ee860cb4c147b1e86da366f7c6a",
+      "cs5-cylinder-full-mask.svg": "756d4f41c9a66c9a6a6bb584f5f626c93ccada2a84808241d8699b014dffb417",
+      "cs5-callout-outline-mask.svg": "70fa783ee55637ce333e6c639aa459c128fdba903cfb18591e05c5cb9dc17475",
+      "cs5-connector-line-mask.svg": "ef9ffbe724447c10dd5a6d3c5cdc5a7aab425d22323fff8e4f569ceebdc61252",
+      "cs5-connector-dot-mask.svg": "0a9249351ee7f075cf437a13282ba7bb66deb0d501bb6e8787488024d8532441",
+      "cs5-sleeve-mask.svg": "85df8621111cb351cfb94a4ef80718eea54375c58dd11f1a644d0efd2cfab42b",
+      "cs5-sleeve-rim-mask.svg": "037fe673f4578c11954bada87d3e2b35a0bc799ce40773ea0ada066b89ae3d95"
+    }
+  }
+}

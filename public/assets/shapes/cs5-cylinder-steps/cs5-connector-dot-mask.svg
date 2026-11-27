@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7 7" preserveAspectRatio="none">
+<defs>
+<ellipse id="cs5-connector-dot-source" cx="3585.3" cy="1319.5" rx="67.5" ry="104.1"/>
+<mask id="cs5-connector-dot-ring" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="0" y="0" width="7" height="7" style="mask-type:luminance">
+<use href="#cs5-connector-dot-source" transform="matrix(0.05037037 0 0 0.032660903 -177.092888889 -39.596061479)" fill="#fff"/>
+<use href="#cs5-connector-dot-source" transform="matrix(0.031111111 0 0 0.020172911 -108.042666667 -23.11815562)" fill="#000"/>
+</mask>
+</defs>
+<rect width="7" height="7" mask="url(#cs5-connector-dot-ring)"/>
+</svg>

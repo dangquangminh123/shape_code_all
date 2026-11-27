@@ -214,6 +214,14 @@
       track('.hb4-copy', 4, 'fade', 500, 165, 420),
       track('.hb4-icon', 4, 'hb4-icon-arrive', 650, 165, 550),
     ], idle('.hb4-card', 4, 'hb4-pendulum', 5600)),
+    recipe('cs5-cylinder-steps', '.cs5-module', 'Connectors draw, cylinders extend, translucent sleeves travel, numerals sharpen and icons acknowledge', [
+      track('.cs5-connector-line', 5, 'cs5-connector-draw', 0, 130, 240),
+      track('.cs5-cylinder', 5, 'cs5-cylinder-extend', 240, 130, 520),
+      // Reveal finishes before its nested sleeve starts moving; the row hit area stays fixed.
+      track('.cs5-sleeve', 5, 'cs5-sleeve-travel', 780, 130, 540),
+      track('.cs5-number', 5, 'cs5-number-clarity', 1320, 130, 280),
+      track('.cs5-icon', 5, 'cs5-icon-cue', 1420, 130, 280),
+    ], idle('.cs5-sleeve-glint', 5, 'cs5-sleeve-glint', 6200)),
   ];
 
   // Transform keyframes ADD to the live CSS/attribute transform, not a cached matrix.
@@ -344,12 +352,34 @@
       }
       case 'hb4-banner-unroll': return reveal('inset(0% 0% 100% 0%)');
       case 'hb4-icon-arrive': return move('translateY(5px) scale(.8)', 'translateY(-1px) scale(1.035)');
+      // CS5: reveal geometry in place, then move the complete sleeve to its authored position.
+      case 'cs5-connector-draw': return reveal('inset(0% 100% 0% 0%)');
+      case 'cs5-cylinder-extend': return reveal('inset(0% 100% 0% 0%)');
+      case 'cs5-sleeve-travel': return move('translateX(calc(-1 * var(--cs5-sleeve-travel, 0px)))');
+      case 'cs5-number-clarity': return [
+        { opacity: 0, filter: 'blur(1px)' },
+        { opacity: 1, filter: 'blur(0px)' },
+      ];
+      case 'cs5-icon-cue': return [
+        { transform: 'scale(1)', opacity: .75 },
+        { transform: 'scale(1.06)', opacity: 1, offset: .45 },
+        { transform: identity, opacity: 1 },
+      ];
       // THREE_SHAPES_MOTION_V2 END.
       default: return [{ opacity: 0 }, { opacity: 1 }];
     }
   }
   function restFrames(effect) {
     switch (effect) {
+      // The glint starts outside the sleeve's clip wrapper (left:-35%, width:25%).
+      // 560% of its own width carries it fully beyond the other edge; rest is quiet.
+      case 'cs5-sleeve-glint': return [
+        { transform: 'translateX(0%)', opacity: 0, offset: 0 },
+        { transform: 'translateX(0%)', opacity: 0, offset: .56 },
+        { transform: 'translateX(280%)', opacity: .55, offset: .72 },
+        { transform: 'translateX(560%)', opacity: 0, offset: .88 },
+        { transform: 'translateX(560%)', opacity: 0, offset: 1 },
+      ];
       case 'hb4-pendulum': return [
         { transform: 'rotate(0deg)' },
         { transform: 'rotate(.55deg)', offset: .25 },

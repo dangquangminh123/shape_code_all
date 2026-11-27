@@ -5,3 +5,6 @@
 # HB4 hashes cover the original CRLF path data and its generated mask files.
 /public/assets/shapes/hb4-hanger-banners/originals/*.svg -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /public/assets/shapes/hb4-hanger-banners/*-mask.svg -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# CS5 source paths retain the supplied Illustrator SVG bytes, including CRLF.
+/public/assets/shapes/cs5-cylinder-steps/originals/*.svg -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/public/assets/shapes/cs5-cylinder-steps/*-mask.svg -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

@@ -29,6 +29,17 @@ npm run build
 
 Để kiểm tra giao diện thủ công, chạy `npm run dev` rồi mở trang chính và các trang shape trên trình duyệt ở kích thước desktop/mobile.
 
+## CS5 — Năm thanh trụ ngang
+
+- Route riêng: `/shapes/cs5-cylinder-steps`. Component `<Cs5CylinderSteps />` được nối sau HB4, là mẫu thứ **34** trên trang chủ.
+- Giữ bố cục ảnh **602 × 612**: năm khung chú thích bên trái, icon đúng loại, nét nối/chấm tròn ở giữa và năm thanh trụ dài bằng nhau bên phải. Dải số **01–05** trong suốt dịch dần sang phải. Nền module và lòng khung chú thích trong suốt.
+- Component/config/CSS: `src/components/shapes/cs5-cylinder-steps/`. Tài nguyên: `public/assets/shapes/cs5-cylinder-steps/`. Giữ nguyên hai SVG mới `shape 1(1).svg`, `shape 2(1).svg` trong `originals/`; mask dùng path/ellipse/rect nguồn và phép chia lát để giữ đầu trụ, mặt elip và mép lõm đúng tỉ lệ ảnh.
+- Hoạt cảnh riêng: nét nối chạy từ trái sang phải, thân trụ mở ngang, dải số trượt đến vị trí riêng từng hàng, số rõ dần rồi icon nhấn nhẹ. Khi nghỉ chỉ một dải có ánh sáng quét nhẹ; dùng engine WAAPI và các cơ chế pause/reduced-motion hiện có.
+- Năm hàng giữ nguyên quan hệ trái–phải trên điện thoại; nội dung ngắn thay mô tả dài dưới 600px. Có `mask` và `-webkit-mask`, typography theo container, tên truy cập đầy đủ và phím điều hướng. Click/Enter/Space chọn hoặc bỏ chọn; mũi tên/Home/End đổi focus, Escape bỏ chọn.
+- Tái tạo tài nguyên: `node scripts/generate_cs5_assets.mjs`. Đổi chữ/màu trong config không cần tạo lại mask. Không thêm dependency.
+
+Xem [tài liệu CS5](docs/CS5_CYLINDER_STEPS.md) để đối chiếu tọa độ, ánh xạ SVG nguồn và cách kiểm tra.
+
 ## HB4 — Bốn banner móc treo
 
 - Xem riêng: http://localhost:3210/shapes/hb4-hanger-banners. HB4 được nối sau KC3, là mẫu thứ **33** trên trang chủ.
