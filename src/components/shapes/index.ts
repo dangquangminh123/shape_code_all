@@ -33,3 +33,6 @@ export { default as Co3CubeOptions } from './co3-cube-options/Co3CubeOptions';
 export * from './co3-cube-options/co3-cube-options.config';
 export { default as Kc3KnowledgeCapture } from './kc3-knowledge-capture/Kc3KnowledgeCapture';
 export * from './kc3-knowledge-capture/kc3-knowledge-capture.config';
+export { default as Hb4HangerBanners } from './hb4-hanger-banners/Hb4HangerBanners';
+export type { Hb4HangerBannersProps } from './hb4-hanger-banners/Hb4HangerBanners';
+export * from './hb4-hanger-banners/hb4-hanger-banners.config';

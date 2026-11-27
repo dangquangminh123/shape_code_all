@@ -81,6 +81,53 @@ DOM layers, not the numeric prefix in a shape's name (Starflow has **five**, not
 | `pb4-pump-bottle` | 4 color bands fill bottom-up; cap presses; 4 step labels enter | Pump cap travels 1.5px |
 | `lm6-levels-marks` | 6 milestones settle like dominoes; numbers stamp; reflections follow | One thin edge gleams |
 
+## HB4 — Bốn banner móc treo
+
+HB4 bổ sung recipe `hb4-hanger-banners` cho root `.hb4-module`, dùng tại
+`/shapes/hb4-hanger-banners` và mẫu thứ 33 trên trang chủ. Bảng 17 mẫu ở trên
+là nội dung của bản patch ban đầu, không phải số lượng module hiện tại hay kết quả kiểm thử HB4.
+
+| Shape | Chuỗi vào cảnh | Chuyển động khi nghỉ |
+| --- | --- | --- |
+| `hb4-hanger-banners` | Bốn cụm móc/banner đung đưa quanh điểm treo, thân mở từ trên xuống, chữ hiện dần rồi pictogram vào vị trí | Một cụm đung đưa rất nhẹ, chu kỳ 5.600ms |
+
+Recipe có bốn track, mỗi selector phải khớp đúng **4** phần tử:
+
+```js
+recipe('hb4-hanger-banners', '.hb4-module', 'Hook-anchored pendulum arrival, banners unroll downward, pictograms settle', [
+  track('.hb4-card', 4, 'hb4-hanger-settle', 0, 165, 1000),
+  track('.hb4-banner', 4, 'hb4-banner-unroll', 180, 165, 820),
+  track('.hb4-copy', 4, 'fade', 500, 165, 420),
+  track('.hb4-icon', 4, 'hb4-icon-arrive', 650, 165, 550),
+], idle('.hb4-card', 4, 'hb4-pendulum', 5600))
+```
+
+`hb4-hanger-settle` bắt đầu cao hơn vị trí tĩnh 14px, nghiêng ±5° xen kẽ
+giữa các cột, trả qua ±1,8° và ±0,7° rồi về 0°. Nút `.hb4-card` chứa cả
+móc, thân và vùng bấm, có `transform-origin: 50% 0%`; chuyển động không
+tách móc khỏi banner hay để hit area đứng yên. `hb4-banner-unroll` dùng
+`clip-path` để mở toàn bộ thân từ trên xuống. `hb4-icon-arrive` đi từ
+`translateY(5px) scale(.8)` qua `translateY(-1px) scale(1.035)` về trạng thái gốc.
+
+Các cột cách nhau 165ms; toàn bộ phần vào cảnh kéo dài khoảng **1.695ms**
+nếu không bị pause. Idle chỉ chạy sau khi mọi track hoàn tất. Engine chọn
+phần tử đầu tiên có layout trong bốn `.hb4-card`, chạy
+`0° → 0,55° → −0,4° → 0°`, thay vì lắc đồng thời cả bốn cột.
+
+HB4 dùng cùng cơ chế viewport, pause/resume, tab ẩn, cleanup và reduced motion
+ở phần dưới. Không thêm timer, React animation loop hay thư viện. CSS chỉ bỏ
+transition của hover khi người dùng chọn giảm chuyển động; engine hủy WAAPI
+và trả lại hình tĩnh. Có thể chẩn đoán hoặc replay bằng:
+
+```js
+window.__shapeAutoMotion?.status().find(item => item.id === 'hb4-hanger-banners')
+window.__shapeAutoMotion?.replay('hb4-hanger-banners')
+```
+
+Chi tiết nguồn SVG, geometry, responsive và thao tác bàn phím nằm trong
+[tài liệu HB4](HB4_HANGER_BANNERS.md). Các script lịch sử hardcode 17 mẫu cần
+được đối chiếu phạm vi trước khi dùng; phần này không khẳng định các script đó đã kiểm tra HB4.
+
 
 ## Lifecycle and safety contract
 

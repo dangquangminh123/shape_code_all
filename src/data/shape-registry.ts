@@ -627,6 +627,23 @@ export const SHAPE_TEMPLATES_REGISTRY: ShapeTemplateMeta[] = [
     ],
   },
   {
+    id: 'hb4-hanger-banners',
+    prefix: 'hb4',
+    name: 'HB4 — Banners on Hangers',
+    vietnameseTitle: 'Bốn banner móc treo so le từ ý tưởng đến kết quả',
+    description:
+      'Bốn móc treo thấp–cao–thấp–cao, banner đáy tròn và huy hiệu icon trắng; tách lớp từ hai SVG gốc, hoạt cảnh treo và mở banner riêng.',
+    status: 'ready',
+    route: '/shapes/hb4-hanger-banners',
+    publicSvgFolder: 'public/assets/shapes/hb4-hanger-banners/',
+    componentSourceFolder: 'src/components/shapes/hb4-hanger-banners/',
+    assets: [
+      { role: 'Móc treo và cổ đánh số', level: 1, prefixedFileName: 'hb4-hanger-mask.svg', dimensions: 'viewBox: 189.95 176.05 3620.091884 1939.4', description: 'Path nguyên bản từ shape 2.svg; crop artboard để đặt chính xác bốn móc treo.' },
+      { role: 'Banner dọc đáy tròn', level: 2, prefixedFileName: 'hb4-banner-mask.svg', dimensions: 'viewBox: 0 0 1066.2 2326.254545', description: 'Path thân từ shape 1.svg xoay −90°, cắt phần chữ nhật dư, giữ nguyên đường cong đáy.' },
+      { role: 'Đĩa trắng chứa icon', level: 3, prefixedFileName: 'hb4-medallion-mask.svg', dimensions: 'viewBox: 455.4 761.7 976.6 976.6', description: 'Circle gốc từ shape 1.svg, tách riêng để giữ hình tròn và vị trí như ảnh mẫu.' },
+    ],
+  },
+  {
     id: 'phase-shape-demo',
     prefix: 'psd',
     name: 'Phase Shape Demo',

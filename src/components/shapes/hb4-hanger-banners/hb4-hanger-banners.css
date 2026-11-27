@@ -1,0 +1,279 @@
+/* HB4 — 735 × 400 reference stage. The footer watermark is not part of the UI.
+   The four complete hanger/banner groups stay low–high–low–high at every width.
+   Only color layers are masked; copy, pictograms and focus rings remain independent. */
+.hb4-module,
+.hb4-module *,
+.hb4-module *::before,
+.hb4-module *::after {
+  box-sizing: border-box;
+}
+
+.hb4-module {
+  width: 100%;
+  min-width: 0;
+  isolation: isolate;
+  background: radial-gradient(ellipse at 47% 12%, #303942 0%, #252c32 58%, #20262b 100%);
+  color: #fff;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+.hb4-artwork {
+  position: relative;
+  width: 100%;
+  max-width: 1320px;
+  height: 0;
+  padding-bottom: min(54.421769%, 718.367347px);
+  margin-inline: auto;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  /* One em equals ten reference pixels; fallback works on Safari / iOS 15. */
+  font-size: min(1.360544vw, 17.959184px);
+  line-height: 1.25;
+}
+
+.hb4-heading {
+  position: absolute;
+  left: 7.619048%;
+  top: 2.75%;
+  right: 5%;
+  margin: 0;
+  color: #f5f6f7;
+  font-size: 2.8em;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -.015em;
+}
+
+.hb4-heading-mark {
+  position: absolute;
+  left: 1.768707%;
+  top: 4.5%;
+  width: 2.1em;
+  height: 2.1em;
+  border: .22em solid #697271;
+  border-radius: 50%;
+  opacity: .65;
+}
+
+.hb4-heading-mark::before {
+  content: '';
+  position: absolute;
+  right: 100%;
+  top: .65em;
+  width: 1.5em;
+  height: .22em;
+  background: #697271;
+}
+
+.hb4-hangers {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.hb4-item {
+  position: absolute;
+  width: 20.544218%; /* 151 / 735 */
+  height: 71.5%; /* 286 / 400 */
+}
+
+.hb4-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  color: var(--hb4-ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transform-origin: 50% 0%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hb4-hanger {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 28.284615%; /* 80.894 / 286; cropped source keeps its natural ratio. */
+  background: var(--hb4-hanger-color);
+  -webkit-mask: var(--hb4-mask-hanger) center / 100% 100% no-repeat;
+  mask: var(--hb4-mask-hanger) center / 100% 100% no-repeat;
+  pointer-events: none;
+}
+
+.hb4-number {
+  position: absolute;
+  z-index: 2;
+  left: 40%;
+  top: 10.4%;
+  width: 20%;
+  color: #34443e;
+  font-size: .95em;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  pointer-events: none;
+}
+
+.hb4-banner {
+  position: absolute;
+  z-index: 3;
+  left: 17.218543%; /* 26 / 151 */
+  top: 24.475524%; /* 70 / 286: body covers the hanger's lower crossbar. */
+  width: 65.562914%; /* 99 / 151 */
+  height: 75.524476%; /* 216 / 286 */
+  pointer-events: none;
+}
+
+.hb4-banner__paint,
+.hb4-medallion__paint {
+  position: absolute;
+  inset: 0;
+}
+
+.hb4-banner__paint {
+  background: var(--hb4-banner-color);
+  -webkit-mask: var(--hb4-mask-banner) center / 100% 100% no-repeat;
+  mask: var(--hb4-mask-banner) center / 100% 100% no-repeat;
+  transition: filter 180ms ease;
+}
+
+.hb4-copy {
+  position: absolute;
+  top: 12.962963%; /* 28 / 216 */
+  left: 11.111111%;
+  right: 10.10101%;
+}
+
+.hb4-title {
+  display: block;
+  margin-bottom: .45em;
+  font-size: 1.2em;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.hb4-description,
+.hb4-summary {
+  display: block;
+  font-size: .82em;
+  font-weight: 400;
+  line-height: 1.45;
+  overflow-wrap: break-word;
+}
+
+.hb4-summary { display: none; }
+
+.hb4-medallion {
+  position: absolute;
+  left: 7.070707%; /* 7 / 99 */
+  top: 57.407407%; /* 124 / 216 */
+  width: 85.858586%; /* 85 / 99 */
+  height: 39.351852%; /* 85 / 216: a true circle, never an ellipse. */
+}
+
+.hb4-medallion__paint {
+  background: #fff;
+  -webkit-mask: var(--hb4-mask-medallion) center / 100% 100% no-repeat;
+  mask: var(--hb4-mask-medallion) center / 100% 100% no-repeat;
+}
+
+.hb4-icon {
+  position: absolute;
+  left: 25%;
+  top: 25%;
+  width: 50%;
+  height: 50%;
+  color: #3e403e;
+}
+
+.hb4-pictogram,
+.hb4-pictogram > svg {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hb4-pictogram--idea { width: 92%; margin-left: 4%; }
+.hb4-pictogram--idea::before {
+  /* Fill the source icon's interior cutouts behind its unchanged head silhouette. */
+  content: '';
+  position: absolute;
+  left: 15%;
+  top: 12%;
+  width: 58%;
+  height: 57%;
+  background: #3e403e;
+}
+.hb4-pictogram .hb4-idea-bulb {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  left: 9%;
+  top: 12%;
+  width: 59%;
+  height: 53%;
+  border-radius: 40%;
+  background: #3e403e;
+  color: #fff;
+}
+.hb4-idea-bulb svg { width: 62%; height: 78%; }
+.hb4-pictogram > .hb4-gear { position: absolute; transition: transform 400ms ease; }
+.hb4-pictogram > .hb4-gear--large { right: 0; top: 0; width: 61%; height: 61%; }
+.hb4-pictogram > .hb4-gear--small { left: 0; bottom: 0; width: 53%; height: 53%; }
+.hb4-pictogram--database { width: 72%; margin-inline: auto; }
+.hb4-pictogram--target { transform: scale(1.08); }
+
+.hb4-card:focus { outline: 2px solid var(--hb4-hanger-color); outline-offset: 4px; border-radius: .4em; }
+.hb4-card:focus:not(:focus-visible) { outline: none; }
+.hb4-card:focus-visible .hb4-banner__paint,
+.hb4-card.is-selected .hb4-banner__paint { filter: brightness(1.1); }
+.hb4-card.is-selected .hb4-title { text-decoration: underline; text-underline-offset: .2em; }
+.hb4-card.is-selected .hb4-medallion { filter: drop-shadow(0 0 .55em var(--hb4-glow)); }
+
+@media (hover: hover) and (pointer: fine) {
+  .hb4-card:hover .hb4-banner__paint { filter: brightness(1.08); }
+  .hb4-card:hover .hb4-gear--large { transform: rotate(35deg); }
+  .hb4-card:hover .hb4-gear--small { transform: rotate(-35deg); }
+}
+
+/* Preserve all four silhouettes and the stagger. Short copy keeps the badge clear;
+   every button retains its complete accessible name, and pinch zoom is unrestricted. */
+@media (max-width: 600px) {
+  .hb4-heading { font-size: 2.7em; }
+  .hb4-title { font-size: max(1.2em, 7px); }
+  .hb4-description { display: none; }
+  .hb4-summary { display: block; font-size: max(.82em, 5.5px); line-height: 1.3; }
+  .hb4-number { font-size: max(.95em, 6px); }
+}
+
+/* Modern browsers also scale typography to a narrow embedding host. The viewport
+   declarations above remain the full-width fallback for Safari / iOS 15. */
+@supports (container-type: inline-size) {
+  .hb4-module { container-type: inline-size; container-name: hb4; }
+  .hb4-artwork { font-size: min(1.360544cqw, 17.959184px); }
+
+  @container hb4 (max-width: 600px) {
+    .hb4-heading { font-size: 2.7em; }
+    .hb4-title { font-size: max(1.2em, 7px); }
+    .hb4-description { display: none; }
+    .hb4-summary { display: block; font-size: max(.82em, 5.5px); line-height: 1.3; }
+    .hb4-number { font-size: max(.95em, 6px); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hb4-banner__paint,
+  .hb4-pictogram > .hb4-gear { transition: none; }
+}

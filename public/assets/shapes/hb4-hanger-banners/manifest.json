@@ -1,0 +1,114 @@
+{
+  "generator": "scripts/generate_hb4_assets.mjs",
+  "reference": {
+    "file": "hb4-reference.png",
+    "width": 735,
+    "height": 413,
+    "bytes": 217615,
+    "sha256": "6065edbd1fb8a4523341e8b2bb62cb41f025c3ebe8adbb0c91cc66caef482cd1"
+  },
+  "originals": [
+    {
+      "file": "originals/hb4-source-banner.svg",
+      "uploadedName": "shape 1.svg",
+      "bytes": 2396,
+      "sha256": "2eac28b0c9e00bc7c46adad90674098bbdcc71d917c6bff0632ea4e49edfe5fd"
+    },
+    {
+      "file": "originals/hb4-source-hanger.svg",
+      "uploadedName": "shape 2.svg",
+      "bytes": 2151,
+      "sha256": "f714261627bf3cf4beef003764b4373ace122d4314fa211e8d5b35098fb4b2a4"
+    }
+  ],
+  "masks": [
+    {
+      "file": "hb4-hanger-mask.svg",
+      "source": "originals/hb4-source-hanger.svg",
+      "sourceElement": "path[0]",
+      "sourceBounds": {
+        "x": 190.7,
+        "y": 176.8,
+        "width": 3618.591884215975,
+        "height": 1937.9
+      },
+      "viewBox": "189.95 176.05 3620.091884 1939.4",
+      "geometry": {
+        "padding": 0.75,
+        "operation": "Crop the empty artboard; preserve the original hanger path."
+      },
+      "bytes": 1905,
+      "sha256": "0391d7169a91eb9402dcaed3bddd18c88cfdb2de1b215264739483ebabb83d9a"
+    },
+    {
+      "file": "hb4-banner-mask.svg",
+      "source": "originals/hb4-source-banner.svg",
+      "sourceElement": "path[1]",
+      "sourceBounds": {
+        "x": 355.7,
+        "y": 716.9,
+        "width": 3288.7,
+        "height": 1066.2
+      },
+      "viewBox": "0 0 1066.2 2326.254545",
+      "geometry": {
+        "transform": "matrix(0 -1 1 0 -716.9 2681.954545)",
+        "sourceCrop": {
+          "x": 355.7,
+          "y": 716.9,
+          "width": 2326.2545454545457,
+          "height": 1066.2
+        },
+        "targetAspect": {
+          "width": 99,
+          "height": 216
+        },
+        "operation": "Rotate -90 degrees. Crop excess rectangular length at the top; keep the lower semicircle unscaled. Exclude the off-artboard hanger and medallion circle."
+      },
+      "bytes": 353,
+      "sha256": "846924d5f23ca71de8acfefa9ceec4fe9578f9b75557f3750598d30f376b787e"
+    },
+    {
+      "file": "hb4-medallion-mask.svg",
+      "source": "originals/hb4-source-banner.svg",
+      "sourceElement": "circle[0]",
+      "sourceBounds": {
+        "x": 455.40000000000003,
+        "y": 761.7,
+        "width": 976.6,
+        "height": 976.6
+      },
+      "viewBox": "455.4 761.7 976.6 976.6",
+      "geometry": {
+        "targetSize": {
+          "width": 85,
+          "height": 85
+        },
+        "operation": "Crop the original circle tightly and display separately, so its position and diameter match the reference. Color is supplied by CSS alpha masking."
+      },
+      "bytes": 152,
+      "sha256": "1466893e5f4df13dddb481a757dc691bb89c78aebaeceb1d9cf8b4e3e69ad508"
+    }
+  ],
+  "composition": {
+    "referenceCanvas": {
+      "width": 735,
+      "height": 413
+    },
+    "darkStageHeight": 380,
+    "hangerSize": {
+      "width": 151,
+      "height": 81
+    },
+    "bannerSize": {
+      "width": 99,
+      "height": 216
+    },
+    "bannerTopFromHanger": 70,
+    "medallionDiameter": 85,
+    "medallionBottomInset": 7,
+    "columnPitch": 153,
+    "alternatingVerticalOffset": 36,
+    "note": "Columns 1 and 3 sit lower than columns 2 and 4. The banner overlaps the hanger base. Keep the hook and banner inside the same animated wrapper."
+  }
+}

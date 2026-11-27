@@ -29,6 +29,18 @@ npm run build
 
 Để kiểm tra giao diện thủ công, chạy `npm run dev` rồi mở trang chính và các trang shape trên trình duyệt ở kích thước desktop/mobile.
 
+## HB4 — Bốn banner móc treo
+
+- Xem riêng: http://localhost:3210/shapes/hb4-hanger-banners. HB4 được nối sau KC3, là mẫu thứ **33** trên trang chủ.
+- Giữ bố cục bốn móc treo **thấp–cao–thấp–cao**, banner đáy tròn, số 01–04 và các icon đầu người/bóng đèn, hai bánh răng, dữ liệu, bia có mũi tên. Canvas triển khai **735 × 400**, tối đa rộng **1.320px**; nền than đậm và màu riêng cho từng cột.
+- Component, CSS và cấu hình: `src/components/shapes/hb4-hanger-banners/`. Sửa nội dung và màu trong `hb4-hanger-banners.config.ts`; vị trí, kích thước và các lớp mask nằm trong `hb4-hanger-banners.css`.
+- Hai SVG được giữ nguyên byte trong `public/assets/shapes/hb4-hanger-banners/originals/`. Ba mask dùng lại path/circle gốc: móc treo từ `shape 2.svg`, thân banner và đĩa icon từ `shape 1.svg`. Thân được xoay −90° rồi cắt phần chữ nhật dư để giữ đáy tròn; `manifest.json` ghi nguồn, phép biến đổi và SHA-256. Tái tạo bằng `node scripts/generate_hb4_assets.mjs` từ thư mục gốc repo.
+- Hoạt cảnh riêng: cả cụm móc/banner đung đưa quanh điểm treo, thân mở từ trên xuống, chữ hiện dần và icon vào sau; khi nghỉ chỉ một cụm đung đưa nhẹ. Dùng engine WAAPI hiện có, cùng cơ chế pause/resume, dừng ngoài màn hình và reduced motion.
+- Giữ bốn cột ở mọi chiều rộng. Từ **600px trở xuống**, mô tả ngắn thay mô tả dài; tên truy cập của nút vẫn chứa đầy đủ nội dung. Chữ nhỏ trên điện thoại là đánh đổi để giữ bố cục tham chiếu; người dùng vẫn có thể pinch-zoom. Có cả `mask` và `-webkit-mask`, không cần thư viện mới hoặc JavaScript đo layout.
+- Click/chạm/Enter/Space để chọn hoặc bỏ chọn; Tab, ←/→/↑/↓, Home/End để chuyển focus; Escape bỏ chọn và giữ focus. Móc, thân và vùng bấm cùng chuyển động; hình/chữ vẫn hiển thị khi không chạy JavaScript.
+
+Xem [tài liệu HB4](docs/HB4_HANGER_BANNERS.md) để đối chiếu tọa độ, tài nguyên, cách tùy chỉnh và các bước kiểm tra. Phần kiểm thử cũ có số lượng cố định 17 mẫu không phải xác nhận kiểm thử cho HB4.
+
 ## LM6 — Cấp độ & cột mốc (shape 1)
 
 - Xem riêng: http://localhost:3210/shapes/lm6-levels-marks; mẫu thứ 17, sau PB4 trên trang chủ.

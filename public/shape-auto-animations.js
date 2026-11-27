@@ -207,6 +207,13 @@
       track('.kc3-cap__icon', 3, 'pop', 220, 130, 460),
       track('.kc3-body__copy', 3, 'fade', 380, 130, 500),
     ], idle('.kc3-grid-sheen', 1, 'light', 4600)),
+    recipe('hb4-hanger-banners', '.hb4-module', 'Hook-anchored pendulum arrival, banners unroll downward, pictograms settle', [
+      // The complete button moves with its hanger, banner and hit area as one unit.
+      track('.hb4-card', 4, 'hb4-hanger-settle', 0, 165, 1000),
+      track('.hb4-banner', 4, 'hb4-banner-unroll', 180, 165, 820),
+      track('.hb4-copy', 4, 'fade', 500, 165, 420),
+      track('.hb4-icon', 4, 'hb4-icon-arrive', 650, 165, 550),
+    ], idle('.hb4-card', 4, 'hb4-pendulum', 5600)),
   ];
 
   // Transform keyframes ADD to the live CSS/attribute transform, not a cached matrix.
@@ -325,12 +332,30 @@
       // KC3 3 Diamond-Cap Chevron Banners (Shape 12)
       case 'kc3-cap-drop': return move('translateY(-22px) scale(.92)', 'translateY(3px) scale(1.015)');
       case 'kc3-chevron-unfold': return reveal('inset(0% 0% 100% 0%)');
+      // HB4: swing around the hook without separating the attached SVG layers.
+      case 'hb4-hanger-settle': {
+        const direction = index % 2 === 0 ? -1 : 1;
+        return [
+          { transform: `translateY(-14px) rotate(${direction * 5}deg)`, opacity: 0 },
+          { transform: `translateY(1px) rotate(${direction * -1.8}deg)`, opacity: 1, offset: .5 },
+          { transform: `rotate(${direction * .7}deg)`, opacity: 1, offset: .76 },
+          { transform: identity, opacity: 1 },
+        ];
+      }
+      case 'hb4-banner-unroll': return reveal('inset(0% 0% 100% 0%)');
+      case 'hb4-icon-arrive': return move('translateY(5px) scale(.8)', 'translateY(-1px) scale(1.035)');
       // THREE_SHAPES_MOTION_V2 END.
       default: return [{ opacity: 0 }, { opacity: 1 }];
     }
   }
   function restFrames(effect) {
     switch (effect) {
+      case 'hb4-pendulum': return [
+        { transform: 'rotate(0deg)' },
+        { transform: 'rotate(.55deg)', offset: .25 },
+        { transform: 'rotate(-.4deg)', offset: .65 },
+        { transform: 'rotate(0deg)' },
+      ];
       case 'quiet-opacity': return [
         { opacity: 1 },
         { opacity: .96, offset: .5 },

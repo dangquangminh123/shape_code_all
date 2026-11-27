@@ -1,0 +1,895 @@
+{
+  "testedAt": "2026-11-27T02:22:36.091Z",
+  "environment": "Chromium; production HTML/CSS/JS served by managed preview; viewport sizes via iframe; reduced-motion browser preference simulated before engine load.",
+  "viewports": [
+    {
+      "viewport": 320,
+      "stage": {
+        "x": 0,
+        "y": 0,
+        "width": 320,
+        "height": 174.140625,
+        "bottom": 174.140625
+      },
+      "overflow": false,
+      "focused": null,
+      "cards": [
+        {
+          "number": "01",
+          "position": [
+            62.98,
+            96.97
+          ],
+          "bannerSize": [
+            98.98,
+            215.94
+          ],
+          "circleSize": [
+            84.95,
+            84.95
+          ],
+          "copyBadgeGap": 19.49,
+          "titleFont": "7px",
+          "summary": "block",
+          "pressed": "false"
+        },
+        {
+          "number": "02",
+          "position": [
+            215.98,
+            60.97
+          ],
+          "bannerSize": [
+            98.98,
+            215.94
+          ],
+          "circleSize": [
+            84.95,
+            84.95
+          ],
+          "copyBadgeGap": 19.49,
+          "titleFont": "7px",
+          "summary": "block",
+          "pressed": "false"
+        },
+        {
+          "number": "03",
+          "position": [
+            368.97,
+            96.97
+          ],
+          "bannerSize": [
+            98.98,
+            215.94
+          ],
+          "circleSize": [
+            84.95,
+            84.95
+          ],
+          "copyBadgeGap": 19.49,
+          "titleFont": "7px",
+          "summary": "block",
+          "pressed": "false"
+        },
+        {
+          "number": "04",
+          "position": [
+            521.96,
+            60.97
+          ],
+          "bannerSize": [
+            98.98,
+            215.94
+          ],
+          "circleSize": [
+            84.95,
+            84.95
+          ],
+          "copyBadgeGap": 19.49,
+          "titleFont": "7px",
+          "summary": "block",
+          "pressed": "false"
+        }
+      ],
+      "motion": {
+        "id": "hb4-hanger-banners",
+        "root": ".hb4-module",
+        "mounted": true,
+        "visible": true,
+        "running": false,
+        "paused": true,
+        "reducedMotion": false,
+        "supported": true,
+        "instances": [
+          {
+            "instance": 1,
+            "visible": true,
+            "phase": "idle",
+            "plays": 1,
+            "running": false,
+            "animations": 1,
+            "mismatches": [],
+            "errors": []
+          }
+        ]
+      }
+    },
+    {
+      "viewport": 390,
+      "stage": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 212.234375,
+        "bottom": 212.234375
+      },
+      "overflow": false,
+      "focused": null,
+      "cards": [
+        {
+          "number": "01",
+          "position": [
+            62.99,
+            96.97
+          ],
+          "bannerSize": [
+            98.97,
+            215.97
+          ],
+          "circleSize": [
+            84.95,
+            84.98
+          ],
+          "copyBadgeGap": 33.22,
+          "titleFont": "7px",
+          "summary": "block",
+          "pressed": "false"
+        },
+        {
+          "number": "02",
+          "position": [
+            215.99,
+            60.98
+          ],
+          "bannerSize": [
+            98.97,
+            215.97
+          ],
+          "circleSize": [
+            84.95,
+            84.98
+          ],
+          "copyBadgeGap": 46.67,
+          "titleFont": "7px",
+          "summary": "block",
+          "pressed": "false"
+        },
+        {
+          "number": "03",
+          "position": [
+            368.97,
+            96.97
+          ],
+          "bannerSize": [
+            98.97,
+            215.97
+          ],
+          "circleSize": [
+            84.95,
+            84.98
+          ],
+          "copyBadgeGap": 33.22,
+          "titleFont": "7px",
+          "summary": "block",
+          "pressed": "false"
+        },
+        {
+          "number": "04",
+          "position": [
+            521.98,
+            60.98
+          ],
+          "bannerSize": [
+            98.97,
+            215.97
+          ],
+          "circleSize": [
+            84.95,
+            84.98
+          ],
+          "copyBadgeGap": 33.22,
+          "titleFont": "7px",
+          "summary": "block",
+          "pressed": "false"
+        }
+      ],
+      "motion": {
+        "id": "hb4-hanger-banners",
+        "root": ".hb4-module",
+        "mounted": true,
+        "visible": true,
+        "running": false,
+        "paused": true,
+        "reducedMotion": false,
+        "supported": true,
+        "instances": [
+          {
+            "instance": 1,
+            "visible": true,
+            "phase": "idle",
+            "plays": 1,
+            "running": false,
+            "animations": 1,
+            "mismatches": [],
+            "errors": []
+          }
+        ]
+      }
+    },
+    {
+      "viewport": 600,
+      "stage": {
+        "x": 0,
+        "y": 0,
+        "width": 600,
+        "height": 326.515625,
+        "bottom": 326.515625
+      },
+      "overflow": false,
+      "focused": null,
+      "cards": [
+        {
+          "number": "01",
+          "position": [
+            62.99,
+            96.99
+          ],
+          "bannerSize": [
+            98.98,
+            215.98
+          ],
+          "circleSize": [
+            84.97,
+            84.98
+          ],
+          "copyBadgeGap": 54.32,
+          "titleFont": "9.79592px",
+          "summary": "block",
+          "pressed": "false"
+        },
+        {
+          "number": "02",
+          "position": [
+            215.98,
+            60.98
+          ],
+          "bannerSize": [
+            98.98,
+            215.98
+          ],
+          "circleSize": [
+            84.97,
+            84.98
+          ],
+          "copyBadgeGap": 54.32,
+          "titleFont": "9.79592px",
+          "summary": "block",
+          "pressed": "false"
+        },
+        {
+          "number": "03",
+          "position": [
+            368.99,
+            96.99
+          ],
+          "bannerSize": [
+            98.98,
+            215.98
+          ],
+          "circleSize": [
+            84.97,
+            84.98
+          ],
+          "copyBadgeGap": 54.32,
+          "titleFont": "9.79592px",
+          "summary": "block",
+          "pressed": "false"
+        },
+        {
+          "number": "04",
+          "position": [
+            521.98,
+            60.98
+          ],
+          "bannerSize": [
+            98.98,
+            215.98
+          ],
+          "circleSize": [
+            84.97,
+            84.98
+          ],
+          "copyBadgeGap": 54.32,
+          "titleFont": "9.79592px",
+          "summary": "block",
+          "pressed": "false"
+        }
+      ],
+      "motion": {
+        "id": "hb4-hanger-banners",
+        "root": ".hb4-module",
+        "mounted": true,
+        "visible": true,
+        "running": false,
+        "paused": true,
+        "reducedMotion": false,
+        "supported": true,
+        "instances": [
+          {
+            "instance": 1,
+            "visible": true,
+            "phase": "idle",
+            "plays": 1,
+            "running": false,
+            "animations": 1,
+            "mismatches": [],
+            "errors": []
+          }
+        ]
+      }
+    },
+    {
+      "viewport": 601,
+      "stage": {
+        "x": 0,
+        "y": 0,
+        "width": 601,
+        "height": 327.0625,
+        "bottom": 327.0625
+      },
+      "overflow": false,
+      "focused": null,
+      "cards": [
+        {
+          "number": "01",
+          "position": [
+            62.98,
+            97
+          ],
+          "bannerSize": [
+            98.98,
+            215.97
+          ],
+          "circleSize": [
+            84.98,
+            84.98
+          ],
+          "copyBadgeGap": 28.05,
+          "titleFont": "9.81224px",
+          "summary": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "02",
+          "position": [
+            215.99,
+            61
+          ],
+          "bannerSize": [
+            98.98,
+            215.97
+          ],
+          "circleSize": [
+            84.98,
+            84.98
+          ],
+          "copyBadgeGap": 28.05,
+          "titleFont": "9.81224px",
+          "summary": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "03",
+          "position": [
+            368.99,
+            97
+          ],
+          "bannerSize": [
+            98.98,
+            215.97
+          ],
+          "circleSize": [
+            84.98,
+            84.98
+          ],
+          "copyBadgeGap": 28.05,
+          "titleFont": "9.81224px",
+          "summary": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "04",
+          "position": [
+            521.99,
+            61
+          ],
+          "bannerSize": [
+            98.98,
+            215.97
+          ],
+          "circleSize": [
+            84.98,
+            84.98
+          ],
+          "copyBadgeGap": 28.05,
+          "titleFont": "9.81224px",
+          "summary": "none",
+          "pressed": "false"
+        }
+      ],
+      "motion": {
+        "id": "hb4-hanger-banners",
+        "root": ".hb4-module",
+        "mounted": true,
+        "visible": true,
+        "running": false,
+        "paused": true,
+        "reducedMotion": false,
+        "supported": true,
+        "instances": [
+          {
+            "instance": 1,
+            "visible": true,
+            "phase": "idle",
+            "plays": 1,
+            "running": false,
+            "animations": 1,
+            "mismatches": [],
+            "errors": []
+          }
+        ]
+      }
+    },
+    {
+      "viewport": 1024,
+      "stage": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 557.265625,
+        "bottom": 557.265625
+      },
+      "overflow": false,
+      "focused": null,
+      "cards": [
+        {
+          "number": "01",
+          "position": [
+            63,
+            96.99
+          ],
+          "bannerSize": [
+            98.99,
+            215.98
+          ],
+          "circleSize": [
+            84.98,
+            84.99
+          ],
+          "copyBadgeGap": 28.09,
+          "titleFont": "16.7184px",
+          "summary": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "02",
+          "position": [
+            215.99,
+            60.99
+          ],
+          "bannerSize": [
+            98.99,
+            215.98
+          ],
+          "circleSize": [
+            84.98,
+            84.99
+          ],
+          "copyBadgeGap": 28.09,
+          "titleFont": "16.7184px",
+          "summary": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "03",
+          "position": [
+            368.99,
+            96.99
+          ],
+          "bannerSize": [
+            98.99,
+            215.98
+          ],
+          "circleSize": [
+            84.98,
+            84.99
+          ],
+          "copyBadgeGap": 28.09,
+          "titleFont": "16.7184px",
+          "summary": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "04",
+          "position": [
+            521.99,
+            60.99
+          ],
+          "bannerSize": [
+            98.99,
+            215.98
+          ],
+          "circleSize": [
+            84.98,
+            84.99
+          ],
+          "copyBadgeGap": 28.09,
+          "titleFont": "16.7184px",
+          "summary": "none",
+          "pressed": "false"
+        }
+      ],
+      "motion": {
+        "id": "hb4-hanger-banners",
+        "root": ".hb4-module",
+        "mounted": true,
+        "visible": true,
+        "running": false,
+        "paused": true,
+        "reducedMotion": false,
+        "supported": true,
+        "instances": [
+          {
+            "instance": 1,
+            "visible": true,
+            "phase": "idle",
+            "plays": 1,
+            "running": false,
+            "animations": 1,
+            "mismatches": [],
+            "errors": []
+          }
+        ]
+      }
+    },
+    {
+      "viewport": 1440,
+      "stage": {
+        "x": 60,
+        "y": 0,
+        "width": 1320,
+        "height": 718.359375,
+        "bottom": 718.359375
+      },
+      "overflow": false,
+      "focused": null,
+      "cards": [
+        {
+          "number": "01",
+          "position": [
+            63,
+            96.99
+          ],
+          "bannerSize": [
+            98.99,
+            215.99
+          ],
+          "circleSize": [
+            84.98,
+            84.99
+          ],
+          "copyBadgeGap": 28.1,
+          "titleFont": "21.551px",
+          "summary": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "02",
+          "position": [
+            215.99,
+            61
+          ],
+          "bannerSize": [
+            98.99,
+            215.99
+          ],
+          "circleSize": [
+            84.98,
+            84.99
+          ],
+          "copyBadgeGap": 28.1,
+          "titleFont": "21.551px",
+          "summary": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "03",
+          "position": [
+            369,
+            96.99
+          ],
+          "bannerSize": [
+            98.99,
+            215.99
+          ],
+          "circleSize": [
+            84.98,
+            84.99
+          ],
+          "copyBadgeGap": 28.1,
+          "titleFont": "21.551px",
+          "summary": "none",
+          "pressed": "false"
+        },
+        {
+          "number": "04",
+          "position": [
+            522,
+            61
+          ],
+          "bannerSize": [
+            98.99,
+            215.99
+          ],
+          "circleSize": [
+            84.98,
+            84.99
+          ],
+          "copyBadgeGap": 28.1,
+          "titleFont": "21.551px",
+          "summary": "none",
+          "pressed": "false"
+        }
+      ],
+      "motion": {
+        "id": "hb4-hanger-banners",
+        "root": ".hb4-module",
+        "mounted": true,
+        "visible": true,
+        "running": false,
+        "paused": true,
+        "reducedMotion": false,
+        "supported": true,
+        "instances": [
+          {
+            "instance": 1,
+            "visible": true,
+            "phase": "idle",
+            "plays": 1,
+            "running": false,
+            "animations": 1,
+            "mismatches": [],
+            "errors": []
+          }
+        ]
+      }
+    }
+  ],
+  "embedded": {
+    "viewport": 1440,
+    "stage": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 212.234375,
+      "bottom": 212.234375
+    },
+    "overflow": false,
+    "focused": null,
+    "cards": [
+      {
+        "number": "01",
+        "position": [
+          62.99,
+          96.97
+        ],
+        "bannerSize": [
+          98.97,
+          215.97
+        ],
+        "circleSize": [
+          84.95,
+          84.98
+        ],
+        "copyBadgeGap": 33.22,
+        "titleFont": "7px",
+        "summary": "block",
+        "pressed": "false"
+      },
+      {
+        "number": "02",
+        "position": [
+          215.99,
+          60.98
+        ],
+        "bannerSize": [
+          98.97,
+          215.97
+        ],
+        "circleSize": [
+          84.95,
+          84.98
+        ],
+        "copyBadgeGap": 46.67,
+        "titleFont": "7px",
+        "summary": "block",
+        "pressed": "false"
+      },
+      {
+        "number": "03",
+        "position": [
+          368.97,
+          96.97
+        ],
+        "bannerSize": [
+          98.97,
+          215.97
+        ],
+        "circleSize": [
+          84.95,
+          84.98
+        ],
+        "copyBadgeGap": 33.22,
+        "titleFont": "7px",
+        "summary": "block",
+        "pressed": "false"
+      },
+      {
+        "number": "04",
+        "position": [
+          521.98,
+          60.98
+        ],
+        "bannerSize": [
+          98.97,
+          215.97
+        ],
+        "circleSize": [
+          84.95,
+          84.98
+        ],
+        "copyBadgeGap": 33.22,
+        "titleFont": "7px",
+        "summary": "block",
+        "pressed": "false"
+      }
+    ],
+    "motion": {
+      "id": "hb4-hanger-banners",
+      "root": ".hb4-module",
+      "mounted": true,
+      "visible": true,
+      "running": false,
+      "paused": true,
+      "reducedMotion": false,
+      "supported": true,
+      "instances": [
+        {
+          "instance": 1,
+          "visible": true,
+          "phase": "idle",
+          "plays": 1,
+          "running": false,
+          "animations": 1,
+          "mismatches": [],
+          "errors": []
+        }
+      ]
+    }
+  },
+  "pause": {
+    "id": "hb4-hanger-banners",
+    "root": ".hb4-module",
+    "mounted": true,
+    "visible": true,
+    "running": false,
+    "paused": true,
+    "reducedMotion": false,
+    "supported": true,
+    "instances": [
+      {
+        "instance": 1,
+        "visible": true,
+        "phase": "entrance",
+        "plays": 2,
+        "running": false,
+        "animations": 28,
+        "mismatches": [],
+        "errors": []
+      }
+    ]
+  },
+  "offscreen": {
+    "id": "hb4-hanger-banners",
+    "root": ".hb4-module",
+    "mounted": true,
+    "visible": false,
+    "running": false,
+    "paused": false,
+    "reducedMotion": false,
+    "supported": true,
+    "instances": [
+      {
+        "instance": 1,
+        "visible": false,
+        "phase": "waiting",
+        "plays": 1,
+        "running": false,
+        "animations": 0,
+        "mismatches": [],
+        "errors": []
+      }
+    ]
+  },
+  "reentry": {
+    "id": "hb4-hanger-banners",
+    "root": ".hb4-module",
+    "mounted": true,
+    "visible": true,
+    "running": true,
+    "paused": false,
+    "reducedMotion": false,
+    "supported": true,
+    "instances": [
+      {
+        "instance": 1,
+        "visible": true,
+        "phase": "entrance",
+        "plays": 2,
+        "running": true,
+        "animations": 28,
+        "mismatches": [],
+        "errors": []
+      }
+    ]
+  },
+  "reducedMotionFixture": {
+    "id": "hb4-hanger-banners",
+    "root": ".hb4-module",
+    "mounted": true,
+    "visible": true,
+    "running": false,
+    "paused": false,
+    "reducedMotion": true,
+    "supported": true,
+    "instances": [
+      {
+        "instance": 1,
+        "visible": true,
+        "phase": "waiting",
+        "plays": 0,
+        "running": false,
+        "animations": 0,
+        "mismatches": [],
+        "errors": []
+      }
+    ]
+  },
+  "keyboard": {
+    "clickToggle": true,
+    "arrows": true,
+    "spaceToggle": true,
+    "escapeClearsAndRetainsFocus": true,
+    "home": true,
+    "end": true,
+    "wrapFromLastToFirst": true,
+    "enterToggle": true
+  },
+  "checks": {
+    "typecheck": "passed",
+    "nextProductionBuild": "passed (37 pages generated)",
+    "svgSourcesByteIdentical": true,
+    "svgGeneratorReproducible": true,
+    "diffWhitespace": "passed"
+  }
+}
